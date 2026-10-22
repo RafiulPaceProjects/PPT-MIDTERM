@@ -86,12 +86,12 @@ the October 21 run. The exporter checks each share against its own counts and th
 counts against the per-ZIP map data before using them. `tools/notebook_export_cell.py` can
 regenerate the same file from a Colab run.
 
-### Still open
+### Model numbers
 
-The spec quotes random forest 0.640, gradient boosting 0.637 and 3,281 bad inspections. The
-notebook says **0.641, 0.636 and 3,284**, and the deck shows the notebook's values, so
-`qa_check.py` reports those three fixtures as mismatched until the spec or the notebook
-changes.
+The build spec quoted random forest 0.640, gradient boosting 0.637 and 3,281 bad
+inspections. The notebook says **0.641, 0.636 and 3,284**, and the team chose the notebook's
+values; the fixtures in `tools/export_deck_data.py` follow them. The project report still
+quotes 0.640 and 0.637 and should be updated to match.
 
 ## Building the StaticRecord
 

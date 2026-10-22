@@ -774,13 +774,15 @@ FIXTURES = [
     ("key_metrics.json", "model.test_roc_auc", 0.644),
     ("key_metrics.json", "model.test_pr_auc", 0.496),
     ("tables.json", "models[Random forest].train_roc_auc", 1.000),
-    ("tables.json", "models[Random forest].test_roc_auc", 0.640),
+    # the spec quoted 0.640, 0.637 and 3,281 from an earlier run; the team chose the
+    # notebook's values (October 22 decision)
+    ("tables.json", "models[Random forest].test_roc_auc", 0.641),
     ("tables.json", "models[Gradient boosting].train_roc_auc", 0.870),
-    ("tables.json", "models[Gradient boosting].test_roc_auc", 0.637),
+    ("tables.json", "models[Gradient boosting].test_roc_auc", 0.636),
     ("tables.json", "models[Logistic regression].train_roc_auc", 0.644),
     ("key_metrics.json", "dummy.test_accuracy", 0.668),
     ("key_metrics.json", "dummy.recall", 0.000),
-    ("key_metrics.json", "dummy.test_positives", 3281),
+    ("key_metrics.json", "dummy.test_positives", 3284),
     ("key_metrics.json", "zip.worst.zip", "11355"),
     ("key_metrics.json", "zip.worst.pct_bc", 33.3),
     ("key_metrics.json", "zip.worst.graded", 342),

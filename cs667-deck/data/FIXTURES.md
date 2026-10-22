@@ -25,13 +25,13 @@ decides what changes. Nothing is edited to make a row pass.
 | key_metrics.json | `model.test_roc_auc` | 0.644 | 0.644 | ok |
 | key_metrics.json | `model.test_pr_auc` | 0.496 | 0.496 | ok |
 | tables.json | `models[Random forest].train_roc_auc` | 1.0 | 1.0 | ok |
-| tables.json | `models[Random forest].test_roc_auc` | 0.64 | 0.641 | **MISMATCH** |
+| tables.json | `models[Random forest].test_roc_auc` | 0.641 | 0.641 | ok |
 | tables.json | `models[Gradient boosting].train_roc_auc` | 0.87 | 0.87 | ok |
-| tables.json | `models[Gradient boosting].test_roc_auc` | 0.637 | 0.636 | **MISMATCH** |
+| tables.json | `models[Gradient boosting].test_roc_auc` | 0.636 | 0.636 | ok |
 | tables.json | `models[Logistic regression].train_roc_auc` | 0.644 | 0.644 | ok |
 | key_metrics.json | `dummy.test_accuracy` | 0.668 | 0.668 | ok |
 | key_metrics.json | `dummy.recall` | 0.0 | 0.0 | ok |
-| key_metrics.json | `dummy.test_positives` | 3281 | 3284 | **MISMATCH** |
+| key_metrics.json | `dummy.test_positives` | 3284 | 3284 | ok |
 | key_metrics.json | `zip.worst.zip` | 11355 | 11355 | ok |
 | key_metrics.json | `zip.worst.pct_bc` | 33.3 | 33.3 | ok |
 | key_metrics.json | `zip.worst.graded` | 342 | 342 | ok |

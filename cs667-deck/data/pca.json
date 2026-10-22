@@ -1,0 +1,75 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    66
+  ],
+  "components": [
+    {
+      "component": "PC1",
+      "variance_pct": 21.8,
+      "cumulative_pct": 21.8
+    },
+    {
+      "component": "PC2",
+      "variance_pct": 16.6,
+      "cumulative_pct": 38.5
+    },
+    {
+      "component": "PC3",
+      "variance_pct": 12.8,
+      "cumulative_pct": 51.2
+    },
+    {
+      "component": "PC4",
+      "variance_pct": 10.4,
+      "cumulative_pct": 61.6
+    },
+    {
+      "component": "PC5",
+      "variance_pct": 9.3,
+      "cumulative_pct": 70.9
+    },
+    {
+      "component": "PC6",
+      "variance_pct": 8.5,
+      "cumulative_pct": 79.4
+    },
+    {
+      "component": "PC7",
+      "variance_pct": 7.6,
+      "cumulative_pct": 87.0
+    },
+    {
+      "component": "PC8",
+      "variance_pct": 5.4,
+      "cumulative_pct": 92.5
+    },
+    {
+      "component": "PC9",
+      "variance_pct": 4.4,
+      "cumulative_pct": 96.9
+    },
+    {
+      "component": "PC10",
+      "variance_pct": 2.3,
+      "cumulative_pct": 99.2
+    },
+    {
+      "component": "PC11",
+      "variance_pct": 0.8,
+      "cumulative_pct": 100.0
+    }
+  ],
+  "n_for_80pct": 7,
+  "n_for_90pct": 8,
+  "n_features": 11,
+  "pc1_reading": "past-performance axis (prior_mean_score, last_score, prior_mean_critical)",
+  "pc2_reading": "history-depth axis (prior_count, has_history, prior_bc_share)",
+  "logreg_all_components_auc": 0.62,
+  "logreg_90pct_components_auc": 0.631,
+  "logreg_original_features_auc": 0.644,
+  "figures": {
+    "variance": "source/figures/pca_variance.png",
+    "scatter": "source/figures/pca_scatter.png"
+  }
+}

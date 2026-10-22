@@ -1,0 +1,79 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    62
+  ],
+  "permutation": [
+    {
+      "feature": "cuisine_grouped",
+      "auc_drop": 0.0457,
+      "std": 0.0041
+    },
+    {
+      "feature": "prior_mean_score",
+      "auc_drop": 0.0231,
+      "std": 0.0015
+    },
+    {
+      "feature": "prior_bc_share",
+      "auc_drop": 0.0132,
+      "std": 0.0021
+    },
+    {
+      "feature": "last_score",
+      "auc_drop": 0.0072,
+      "std": 0.0012
+    },
+    {
+      "feature": "latitude",
+      "auc_drop": 0.0041,
+      "std": 0.0015
+    },
+    {
+      "feature": "boro",
+      "auc_drop": 0.0039,
+      "std": 0.0006
+    },
+    {
+      "feature": "prior_count",
+      "auc_drop": 0.0029,
+      "std": 0.0014
+    },
+    {
+      "feature": "inspection_type",
+      "auc_drop": 0.0024,
+      "std": 0.001
+    },
+    {
+      "feature": "weekday",
+      "auc_drop": 0.0001,
+      "std": 0.0001
+    },
+    {
+      "feature": "prior_mean_critical",
+      "auc_drop": 0.0,
+      "std": 0.0
+    },
+    {
+      "feature": "has_history",
+      "auc_drop": -0.0,
+      "std": 0.0
+    },
+    {
+      "feature": "longitude",
+      "auc_drop": -0.0002,
+      "std": 0.0
+    },
+    {
+      "feature": "days_since_prior",
+      "auc_drop": -0.0006,
+      "std": 0.0009
+    },
+    {
+      "feature": "month",
+      "auc_drop": -0.0019,
+      "std": 0.0013
+    }
+  ],
+  "figure": "source/figures/pred_importance.png"
+}

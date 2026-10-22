@@ -1,0 +1,88 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    54,
+    56
+  ],
+  "features": [
+    "prior_count",
+    "prior_mean_score",
+    "prior_bc_share",
+    "prior_mean_critical",
+    "days_since_prior",
+    "last_score",
+    "has_history"
+  ],
+  "first_row_check_passed": true,
+  "share_with_history_pct": 89.0,
+  "zip_excluded": true,
+  "dropped_bad_coordinates": 244,
+  "cuisine_levels_raw": 87,
+  "cuisine_levels_grouped": 25,
+  "feature_table_rows": 18998,
+  "split": {
+    "train": {
+      "rule": "inspection year <= 2024",
+      "rows": 9111,
+      "bc_pct": 34.4
+    },
+    "test": {
+      "rule": "inspection year >= 2025",
+      "rows": 9887,
+      "bc_pct": 33.2
+    }
+  },
+  "example_restaurant": {
+    "camis": "50098804",
+    "rows": [
+      {
+        "inspection_date": "2024-01-23",
+        "inspection_type": "Cycle Inspection / Compliance Inspection",
+        "score": 83.0,
+        "prior_count": 0,
+        "prior_mean_score": null,
+        "last_score": null
+      },
+      {
+        "inspection_date": "2024-01-30",
+        "inspection_type": "Cycle Inspection / Reopening Inspection",
+        "score": 39.0,
+        "prior_count": 1,
+        "prior_mean_score": 83.0,
+        "last_score": 83.0
+      },
+      {
+        "inspection_date": "2024-02-05",
+        "inspection_type": "Cycle Inspection / Reopening Inspection",
+        "score": 11.0,
+        "prior_count": 2,
+        "prior_mean_score": 61.0,
+        "last_score": 39.0
+      },
+      {
+        "inspection_date": "2024-02-08",
+        "inspection_type": "Cycle Inspection / Reopening Inspection",
+        "score": 13.0,
+        "prior_count": 3,
+        "prior_mean_score": 44.333,
+        "last_score": 11.0
+      },
+      {
+        "inspection_date": "2024-02-26",
+        "inspection_type": "Cycle Inspection / Reopening Inspection",
+        "score": 0.0,
+        "prior_count": 4,
+        "prior_mean_score": 36.5,
+        "last_score": 13.0
+      },
+      {
+        "inspection_date": "2024-04-25",
+        "inspection_type": "Cycle Inspection / Initial Inspection",
+        "score": 22.0,
+        "prior_count": 5,
+        "prior_mean_score": 29.2,
+        "last_score": 0.0
+      }
+    ]
+  }
+}

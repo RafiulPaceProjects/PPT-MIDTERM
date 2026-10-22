@@ -1,0 +1,21 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    52
+  ],
+  "crosstab": {
+    "initial": {
+      "A": 31758,
+      "BC": 0
+    },
+    "all_other": {
+      "A": 12745,
+      "BC": 6497
+    }
+  },
+  "graded_inspections": 51000,
+  "excluded_initial": 31758,
+  "modeling_population": 19242,
+  "modeling_bc": 6497,
+  "modeling_bc_pct": 33.8
+}

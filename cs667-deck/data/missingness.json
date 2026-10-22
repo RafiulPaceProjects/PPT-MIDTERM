@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    15
+  ],
+  "columns": [
+    {
+      "column": "grade_date",
+      "n_missing": 44094,
+      "pct_missing": 45.51
+    },
+    {
+      "column": "grade",
+      "n_missing": 41882,
+      "pct_missing": 43.22
+    },
+    {
+      "column": "score",
+      "n_missing": 14278,
+      "pct_missing": 14.74
+    },
+    {
+      "column": "cuisine_description",
+      "n_missing": 3932,
+      "pct_missing": 4.06
+    },
+    {
+      "column": "inspection_type",
+      "n_missing": 3914,
+      "pct_missing": 4.04
+    },
+    {
+      "column": "zipcode",
+      "n_missing": 1182,
+      "pct_missing": 1.22
+    },
+    {
+      "column": "latitude",
+      "n_missing": 764,
+      "pct_missing": 0.79
+    },
+    {
+      "column": "longitude",
+      "n_missing": 764,
+      "pct_missing": 0.79
+    },
+    {
+      "column": "camis",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "inspection_date",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "boro",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "dba",
+      "n_missing": 3,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "n_violations",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    },
+    {
+      "column": "n_critical",
+      "n_missing": 0,
+      "pct_missing": 0.0
+    }
+  ]
+}

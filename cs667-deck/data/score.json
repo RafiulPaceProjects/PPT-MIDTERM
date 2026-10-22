@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    11
+  ],
+  "lower_is_better": true,
+  "count": 82619,
+  "mean": 17.869195,
+  "median": 13.0,
+  "q1": 9.0,
+  "q3": 24.0,
+  "upper_fence": 46.5,
+  "n_above_fence": 4095,
+  "share_above_fence_pct": 5.0,
+  "max": 214.0,
+  "grade_bands": {
+    "A": [
+      0,
+      13
+    ],
+    "B": [
+      14,
+      27
+    ],
+    "C": [
+      28,
+      null
+    ]
+  },
+  "figure": "source/figures/eda_score_histogram.png"
+}

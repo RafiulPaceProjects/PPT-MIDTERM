@@ -1,0 +1,58 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    60
+  ],
+  "model": "Logistic regression",
+  "default_threshold": 0.45,
+  "rule": "highest threshold still catching at least 80% of B or C",
+  "stops": [
+    {
+      "threshold": 0.3,
+      "precision": 0.338,
+      "recall": 0.988,
+      "f1": 0.504,
+      "confusion": null
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.359,
+      "recall": 0.918,
+      "f1": 0.516,
+      "confusion": null
+    },
+    {
+      "threshold": 0.45,
+      "precision": 0.376,
+      "recall": 0.822,
+      "f1": null,
+      "confusion": null
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.402,
+      "recall": 0.71,
+      "f1": 0.513,
+      "confusion": null
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.474,
+      "recall": 0.453,
+      "f1": 0.463,
+      "confusion": null
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.576,
+      "recall": 0.232,
+      "f1": 0.33,
+      "confusion": null
+    }
+  ],
+  "confusion_counts_note": "The notebook prints precision/recall per threshold but no confusion counts. Counts at 0.5 exist only in source/figures/pred_confusion.png. Per-stop counts need a notebook export (see data/FIXTURES.md).",
+  "figures": {
+    "confusion_at_0_5": "source/figures/pred_confusion.png",
+    "curves": "source/figures/pred_curves.png"
+  }
+}

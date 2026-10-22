@@ -1,0 +1,44 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    40
+  ],
+  "min_graded_to_judge": 30,
+  "highest_bc": [
+    {
+      "nta": "Queensboro Hill",
+      "inspections": 125,
+      "graded": 53,
+      "pct_bc": 34.0,
+      "median_score": 23.0
+    },
+    {
+      "nta": "South Richmond Hill",
+      "inspections": 132,
+      "graded": 54,
+      "pct_bc": 33.3,
+      "median_score": 21.0
+    },
+    {
+      "nta": "East Flatbush-Farragut",
+      "inspections": 115,
+      "graded": 48,
+      "pct_bc": 29.2,
+      "median_score": 17.5
+    },
+    {
+      "nta": "East New York-City Line",
+      "inspections": 207,
+      "graded": 107,
+      "pct_bc": 25.2,
+      "median_score": 15.5
+    },
+    {
+      "nta": "Flushing-Willets Point",
+      "inspections": 1960,
+      "graded": 824,
+      "pct_bc": 25.0,
+      "median_score": 19.0
+    }
+  ]
+}

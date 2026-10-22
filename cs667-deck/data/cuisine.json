@@ -1,0 +1,84 @@
+{
+  "as_of": "2026-10-21",
+  "source_cells": [
+    21
+  ],
+  "lower_is_better": true,
+  "top_cuisines": [
+    {
+      "cuisine": "American",
+      "inspections": 14944,
+      "median_score": 12.0
+    },
+    {
+      "cuisine": "Chinese",
+      "inspections": 7950,
+      "median_score": 15.0
+    },
+    {
+      "cuisine": "Coffee/Tea",
+      "inspections": 7913,
+      "median_score": 12.0
+    },
+    {
+      "cuisine": "Pizza",
+      "inspections": 5595,
+      "median_score": 13.0
+    },
+    {
+      "cuisine": "Latin American",
+      "inspections": 4314,
+      "median_score": 16.0
+    },
+    {
+      "cuisine": "Bakery Products/Desserts",
+      "inspections": 3778,
+      "median_score": 12.0
+    },
+    {
+      "cuisine": "Mexican",
+      "inspections": 3698,
+      "median_score": 13.0
+    },
+    {
+      "cuisine": "Japanese",
+      "inspections": 3190,
+      "median_score": 13.0
+    },
+    {
+      "cuisine": "Caribbean",
+      "inspections": 3064,
+      "median_score": 15.0
+    },
+    {
+      "cuisine": "Italian",
+      "inspections": 2979,
+      "median_score": 13.0
+    },
+    {
+      "cuisine": "Chicken",
+      "inspections": 2625,
+      "median_score": 12.0
+    },
+    {
+      "cuisine": "Donuts",
+      "inspections": 2126,
+      "median_score": 10.0
+    },
+    {
+      "cuisine": "Juice, Smoothies, Fruit Salads",
+      "inspections": 2004,
+      "median_score": 12.0
+    },
+    {
+      "cuisine": "Sandwiches",
+      "inspections": 1796,
+      "median_score": 12.0
+    },
+    {
+      "cuisine": "Hamburgers",
+      "inspections": 1778,
+      "median_score": 10.0
+    }
+  ]
+}

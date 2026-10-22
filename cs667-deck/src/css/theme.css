@@ -1,0 +1,194 @@
+/* Theme: palette, type, slide furniture. The one place colours are defined
+   (INV-2); every other file reads these variables. */
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../../assets/fonts/inter-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../../assets/fonts/inter-latin-700-normal.woff2") format("woff2");
+}
+
+:root {
+  /* grade colours, INV-2 */
+  --grade-a: #2E7D32;
+  --grade-b: #E69F00;
+  --grade-c: #C0392B;
+  /* the one sequential warm scale for B-or-C shares (pale -> deep red) */
+  --scale-pale: #FFECBE;
+  --scale-deep: #C0392B;
+  /* neutrals and accent */
+  --ink: #1D1E22;
+  --ink-2: #4A4C53;      /* secondary text, 8.7:1 on white */
+  --ink-3: #686B73;      /* captions, 5.4:1 on white */
+  --mist: #F5F6F7;
+  --line: #D9DBDF;
+  --paper: #FFFFFF;
+  --accent: #E86F26;
+  --accent-ink: #B4521A; /* accent as text, 5.0:1 on white */
+  --unreliable: #BDBFC4; /* "not enough inspections to judge" */
+
+  --font: "Inter", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* type scale, in slide pixels (the slide is 1920x1080) */
+  --t-claim: 56px;
+  --t-kicker: 22px;
+  --t-body: 32px;
+  --t-small: 26px;
+  --t-label: 22px;
+  --t-foot: 18px;
+
+  /* layout: the stage stops above the mascot's safe zone (INV-7) */
+  --pad-x: 96px;
+  --stage-top: 286px;
+  --stage-bottom: 190px;   /* 1080 - 190 = 890 < 900, the safe zone's top */
+  --safe: 180px;
+}
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.reveal {
+  font-family: var(--font);
+  font-size: var(--t-body);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.reveal .slides { text-align: left; }
+.reveal .slides section {
+  width: 1920px;
+  height: 1080px;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--paper);
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--font);
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.reveal p { margin: 0 0 0.6em; }
+.reveal strong, .reveal b { font-weight: 700; }
+.reveal :focus-visible { outline: 4px solid var(--accent); outline-offset: 3px; }
+
+/* --- furniture ------------------------------------------------------- */
+
+.kicker {
+  position: absolute;
+  top: 72px;
+  left: var(--pad-x);
+  font-size: var(--t-kicker);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.claim {
+  position: absolute;
+  top: 104px;
+  left: var(--pad-x);
+  right: 300px;          /* the counter lives top-right */
+  font-size: var(--t-claim) !important;
+  line-height: 1.1;
+}
+.claim::after {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 6px;
+  margin-top: 18px;
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+.stage {
+  position: absolute;
+  top: var(--stage-top);
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: var(--stage-bottom);
+}
+
+/* footer: bottom-left only, ends well before the safe zone */
+.slide-foot {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: 44px;
+  max-width: 1300px;
+  font-size: var(--t-foot);
+  color: var(--ink-3);
+  display: flex;
+  gap: 0.9em;
+  align-items: baseline;
+}
+.slide-foot .asof { color: var(--ink-2); font-weight: 700; }
+.slide-foot .sep { color: var(--line); }
+
+/* reveal's own chrome: counter top-right, progress as a thin top bar */
+.reveal .slide-number {
+  top: 22px !important;
+  right: 30px !important;
+  bottom: auto !important;
+  left: auto !important;
+  background: transparent !important;
+  color: var(--ink-3) !important;
+  font-family: var(--font) !important;
+  font-size: 18px !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.reveal .slide-number a { color: inherit; }
+.reveal .progress {
+  top: 0 !important;
+  bottom: auto !important;
+  height: 5px !important;
+  background: transparent !important;
+  color: var(--accent) !important;
+}
+
+/* the motion toggle (INV-12): positioned by deck.js on the footer line */
+#motion-toggle {
+  position: fixed;
+  z-index: 40;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-3);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+#motion-toggle[aria-pressed="true"] { color: var(--accent-ink); border-color: var(--accent); }
+
+/* pending values: visible, unmistakable, and failing qa_check */
+[data-pending] {
+  display: inline-block;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: #8A1C10;
+  background: #FCE9E6;
+  border: 2px dashed var(--grade-c);
+  border-radius: 6px;
+  padding: 0 0.4em;
+  white-space: nowrap;
+}
+
+/* small screens: the deck still scales, chrome shrinks */
+@media (max-width: 760px) {
+  #motion-toggle { display: none; }
+}

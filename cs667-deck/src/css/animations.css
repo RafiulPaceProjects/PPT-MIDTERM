@@ -1,0 +1,105 @@
+/* Motion. The resting state of every element is its FINAL state, so a
+   reader without JS, the export, and reduced motion all see the finished
+   slide. Entrances apply only under html.anim, which animations.js sets when
+   motion is allowed, and only transform/opacity (or stroke-dashoffset) move. */
+
+/* ---- entrance start states (only while a slide has not "entered") ------- */
+.anim .reveal section:not(.entered) .rv,
+.anim .reveal section:not(.entered) .words > span { opacity: 0; transform: translateY(12px); }
+.anim .reveal section:not(.entered) .grow-x { transform: scaleX(0); }
+.anim .reveal section:not(.entered) .grow-y { transform: scaleY(0); }
+.anim .reveal section:not(.entered) .draw { stroke-dashoffset: 1; }
+.anim .reveal section:not(.entered) .cm .cell { opacity: 0; transform: scale(0.85); }
+.anim .reveal section[data-slide-type="map"]:not(.entered) .map-hero { opacity: 0; transform: scale(0.98); }
+
+.grow-x { transform-origin: left center; transform-box: fill-box; }
+.grow-y { transform-origin: center bottom; transform-box: fill-box; }
+.draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+/* ---- entrance transitions (only on the entered slide) ------------------- */
+.anim .reveal section.entered .rv {
+  transition: opacity 420ms ease-out, transform 420ms ease-out;
+  transition-delay: calc(var(--d, 0) * 40ms);
+}
+.anim .reveal section.entered .words > span {
+  display: inline-block;
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+  transition-delay: calc(var(--w, 0) * 45ms);
+}
+.anim .reveal section.entered .grow-x,
+.anim .reveal section.entered .grow-y {
+  transition: transform 700ms cubic-bezier(.2, .7, .2, 1);
+  transition-delay: calc(var(--d, 0) * 40ms);
+}
+.anim .reveal section.entered .draw { transition: stroke-dashoffset 700ms ease-out 200ms; }
+.anim .reveal section.entered .cm .cell {
+  transition: opacity 300ms ease-out, transform 300ms cubic-bezier(.2, 1.4, .4, 1);
+  transition-delay: calc(var(--cd, 0) * 60ms + 250ms);
+}
+.anim .reveal section.entered[data-slide-type="map"] .map-hero { transition: opacity 500ms ease-out, transform 500ms ease-out; }
+.anim .reveal section.entered[data-slide-type="map"] .rv { transition-delay: calc(var(--d, 0) * 30ms); }
+.anim .reveal section.entered[data-slide-type="model-results"] .rv { transition-delay: calc(var(--d, 0) * 50ms); }
+.anim .reveal section.entered[data-slide-type="closing"] .rv {
+  transition-duration: 520ms;
+  transition-delay: calc(var(--d, 0) * 70ms);
+}
+.words > span { display: inline-block; }
+
+/* ---- the skip rule: the presenter is never held hostage ----------------- */
+.reveal section.skip *,
+.reveal section.skip *::before,
+.reveal section.skip *::after {
+  transition-duration: 0.01s !important;
+  transition-delay: 0s !important;
+  animation-duration: 0.01s !important;
+  animation-delay: 0s !important;
+}
+
+/* ---- slide 7: trap rings appear with their fragment --------------------- */
+.trap-ring { opacity: 0; transition: opacity 300ms ease-out; }
+.trap-ring.on { opacity: 1; }
+.reveal .fragment.trap-note { transform: none; }
+
+/* ---- slide 9: the discovery cover and reveal ---------------------------- */
+.disc-wrap .cover-chip { transition: transform 450ms ease-in, opacity 450ms ease-in; }
+.disc-wrap .disc-body, .disc-wrap .multiples { transition: opacity 450ms ease-out, filter 450ms ease-out; }
+.disc-wrap:not(.revealed) .disc-body,
+.disc-wrap:not(.revealed) .multiples { opacity: 0.35; filter: blur(2px); }
+.disc-wrap:not(.revealed) .reveal-after { visibility: hidden; }
+.disc-wrap.revealed .cover-chip { transform: translate(-50%, -260%); opacity: 0; pointer-events: none; }
+.disc-wrap .ghost-bar.collapses { transform-box: fill-box; transform-origin: center bottom; transition: transform 600ms cubic-bezier(.6, 0, .4, 1); }
+.disc-wrap.revealed .ghost-bar.collapses { transform: scaleY(0); }
+.disc-wrap .ghost-label { transition: opacity 200ms; }
+.disc-wrap.revealed .ghost-label { opacity: 0; }
+.disc-wrap .real-initial-label { opacity: 0; transition: opacity 300ms ease-out 450ms; }
+.disc-wrap.revealed .real-initial-label { opacity: 1; }
+.disc-wrap .reveal-after { opacity: 0; transition: opacity 500ms ease-out 300ms; }
+.disc-wrap.revealed .reveal-after { opacity: 1; }
+.disc-wrap .keynum { transform: scale(0.8); transition: transform 450ms cubic-bezier(.2, 1.6, .4, 1) 300ms; }
+.disc-wrap.revealed .keynum { transform: scale(1); }
+.reveal .fragment.reveal-step { display: none; }
+
+/* ---- slide 9 toggle: 300 ms cross-fade ---------------------------------- */
+[data-chart-mini] > svg { transition: opacity 300ms ease-out; }
+[data-chart-mini].swapping > svg { opacity: 0; }
+
+/* ---- slide 13: the confusion grid counts tween; cells nudge -------------- */
+.cm .cell .n { transition: color 200ms; }
+
+/* ---- reduced motion: final states at once, draw-ins become short fades -- */
+.reduced-motion .reveal section.entered .draw,
+.reduced-motion .reveal section.entered .grow-x,
+.reduced-motion .reveal section.entered .grow-y { animation: fade-in 150ms ease-out; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.reduced-motion .trap-inner,
+.reduced-motion .disc-wrap *,
+.reduced-motion .trap-ring { transition-duration: 0.01s !important; transition-delay: 0s !important; }
+
+/* ---- export mode: every animation off, final states forced -------------- */
+.exporting *, .exporting *::before, .exporting *::after {
+  animation: none !important;
+  transition: none !important;
+}
+.exporting #motion-toggle,
+.exporting .live-ctl .btn { display: none !important; }
+.exporting .trap-ring { opacity: 1; }

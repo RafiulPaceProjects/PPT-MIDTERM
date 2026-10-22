@@ -1,0 +1,51 @@
+<svg id="mascot" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="104" height="104" data-state="idle" focusable="false" aria-hidden="true">
+  <ellipse id="mascot-shadow" cx="60" cy="115" rx="30" ry="3.6" fill="#000000" opacity="0.08"/>
+  <g id="mascot-lean">
+    <g id="mascot-bob">
+      <g id="mascot-body">
+        <g id="mascot-flag">
+          <line x1="22" y1="86" x2="6" y2="50" stroke="#1D1E22" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M6 50 L-12 44 L2 38 Z" fill="#E86F26" stroke="#1D1E22" stroke-width="1.5" stroke-linejoin="round"/>
+        </g>
+        <g id="mascot-head">
+          <polygon id="mascot-seal" fill="#F5F6F7" stroke="#1D1E22" stroke-width="2.5" stroke-linejoin="round"
+            points="60.0,18.0 64.2,22.1 69.3,19.2 72.3,24.3 78.0,22.8 79.6,28.5 85.5,28.5 85.5,34.4 91.2,36.0 89.7,41.7 94.8,44.7 91.9,49.8 96.0,54.0 91.9,58.2 94.8,63.3 89.7,66.3 91.2,72.0 85.5,73.6 85.5,79.5 79.6,79.5 78.0,85.2 72.3,83.7 69.3,88.8 64.2,85.9 60.0,90.0 55.8,85.9 50.7,88.8 47.7,83.7 42.0,85.2 40.4,79.5 34.5,79.5 34.5,73.6 28.8,72.0 30.3,66.3 25.2,63.3 28.1,58.2 24.0,54.0 28.1,49.8 25.2,44.7 30.3,41.7 28.8,36.0 34.5,34.4 34.5,28.5 40.4,28.5 42.0,22.8 47.7,24.3 50.7,19.2 55.8,22.1"/>
+          <circle cx="60" cy="54" r="27" fill="#FFFFFF" stroke="#1D1E22" stroke-width="1"/>
+          <g id="mascot-cap">
+            <path d="M43 25 A17 13 0 0 1 77 25 Z" fill="#E86F26" stroke="#1D1E22" stroke-width="2"/>
+            <rect x="37" y="23.5" width="46" height="5.5" rx="2.75" fill="#E86F26" stroke="#1D1E22" stroke-width="2"/>
+            <circle cx="60" cy="13" r="2.4" fill="#1D1E22"/>
+          </g>
+          <g id="mascot-brows" stroke="#1D1E22" stroke-width="3" stroke-linecap="round" fill="none">
+            <line id="mascot-brow-l" x1="44" y1="40" x2="54" y2="38.5"/>
+            <line id="mascot-brow-r" x1="66" y1="38.5" x2="76" y2="40"/>
+          </g>
+          <g id="mascot-eyes">
+            <ellipse cx="49.5" cy="50" rx="6.6" ry="7.4" fill="#FFFFFF" stroke="#1D1E22" stroke-width="2"/>
+            <ellipse cx="70.5" cy="50" rx="6.6" ry="7.4" fill="#FFFFFF" stroke="#1D1E22" stroke-width="2"/>
+            <g id="mascot-pupils">
+              <circle cx="49.5" cy="51" r="3.6" fill="#1D1E22"/>
+              <circle cx="70.5" cy="51" r="3.6" fill="#1D1E22"/>
+              <circle cx="50.7" cy="49.8" r="1.2" fill="#FFFFFF"/>
+              <circle cx="71.7" cy="49.8" r="1.2" fill="#FFFFFF"/>
+            </g>
+          </g>
+          <g id="mascot-eyes-closed" stroke="#1D1E22" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <path d="M43.5 51 Q49.5 55.5 55.5 51"/>
+            <path d="M64.5 51 Q70.5 55.5 76.5 51"/>
+          </g>
+          <path id="mascot-mouth" d="M53 63 Q60 69 67 63" fill="none" stroke="#1D1E22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <g id="mascot-placard">
+            <rect x="40" y="71" width="40" height="31" rx="6" fill="#FFFFFF" stroke-width="2.5" style="stroke: var(--grade-a)"/>
+            <text id="mascot-letter" x="60" y="96" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="28" style="fill: var(--grade-a)">A</text>
+          </g>
+          <g id="mascot-sparkles" fill="#E86F26">
+            <path d="M34 12 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z"/>
+            <path d="M88 8 l1.6 4 l4 1.6 l-4 1.6 l-1.6 4 l-1.6 -4 l-4 -1.6 l4 -1.6 Z"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <text id="mascot-z" x="92" y="22" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="16" fill="#686B73">Z</text>
+</svg>

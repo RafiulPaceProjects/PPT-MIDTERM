@@ -1,0 +1,364 @@
+{
+ "as_of": "2026-10-21",
+ "permutation": [
+  {
+   "feature": "cuisine_grouped",
+   "auc_drop": 0.0457,
+   "std": 0.0041
+  },
+  {
+   "feature": "prior_mean_score",
+   "auc_drop": 0.0231,
+   "std": 0.0015
+  },
+  {
+   "feature": "prior_bc_share",
+   "auc_drop": 0.0132,
+   "std": 0.0021
+  },
+  {
+   "feature": "last_score",
+   "auc_drop": 0.0072,
+   "std": 0.0012
+  },
+  {
+   "feature": "latitude",
+   "auc_drop": 0.0041,
+   "std": 0.0015
+  },
+  {
+   "feature": "boro",
+   "auc_drop": 0.0039,
+   "std": 0.0006
+  },
+  {
+   "feature": "prior_count",
+   "auc_drop": 0.0029,
+   "std": 0.0014
+  },
+  {
+   "feature": "inspection_type",
+   "auc_drop": 0.0024,
+   "std": 0.001
+  },
+  {
+   "feature": "weekday",
+   "auc_drop": 0.0001,
+   "std": 0.0001
+  },
+  {
+   "feature": "prior_mean_critical",
+   "auc_drop": 0.0,
+   "std": 0.0
+  },
+  {
+   "feature": "has_history",
+   "auc_drop": -0.0,
+   "std": 0.0
+  },
+  {
+   "feature": "longitude",
+   "auc_drop": -0.0002,
+   "std": 0.0
+  },
+  {
+   "feature": "days_since_prior",
+   "auc_drop": -0.0006,
+   "std": 0.0009
+  },
+  {
+   "feature": "month",
+   "auc_drop": -0.0019,
+   "std": 0.0013
+  }
+ ],
+ "coefficients": [
+  {
+   "feature": "cat__inspection_type_Cycle Inspection / Reopening Inspection",
+   "coefficient": 1.693
+  },
+  {
+   "feature": "cat__inspection_type_Pre-permit (Operational) / Reopening Inspection",
+   "coefficient": 1.36
+  },
+  {
+   "feature": "cat__cuisine_grouped_Indian",
+   "coefficient": 0.82
+  },
+  {
+   "feature": "cat__cuisine_grouped_Asian/Asian Fusion",
+   "coefficient": 0.64
+  },
+  {
+   "feature": "cat__cuisine_grouped_Thai",
+   "coefficient": 0.537
+  },
+  {
+   "feature": "cat__cuisine_grouped_Chinese",
+   "coefficient": 0.462
+  },
+  {
+   "feature": "cat__inspection_type_Administrative Miscellaneous / Re-inspection",
+   "coefficient": 0.456
+  },
+  {
+   "feature": "cat__cuisine_grouped_Japanese",
+   "coefficient": 0.456
+  },
+  {
+   "feature": "cat__cuisine_grouped_Caribbean",
+   "coefficient": 0.33
+  },
+  {
+   "feature": "cat__cuisine_grouped_Latin American",
+   "coefficient": 0.305
+  },
+  {
+   "feature": "cat__boro_Staten Island",
+   "coefficient": 0.258
+  },
+  {
+   "feature": "cat__cuisine_grouped_Spanish",
+   "coefficient": 0.256
+  },
+  {
+   "feature": "cat__cuisine_grouped_Mexican",
+   "coefficient": 0.246
+  },
+  {
+   "feature": "cat__boro_Brooklyn",
+   "coefficient": 0.187
+  },
+  {
+   "feature": "num__prior_count",
+   "coefficient": 0.162
+  },
+  {
+   "feature": "num__prior_mean_score",
+   "coefficient": 0.154
+  },
+  {
+   "feature": "cat__boro_Queens",
+   "coefficient": 0.143
+  },
+  {
+   "feature": "cat__cuisine_grouped_Jewish/Kosher",
+   "coefficient": 0.141
+  },
+  {
+   "feature": "num__latitude",
+   "coefficient": 0.12
+  },
+  {
+   "feature": "num__last_score",
+   "coefficient": 0.092
+  },
+  {
+   "feature": "cat__cuisine_grouped_Pizza",
+   "coefficient": 0.089
+  },
+  {
+   "feature": "num__month",
+   "coefficient": 0.078
+  },
+  {
+   "feature": "cat__cuisine_grouped_Korean",
+   "coefficient": 0.073
+  },
+  {
+   "feature": "cat__cuisine_grouped_Sandwiches",
+   "coefficient": 0.072
+  },
+  {
+   "feature": "cat__cuisine_grouped_Other",
+   "coefficient": 0.069
+  },
+  {
+   "feature": "num__prior_bc_share",
+   "coefficient": 0.067
+  },
+  {
+   "feature": "cat__boro_Bronx",
+   "coefficient": 0.054
+  },
+  {
+   "feature": "cat__cuisine_grouped_Bakery Products/Desserts",
+   "coefficient": 0.014
+  },
+  {
+   "feature": "cat__boro_Manhattan",
+   "coefficient": 0.002
+  },
+  {
+   "feature": "num__prior_mean_critical",
+   "coefficient": 0.001
+  },
+  {
+   "feature": "num__longitude",
+   "coefficient": -0.004
+  },
+  {
+   "feature": "num__weekday",
+   "coefficient": -0.011
+  },
+  {
+   "feature": "cat__cuisine_grouped_Chicken",
+   "coefficient": -0.053
+  },
+  {
+   "feature": "cat__cuisine_grouped_American",
+   "coefficient": -0.056
+  },
+  {
+   "feature": "num__days_since_prior",
+   "coefficient": -0.083
+  },
+  {
+   "feature": "num__has_history",
+   "coefficient": -0.088
+  },
+  {
+   "feature": "cat__cuisine_grouped_Mediterranean",
+   "coefficient": -0.157
+  },
+  {
+   "feature": "cat__cuisine_grouped_Juice, Smoothies, Fruit Salads",
+   "coefficient": -0.174
+  },
+  {
+   "feature": "cat__cuisine_grouped_Bagels/Pretzels",
+   "coefficient": -0.289
+  },
+  {
+   "feature": "cat__cuisine_grouped_Italian",
+   "coefficient": -0.294
+  },
+  {
+   "feature": "cat__cuisine_grouped_Coffee/Tea",
+   "coefficient": -0.351
+  },
+  {
+   "feature": "cat__cuisine_grouped_Frozen Desserts",
+   "coefficient": -0.481
+  },
+  {
+   "feature": "cat__cuisine_grouped_Hamburgers",
+   "coefficient": -0.721
+  },
+  {
+   "feature": "cat__cuisine_grouped_Donuts",
+   "coefficient": -1.291
+  },
+  {
+   "feature": "cat__inspection_type_Cycle Inspection / Re-inspection",
+   "coefficient": -1.362
+  },
+  {
+   "feature": "cat__inspection_type_Pre-permit (Operational) / Re-inspection",
+   "coefficient": -1.504
+  }
+ ],
+ "cuisine_coefficients": [
+  {
+   "cuisine": "Indian",
+   "coefficient": 0.82
+  },
+  {
+   "cuisine": "Asian/Asian Fusion",
+   "coefficient": 0.64
+  },
+  {
+   "cuisine": "Thai",
+   "coefficient": 0.537
+  },
+  {
+   "cuisine": "Chinese",
+   "coefficient": 0.462
+  },
+  {
+   "cuisine": "Japanese",
+   "coefficient": 0.456
+  },
+  {
+   "cuisine": "Caribbean",
+   "coefficient": 0.33
+  },
+  {
+   "cuisine": "Latin American",
+   "coefficient": 0.305
+  },
+  {
+   "cuisine": "Spanish",
+   "coefficient": 0.256
+  },
+  {
+   "cuisine": "Mexican",
+   "coefficient": 0.246
+  },
+  {
+   "cuisine": "Jewish/Kosher",
+   "coefficient": 0.141
+  },
+  {
+   "cuisine": "Pizza",
+   "coefficient": 0.089
+  },
+  {
+   "cuisine": "Korean",
+   "coefficient": 0.073
+  },
+  {
+   "cuisine": "Sandwiches",
+   "coefficient": 0.072
+  },
+  {
+   "cuisine": "Other",
+   "coefficient": 0.069
+  },
+  {
+   "cuisine": "Bakery Products/Desserts",
+   "coefficient": 0.014
+  },
+  {
+   "cuisine": "Chicken",
+   "coefficient": -0.053
+  },
+  {
+   "cuisine": "American",
+   "coefficient": -0.056
+  },
+  {
+   "cuisine": "Mediterranean",
+   "coefficient": -0.157
+  },
+  {
+   "cuisine": "Juice, Smoothies, Fruit Salads",
+   "coefficient": -0.174
+  },
+  {
+   "cuisine": "Bagels/Pretzels",
+   "coefficient": -0.289
+  },
+  {
+   "cuisine": "Italian",
+   "coefficient": -0.294
+  },
+  {
+   "cuisine": "Coffee/Tea",
+   "coefficient": -0.351
+  },
+  {
+   "cuisine": "Frozen Desserts",
+   "coefficient": -0.481
+  },
+  {
+   "cuisine": "Hamburgers",
+   "coefficient": -0.721
+  },
+  {
+   "cuisine": "Donuts",
+   "coefficient": -1.291
+  }
+ ],
+ "figure": "assets/img/pred_importance.png"
+}

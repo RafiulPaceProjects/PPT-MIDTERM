@@ -1,0 +1,4102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.3.*/dist/index.js'></script>
+    <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/@deck.gl/widgets@~9.3.*/dist/stylesheet.css />
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+
+#deck-container .error_text {
+  color: red;
+  background: none;
+  position: absolute;
+  z-index: 100;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": -20,
+    "latitude": 40.73,
+    "longitude": -73.93,
+    "pitch": 50,
+    "zoom": 10
+  },
+  "layers": [
+    {
+      "@@type": "ColumnLayer",
+      "data": [
+        {
+          "elev": 1.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 1,
+          "lat": 40.795531357023,
+          "lon": -73.955190203512,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10000"
+        },
+        {
+          "elev": 47.031904065219386,
+          "fill_color": [
+            "235",
+            "179",
+            "143",
+            205
+          ],
+          "graded": 1198,
+          "inspections": 2212,
+          "lat": 40.74914765886954,
+          "lon": -73.99279246199268,
+          "median_score": 10.0,
+          "n_bc": 114,
+          "pct_bc": 9.5,
+          "reliable": true,
+          "zipcode": "10001"
+        },
+        {
+          "elev": 43.31281565541543,
+          "fill_color": [
+            "227",
+            "157",
+            "125",
+            205
+          ],
+          "graded": 914,
+          "inspections": 1876,
+          "lat": 40.7179900860938,
+          "lon": -73.99006987965565,
+          "median_score": 11.0,
+          "n_bc": 122,
+          "pct_bc": 13.3,
+          "reliable": true,
+          "zipcode": "10002"
+        },
+        {
+          "elev": 47.53945729601885,
+          "fill_color": [
+            "234",
+            "177",
+            "141",
+            205
+          ],
+          "graded": 1177,
+          "inspections": 2260,
+          "lat": 40.73145458873508,
+          "lon": -73.98880803010735,
+          "median_score": 11.0,
+          "n_bc": 117,
+          "pct_bc": 9.9,
+          "reliable": true,
+          "zipcode": "10003"
+        },
+        {
+          "elev": 23.2379000772445,
+          "fill_color": [
+            "231",
+            "167",
+            "134",
+            205
+          ],
+          "graded": 270,
+          "inspections": 540,
+          "lat": 40.7036454188229,
+          "lon": -74.01163974357782,
+          "median_score": 10.0,
+          "n_bc": 31,
+          "pct_bc": 11.5,
+          "reliable": true,
+          "zipcode": "10004"
+        },
+        {
+          "elev": 15.811388300841896,
+          "fill_color": [
+            "235",
+            "180",
+            "144",
+            205
+          ],
+          "graded": 117,
+          "inspections": 250,
+          "lat": 40.7061248529887,
+          "lon": -74.00855748576643,
+          "median_score": 10.0,
+          "n_bc": 11,
+          "pct_bc": 9.4,
+          "reliable": true,
+          "zipcode": "10005"
+        },
+        {
+          "elev": 12.922847983320086,
+          "fill_color": [
+            "245",
+            "207",
+            "166",
+            205
+          ],
+          "graded": 104,
+          "inspections": 167,
+          "lat": 40.70836663338098,
+          "lon": -74.0131067627308,
+          "median_score": 10.0,
+          "n_bc": 5,
+          "pct_bc": 4.8,
+          "reliable": true,
+          "zipcode": "10006"
+        },
+        {
+          "elev": 24.145392935299274,
+          "fill_color": [
+            "228",
+            "160",
+            "127",
+            205
+          ],
+          "graded": 320,
+          "inspections": 583,
+          "lat": 40.71361719974074,
+          "lon": -74.00943638230115,
+          "median_score": 10.0,
+          "n_bc": 41,
+          "pct_bc": 12.8,
+          "reliable": true,
+          "zipcode": "10007"
+        },
+        {
+          "elev": 31.89043743820395,
+          "fill_color": [
+            "230",
+            "165",
+            "132",
+            205
+          ],
+          "graded": 523,
+          "inspections": 1017,
+          "lat": 40.72658851064789,
+          "lon": -73.98261444089745,
+          "median_score": 12.0,
+          "n_bc": 62,
+          "pct_bc": 11.9,
+          "reliable": true,
+          "zipcode": "10009"
+        },
+        {
+          "elev": 29.664793948382652,
+          "fill_color": [
+            "232",
+            "172",
+            "137",
+            205
+          ],
+          "graded": 471,
+          "inspections": 880,
+          "lat": 40.74060292156623,
+          "lon": -73.98694060237872,
+          "median_score": 11.0,
+          "n_bc": 51,
+          "pct_bc": 10.8,
+          "reliable": true,
+          "zipcode": "10010"
+        },
+        {
+          "elev": 38.18376618407357,
+          "fill_color": [
+            "232",
+            "172",
+            "137",
+            205
+          ],
+          "graded": 767,
+          "inspections": 1458,
+          "lat": 40.740839030756916,
+          "lon": -73.99962687429517,
+          "median_score": 10.0,
+          "n_bc": 83,
+          "pct_bc": 10.8,
+          "reliable": true,
+          "zipcode": "10011"
+        },
+        {
+          "elev": 39.74921382870358,
+          "fill_color": [
+            "232",
+            "171",
+            "137",
+            205
+          ],
+          "graded": 808,
+          "inspections": 1580,
+          "lat": 40.72603022649379,
+          "lon": -73.99841093718418,
+          "median_score": 11.0,
+          "n_bc": 88,
+          "pct_bc": 10.9,
+          "reliable": true,
+          "zipcode": "10012"
+        },
+        {
+          "elev": 44.24929377967517,
+          "fill_color": [
+            "224",
+            "147",
+            "117",
+            205
+          ],
+          "graded": 929,
+          "inspections": 1958,
+          "lat": 40.718547395235504,
+          "lon": -74.0015263387629,
+          "median_score": 12.0,
+          "n_bc": 138,
+          "pct_bc": 14.9,
+          "reliable": true,
+          "zipcode": "10013"
+        },
+        {
+          "elev": 37.815340802378074,
+          "fill_color": [
+            "233",
+            "175",
+            "140",
+            205
+          ],
+          "graded": 731,
+          "inspections": 1430,
+          "lat": 40.73361844378275,
+          "lon": -74.00437357254033,
+          "median_score": 11.0,
+          "n_bc": 75,
+          "pct_bc": 10.3,
+          "reliable": true,
+          "zipcode": "10014"
+        },
+        {
+          "elev": 38.44476557348217,
+          "fill_color": [
+            "226",
+            "154",
+            "123",
+            205
+          ],
+          "graded": 732,
+          "inspections": 1478,
+          "lat": 40.74563838943464,
+          "lon": -73.98078739657173,
+          "median_score": 12.0,
+          "n_bc": 100,
+          "pct_bc": 13.7,
+          "reliable": true,
+          "zipcode": "10016"
+        },
+        {
+          "elev": 33.45145736735546,
+          "fill_color": [
+            "234",
+            "176",
+            "141",
+            205
+          ],
+          "graded": 641,
+          "inspections": 1119,
+          "lat": 40.753064154841965,
+          "lon": -73.97525247512978,
+          "median_score": 11.0,
+          "n_bc": 64,
+          "pct_bc": 10.0,
+          "reliable": true,
+          "zipcode": "10017"
+        },
+        {
+          "elev": 38.52272056851645,
+          "fill_color": [
+            "233",
+            "173",
+            "139",
+            205
+          ],
+          "graded": 790,
+          "inspections": 1484,
+          "lat": 40.75358494913231,
+          "lon": -73.98869499222855,
+          "median_score": 11.0,
+          "n_bc": 83,
+          "pct_bc": 10.5,
+          "reliable": true,
+          "zipcode": "10018"
+        },
+        {
+          "elev": 45.89117562233506,
+          "fill_color": [
+            "237",
+            "186",
+            "149",
+            205
+          ],
+          "graded": 1140,
+          "inspections": 2106,
+          "lat": 40.764270445596686,
+          "lon": -73.98333517958308,
+          "median_score": 11.0,
+          "n_bc": 96,
+          "pct_bc": 8.4,
+          "reliable": true,
+          "zipcode": "10019"
+        },
+        {
+          "elev": 12.165525060596439,
+          "fill_color": [
+            "243",
+            "203",
+            "163",
+            205
+          ],
+          "graded": 90,
+          "inspections": 148,
+          "lat": 40.759684969570884,
+          "lon": -73.9802514758489,
+          "median_score": 10.0,
+          "n_bc": 5,
+          "pct_bc": 5.6,
+          "reliable": true,
+          "zipcode": "10020"
+        },
+        {
+          "elev": 24.61706725018234,
+          "fill_color": [
+            "231",
+            "169",
+            "135",
+            205
+          ],
+          "graded": 326,
+          "inspections": 606,
+          "lat": 40.76920418497155,
+          "lon": -73.9583629701516,
+          "median_score": 11.0,
+          "n_bc": 37,
+          "pct_bc": 11.3,
+          "reliable": true,
+          "zipcode": "10021"
+        },
+        {
+          "elev": 37.48332962798263,
+          "fill_color": [
+            "237",
+            "186",
+            "149",
+            205
+          ],
+          "graded": 806,
+          "inspections": 1405,
+          "lat": 40.758732759549105,
+          "lon": -73.96961824006215,
+          "median_score": 11.0,
+          "n_bc": 68,
+          "pct_bc": 8.4,
+          "reliable": true,
+          "zipcode": "10022"
+        },
+        {
+          "elev": 26.40075756488817,
+          "fill_color": [
+            "239",
+            "191",
+            "153",
+            205
+          ],
+          "graded": 380,
+          "inspections": 697,
+          "lat": 40.77642319615798,
+          "lon": -73.98120708725396,
+          "median_score": 10.0,
+          "n_bc": 29,
+          "pct_bc": 7.6,
+          "reliable": true,
+          "zipcode": "10023"
+        },
+        {
+          "elev": 26.076809620810597,
+          "fill_color": [
+            "233",
+            "174",
+            "139",
+            205
+          ],
+          "graded": 357,
+          "inspections": 680,
+          "lat": 40.7853680849309,
+          "lon": -73.97600839671962,
+          "median_score": 11.0,
+          "n_bc": 37,
+          "pct_bc": 10.4,
+          "reliable": true,
+          "zipcode": "10024"
+        },
+        {
+          "elev": 28.0178514522438,
+          "fill_color": [
+            "227",
+            "156",
+            "124",
+            205
+          ],
+          "graded": 410,
+          "inspections": 785,
+          "lat": 40.79908764239635,
+          "lon": -73.96725969705254,
+          "median_score": 11.0,
+          "n_bc": 55,
+          "pct_bc": 13.4,
+          "reliable": true,
+          "zipcode": "10025"
+        },
+        {
+          "elev": 14.696938456699069,
+          "fill_color": [
+            "206",
+            "97",
+            "76",
+            205
+          ],
+          "graded": 103,
+          "inspections": 216,
+          "lat": 40.80276810111845,
+          "lon": -73.9525597722508,
+          "median_score": 12.0,
+          "n_bc": 24,
+          "pct_bc": 23.3,
+          "reliable": true,
+          "zipcode": "10026"
+        },
+        {
+          "elev": 24.63736998950984,
+          "fill_color": [
+            "229",
+            "162",
+            "129",
+            205
+          ],
+          "graded": 299,
+          "inspections": 607,
+          "lat": 40.81098394575576,
+          "lon": -73.95318286333669,
+          "median_score": 11.0,
+          "n_bc": 37,
+          "pct_bc": 12.4,
+          "reliable": true,
+          "zipcode": "10027"
+        },
+        {
+          "elev": 26.40075756488817,
+          "fill_color": [
+            "238",
+            "187",
+            "150",
+            205
+          ],
+          "graded": 404,
+          "inspections": 697,
+          "lat": 40.77660744876249,
+          "lon": -73.95405194143198,
+          "median_score": 11.0,
+          "n_bc": 33,
+          "pct_bc": 8.2,
+          "reliable": true,
+          "zipcode": "10028"
+        },
+        {
+          "elev": 27.202941017470888,
+          "fill_color": [
+            "226",
+            "155",
+            "123",
+            205
+          ],
+          "graded": 383,
+          "inspections": 740,
+          "lat": 40.79267140143929,
+          "lon": -73.94424165001043,
+          "median_score": 12.0,
+          "n_bc": 52,
+          "pct_bc": 13.6,
+          "reliable": true,
+          "zipcode": "10029"
+        },
+        {
+          "elev": 9.643650760992955,
+          "fill_color": [
+            "205",
+            "93",
+            "73",
+            205
+          ],
+          "graded": 46,
+          "inspections": 93,
+          "lat": 40.81824963712226,
+          "lon": -73.94325816220646,
+          "median_score": 12.0,
+          "n_bc": 11,
+          "pct_bc": 23.9,
+          "reliable": true,
+          "zipcode": "10030"
+        },
+        {
+          "elev": 20.346989949375804,
+          "fill_color": [
+            "218",
+            "132",
+            "104",
+            205
+          ],
+          "graded": 200,
+          "inspections": 414,
+          "lat": 40.824679042414026,
+          "lon": -73.94956833900535,
+          "median_score": 11.0,
+          "n_bc": 35,
+          "pct_bc": 17.5,
+          "reliable": true,
+          "zipcode": "10031"
+        },
+        {
+          "elev": 20.074859899884732,
+          "fill_color": [
+            "227",
+            "158",
+            "126",
+            205
+          ],
+          "graded": 214,
+          "inspections": 403,
+          "lat": 40.83839853103428,
+          "lon": -73.9406163172249,
+          "median_score": 12.0,
+          "n_bc": 28,
+          "pct_bc": 13.1,
+          "reliable": true,
+          "zipcode": "10032"
+        },
+        {
+          "elev": 21.283796653792763,
+          "fill_color": [
+            "221",
+            "141",
+            "112",
+            205
+          ],
+          "graded": 225,
+          "inspections": 453,
+          "lat": 40.84947455916122,
+          "lon": -73.9353327277022,
+          "median_score": 11.0,
+          "n_bc": 36,
+          "pct_bc": 16.0,
+          "reliable": true,
+          "zipcode": "10033"
+        },
+        {
+          "elev": 19.570385790780925,
+          "fill_color": [
+            "221",
+            "140",
+            "111",
+            205
+          ],
+          "graded": 186,
+          "inspections": 383,
+          "lat": 40.86629402261978,
+          "lon": -73.92117354697805,
+          "median_score": 12.0,
+          "n_bc": 30,
+          "pct_bc": 16.1,
+          "reliable": true,
+          "zipcode": "10034"
+        },
+        {
+          "elev": 16.97056274847714,
+          "fill_color": [
+            "229",
+            "161",
+            "128",
+            205
+          ],
+          "graded": 151,
+          "inspections": 288,
+          "lat": 40.800792294902564,
+          "lon": -73.93734512981774,
+          "median_score": 11.0,
+          "n_bc": 19,
+          "pct_bc": 12.6,
+          "reliable": true,
+          "zipcode": "10035"
+        },
+        {
+          "elev": 45.0,
+          "fill_color": [
+            "234",
+            "177",
+            "141",
+            205
+          ],
+          "graded": 1029,
+          "inspections": 2025,
+          "lat": 40.75825102274441,
+          "lon": -73.98685338965893,
+          "median_score": 11.0,
+          "n_bc": 102,
+          "pct_bc": 9.9,
+          "reliable": true,
+          "zipcode": "10036"
+        },
+        {
+          "elev": 9.695359714832659,
+          "fill_color": [
+            "215",
+            "123",
+            "97",
+            205
+          ],
+          "graded": 37,
+          "inspections": 94,
+          "lat": 40.814809519079645,
+          "lon": -73.93942666320746,
+          "median_score": 11.0,
+          "n_bc": 7,
+          "pct_bc": 18.9,
+          "reliable": true,
+          "zipcode": "10037"
+        },
+        {
+          "elev": 25.729360660537214,
+          "fill_color": [
+            "236",
+            "182",
+            "146",
+            205
+          ],
+          "graded": 355,
+          "inspections": 662,
+          "lat": 40.70921999619782,
+          "lon": -74.0055351046236,
+          "median_score": 11.0,
+          "n_bc": 32,
+          "pct_bc": 9.0,
+          "reliable": true,
+          "zipcode": "10038"
+        },
+        {
+          "elev": 8.426149773176359,
+          "fill_color": [
+            "244",
+            "206",
+            "166",
+            205
+          ],
+          "graded": 40,
+          "inspections": 71,
+          "lat": 40.823593249927605,
+          "lon": -73.93932986691102,
+          "median_score": 11.0,
+          "n_bc": 2,
+          "pct_bc": 5.0,
+          "reliable": true,
+          "zipcode": "10039"
+        },
+        {
+          "elev": 16.492422502470642,
+          "fill_color": [
+            "222",
+            "142",
+            "113",
+            205
+          ],
+          "graded": 114,
+          "inspections": 272,
+          "lat": 40.859789590322656,
+          "lon": -73.92796672835699,
+          "median_score": 11.0,
+          "n_bc": 18,
+          "pct_bc": 15.8,
+          "reliable": true,
+          "zipcode": "10040"
+        },
+        {
+          "elev": 3.1622776601683795,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 5,
+          "inspections": 10,
+          "lat": 40.703590200178,
+          "lon": -74.009781245549,
+          "median_score": 9.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10041"
+        },
+        {
+          "elev": 6.557438524302,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 26,
+          "inspections": 43,
+          "lat": 40.7606477794989,
+          "lon": -73.95092770747574,
+          "median_score": 11.5,
+          "n_bc": 3,
+          "pct_bc": 11.5,
+          "reliable": false,
+          "zipcode": "10044"
+        },
+        {
+          "elev": 1.4142135623730951,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 2,
+          "lat": 40.710817061564,
+          "lon": -74.0110772352015,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10048"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 3,
+          "inspections": 6,
+          "lat": 40.758820574134,
+          "lon": -73.973977989155,
+          "median_score": 7.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10055"
+        },
+        {
+          "elev": 23.53720459187964,
+          "fill_color": [
+            "231",
+            "168",
+            "134",
+            205
+          ],
+          "graded": 297,
+          "inspections": 554,
+          "lat": 40.76437026238161,
+          "lon": -73.96336378887692,
+          "median_score": 11.0,
+          "n_bc": 34,
+          "pct_bc": 11.4,
+          "reliable": true,
+          "zipcode": "10065"
+        },
+        {
+          "elev": 2.8284271247461903,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 8,
+          "lat": 40.776636483452876,
+          "lon": -73.98918707228736,
+          "median_score": 15.0,
+          "n_bc": 1,
+          "pct_bc": 50.0,
+          "reliable": false,
+          "zipcode": "10069"
+        },
+        {
+          "elev": 16.792855623746664,
+          "fill_color": [
+            "232",
+            "171",
+            "137",
+            205
+          ],
+          "graded": 147,
+          "inspections": 282,
+          "lat": 40.772905529709355,
+          "lon": -73.95659040587894,
+          "median_score": 11.0,
+          "n_bc": 16,
+          "pct_bc": 10.9,
+          "reliable": true,
+          "zipcode": "10075"
+        },
+        {
+          "elev": 1.7320508075688772,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 3,
+          "lat": 40.710561739274,
+          "lon": -74.011675964638,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10080"
+        },
+        {
+          "elev": 4.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 7,
+          "inspections": 16,
+          "lat": 40.760288231690375,
+          "lon": -73.97669644659675,
+          "median_score": 9.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10103"
+        },
+        {
+          "elev": 4.898979485566356,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 7,
+          "inspections": 24,
+          "lat": 40.76147432512904,
+          "lon": -73.97989155807542,
+          "median_score": 13.0,
+          "n_bc": 2,
+          "pct_bc": 28.6,
+          "reliable": false,
+          "zipcode": "10105"
+        },
+        {
+          "elev": 2.8284271247461903,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 8,
+          "inspections": 8,
+          "lat": 40.76516085305612,
+          "lon": -73.98030473644575,
+          "median_score": 8.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10106"
+        },
+        {
+          "elev": 1.7320508075688772,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 3,
+          "lat": 40.766383939507,
+          "lon": -73.982119335287,
+          "median_score": 7.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10107"
+        },
+        {
+          "elev": 1.7320508075688772,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 3,
+          "lat": 40.75353552087,
+          "lon": -73.980855909009,
+          "median_score": 8.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10110"
+        },
+        {
+          "elev": 2.8284271247461903,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 5,
+          "inspections": 8,
+          "lat": 40.759221149703876,
+          "lon": -73.9781506196895,
+          "median_score": 9.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10111"
+        },
+        {
+          "elev": 9.9498743710662,
+          "fill_color": [
+            "213",
+            "117",
+            "92",
+            205
+          ],
+          "graded": 55,
+          "inspections": 99,
+          "lat": 40.758747437799,
+          "lon": -73.978692223615,
+          "median_score": 10.0,
+          "n_bc": 11,
+          "pct_bc": 20.0,
+          "reliable": true,
+          "zipcode": "10112"
+        },
+        {
+          "elev": 1.7320508075688772,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 3,
+          "inspections": 3,
+          "lat": 40.811094482579,
+          "lon": -73.964167591037,
+          "median_score": 8.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10115"
+        },
+        {
+          "elev": 5.477225575051661,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 14,
+          "inspections": 30,
+          "lat": 40.748259395741464,
+          "lon": -73.9847699160158,
+          "median_score": 12.5,
+          "n_bc": 4,
+          "pct_bc": 28.6,
+          "reliable": false,
+          "zipcode": "10118"
+        },
+        {
+          "elev": 8.888194417315589,
+          "fill_color": [
+            "245",
+            "207",
+            "166",
+            205
+          ],
+          "graded": 42,
+          "inspections": 79,
+          "lat": 40.75351299533904,
+          "lon": -73.9896945865878,
+          "median_score": 9.0,
+          "n_bc": 2,
+          "pct_bc": 4.8,
+          "reliable": true,
+          "zipcode": "10119"
+        },
+        {
+          "elev": 13.74772708486752,
+          "fill_color": [
+            "252",
+            "229",
+            "184",
+            205
+          ],
+          "graded": 163,
+          "inspections": 189,
+          "lat": 40.75048260404552,
+          "lon": -73.99181079683092,
+          "median_score": 2.0,
+          "n_bc": 2,
+          "pct_bc": 1.2,
+          "reliable": true,
+          "zipcode": "10121"
+        },
+        {
+          "elev": 1.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 1,
+          "lat": 40.751475507247,
+          "lon": -73.991763676625,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10122"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 6,
+          "lat": 40.75158380194134,
+          "lon": -73.99019483706317,
+          "median_score": 11.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10123"
+        },
+        {
+          "elev": 22.360679774997898,
+          "fill_color": [
+            "224",
+            "148",
+            "118",
+            205
+          ],
+          "graded": 252,
+          "inspections": 500,
+          "lat": 40.78160811427067,
+          "lon": -73.95111736504484,
+          "median_score": 10.0,
+          "n_bc": 37,
+          "pct_bc": 14.7,
+          "reliable": true,
+          "zipcode": "10128"
+        },
+        {
+          "elev": 1.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 1,
+          "inspections": 1,
+          "lat": 40.763319168486,
+          "lon": -73.973694652509,
+          "median_score": 13.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10151"
+        },
+        {
+          "elev": 1.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 1,
+          "lat": 40.758779129885,
+          "lon": -73.972801258216,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10152"
+        },
+        {
+          "elev": 3.4641016151377544,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 9,
+          "inspections": 12,
+          "lat": 40.764013475174,
+          "lon": -73.973188985807,
+          "median_score": 8.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10153"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 5,
+          "inspections": 6,
+          "lat": 40.758164408299,
+          "lon": -73.973245493521,
+          "median_score": 5.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10154"
+        },
+        {
+          "elev": 1.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 1,
+          "inspections": 1,
+          "lat": 40.761396445211,
+          "lon": -73.968194085107,
+          "median_score": 4.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10155"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 4,
+          "inspections": 6,
+          "lat": 40.749068815335,
+          "lon": -73.975681711257,
+          "median_score": 8.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10158"
+        },
+        {
+          "elev": 2.8284271247461903,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 4,
+          "inspections": 8,
+          "lat": 40.752525062052,
+          "lon": -73.978661737793,
+          "median_score": 5.0,
+          "n_bc": 1,
+          "pct_bc": 25.0,
+          "reliable": false,
+          "zipcode": "10165"
+        },
+        {
+          "elev": 3.872983346207417,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 11,
+          "inspections": 15,
+          "lat": 40.754819088973,
+          "lon": -73.97568321334,
+          "median_score": 10.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10167"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 5,
+          "inspections": 6,
+          "lat": 40.751594155541,
+          "lon": -73.976449558859,
+          "median_score": 9.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10168"
+        },
+        {
+          "elev": 6.48074069840786,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 29,
+          "inspections": 42,
+          "lat": 40.75450075314,
+          "lon": -73.975950427165,
+          "median_score": 10.0,
+          "n_bc": 2,
+          "pct_bc": 6.9,
+          "reliable": false,
+          "zipcode": "10169"
+        },
+        {
+          "elev": 1.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 1,
+          "lat": 40.752255436318,
+          "lon": -73.975463985528,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10170"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 4,
+          "inspections": 6,
+          "lat": 40.756449218287,
+          "lon": -73.974495081506,
+          "median_score": 8.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10171"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 4,
+          "inspections": 6,
+          "lat": 40.7555573125,
+          "lon": -73.97513791153,
+          "median_score": 9.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10172"
+        },
+        {
+          "elev": 2.23606797749979,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 3,
+          "inspections": 5,
+          "lat": 40.753861732582,
+          "lon": -73.978513323124,
+          "median_score": 2.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10173"
+        },
+        {
+          "elev": 1.7320508075688772,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 1,
+          "inspections": 3,
+          "lat": 40.751816337574,
+          "lon": -73.975760108448,
+          "median_score": 13.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10174"
+        },
+        {
+          "elev": 1.4142135623730951,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 2,
+          "lat": 40.755610292397,
+          "lon": -73.979317671301,
+          "median_score": 10.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10176"
+        },
+        {
+          "elev": 3.872983346207417,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 8,
+          "inspections": 15,
+          "lat": 40.750985218449,
+          "lon": -73.978485380664,
+          "median_score": 11.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10178"
+        },
+        {
+          "elev": 1.4142135623730951,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 0,
+          "inspections": 2,
+          "lat": 40.755845908604,
+          "lon": -73.97704000693,
+          "median_score": NaN,
+          "n_bc": 0,
+          "pct_bc": NaN,
+          "reliable": false,
+          "zipcode": "10179"
+        },
+        {
+          "elev": 3.7416573867739413,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 11,
+          "inspections": 14,
+          "lat": 40.708538906895,
+          "lon": -74.01104079054501,
+          "median_score": 7.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10271"
+        },
+        {
+          "elev": 1.7320508075688772,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 3,
+          "lat": 40.712258329551,
+          "lon": -74.007892389047,
+          "median_score": 11.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "10279"
+        },
+        {
+          "elev": 8.717797887081348,
+          "fill_color": [
+            "245",
+            "207",
+            "166",
+            205
+          ],
+          "graded": 42,
+          "inspections": 76,
+          "lat": 40.71117357430929,
+          "lon": -74.01584436011697,
+          "median_score": 10.0,
+          "n_bc": 2,
+          "pct_bc": 4.8,
+          "reliable": true,
+          "zipcode": "10280"
+        },
+        {
+          "elev": 7.54983443527075,
+          "fill_color": [
+            "255",
+            "236",
+            "190",
+            205
+          ],
+          "graded": 39,
+          "inspections": 57,
+          "lat": 40.714008607914366,
+          "lon": -74.01558819053164,
+          "median_score": 7.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": true,
+          "zipcode": "10281"
+        },
+        {
+          "elev": 7.874007874011811,
+          "fill_color": [
+            "237",
+            "185",
+            "148",
+            205
+          ],
+          "graded": 35,
+          "inspections": 62,
+          "lat": 40.714844154782796,
+          "lon": -74.0157200558589,
+          "median_score": 10.0,
+          "n_bc": 3,
+          "pct_bc": 8.6,
+          "reliable": true,
+          "zipcode": "10282"
+        },
+        {
+          "elev": 19.0,
+          "fill_color": [
+            "218",
+            "131",
+            "104",
+            205
+          ],
+          "graded": 182,
+          "inspections": 361,
+          "lat": 40.63612056892177,
+          "lon": -74.08469327914102,
+          "median_score": 11.0,
+          "n_bc": 32,
+          "pct_bc": 17.6,
+          "reliable": true,
+          "zipcode": "10301"
+        },
+        {
+          "elev": 15.968719422671311,
+          "fill_color": [
+            "218",
+            "132",
+            "104",
+            205
+          ],
+          "graded": 126,
+          "inspections": 255,
+          "lat": 40.62931654819373,
+          "lon": -74.1364703879836,
+          "median_score": 12.0,
+          "n_bc": 22,
+          "pct_bc": 17.5,
+          "reliable": true,
+          "zipcode": "10302"
+        },
+        {
+          "elev": 11.090536506409418,
+          "fill_color": [
+            "214",
+            "119",
+            "94",
+            205
+          ],
+          "graded": 56,
+          "inspections": 123,
+          "lat": 40.62692837609777,
+          "lon": -74.15859083826005,
+          "median_score": 10.5,
+          "n_bc": 11,
+          "pct_bc": 19.6,
+          "reliable": true,
+          "zipcode": "10303"
+        },
+        {
+          "elev": 13.114877048604,
+          "fill_color": [
+            "224",
+            "148",
+            "117",
+            205
+          ],
+          "graded": 88,
+          "inspections": 172,
+          "lat": 40.61598336022489,
+          "lon": -74.0844001086025,
+          "median_score": 11.5,
+          "n_bc": 13,
+          "pct_bc": 14.8,
+          "reliable": true,
+          "zipcode": "10304"
+        },
+        {
+          "elev": 17.233687939614086,
+          "fill_color": [
+            "225",
+            "151",
+            "120",
+            205
+          ],
+          "graded": 161,
+          "inspections": 297,
+          "lat": 40.59879205978402,
+          "lon": -74.07934240223527,
+          "median_score": 11.0,
+          "n_bc": 23,
+          "pct_bc": 14.3,
+          "reliable": true,
+          "zipcode": "10305"
+        },
+        {
+          "elev": 20.73644135332772,
+          "fill_color": [
+            "235",
+            "180",
+            "144",
+            205
+          ],
+          "graded": 235,
+          "inspections": 430,
+          "lat": 40.571561937684855,
+          "lon": -74.11361981046349,
+          "median_score": 10.0,
+          "n_bc": 22,
+          "pct_bc": 9.4,
+          "reliable": true,
+          "zipcode": "10306"
+        },
+        {
+          "elev": 10.392304845413264,
+          "fill_color": [
+            "228",
+            "158",
+            "126",
+            205
+          ],
+          "graded": 54,
+          "inspections": 108,
+          "lat": 40.513735119063476,
+          "lon": -74.24018864793966,
+          "median_score": 10.0,
+          "n_bc": 7,
+          "pct_bc": 13.0,
+          "reliable": true,
+          "zipcode": "10307"
+        },
+        {
+          "elev": 11.74734012447073,
+          "fill_color": [
+            "240",
+            "192",
+            "154",
+            205
+          ],
+          "graded": 82,
+          "inspections": 138,
+          "lat": 40.54920291170909,
+          "lon": -74.151328520898,
+          "median_score": 11.0,
+          "n_bc": 6,
+          "pct_bc": 7.3,
+          "reliable": true,
+          "zipcode": "10308"
+        },
+        {
+          "elev": 15.459624833740307,
+          "fill_color": [
+            "237",
+            "185",
+            "148",
+            205
+          ],
+          "graded": 152,
+          "inspections": 239,
+          "lat": 40.530422766095334,
+          "lon": -74.22380837155514,
+          "median_score": 10.0,
+          "n_bc": 13,
+          "pct_bc": 8.6,
+          "reliable": true,
+          "zipcode": "10309"
+        },
+        {
+          "elev": 14.66287829861518,
+          "fill_color": [
+            "235",
+            "179",
+            "143",
+            205
+          ],
+          "graded": 125,
+          "inspections": 215,
+          "lat": 40.630958619816994,
+          "lon": -74.11681689198072,
+          "median_score": 10.0,
+          "n_bc": 12,
+          "pct_bc": 9.6,
+          "reliable": true,
+          "zipcode": "10310"
+        },
+        {
+          "elev": 15.198684153570664,
+          "fill_color": [
+            "237",
+            "185",
+            "148",
+            205
+          ],
+          "graded": 130,
+          "inspections": 231,
+          "lat": 40.54512833937652,
+          "lon": -74.17347351000232,
+          "median_score": 10.0,
+          "n_bc": 11,
+          "pct_bc": 8.5,
+          "reliable": true,
+          "zipcode": "10312"
+        },
+        {
+          "elev": 24.899799195977465,
+          "fill_color": [
+            "235",
+            "178",
+            "142",
+            205
+          ],
+          "graded": 350,
+          "inspections": 620,
+          "lat": 40.600484907090625,
+          "lon": -74.15358889426369,
+          "median_score": 11.0,
+          "n_bc": 34,
+          "pct_bc": 9.7,
+          "reliable": true,
+          "zipcode": "10314"
+        },
+        {
+          "elev": 22.315913604421397,
+          "fill_color": [
+            "228",
+            "159",
+            "127",
+            205
+          ],
+          "graded": 280,
+          "inspections": 498,
+          "lat": 40.82173382558532,
+          "lon": -73.92306384893475,
+          "median_score": 10.0,
+          "n_bc": 36,
+          "pct_bc": 12.9,
+          "reliable": true,
+          "zipcode": "10451"
+        },
+        {
+          "elev": 19.235384061671343,
+          "fill_color": [
+            "216",
+            "126",
+            "100",
+            205
+          ],
+          "graded": 201,
+          "inspections": 370,
+          "lat": 40.83878408803121,
+          "lon": -73.91981786527269,
+          "median_score": 11.0,
+          "n_bc": 37,
+          "pct_bc": 18.4,
+          "reliable": true,
+          "zipcode": "10452"
+        },
+        {
+          "elev": 18.681541692269406,
+          "fill_color": [
+            "215",
+            "122",
+            "96",
+            205
+          ],
+          "graded": 178,
+          "inspections": 349,
+          "lat": 40.85360044260082,
+          "lon": -73.90831522735462,
+          "median_score": 12.0,
+          "n_bc": 34,
+          "pct_bc": 19.1,
+          "reliable": true,
+          "zipcode": "10453"
+        },
+        {
+          "elev": 18.49324200890693,
+          "fill_color": [
+            "210",
+            "107",
+            "84",
+            205
+          ],
+          "graded": 162,
+          "inspections": 342,
+          "lat": 40.80768967041072,
+          "lon": -73.92080720164492,
+          "median_score": 12.0,
+          "n_bc": 35,
+          "pct_bc": 21.6,
+          "reliable": true,
+          "zipcode": "10454"
+        },
+        {
+          "elev": 19.28730152198591,
+          "fill_color": [
+            "226",
+            "155",
+            "123",
+            205
+          ],
+          "graded": 199,
+          "inspections": 372,
+          "lat": 40.81531606108068,
+          "lon": -73.91126180233341,
+          "median_score": 11.0,
+          "n_bc": 27,
+          "pct_bc": 13.6,
+          "reliable": true,
+          "zipcode": "10455"
+        },
+        {
+          "elev": 15.329709716755891,
+          "fill_color": [
+            "226",
+            "152",
+            "121",
+            205
+          ],
+          "graded": 129,
+          "inspections": 235,
+          "lat": 40.83253562205187,
+          "lon": -73.91001037179242,
+          "median_score": 11.0,
+          "n_bc": 18,
+          "pct_bc": 14.0,
+          "reliable": true,
+          "zipcode": "10456"
+        },
+        {
+          "elev": 17.72004514666935,
+          "fill_color": [
+            "221",
+            "139",
+            "110",
+            205
+          ],
+          "graded": 172,
+          "inspections": 314,
+          "lat": 40.84765621346723,
+          "lon": -73.89851147852595,
+          "median_score": 11.0,
+          "n_bc": 28,
+          "pct_bc": 16.3,
+          "reliable": true,
+          "zipcode": "10457"
+        },
+        {
+          "elev": 27.459060435491963,
+          "fill_color": [
+            "221",
+            "139",
+            "110",
+            205
+          ],
+          "graded": 406,
+          "inspections": 754,
+          "lat": 40.85909709269519,
+          "lon": -73.88923457760343,
+          "median_score": 11.0,
+          "n_bc": 66,
+          "pct_bc": 16.3,
+          "reliable": true,
+          "zipcode": "10458"
+        },
+        {
+          "elev": 16.401219466856727,
+          "fill_color": [
+            "239",
+            "191",
+            "153",
+            205
+          ],
+          "graded": 158,
+          "inspections": 269,
+          "lat": 40.8229366907427,
+          "lon": -73.89433649892055,
+          "median_score": 11.0,
+          "n_bc": 12,
+          "pct_bc": 7.6,
+          "reliable": true,
+          "zipcode": "10459"
+        },
+        {
+          "elev": 15.165750888103101,
+          "fill_color": [
+            "238",
+            "189",
+            "151",
+            205
+          ],
+          "graded": 139,
+          "inspections": 230,
+          "lat": 40.84119455075241,
+          "lon": -73.88177772175848,
+          "median_score": 10.0,
+          "n_bc": 11,
+          "pct_bc": 7.9,
+          "reliable": true,
+          "zipcode": "10460"
+        },
+        {
+          "elev": 24.166091947189145,
+          "fill_color": [
+            "231",
+            "169",
+            "135",
+            205
+          ],
+          "graded": 321,
+          "inspections": 584,
+          "lat": 40.84567706264066,
+          "lon": -73.84184881340555,
+          "median_score": 12.0,
+          "n_bc": 36,
+          "pct_bc": 11.2,
+          "reliable": true,
+          "zipcode": "10461"
+        },
+        {
+          "elev": 24.166091947189145,
+          "fill_color": [
+            "228",
+            "160",
+            "128",
+            205
+          ],
+          "graded": 347,
+          "inspections": 584,
+          "lat": 40.8409671231445,
+          "lon": -73.85908608695593,
+          "median_score": 11.0,
+          "n_bc": 44,
+          "pct_bc": 12.7,
+          "reliable": true,
+          "zipcode": "10462"
+        },
+        {
+          "elev": 21.307275752662516,
+          "fill_color": [
+            "222",
+            "141",
+            "112",
+            205
+          ],
+          "graded": 264,
+          "inspections": 454,
+          "lat": 40.88173396338834,
+          "lon": -73.90573626919219,
+          "median_score": 12.0,
+          "n_bc": 42,
+          "pct_bc": 15.9,
+          "reliable": true,
+          "zipcode": "10463"
+        },
+        {
+          "elev": 9.643650760992955,
+          "fill_color": [
+            "248",
+            "216",
+            "174",
+            205
+          ],
+          "graded": 61,
+          "inspections": 93,
+          "lat": 40.84902049825642,
+          "lon": -73.78882241577973,
+          "median_score": 12.0,
+          "n_bc": 2,
+          "pct_bc": 3.3,
+          "reliable": true,
+          "zipcode": "10464"
+        },
+        {
+          "elev": 16.30950643030009,
+          "fill_color": [
+            "242",
+            "199",
+            "160",
+            205
+          ],
+          "graded": 161,
+          "inspections": 266,
+          "lat": 40.826022602399796,
+          "lon": -73.82296753857136,
+          "median_score": 11.0,
+          "n_bc": 10,
+          "pct_bc": 6.2,
+          "reliable": true,
+          "zipcode": "10465"
+        },
+        {
+          "elev": 18.193405398660254,
+          "fill_color": [
+            "207",
+            "99",
+            "77",
+            205
+          ],
+          "graded": 187,
+          "inspections": 331,
+          "lat": 40.89093119408386,
+          "lon": -73.85040620033533,
+          "median_score": 12.0,
+          "n_bc": 43,
+          "pct_bc": 23.0,
+          "reliable": true,
+          "zipcode": "10466"
+        },
+        {
+          "elev": 24.289915602982237,
+          "fill_color": [
+            "221",
+            "138",
+            "110",
+            205
+          ],
+          "graded": 336,
+          "inspections": 590,
+          "lat": 40.8741435033775,
+          "lon": -73.87167651129205,
+          "median_score": 12.0,
+          "n_bc": 55,
+          "pct_bc": 16.4,
+          "reliable": true,
+          "zipcode": "10467"
+        },
+        {
+          "elev": 19.79898987322333,
+          "fill_color": [
+            "224",
+            "146",
+            "116",
+            205
+          ],
+          "graded": 213,
+          "inspections": 392,
+          "lat": 40.866221012055476,
+          "lon": -73.89858240859951,
+          "median_score": 12.0,
+          "n_bc": 32,
+          "pct_bc": 15.0,
+          "reliable": true,
+          "zipcode": "10468"
+        },
+        {
+          "elev": 18.57417562100671,
+          "fill_color": [
+            "214",
+            "120",
+            "95",
+            205
+          ],
+          "graded": 191,
+          "inspections": 345,
+          "lat": 40.87175775427699,
+          "lon": -73.84854552529339,
+          "median_score": 11.0,
+          "n_bc": 37,
+          "pct_bc": 19.4,
+          "reliable": true,
+          "zipcode": "10469"
+        },
+        {
+          "elev": 12.569805089976535,
+          "fill_color": [
+            "233",
+            "174",
+            "139",
+            205
+          ],
+          "graded": 77,
+          "inspections": 158,
+          "lat": 40.90048182429523,
+          "lon": -73.85945205704142,
+          "median_score": 11.0,
+          "n_bc": 8,
+          "pct_bc": 10.4,
+          "reliable": true,
+          "zipcode": "10470"
+        },
+        {
+          "elev": 13.114877048604,
+          "fill_color": [
+            "239",
+            "189",
+            "152",
+            205
+          ],
+          "graded": 103,
+          "inspections": 172,
+          "lat": 40.90189948235878,
+          "lon": -73.90169781073354,
+          "median_score": 11.0,
+          "n_bc": 8,
+          "pct_bc": 7.8,
+          "reliable": true,
+          "zipcode": "10471"
+        },
+        {
+          "elev": 20.85665361461421,
+          "fill_color": [
+            "222",
+            "142",
+            "113",
+            205
+          ],
+          "graded": 228,
+          "inspections": 435,
+          "lat": 40.829626281228705,
+          "lon": -73.87042287141398,
+          "median_score": 11.0,
+          "n_bc": 36,
+          "pct_bc": 15.8,
+          "reliable": true,
+          "zipcode": "10472"
+        },
+        {
+          "elev": 10.198039027185569,
+          "fill_color": [
+            "232",
+            "172",
+            "137",
+            205
+          ],
+          "graded": 65,
+          "inspections": 104,
+          "lat": 40.821995738874904,
+          "lon": -73.86301480760527,
+          "median_score": 10.0,
+          "n_bc": 7,
+          "pct_bc": 10.8,
+          "reliable": true,
+          "zipcode": "10473"
+        },
+        {
+          "elev": 12.0,
+          "fill_color": [
+            "230",
+            "166",
+            "132",
+            205
+          ],
+          "graded": 68,
+          "inspections": 144,
+          "lat": 40.81347448373079,
+          "lon": -73.88666251342696,
+          "median_score": 11.0,
+          "n_bc": 8,
+          "pct_bc": 11.8,
+          "reliable": true,
+          "zipcode": "10474"
+        },
+        {
+          "elev": 15.937377450509228,
+          "fill_color": [
+            "223",
+            "146",
+            "116",
+            205
+          ],
+          "graded": 146,
+          "inspections": 254,
+          "lat": 40.87110659615846,
+          "lon": -73.82861689392863,
+          "median_score": 11.0,
+          "n_bc": 22,
+          "pct_bc": 15.1,
+          "reliable": true,
+          "zipcode": "10475"
+        },
+        {
+          "elev": 2.23606797749979,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 1,
+          "inspections": 5,
+          "lat": 40.7276035884642,
+          "lon": -73.70999536276881,
+          "median_score": 9.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "11001"
+        },
+        {
+          "elev": 10.723805294763608,
+          "fill_color": [
+            "233",
+            "173",
+            "139",
+            205
+          ],
+          "graded": 57,
+          "inspections": 115,
+          "lat": 40.740611461666695,
+          "lon": -73.71037145636463,
+          "median_score": 11.0,
+          "n_bc": 6,
+          "pct_bc": 10.5,
+          "reliable": true,
+          "zipcode": "11004"
+        },
+        {
+          "elev": 3.605551275463989,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 4,
+          "inspections": 13,
+          "lat": 40.759281066406,
+          "lon": -73.713491876883,
+          "median_score": 24.0,
+          "n_bc": 3,
+          "pct_bc": 75.0,
+          "reliable": false,
+          "zipcode": "11005"
+        },
+        {
+          "elev": 7.483314773547883,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 25,
+          "inspections": 56,
+          "lat": 40.75156136020162,
+          "lon": -73.7033776915293,
+          "median_score": 12.0,
+          "n_bc": 4,
+          "pct_bc": 16.0,
+          "reliable": false,
+          "zipcode": "11040"
+        },
+        {
+          "elev": 36.578682316343766,
+          "fill_color": [
+            "226",
+            "154",
+            "122",
+            205
+          ],
+          "graded": 683,
+          "inspections": 1338,
+          "lat": 40.7487485801631,
+          "lon": -73.9395245988194,
+          "median_score": 12.0,
+          "n_bc": 94,
+          "pct_bc": 13.8,
+          "reliable": true,
+          "zipcode": "11101"
+        },
+        {
+          "elev": 18.33030277982336,
+          "fill_color": [
+            "229",
+            "162",
+            "129",
+            205
+          ],
+          "graded": 177,
+          "inspections": 336,
+          "lat": 40.769425023005134,
+          "lon": -73.92332043595208,
+          "median_score": 12.0,
+          "n_bc": 22,
+          "pct_bc": 12.4,
+          "reliable": true,
+          "zipcode": "11102"
+        },
+        {
+          "elev": 30.44667469527666,
+          "fill_color": [
+            "219",
+            "134",
+            "106",
+            205
+          ],
+          "graded": 420,
+          "inspections": 927,
+          "lat": 40.76342219155178,
+          "lon": -73.91511201627212,
+          "median_score": 12.0,
+          "n_bc": 72,
+          "pct_bc": 17.1,
+          "reliable": true,
+          "zipcode": "11103"
+        },
+        {
+          "elev": 20.42057785666214,
+          "fill_color": [
+            "232",
+            "172",
+            "137",
+            205
+          ],
+          "graded": 213,
+          "inspections": 417,
+          "lat": 40.74332923350546,
+          "lon": -73.9217244363458,
+          "median_score": 12.0,
+          "n_bc": 23,
+          "pct_bc": 10.8,
+          "reliable": true,
+          "zipcode": "11104"
+        },
+        {
+          "elev": 22.20360331117452,
+          "fill_color": [
+            "235",
+            "180",
+            "144",
+            205
+          ],
+          "graded": 277,
+          "inspections": 493,
+          "lat": 40.77479821885298,
+          "lon": -73.90995893285728,
+          "median_score": 12.0,
+          "n_bc": 26,
+          "pct_bc": 9.4,
+          "reliable": true,
+          "zipcode": "11105"
+        },
+        {
+          "elev": 25.11971337416094,
+          "fill_color": [
+            "224",
+            "147",
+            "117",
+            205
+          ],
+          "graded": 322,
+          "inspections": 631,
+          "lat": 40.76033881970107,
+          "lon": -73.92763386626534,
+          "median_score": 12.0,
+          "n_bc": 48,
+          "pct_bc": 14.9,
+          "reliable": true,
+          "zipcode": "11106"
+        },
+        {
+          "elev": 4.0,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 11,
+          "inspections": 16,
+          "lat": 40.746514227243935,
+          "lon": -73.95678305690387,
+          "median_score": 12.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "11109"
+        },
+        {
+          "elev": 40.27406113120453,
+          "fill_color": [
+            "236",
+            "182",
+            "146",
+            205
+          ],
+          "graded": 897,
+          "inspections": 1622,
+          "lat": 40.693383559283056,
+          "lon": -73.98942175210496,
+          "median_score": 10.0,
+          "n_bc": 81,
+          "pct_bc": 9.0,
+          "reliable": true,
+          "zipcode": "11201"
+        },
+        {
+          "elev": 22.781571499789035,
+          "fill_color": [
+            "216",
+            "124",
+            "98",
+            205
+          ],
+          "graded": 260,
+          "inspections": 519,
+          "lat": 40.65093447319695,
+          "lon": -73.9336145618322,
+          "median_score": 12.0,
+          "n_bc": 49,
+          "pct_bc": 18.8,
+          "reliable": true,
+          "zipcode": "11203"
+        },
+        {
+          "elev": 22.516660498395403,
+          "fill_color": [
+            "223",
+            "145",
+            "115",
+            205
+          ],
+          "graded": 249,
+          "inspections": 507,
+          "lat": 40.61755916171698,
+          "lon": -73.98666292389986,
+          "median_score": 11.0,
+          "n_bc": 38,
+          "pct_bc": 15.3,
+          "reliable": true,
+          "zipcode": "11204"
+        },
+        {
+          "elev": 23.790754506740637,
+          "fill_color": [
+            "220",
+            "138",
+            "109",
+            205
+          ],
+          "graded": 297,
+          "inspections": 566,
+          "lat": 40.69270957553448,
+          "lon": -73.96582332089339,
+          "median_score": 11.0,
+          "n_bc": 49,
+          "pct_bc": 16.5,
+          "reliable": true,
+          "zipcode": "11205"
+        },
+        {
+          "elev": 26.019223662515376,
+          "fill_color": [
+            "232",
+            "170",
+            "136",
+            205
+          ],
+          "graded": 354,
+          "inspections": 677,
+          "lat": 40.70283856390481,
+          "lon": -73.94029809676977,
+          "median_score": 11.0,
+          "n_bc": 39,
+          "pct_bc": 11.0,
+          "reliable": true,
+          "zipcode": "11206"
+        },
+        {
+          "elev": 22.20360331117452,
+          "fill_color": [
+            "233",
+            "174",
+            "139",
+            205
+          ],
+          "graded": 309,
+          "inspections": 493,
+          "lat": 40.671337102327904,
+          "lon": -73.89543227525212,
+          "median_score": 12.0,
+          "n_bc": 32,
+          "pct_bc": 10.4,
+          "reliable": true,
+          "zipcode": "11207"
+        },
+        {
+          "elev": 20.808652046684813,
+          "fill_color": [
+            "221",
+            "141",
+            "112",
+            205
+          ],
+          "graded": 237,
+          "inspections": 433,
+          "lat": 40.67855846285722,
+          "lon": -73.87201912306918,
+          "median_score": 12.0,
+          "n_bc": 38,
+          "pct_bc": 16.0,
+          "reliable": true,
+          "zipcode": "11208"
+        },
+        {
+          "elev": 30.773365106858236,
+          "fill_color": [
+            "230",
+            "166",
+            "133",
+            205
+          ],
+          "graded": 512,
+          "inspections": 947,
+          "lat": 40.62576457640126,
+          "lon": -74.02791668416694,
+          "median_score": 10.0,
+          "n_bc": 60,
+          "pct_bc": 11.7,
+          "reliable": true,
+          "zipcode": "11209"
+        },
+        {
+          "elev": 16.97056274847714,
+          "fill_color": [
+            "229",
+            "161",
+            "128",
+            205
+          ],
+          "graded": 151,
+          "inspections": 288,
+          "lat": 40.63173025783327,
+          "lon": -73.94707509514987,
+          "median_score": 10.0,
+          "n_bc": 19,
+          "pct_bc": 12.6,
+          "reliable": true,
+          "zipcode": "11210"
+        },
+        {
+          "elev": 37.97367509209505,
+          "fill_color": [
+            "228",
+            "160",
+            "128",
+            205
+          ],
+          "graded": 764,
+          "inspections": 1442,
+          "lat": 40.71316682704113,
+          "lon": -73.95195266812817,
+          "median_score": 11.0,
+          "n_bc": 97,
+          "pct_bc": 12.7,
+          "reliable": true,
+          "zipcode": "11211"
+        },
+        {
+          "elev": 19.0,
+          "fill_color": [
+            "233",
+            "173",
+            "138",
+            205
+          ],
+          "graded": 218,
+          "inspections": 361,
+          "lat": 40.66436041340673,
+          "lon": -73.91509330433173,
+          "median_score": 12.0,
+          "n_bc": 23,
+          "pct_bc": 10.6,
+          "reliable": true,
+          "zipcode": "11212"
+        },
+        {
+          "elev": 19.157244060668017,
+          "fill_color": [
+            "224",
+            "148",
+            "118",
+            205
+          ],
+          "graded": 197,
+          "inspections": 367,
+          "lat": 40.6702489106405,
+          "lon": -73.9344727339596,
+          "median_score": 12.0,
+          "n_bc": 29,
+          "pct_bc": 14.7,
+          "reliable": true,
+          "zipcode": "11213"
+        },
+        {
+          "elev": 28.0,
+          "fill_color": [
+            "226",
+            "155",
+            "123",
+            205
+          ],
+          "graded": 404,
+          "inspections": 784,
+          "lat": 40.60366216325487,
+          "lon": -73.99792764927956,
+          "median_score": 12.0,
+          "n_bc": 55,
+          "pct_bc": 13.6,
+          "reliable": true,
+          "zipcode": "11214"
+        },
+        {
+          "elev": 34.539832078341085,
+          "fill_color": [
+            "239",
+            "189",
+            "152",
+            205
+          ],
+          "graded": 727,
+          "inspections": 1193,
+          "lat": 40.66867165172383,
+          "lon": -73.98437571989075,
+          "median_score": 10.0,
+          "n_bc": 57,
+          "pct_bc": 7.8,
+          "reliable": true,
+          "zipcode": "11215"
+        },
+        {
+          "elev": 27.820855486487112,
+          "fill_color": [
+            "225",
+            "151",
+            "120",
+            205
+          ],
+          "graded": 395,
+          "inspections": 774,
+          "lat": 40.680389518481704,
+          "lon": -73.94908311353436,
+          "median_score": 10.0,
+          "n_bc": 56,
+          "pct_bc": 14.2,
+          "reliable": true,
+          "zipcode": "11216"
+        },
+        {
+          "elev": 31.32091952673165,
+          "fill_color": [
+            "230",
+            "166",
+            "133",
+            205
+          ],
+          "graded": 540,
+          "inspections": 981,
+          "lat": 40.68253286883582,
+          "lon": -73.97789809268413,
+          "median_score": 10.0,
+          "n_bc": 63,
+          "pct_bc": 11.7,
+          "reliable": true,
+          "zipcode": "11217"
+        },
+        {
+          "elev": 21.817424229271428,
+          "fill_color": [
+            "227",
+            "158",
+            "126",
+            205
+          ],
+          "graded": 260,
+          "inspections": 476,
+          "lat": 40.64250541125129,
+          "lon": -73.97507707059553,
+          "median_score": 10.0,
+          "n_bc": 34,
+          "pct_bc": 13.1,
+          "reliable": true,
+          "zipcode": "11218"
+        },
+        {
+          "elev": 20.12461179749811,
+          "fill_color": [
+            "216",
+            "126",
+            "99",
+            205
+          ],
+          "graded": 211,
+          "inspections": 405,
+          "lat": 40.63190727411766,
+          "lon": -73.99970470272385,
+          "median_score": 11.0,
+          "n_bc": 39,
+          "pct_bc": 18.5,
+          "reliable": true,
+          "zipcode": "11219"
+        },
+        {
+          "elev": 37.16180835212409,
+          "fill_color": [
+            "223",
+            "145",
+            "115",
+            205
+          ],
+          "graded": 714,
+          "inspections": 1381,
+          "lat": 40.64032931241624,
+          "lon": -74.01129844608319,
+          "median_score": 11.0,
+          "n_bc": 109,
+          "pct_bc": 15.3,
+          "reliable": true,
+          "zipcode": "11220"
+        },
+        {
+          "elev": 23.430749027719962,
+          "fill_color": [
+            "222",
+            "144",
+            "114",
+            205
+          ],
+          "graded": 291,
+          "inspections": 549,
+          "lat": 40.69173752929633,
+          "lon": -73.92806615002537,
+          "median_score": 11.0,
+          "n_bc": 45,
+          "pct_bc": 15.5,
+          "reliable": true,
+          "zipcode": "11221"
+        },
+        {
+          "elev": 29.698484809834994,
+          "fill_color": [
+            "231",
+            "167",
+            "133",
+            205
+          ],
+          "graded": 475,
+          "inspections": 882,
+          "lat": 40.72775234191811,
+          "lon": -73.95231507954826,
+          "median_score": 11.0,
+          "n_bc": 55,
+          "pct_bc": 11.6,
+          "reliable": true,
+          "zipcode": "11222"
+        },
+        {
+          "elev": 25.13961017995307,
+          "fill_color": [
+            "235",
+            "179",
+            "143",
+            205
+          ],
+          "graded": 326,
+          "inspections": 632,
+          "lat": 40.600300851995875,
+          "lon": -73.97233945012621,
+          "median_score": 11.0,
+          "n_bc": 31,
+          "pct_bc": 9.5,
+          "reliable": true,
+          "zipcode": "11223"
+        },
+        {
+          "elev": 17.0,
+          "fill_color": [
+            "241",
+            "196",
+            "157",
+            205
+          ],
+          "graded": 135,
+          "inspections": 289,
+          "lat": 40.5759215699765,
+          "lon": -73.98140521324092,
+          "median_score": 10.0,
+          "n_bc": 9,
+          "pct_bc": 6.7,
+          "reliable": true,
+          "zipcode": "11224"
+        },
+        {
+          "elev": 23.173260452512935,
+          "fill_color": [
+            "229",
+            "161",
+            "128",
+            205
+          ],
+          "graded": 301,
+          "inspections": 537,
+          "lat": 40.66230484428055,
+          "lon": -73.95536083379922,
+          "median_score": 10.0,
+          "n_bc": 38,
+          "pct_bc": 12.6,
+          "reliable": true,
+          "zipcode": "11225"
+        },
+        {
+          "elev": 28.982753492378876,
+          "fill_color": [
+            "225",
+            "149",
+            "119",
+            205
+          ],
+          "graded": 421,
+          "inspections": 840,
+          "lat": 40.64774366235723,
+          "lon": -73.9560542022931,
+          "median_score": 11.0,
+          "n_bc": 61,
+          "pct_bc": 14.5,
+          "reliable": true,
+          "zipcode": "11226"
+        },
+        {
+          "elev": 15.362291495737216,
+          "fill_color": [
+            "216",
+            "125",
+            "99",
+            205
+          ],
+          "graded": 118,
+          "inspections": 236,
+          "lat": 40.61927756793906,
+          "lon": -74.00917185651217,
+          "median_score": 11.5,
+          "n_bc": 22,
+          "pct_bc": 18.6,
+          "reliable": true,
+          "zipcode": "11228"
+        },
+        {
+          "elev": 23.043437243605826,
+          "fill_color": [
+            "215",
+            "121",
+            "96",
+            205
+          ],
+          "graded": 266,
+          "inspections": 531,
+          "lat": 40.602327681008795,
+          "lon": -73.95074961308673,
+          "median_score": 11.0,
+          "n_bc": 51,
+          "pct_bc": 19.2,
+          "reliable": true,
+          "zipcode": "11229"
+        },
+        {
+          "elev": 20.952326839756964,
+          "fill_color": [
+            "226",
+            "152",
+            "121",
+            205
+          ],
+          "graded": 207,
+          "inspections": 439,
+          "lat": 40.622678476758786,
+          "lon": -73.96477140264192,
+          "median_score": 11.0,
+          "n_bc": 29,
+          "pct_bc": 14.0,
+          "reliable": true,
+          "zipcode": "11230"
+        },
+        {
+          "elev": 23.916521486202797,
+          "fill_color": [
+            "237",
+            "185",
+            "148",
+            205
+          ],
+          "graded": 292,
+          "inspections": 572,
+          "lat": 40.68060750726639,
+          "lon": -73.99988908084586,
+          "median_score": 11.0,
+          "n_bc": 25,
+          "pct_bc": 8.6,
+          "reliable": true,
+          "zipcode": "11231"
+        },
+        {
+          "elev": 20.396078054371138,
+          "fill_color": [
+            "238",
+            "189",
+            "151",
+            205
+          ],
+          "graded": 252,
+          "inspections": 416,
+          "lat": 40.6534144601528,
+          "lon": -74.00346476776627,
+          "median_score": 11.0,
+          "n_bc": 20,
+          "pct_bc": 7.9,
+          "reliable": true,
+          "zipcode": "11232"
+        },
+        {
+          "elev": 18.0,
+          "fill_color": [
+            "226",
+            "152",
+            "121",
+            205
+          ],
+          "graded": 157,
+          "inspections": 324,
+          "lat": 40.68050197839478,
+          "lon": -73.92230125028324,
+          "median_score": 12.0,
+          "n_bc": 22,
+          "pct_bc": 14.0,
+          "reliable": true,
+          "zipcode": "11233"
+        },
+        {
+          "elev": 23.874672772626646,
+          "fill_color": [
+            "223",
+            "144",
+            "115",
+            205
+          ],
+          "graded": 305,
+          "inspections": 570,
+          "lat": 40.618976403243686,
+          "lon": -73.92374164235368,
+          "median_score": 11.0,
+          "n_bc": 47,
+          "pct_bc": 15.4,
+          "reliable": true,
+          "zipcode": "11234"
+        },
+        {
+          "elev": 25.553864678361276,
+          "fill_color": [
+            "236",
+            "182",
+            "145",
+            205
+          ],
+          "graded": 309,
+          "inspections": 653,
+          "lat": 40.58381391465584,
+          "lon": -73.95430772308046,
+          "median_score": 10.0,
+          "n_bc": 28,
+          "pct_bc": 9.1,
+          "reliable": true,
+          "zipcode": "11235"
+        },
+        {
+          "elev": 19.949937343260004,
+          "fill_color": [
+            "229",
+            "161",
+            "128",
+            205
+          ],
+          "graded": 231,
+          "inspections": 398,
+          "lat": 40.64005873626513,
+          "lon": -73.90579126635019,
+          "median_score": 12.0,
+          "n_bc": 29,
+          "pct_bc": 12.6,
+          "reliable": true,
+          "zipcode": "11236"
+        },
+        {
+          "elev": 30.93541659651604,
+          "fill_color": [
+            "226",
+            "154",
+            "122",
+            205
+          ],
+          "graded": 470,
+          "inspections": 957,
+          "lat": 40.70275525352518,
+          "lon": -73.92061344815207,
+          "median_score": 12.0,
+          "n_bc": 65,
+          "pct_bc": 13.8,
+          "reliable": true,
+          "zipcode": "11237"
+        },
+        {
+          "elev": 29.120439557122072,
+          "fill_color": [
+            "235",
+            "180",
+            "144",
+            205
+          ],
+          "graded": 449,
+          "inspections": 848,
+          "lat": 40.678904830100805,
+          "lon": -73.96350105289343,
+          "median_score": 10.0,
+          "n_bc": 42,
+          "pct_bc": 9.4,
+          "reliable": true,
+          "zipcode": "11238"
+        },
+        {
+          "elev": 8.94427190999916,
+          "fill_color": [
+            "246",
+            "211",
+            "169",
+            205
+          ],
+          "graded": 48,
+          "inspections": 80,
+          "lat": 40.65178469144381,
+          "lon": -73.87499215175912,
+          "median_score": 10.5,
+          "n_bc": 2,
+          "pct_bc": 4.2,
+          "reliable": true,
+          "zipcode": "11239"
+        },
+        {
+          "elev": 2.449489742783178,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 2,
+          "inspections": 6,
+          "lat": 40.693437318966,
+          "lon": -73.990577253804,
+          "median_score": 7.5,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "11241"
+        },
+        {
+          "elev": 25.337718918639855,
+          "fill_color": [
+            "235",
+            "178",
+            "142",
+            205
+          ],
+          "graded": 330,
+          "inspections": 642,
+          "lat": 40.71672403108523,
+          "lon": -73.96111569253036,
+          "median_score": 11.0,
+          "n_bc": 32,
+          "pct_bc": 9.7,
+          "reliable": true,
+          "zipcode": "11249"
+        },
+        {
+          "elev": 42.941821107167776,
+          "fill_color": [
+            "206",
+            "98",
+            "76",
+            205
+          ],
+          "graded": 793,
+          "inspections": 1844,
+          "lat": 40.76186183618282,
+          "lon": -73.82796525924533,
+          "median_score": 12.0,
+          "n_bc": 184,
+          "pct_bc": 23.2,
+          "reliable": true,
+          "zipcode": "11354"
+        },
+        {
+          "elev": 28.6705423736629,
+          "fill_color": [
+            "192",
+            "57",
+            "43",
+            205
+          ],
+          "graded": 342,
+          "inspections": 822,
+          "lat": 40.75416192553332,
+          "lon": -73.82457703834042,
+          "median_score": 12.0,
+          "n_bc": 114,
+          "pct_bc": 33.3,
+          "reliable": true,
+          "zipcode": "11355"
+        },
+        {
+          "elev": 15.394804318340652,
+          "fill_color": [
+            "239",
+            "191",
+            "153",
+            205
+          ],
+          "graded": 118,
+          "inspections": 237,
+          "lat": 40.783280965616896,
+          "lon": -73.84259558445083,
+          "median_score": 12.0,
+          "n_bc": 9,
+          "pct_bc": 7.6,
+          "reliable": true,
+          "zipcode": "11356"
+        },
+        {
+          "elev": 14.071247279470288,
+          "fill_color": [
+            "240",
+            "194",
+            "155",
+            205
+          ],
+          "graded": 127,
+          "inspections": 198,
+          "lat": 40.7859228703952,
+          "lon": -73.80915257143766,
+          "median_score": 12.0,
+          "n_bc": 9,
+          "pct_bc": 7.1,
+          "reliable": true,
+          "zipcode": "11357"
+        },
+        {
+          "elev": 22.24859546128699,
+          "fill_color": [
+            "225",
+            "151",
+            "120",
+            205
+          ],
+          "graded": 260,
+          "inspections": 495,
+          "lat": 40.76164933826339,
+          "lon": -73.79778100726332,
+          "median_score": 12.0,
+          "n_bc": 37,
+          "pct_bc": 14.2,
+          "reliable": true,
+          "zipcode": "11358"
+        },
+        {
+          "elev": 9.327379053088816,
+          "fill_color": [
+            "242",
+            "200",
+            "160",
+            205
+          ],
+          "graded": 49,
+          "inspections": 87,
+          "lat": 40.78061623989297,
+          "lon": -73.77886504605256,
+          "median_score": 11.0,
+          "n_bc": 3,
+          "pct_bc": 6.1,
+          "reliable": true,
+          "zipcode": "11360"
+        },
+        {
+          "elev": 20.73644135332772,
+          "fill_color": [
+            "231",
+            "167",
+            "133",
+            205
+          ],
+          "graded": 242,
+          "inspections": 430,
+          "lat": 40.76197897798766,
+          "lon": -73.77159583661854,
+          "median_score": 11.0,
+          "n_bc": 28,
+          "pct_bc": 11.6,
+          "reliable": true,
+          "zipcode": "11361"
+        },
+        {
+          "elev": 13.564659966250536,
+          "fill_color": [
+            "237",
+            "185",
+            "148",
+            205
+          ],
+          "graded": 94,
+          "inspections": 184,
+          "lat": 40.76758620770214,
+          "lon": -73.73457963005832,
+          "median_score": 10.5,
+          "n_bc": 8,
+          "pct_bc": 8.5,
+          "reliable": true,
+          "zipcode": "11362"
+        },
+        {
+          "elev": 5.744562646538029,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 17,
+          "inspections": 33,
+          "lat": 40.767874516450725,
+          "lon": -73.74637351520833,
+          "median_score": 10.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "11363"
+        },
+        {
+          "elev": 14.832396974191326,
+          "fill_color": [
+            "226",
+            "155",
+            "123",
+            205
+          ],
+          "graded": 110,
+          "inspections": 220,
+          "lat": 40.74653940358421,
+          "lon": -73.75831737433951,
+          "median_score": 12.0,
+          "n_bc": 15,
+          "pct_bc": 13.6,
+          "reliable": true,
+          "zipcode": "11364"
+        },
+        {
+          "elev": 14.142135623730951,
+          "fill_color": [
+            "229",
+            "163",
+            "130",
+            205
+          ],
+          "graded": 98,
+          "inspections": 200,
+          "lat": 40.73720522181233,
+          "lon": -73.79390387096413,
+          "median_score": 12.0,
+          "n_bc": 12,
+          "pct_bc": 12.2,
+          "reliable": true,
+          "zipcode": "11365"
+        },
+        {
+          "elev": 13.601470508735444,
+          "fill_color": [
+            "227",
+            "155",
+            "124",
+            205
+          ],
+          "graded": 96,
+          "inspections": 185,
+          "lat": 40.72515959052177,
+          "lon": -73.7935551409761,
+          "median_score": 10.0,
+          "n_bc": 13,
+          "pct_bc": 13.5,
+          "reliable": true,
+          "zipcode": "11366"
+        },
+        {
+          "elev": 11.874342087037917,
+          "fill_color": [
+            "231",
+            "168",
+            "134",
+            205
+          ],
+          "graded": 79,
+          "inspections": 141,
+          "lat": 40.72732860718244,
+          "lon": -73.81841943514843,
+          "median_score": 12.0,
+          "n_bc": 9,
+          "pct_bc": 11.4,
+          "reliable": true,
+          "zipcode": "11367"
+        },
+        {
+          "elev": 31.984371183438952,
+          "fill_color": [
+            "205",
+            "95",
+            "74",
+            205
+          ],
+          "graded": 499,
+          "inspections": 1023,
+          "lat": 40.7495956692863,
+          "lon": -73.86290378902099,
+          "median_score": 12.0,
+          "n_bc": 118,
+          "pct_bc": 23.6,
+          "reliable": true,
+          "zipcode": "11368"
+        },
+        {
+          "elev": 13.96424004376894,
+          "fill_color": [
+            "224",
+            "146",
+            "116",
+            205
+          ],
+          "graded": 100,
+          "inspections": 195,
+          "lat": 40.763209653634945,
+          "lon": -73.87495497278906,
+          "median_score": 12.0,
+          "n_bc": 15,
+          "pct_bc": 15.0,
+          "reliable": true,
+          "zipcode": "11369"
+        },
+        {
+          "elev": 7.874007874011811,
+          "fill_color": [
+            "235",
+            "181",
+            "144",
+            205
+          ],
+          "graded": 43,
+          "inspections": 62,
+          "lat": 40.76272471134626,
+          "lon": -73.89042920375938,
+          "median_score": 12.0,
+          "n_bc": 4,
+          "pct_bc": 9.3,
+          "reliable": true,
+          "zipcode": "11370"
+        },
+        {
+          "elev": 38.48376280978771,
+          "fill_color": [
+            "212",
+            "113",
+            "89",
+            205
+          ],
+          "graded": 678,
+          "inspections": 1481,
+          "lat": 40.75016664502755,
+          "lon": -73.88437675528867,
+          "median_score": 12.0,
+          "n_bc": 140,
+          "pct_bc": 20.6,
+          "reliable": true,
+          "zipcode": "11372"
+        },
+        {
+          "elev": 31.701734968294716,
+          "fill_color": [
+            "212",
+            "113",
+            "89",
+            205
+          ],
+          "graded": 476,
+          "inspections": 1005,
+          "lat": 40.74013098200073,
+          "lon": -73.87881306649197,
+          "median_score": 12.0,
+          "n_bc": 98,
+          "pct_bc": 20.6,
+          "reliable": true,
+          "zipcode": "11373"
+        },
+        {
+          "elev": 17.635192088548397,
+          "fill_color": [
+            "225",
+            "152",
+            "121",
+            205
+          ],
+          "graded": 163,
+          "inspections": 311,
+          "lat": 40.728245516843444,
+          "lon": -73.86301303851106,
+          "median_score": 12.0,
+          "n_bc": 23,
+          "pct_bc": 14.1,
+          "reliable": true,
+          "zipcode": "11374"
+        },
+        {
+          "elev": 27.49545416973504,
+          "fill_color": [
+            "225",
+            "150",
+            "119",
+            205
+          ],
+          "graded": 390,
+          "inspections": 756,
+          "lat": 40.71983640508837,
+          "lon": -73.84556857793268,
+          "median_score": 12.0,
+          "n_bc": 56,
+          "pct_bc": 14.4,
+          "reliable": true,
+          "zipcode": "11375"
+        },
+        {
+          "elev": 28.653097563788805,
+          "fill_color": [
+            "217",
+            "127",
+            "100",
+            205
+          ],
+          "graded": 378,
+          "inspections": 821,
+          "lat": 40.74604583371428,
+          "lon": -73.9049759494211,
+          "median_score": 12.0,
+          "n_bc": 69,
+          "pct_bc": 18.3,
+          "reliable": true,
+          "zipcode": "11377"
+        },
+        {
+          "elev": 17.74823934929885,
+          "fill_color": [
+            "217",
+            "127",
+            "101",
+            205
+          ],
+          "graded": 154,
+          "inspections": 315,
+          "lat": 40.724304772494655,
+          "lon": -73.90249602879975,
+          "median_score": 12.0,
+          "n_bc": 28,
+          "pct_bc": 18.2,
+          "reliable": true,
+          "zipcode": "11378"
+        },
+        {
+          "elev": 11.489125293076057,
+          "fill_color": [
+            "243",
+            "203",
+            "163",
+            205
+          ],
+          "graded": 73,
+          "inspections": 132,
+          "lat": 40.71649072881279,
+          "lon": -73.88168510990826,
+          "median_score": 12.0,
+          "n_bc": 4,
+          "pct_bc": 5.5,
+          "reliable": true,
+          "zipcode": "11379"
+        },
+        {
+          "elev": 32.63433774416144,
+          "fill_color": [
+            "232",
+            "171",
+            "137",
+            205
+          ],
+          "graded": 604,
+          "inspections": 1065,
+          "lat": 40.7038740935308,
+          "lon": -73.89820782711618,
+          "median_score": 11.0,
+          "n_bc": 66,
+          "pct_bc": 10.9,
+          "reliable": true,
+          "zipcode": "11385"
+        },
+        {
+          "elev": 9.797958971132712,
+          "fill_color": [
+            "216",
+            "124",
+            "98",
+            205
+          ],
+          "graded": 48,
+          "inspections": 96,
+          "lat": 40.694168445000585,
+          "lon": -73.73748981137045,
+          "median_score": 12.0,
+          "n_bc": 9,
+          "pct_bc": 18.8,
+          "reliable": true,
+          "zipcode": "11411"
+        },
+        {
+          "elev": 13.856406460551018,
+          "fill_color": [
+            "230",
+            "164",
+            "131",
+            205
+          ],
+          "graded": 100,
+          "inspections": 192,
+          "lat": 40.69766862285994,
+          "lon": -73.75820552246046,
+          "median_score": 11.0,
+          "n_bc": 12,
+          "pct_bc": 12.0,
+          "reliable": true,
+          "zipcode": "11412"
+        },
+        {
+          "elev": 14.0,
+          "fill_color": [
+            "227",
+            "157",
+            "125",
+            205
+          ],
+          "graded": 106,
+          "inspections": 196,
+          "lat": 40.67539783358661,
+          "lon": -73.74892651244915,
+          "median_score": 12.0,
+          "n_bc": 14,
+          "pct_bc": 13.2,
+          "reliable": true,
+          "zipcode": "11413"
+        },
+        {
+          "elev": 14.317821063276353,
+          "fill_color": [
+            "239",
+            "190",
+            "152",
+            205
+          ],
+          "graded": 130,
+          "inspections": 205,
+          "lat": 40.66001986444937,
+          "lon": -73.84238682998031,
+          "median_score": 11.0,
+          "n_bc": 10,
+          "pct_bc": 7.7,
+          "reliable": true,
+          "zipcode": "11414"
+        },
+        {
+          "elev": 10.392304845413264,
+          "fill_color": [
+            "236",
+            "182",
+            "145",
+            205
+          ],
+          "graded": 66,
+          "inspections": 108,
+          "lat": 40.70974543772404,
+          "lon": -73.82991250595153,
+          "median_score": 10.5,
+          "n_bc": 6,
+          "pct_bc": 9.1,
+          "reliable": true,
+          "zipcode": "11415"
+        },
+        {
+          "elev": 13.341664064126334,
+          "fill_color": [
+            "217",
+            "127",
+            "100",
+            205
+          ],
+          "graded": 93,
+          "inspections": 178,
+          "lat": 40.6845588279906,
+          "lon": -73.84830085742293,
+          "median_score": 11.0,
+          "n_bc": 17,
+          "pct_bc": 18.3,
+          "reliable": true,
+          "zipcode": "11416"
+        },
+        {
+          "elev": 16.64331697709324,
+          "fill_color": [
+            "225",
+            "150",
+            "119",
+            205
+          ],
+          "graded": 153,
+          "inspections": 277,
+          "lat": 40.678420272479144,
+          "lon": -73.8418310456459,
+          "median_score": 12.0,
+          "n_bc": 22,
+          "pct_bc": 14.4,
+          "reliable": true,
+          "zipcode": "11417"
+        },
+        {
+          "elev": 18.138357147217054,
+          "fill_color": [
+            "216",
+            "124",
+            "98",
+            205
+          ],
+          "graded": 182,
+          "inspections": 329,
+          "lat": 40.69932416774372,
+          "lon": -73.83182557452247,
+          "median_score": 12.0,
+          "n_bc": 34,
+          "pct_bc": 18.7,
+          "reliable": true,
+          "zipcode": "11418"
+        },
+        {
+          "elev": 21.18962010041709,
+          "fill_color": [
+            "196",
+            "68",
+            "52",
+            205
+          ],
+          "graded": 203,
+          "inspections": 449,
+          "lat": 40.688312812725776,
+          "lon": -73.82398469004255,
+          "median_score": 12.0,
+          "n_bc": 57,
+          "pct_bc": 28.1,
+          "reliable": true,
+          "zipcode": "11419"
+        },
+        {
+          "elev": 17.406895185529212,
+          "fill_color": [
+            "227",
+            "158",
+            "126",
+            205
+          ],
+          "graded": 175,
+          "inspections": 303,
+          "lat": 40.675848666541874,
+          "lon": -73.81748972859295,
+          "median_score": 11.0,
+          "n_bc": 23,
+          "pct_bc": 13.1,
+          "reliable": true,
+          "zipcode": "11420"
+        },
+        {
+          "elev": 16.673332000533065,
+          "fill_color": [
+            "225",
+            "150",
+            "119",
+            205
+          ],
+          "graded": 153,
+          "inspections": 278,
+          "lat": 40.69232589008437,
+          "lon": -73.85700664314867,
+          "median_score": 11.0,
+          "n_bc": 22,
+          "pct_bc": 14.4,
+          "reliable": true,
+          "zipcode": "11421"
+        },
+        {
+          "elev": 11.916375287812984,
+          "fill_color": [
+            "236",
+            "182",
+            "146",
+            205
+          ],
+          "graded": 78,
+          "inspections": 142,
+          "lat": 40.662852632976055,
+          "lon": -73.7358681785512,
+          "median_score": 11.0,
+          "n_bc": 7,
+          "pct_bc": 9.0,
+          "reliable": true,
+          "zipcode": "11422"
+        },
+        {
+          "elev": 12.529964086141668,
+          "fill_color": [
+            "222",
+            "143",
+            "114",
+            205
+          ],
+          "graded": 77,
+          "inspections": 157,
+          "lat": 40.71448723612302,
+          "lon": -73.76503070072243,
+          "median_score": 12.0,
+          "n_bc": 12,
+          "pct_bc": 15.6,
+          "reliable": true,
+          "zipcode": "11423"
+        },
+        {
+          "elev": 11.045361017187261,
+          "fill_color": [
+            "238",
+            "186",
+            "149",
+            205
+          ],
+          "graded": 60,
+          "inspections": 122,
+          "lat": 40.730751121101356,
+          "lon": -73.72105452437495,
+          "median_score": 10.0,
+          "n_bc": 5,
+          "pct_bc": 8.3,
+          "reliable": true,
+          "zipcode": "11426"
+        },
+        {
+          "elev": 6.708203932499369,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 29,
+          "inspections": 45,
+          "lat": 40.727242192568376,
+          "lon": -73.74777843527598,
+          "median_score": 10.0,
+          "n_bc": 4,
+          "pct_bc": 13.8,
+          "reliable": false,
+          "zipcode": "11427"
+        },
+        {
+          "elev": 12.328828005937952,
+          "fill_color": [
+            "206",
+            "96",
+            "75",
+            205
+          ],
+          "graded": 77,
+          "inspections": 152,
+          "lat": 40.71808034318115,
+          "lon": -73.74113793333646,
+          "median_score": 11.0,
+          "n_bc": 18,
+          "pct_bc": 23.4,
+          "reliable": true,
+          "zipcode": "11428"
+        },
+        {
+          "elev": 9.899494936611665,
+          "fill_color": [
+            "248",
+            "218",
+            "175",
+            205
+          ],
+          "graded": 64,
+          "inspections": 98,
+          "lat": 40.710996930048,
+          "lon": -73.73953320322701,
+          "median_score": 12.0,
+          "n_bc": 2,
+          "pct_bc": 3.1,
+          "reliable": true,
+          "zipcode": "11429"
+        },
+        {
+          "elev": 11.661903789690601,
+          "fill_color": [
+            "251",
+            "225",
+            "181",
+            205
+          ],
+          "graded": 103,
+          "inspections": 136,
+          "lat": 40.6497543840473,
+          "lon": -73.78864450801086,
+          "median_score": 7.0,
+          "n_bc": 2,
+          "pct_bc": 1.9,
+          "reliable": true,
+          "zipcode": "11430"
+        },
+        {
+          "elev": 27.147743920996454,
+          "fill_color": [
+            "216",
+            "126",
+            "100",
+            205
+          ],
+          "graded": 353,
+          "inspections": 737,
+          "lat": 40.70990486755711,
+          "lon": -73.79458441610682,
+          "median_score": 11.0,
+          "n_bc": 65,
+          "pct_bc": 18.4,
+          "reliable": true,
+          "zipcode": "11432"
+        },
+        {
+          "elev": 10.0,
+          "fill_color": [
+            "243",
+            "202",
+            "162",
+            205
+          ],
+          "graded": 53,
+          "inspections": 100,
+          "lat": 40.7005740740579,
+          "lon": -73.79101635981007,
+          "median_score": 10.0,
+          "n_bc": 3,
+          "pct_bc": 5.7,
+          "reliable": true,
+          "zipcode": "11433"
+        },
+        {
+          "elev": 17.776388834631177,
+          "fill_color": [
+            "226",
+            "152",
+            "121",
+            205
+          ],
+          "graded": 171,
+          "inspections": 316,
+          "lat": 40.67574447415905,
+          "lon": -73.77496137890378,
+          "median_score": 12.0,
+          "n_bc": 24,
+          "pct_bc": 14.0,
+          "reliable": true,
+          "zipcode": "11434"
+        },
+        {
+          "elev": 21.494185260204677,
+          "fill_color": [
+            "215",
+            "121",
+            "96",
+            205
+          ],
+          "graded": 239,
+          "inspections": 462,
+          "lat": 40.70060903326785,
+          "lon": -73.80787266983901,
+          "median_score": 11.0,
+          "n_bc": 46,
+          "pct_bc": 19.2,
+          "reliable": true,
+          "zipcode": "11435"
+        },
+        {
+          "elev": 10.392304845413264,
+          "fill_color": [
+            "226",
+            "154",
+            "122",
+            205
+          ],
+          "graded": 58,
+          "inspections": 108,
+          "lat": 40.673376096247914,
+          "lon": -73.79500142953857,
+          "median_score": 12.0,
+          "n_bc": 8,
+          "pct_bc": 13.8,
+          "reliable": true,
+          "zipcode": "11436"
+        },
+        {
+          "elev": 12.489995996796797,
+          "fill_color": [
+            "231",
+            "167",
+            "133",
+            205
+          ],
+          "graded": 86,
+          "inspections": 156,
+          "lat": 40.6017329064565,
+          "lon": -73.75488068796938,
+          "median_score": 10.0,
+          "n_bc": 10,
+          "pct_bc": 11.6,
+          "reliable": true,
+          "zipcode": "11691"
+        },
+        {
+          "elev": 6.708203932499369,
+          "fill_color": [
+            "242",
+            "199",
+            "160",
+            205
+          ],
+          "graded": 32,
+          "inspections": 45,
+          "lat": 40.59112548385634,
+          "lon": -73.797078359734,
+          "median_score": 9.0,
+          "n_bc": 2,
+          "pct_bc": 6.2,
+          "reliable": true,
+          "zipcode": "11692"
+        },
+        {
+          "elev": 9.591663046625438,
+          "fill_color": [
+            "248",
+            "216",
+            "174",
+            205
+          ],
+          "graded": 60,
+          "inspections": 92,
+          "lat": 40.5893146505752,
+          "lon": -73.81540114739717,
+          "median_score": 9.0,
+          "n_bc": 2,
+          "pct_bc": 3.3,
+          "reliable": true,
+          "zipcode": "11693"
+        },
+        {
+          "elev": 11.045361017187261,
+          "fill_color": [
+            "238",
+            "189",
+            "151",
+            205
+          ],
+          "graded": 76,
+          "inspections": 122,
+          "lat": 40.5804100998804,
+          "lon": -73.83767262522755,
+          "median_score": 11.0,
+          "n_bc": 6,
+          "pct_bc": 7.9,
+          "reliable": true,
+          "zipcode": "11694"
+        },
+        {
+          "elev": 3.1622776601683795,
+          "fill_color": [
+            150,
+            150,
+            150,
+            140
+          ],
+          "graded": 7,
+          "inspections": 10,
+          "lat": 40.5616481688796,
+          "lon": -73.91188138430809,
+          "median_score": 12.0,
+          "n_bc": 0,
+          "pct_bc": 0.0,
+          "reliable": false,
+          "zipcode": "11697"
+        }
+      ],
+      "elevationScale": 20,
+      "extruded": true,
+      "getElevation": "@@=elev",
+      "getFillColor": "@@=fill_color",
+      "getPosition": "@@=[lon, lat]",
+      "id": "b28ef0b9-e507-47d9-a94f-4f51a45c3145",
+      "pickable": true,
+      "radius": 260
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': 'ZIP {zipcode}\nInspections: {inspections}\nShare ending B or C: {pct_bc}%\nMedian score: {median_score}'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration,
+          });
+
+  </script>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "cs667-deck-tools",
+  "private": true,
+  "description": "Build-time tooling only (posters, capture). Never loaded by the deck.",
+  "type": "module",
+  "devDependencies": {
+    "deck.gl": "9.1.14",
+    "playwright": "1.56.1"
+  }
+}

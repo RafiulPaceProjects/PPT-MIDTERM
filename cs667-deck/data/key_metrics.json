@@ -1,0 +1,168 @@
+{
+ "as_of": "2026-10-21",
+ "as_of_text": "October 21, 2026",
+ "dataset": {
+  "raw_rows": 295356,
+  "raw_columns": 27,
+  "placeholder_1900_rows": 3914,
+  "placeholder_share_pct": 1.3,
+  "earliest_inspection": "2007-08-10",
+  "latest_inspection": "2026-10-19",
+  "inspections": 96897,
+  "restaurants": 31443,
+  "same_day_multi_type": 8456
+ },
+ "score": {
+  "count": 82619,
+  "mean": 17.869195,
+  "median": 13.0,
+  "q1": 9.0,
+  "q3": 24.0,
+  "upper_fence": 46.5,
+  "n_above_fence": 4095,
+  "share_above_fence_pct": 5.0,
+  "max": 214.0,
+  "lower_is_better": true,
+  "grade_bands": {
+   "A": "0–13",
+   "B": "14–27",
+   "C": "28+"
+  },
+  "a_boundary": 13
+ },
+ "missing": {
+  "grade_date": 45.51,
+  "grade": 43.22,
+  "score": 14.74,
+  "cuisine_description": 4.06,
+  "inspection_type": 4.04,
+  "zipcode": 1.22,
+  "latitude": 0.79,
+  "longitude": 0.79,
+  "camis": 0.0,
+  "inspection_date": 0.0,
+  "boro": 0.0,
+  "dba": 0.0,
+  "n_violations": 0.0,
+  "n_critical": 0.0
+ },
+ "population": {
+  "initial_A": 31758,
+  "initial_BC": 0,
+  "other_A": 12745,
+  "other_BC": 6497,
+  "graded_inspections": 51000,
+  "excluded_initial": 31758,
+  "population": 19242,
+  "population_bc": 6497,
+  "population_bc_pct": 33.8,
+  "modeled_rows": 18998,
+  "modeled_bc": 6420,
+  "modeled_bc_pct": 33.8
+ },
+ "visit_kind": {
+  "initial_graded": 31758,
+  "initial_bc": 0,
+  "initial_bc_pct": 0.0,
+  "reinspection_graded": 18744,
+  "reinspection_bc": 6174,
+  "reinspection_bc_pct": 32.9,
+  "reinspection_note": "graded re-inspections with a usable location (modeling_table.csv)",
+  "initial_pct_scored_14_plus": 41.8,
+  "reinspection_pct_scored_14_plus": 37.1,
+  "initial_scored": 58062,
+  "reinspection_scored": 20276
+ },
+ "history": {
+  "first_row_check_passed": true,
+  "share_with_history_pct": 89.0,
+  "example_camis": "50098804",
+  "dropped_bad_coordinates": 244,
+  "cuisine_levels_raw": 87,
+  "cuisine_levels_grouped": 25,
+  "feature_rows": 18998,
+  "feature_columns": 14,
+  "train_rows": 9111,
+  "train_bc_pct": 34.4,
+  "test_rows": 9887,
+  "test_bc_pct": 33.2
+ },
+ "split": {
+  "train_rows": 9111,
+  "train_bc_pct": 34.4,
+  "test_rows": 9887,
+  "test_bc_pct": 33.2,
+  "train_rule": "up to the end of 2024",
+  "test_rule": "2025 onward"
+ },
+ "model": {
+  "best": "Logistic regression",
+  "test_roc_auc": 0.644,
+  "test_pr_auc": 0.496,
+  "threshold": 0.45,
+  "recall": 0.822,
+  "precision": 0.376,
+  "recall_at_0_5": 0.71,
+  "test_positives": 3284,
+  "test_rows": 9887,
+  "leans_on": [
+   "cuisine_grouped prior_mean_score prior_bc_share"
+  ]
+ },
+ "dummy": {
+  "test_accuracy": 0.668,
+  "caught": 0,
+  "recall": 0.0,
+  "test_positives": 3284
+ },
+ "zip": {
+  "zip_codes": 223,
+  "reliable_zip_codes": 178,
+  "min_graded": 30,
+  "citywide_pct_bc": 12.9,
+  "mapped_inspections": 95010,
+  "worst": {
+   "zip": "11355",
+   "boro": "Queens",
+   "inspections": 822,
+   "graded": 342,
+   "pct_bc": 33.3,
+   "median_score": 22.0,
+   "mean_critical": 2.3
+  },
+  "busiest_max": {
+   "zip": "10003",
+   "boro": "Manhattan",
+   "inspections": 2260,
+   "graded": 1177,
+   "pct_bc": 9.9,
+   "median_score": 12.0,
+   "mean_critical": 1.5
+  },
+  "busiest_pale_min_pct": 8.4,
+  "busiest_pale_max_pct": 9.9,
+  "busiest_pale_count": 4,
+  "zcta_match_pct": 99.6
+ },
+ "nta": {
+  "polygons": 262,
+  "placed": 94970,
+  "placed_of": 95010,
+  "neighborhoods": 223,
+  "reliable": 198,
+  "worst": {
+   "name": "Queensboro Hill",
+   "pct_bc": 34.0,
+   "graded": 53
+  }
+ },
+ "pca": {
+  "pc1_pct": 21.8,
+  "pc2_pct": 16.6,
+  "n_for_90pct": 8,
+  "n_features": 11,
+  "auc_90pct_components": 0.631,
+  "auc_original_features": 0.644
+ },
+ "pending": []
+}

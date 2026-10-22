@@ -13,8 +13,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NOTEBOOK = ROOT / "source" / "CS667_Fall2026_Midterm_RafiulHaider_ShadmanRahman_RestaurantInspections.ipynb"
-FIG_DIR = ROOT / "source" / "figures"
+FIG_DIR = ROOT / "assets" / "img"
 HTML_DIR = ROOT / "source" / "html"
+EMBED_DIR = ROOT / "assets" / "embeds"
+# Only the hero is a live extra in the deck (INV-6). The scatter breaks the
+# height rule by design (INV-4) and the density map is never shown.
+EMBEDS = {"nyc_zip_3d_hero.html"}
 
 # (cell index, image index within the cell) -> file name.
 # Names match the notebook's own savefig() calls where it has one; the EDA
@@ -84,6 +88,9 @@ def main():
         if len(htmls) != 1:
             sys.exit(f"cell {idx}: expected one HTML output for {name}, found {len(htmls)}")
         (HTML_DIR / name).write_text(htmls[0])
+        if name in EMBEDS:
+            EMBED_DIR.mkdir(parents=True, exist_ok=True)
+            (EMBED_DIR / name).write_text(htmls[0])
         print("html  ", name, f"{len(htmls[0]):,} chars")
 
 

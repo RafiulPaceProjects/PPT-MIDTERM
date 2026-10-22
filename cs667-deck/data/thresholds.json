@@ -1,58 +1,83 @@
 {
-  "as_of": "2026-10-21",
-  "source_cells": [
-    60
-  ],
-  "model": "Logistic regression",
-  "default_threshold": 0.45,
-  "rule": "highest threshold still catching at least 80% of B or C",
-  "stops": [
-    {
-      "threshold": 0.3,
-      "precision": 0.338,
-      "recall": 0.988,
-      "f1": 0.504,
-      "confusion": null
-    },
-    {
-      "threshold": 0.4,
-      "precision": 0.359,
-      "recall": 0.918,
-      "f1": 0.516,
-      "confusion": null
-    },
-    {
-      "threshold": 0.45,
-      "precision": 0.376,
-      "recall": 0.822,
-      "f1": null,
-      "confusion": null
-    },
-    {
-      "threshold": 0.5,
-      "precision": 0.402,
-      "recall": 0.71,
-      "f1": 0.513,
-      "confusion": null
-    },
-    {
-      "threshold": 0.6,
-      "precision": 0.474,
-      "recall": 0.453,
-      "f1": 0.463,
-      "confusion": null
-    },
-    {
-      "threshold": 0.7,
-      "precision": 0.576,
-      "recall": 0.232,
-      "f1": 0.33,
-      "confusion": null
-    }
-  ],
-  "confusion_counts_note": "The notebook prints precision/recall per threshold but no confusion counts. Counts at 0.5 exist only in source/figures/pred_confusion.png. Per-stop counts need a notebook export (see data/FIXTURES.md).",
-  "figures": {
-    "confusion_at_0_5": "source/figures/pred_confusion.png",
-    "curves": "source/figures/pred_curves.png"
+ "as_of": "2026-10-21",
+ "model": "Logistic regression",
+ "default": 0.45,
+ "rule": "the highest threshold that still catches at least 80% of B or C inspections",
+ "positives": 3284,
+ "test_rows": 9887,
+ "stops": [
+  {
+   "threshold": 0.3,
+   "tn": 256,
+   "fp": 6347,
+   "fn": 39,
+   "tp": 3245,
+   "precision": 0.338,
+   "recall": 0.988,
+   "f1": 0.504,
+   "fpr": 0.9612,
+   "flagged": 9592
+  },
+  {
+   "threshold": 0.4,
+   "tn": 1215,
+   "fp": 5388,
+   "fn": 269,
+   "tp": 3015,
+   "precision": 0.359,
+   "recall": 0.918,
+   "f1": 0.516,
+   "fpr": 0.816,
+   "flagged": 8403
+  },
+  {
+   "threshold": 0.45,
+   "tn": 2114,
+   "fp": 4489,
+   "fn": 583,
+   "tp": 2701,
+   "precision": 0.376,
+   "recall": 0.822,
+   "f1": 0.516,
+   "fpr": 0.6798,
+   "flagged": 7190
+  },
+  {
+   "threshold": 0.5,
+   "tn": 3137,
+   "fp": 3466,
+   "fn": 954,
+   "tp": 2330,
+   "precision": 0.402,
+   "recall": 0.71,
+   "f1": 0.513,
+   "fpr": 0.5249,
+   "flagged": 5796
+  },
+  {
+   "threshold": 0.6,
+   "tn": 4953,
+   "fp": 1650,
+   "fn": 1796,
+   "tp": 1488,
+   "precision": 0.474,
+   "recall": 0.453,
+   "f1": 0.463,
+   "fpr": 0.2499,
+   "flagged": 3138
+  },
+  {
+   "threshold": 0.7,
+   "tn": 6042,
+   "fp": 561,
+   "fn": 2523,
+   "tp": 761,
+   "precision": 0.576,
+   "recall": 0.232,
+   "f1": 0.33,
+   "fpr": 0.085,
+   "flagged": 1322
   }
+ ],
+ "source": "refit of the notebook's logistic regression on modeling_table.csv; precision and recall verified against cell 60"
 }

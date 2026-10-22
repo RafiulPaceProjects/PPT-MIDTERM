@@ -1,0 +1,115 @@
+/* Grady: placement in the safe zone and every visual state. State lives in
+   one attribute, #mascot[data-state]; mascot.js is the only writer. Face
+   parts morph with 150-250 ms transitions; big motions (hops, shakes,
+   wobbles, the flag) only run under .big, which mascot.js grants outside
+   the quiet windows. */
+
+#mascot-layer {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;           /* INV-7: never traps a click */
+  width: 104px;
+  height: 104px;
+}
+#mascot { width: 100%; height: 100%; overflow: visible; pointer-events: none; display: block; }
+#mascot * { transform-box: fill-box; }
+
+#mascot-lean, #mascot-bob, #mascot-body { transform-origin: 50% 100%; }
+#mascot-head { transform-origin: 50% 70%; transition: transform 120ms linear; }
+#mascot-pupils { transition: transform 120ms linear; }
+#mascot-eyes { transform-origin: 50% 50%; transition: transform 150ms ease-out; }
+#mascot-brow-l, #mascot-brow-r { transform-origin: 50% 50%; transition: transform 200ms ease-out; }
+#mascot-mouth { transition: d 200ms ease-out; }
+#mascot-cap { transform-origin: 30% 100%; transition: transform 250ms ease-out; }
+#mascot-placard { transform-origin: 50% 0%; }
+#mascot-placard rect, #mascot-letter { transition: stroke 200ms, fill 200ms; }
+#mascot-flag { transform-origin: 100% 100%; transform: scale(0); opacity: 0; transition: transform 200ms ease-out, opacity 200ms; }
+#mascot-eyes-closed { opacity: 0; }
+#mascot-sparkles { opacity: 0; }
+#mascot-z { opacity: 0; }
+#mascot-lean { transition: transform 250ms ease-out; }
+#mascot-shadow { transform-origin: 50% 50%; }
+
+/* --- ambient --------------------------------------------------------------- */
+#mascot[data-state="idle"] #mascot-bob { animation: grady-bob 3s ease-in-out infinite; }
+#mascot[data-state="tracking"] #mascot-bob { animation: grady-bob-soft 3s ease-in-out infinite; }
+#mascot[data-state="sleeping"] #mascot-bob { animation: grady-bob-soft 5s ease-in-out infinite; }
+@keyframes grady-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes grady-bob-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1px); } }
+
+#mascot.blink #mascot-eyes { transform: scaleY(0.1); }
+
+#mascot[data-state="hover-delight"] #mascot-brow-l,
+#mascot[data-state="hover-delight"] #mascot-brow-r { transform: translateY(-2px); }
+#mascot.wiggle #mascot-placard { animation: grady-wiggle 200ms ease-in-out; }
+@keyframes grady-wiggle { 25% { transform: rotate(3deg); } 75% { transform: rotate(-3deg); } }
+
+#mascot[data-state="sleeping"] #mascot-eyes { opacity: 0; }
+#mascot[data-state="sleeping"] #mascot-eyes-closed { opacity: 1; }
+#mascot[data-state="sleeping"] #mascot-z { animation: grady-z 3s ease-out infinite; }
+@keyframes grady-z { 0% { opacity: 0; transform: translate(0, 0); } 20% { opacity: 0.8; } 100% { opacity: 0; transform: translate(8px, -14px); } }
+
+/* --- transients --------------------------------------------------------------- */
+#mascot.big[data-state="click-pop"] #mascot-body { animation: grady-pop 180ms ease-out; }
+@keyframes grady-pop { 0% { transform: scaleY(0.92); } 50% { transform: translateY(-4px) scaleY(1); } 100% { transform: none; } }
+#mascot[data-state="click-pop"] #mascot-cap { transform: translateY(1.5px) rotate(-4deg); }
+
+#mascot[data-state="dizzy"] #mascot-pupils,
+#mascot.orbit-once #mascot-pupils { animation: grady-orbit 600ms linear; }
+@keyframes grady-orbit { 0% { transform: translate(3px, 0); } 25% { transform: translate(0, 3px); } 50% { transform: translate(-3px, 0); } 75% { transform: translate(0, -3px); } 100% { transform: translate(3px, 0); } }
+#mascot[data-state="dizzy"] #mascot-brow-l { transform: translateY(-2px) rotate(-10deg); }
+#mascot[data-state="dizzy"] #mascot-brow-r { transform: translateY(1px) rotate(8deg); }
+#mascot.big[data-state="dizzy"] #mascot-body { animation: grady-wobble 500ms ease-in-out 2; }
+@keyframes grady-wobble { 25% { transform: rotate(6deg); } 75% { transform: rotate(-6deg); } }
+
+/* --- content-cued ---------------------------------------------------------- */
+#mascot[data-state="thinking"] #mascot-pupils { transform: translate(-2.6px, -2.6px) !important; }
+#mascot[data-state="thinking"] #mascot-brow-l { transform: translateY(-2.5px) rotate(-8deg); }
+#mascot[data-state="thinking"] #mascot-brow-r { transform: translateY(1px) rotate(6deg); }
+
+#mascot[data-state="warning"] #mascot-brow-l { transform: translateY(1.5px) rotate(14deg); }
+#mascot[data-state="warning"] #mascot-brow-r { transform: translateY(1.5px) rotate(-14deg); }
+#mascot.big.shake #mascot-body { animation: grady-shake 300ms ease-in-out; }
+@keyframes grady-shake { 20% { transform: translateX(-3px); } 40% { transform: translateX(3px); } 60% { transform: translateX(-2px); } 80% { transform: translateX(2px); } }
+#mascot.placard-shake #mascot-placard { animation: grady-wiggle 125ms ease-in-out 2; }
+
+#mascot[data-state="celebrating"] #mascot-brow-l,
+#mascot[data-state="celebrating"] #mascot-brow-r { transform: translateY(-3px); }
+#mascot[data-state="celebrating"] #mascot-cap { transform: rotate(-12deg) translateY(-1px); }
+#mascot[data-state="celebrating"] #mascot-sparkles { animation: grady-sparkle 1.2s ease-out; }
+#mascot.big[data-state="celebrating"] #mascot-body { animation: grady-hops 1.2s ease-out; }
+@keyframes grady-hops { 0% { transform: none; } 15% { transform: translateY(-6px); } 30% { transform: none; } 50% { transform: translateY(-11px); } 70%, 100% { transform: none; } }
+@keyframes grady-sparkle { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
+
+#mascot[data-state="pointing"] #mascot-brow-l,
+#mascot[data-state="pointing"] #mascot-brow-r { transform: translateY(-2px); }
+#mascot.big.flag #mascot-flag { transform: scale(1); opacity: 1; }
+#mascot.flag #mascot-lean { transform: rotate(var(--lean, -3deg)); }
+
+/* entrances */
+#mascot.big.drop-in #mascot-lean { animation: grady-drop 420ms cubic-bezier(.3, .8, .4, 1); }
+@keyframes grady-drop { 0% { transform: translateY(-24px); opacity: 0; } 48% { transform: translateY(0) scaleY(0.88); opacity: 1; } 75% { transform: scaleY(1.04); } 100% { transform: none; } }
+#mascot.big.tip-cap #mascot-cap { animation: grady-tip 500ms ease-in-out; }
+@keyframes grady-tip { 50% { transform: rotate(-14deg) translateY(-2px); } }
+#mascot.big.wave #mascot-body { animation: grady-wave 900ms ease-in-out; }
+@keyframes grady-wave { 16% { transform: rotate(5deg); } 33% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } 66% { transform: rotate(-5deg); } 83% { transform: rotate(5deg); } 100% { transform: none; } }
+#mascot.map-look #mascot-lean { transform: translateX(-8px); }
+#mascot.wide #mascot-eyes { transform: scaleY(1.1); }
+#mascot.big.startle #mascot-body { animation: grady-pop 200ms ease-out; }
+
+/* shadow scales inversely with hop height */
+#mascot.big[data-state="celebrating"] #mascot-shadow { animation: grady-shadow 1.2s ease-out; }
+@keyframes grady-shadow { 15% { transform: scaleX(0.85); opacity: 0.06; } 50% { transform: scaleX(0.72); opacity: 0.05; } 70%, 100% { transform: none; } }
+
+/* --- reduced motion, paused, export, print, small screens ------------------ */
+.reduced-motion #mascot *,
+#mascot.paused * { animation: none !important; }
+.reduced-motion #mascot * { transition: none !important; }
+.reduced-motion #mascot-head, .reduced-motion #mascot-pupils, .reduced-motion #mascot-lean { transition: none !important; }
+.reduced-motion #mascot #mascot-head { transform: none !important; }
+.reduced-motion #mascot.flag #mascot-lean, .reduced-motion #mascot.map-look #mascot-lean { transform: none; }
+.exporting #mascot * { animation: none !important; transition: none !important; }
+@media print { #mascot-layer { display: none !important; } }
+@media (max-width: 760px) { #mascot-layer { width: 64px !important; height: 64px !important; } }
+@media (max-width: 560px) { #mascot-layer { display: none !important; } }
+#mascot-layer.hidden { display: none; }

@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- Build-time only: renders the notebook's hero ColumnLayer (cell 44) with a
+     local deck.gl, so the poster and the rotation video can be made offline.
+     The layer settings below are the pydeck spec's own; the only difference
+     from the live file is the missing basemap (its tiles need the network). -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; height: 100%; background: #F5F6F7; overflow: hidden; }
+  #map { position: absolute; inset: 0; }
+</style>
+<script src="../node_modules/deck.gl/dist.min.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  const params = new URLSearchParams(location.search);
+  window.heroReady = false;
+  fetch("../../data/maps.json").then((r) => r.json()).then((maps) => {
+    // The notebook's camera (cell 44) frames all five boroughs at zoom 10,
+    // where the columns stand only a few pixels tall. The poster keeps its
+    // bearing and pitch and moves in closer; layer data and heights are untouched.
+    const num = (k, d) => Number(params.get(k) ?? d);
+    const view = { ...maps.view, latitude: num("lat", 40.705), longitude: num("lon", -73.925),
+                   zoom: num("zoom", 10.85), pitch: num("pitch", 55), bearing: num("bearing", maps.view.bearing) };
+    const layer = new deck.ColumnLayer({
+      id: "zip-columns",
+      data: maps.zips,
+      // pydeck spec (cell 44): radius 260 m, elevationScale 20,
+      // elevation = sqrt(inspections), colour precomputed in the notebook
+      radius: 260,
+      elevationScale: 20,
+      extruded: true,
+      getPosition: (d) => [d.lon, d.lat],
+      getElevation: (d) => d.elev,
+      getFillColor: (d) => d.fill_color,
+      material: { ambient: 0.55, diffuse: 0.6, shininess: 24 },
+    });
+    window.theDeck = new deck.Deck({
+      parent: document.getElementById("map"),
+      viewState: view,
+      controller: false,
+      layers: [layer],
+      onAfterRender: () => { window.heroReady = true; },
+    });
+    window.setBearing = (b) => {
+      window.heroReady = false;
+      window.theDeck.setProps({ viewState: { ...view, bearing: b } });
+      window.theDeck.redraw("bearing");
+    };
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+ "as_of": "2026-10-21",
+ "threshold": 0.5,
+ "tn": 3137,
+ "fp": 3466,
+ "fn": 954,
+ "tp": 2330,
+ "rows": "true grade",
+ "columns": "prediction",
+ "figure": "assets/img/pred_confusion.png"
+}

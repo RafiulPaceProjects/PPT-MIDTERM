@@ -1,0 +1,693 @@
+{
+ "as_of": "2026-10-21",
+ "grades": [
+  {
+   "grade": "A",
+   "inspections": 44503,
+   "pct": 45.9
+  },
+  {
+   "grade": null,
+   "inspections": 41882,
+   "pct": 43.2
+  },
+  {
+   "grade": "B",
+   "inspections": 4276,
+   "pct": 4.4
+  },
+  {
+   "grade": "C",
+   "inspections": 2221,
+   "pct": 2.3
+  },
+  {
+   "grade": "N",
+   "inspections": 2218,
+   "pct": 2.3
+  },
+  {
+   "grade": "Z",
+   "inspections": 1266,
+   "pct": 1.3
+  },
+  {
+   "grade": "P",
+   "inspections": 531,
+   "pct": 0.5
+  }
+ ],
+ "missingness": [
+  {
+   "column": "grade_date",
+   "n_missing": 44094,
+   "pct_missing": 45.51
+  },
+  {
+   "column": "grade",
+   "n_missing": 41882,
+   "pct_missing": 43.22
+  },
+  {
+   "column": "score",
+   "n_missing": 14278,
+   "pct_missing": 14.74
+  },
+  {
+   "column": "cuisine_description",
+   "n_missing": 3932,
+   "pct_missing": 4.06
+  },
+  {
+   "column": "inspection_type",
+   "n_missing": 3914,
+   "pct_missing": 4.04
+  },
+  {
+   "column": "zipcode",
+   "n_missing": 1182,
+   "pct_missing": 1.22
+  },
+  {
+   "column": "latitude",
+   "n_missing": 764,
+   "pct_missing": 0.79
+  },
+  {
+   "column": "longitude",
+   "n_missing": 764,
+   "pct_missing": 0.79
+  },
+  {
+   "column": "camis",
+   "n_missing": 0,
+   "pct_missing": 0.0
+  },
+  {
+   "column": "inspection_date",
+   "n_missing": 0,
+   "pct_missing": 0.0
+  },
+  {
+   "column": "boro",
+   "n_missing": 0,
+   "pct_missing": 0.0
+  },
+  {
+   "column": "dba",
+   "n_missing": 3,
+   "pct_missing": 0.0
+  },
+  {
+   "column": "n_violations",
+   "n_missing": 0,
+   "pct_missing": 0.0
+  },
+  {
+   "column": "n_critical",
+   "n_missing": 0,
+   "pct_missing": 0.0
+  }
+ ],
+ "borough": [
+  {
+   "boro": "0",
+   "count": 84,
+   "median": 12.0,
+   "mean": 16.74,
+   "std": 14.23
+  },
+  {
+   "boro": "Manhattan",
+   "count": 31230,
+   "median": 12.0,
+   "mean": 17.14,
+   "std": 14.62
+  },
+  {
+   "boro": "Bronx",
+   "count": 7760,
+   "median": 13.0,
+   "mean": 17.58,
+   "std": 13.74
+  },
+  {
+   "boro": "Brooklyn",
+   "count": 21289,
+   "median": 13.0,
+   "mean": 17.94,
+   "std": 15.58
+  },
+  {
+   "boro": "Queens",
+   "count": 19367,
+   "median": 13.0,
+   "mean": 19.23,
+   "std": 15.34
+  },
+  {
+   "boro": "Staten Island",
+   "count": 2889,
+   "median": 13.0,
+   "mean": 16.94,
+   "std": 12.73
+  }
+ ],
+ "cuisine": [
+  {
+   "cuisine": "American",
+   "inspections": 14944,
+   "median_score": 12.0,
+   "typical_grade": "A",
+   "modeled": 2812,
+   "modeled_bc_pct": 28.9
+  },
+  {
+   "cuisine": "Chinese",
+   "inspections": 7950,
+   "median_score": 15.0,
+   "typical_grade": "B",
+   "modeled": 1955,
+   "modeled_bc_pct": 44.1
+  },
+  {
+   "cuisine": "Coffee/Tea",
+   "inspections": 7913,
+   "median_score": 12.0,
+   "typical_grade": "A",
+   "modeled": 1310,
+   "modeled_bc_pct": 23.3
+  },
+  {
+   "cuisine": "Pizza",
+   "inspections": 5595,
+   "median_score": 13.0,
+   "typical_grade": "A",
+   "modeled": 1273,
+   "modeled_bc_pct": 33.4
+  },
+  {
+   "cuisine": "Latin American",
+   "inspections": 4314,
+   "median_score": 16.0,
+   "typical_grade": "B",
+   "modeled": 1031,
+   "modeled_bc_pct": 42.2
+  },
+  {
+   "cuisine": "Bakery Products/Desserts",
+   "inspections": 3778,
+   "median_score": 12.0,
+   "typical_grade": "A",
+   "modeled": 810,
+   "modeled_bc_pct": 34.4
+  },
+  {
+   "cuisine": "Mexican",
+   "inspections": 3698,
+   "median_score": 13.0,
+   "typical_grade": "A",
+   "modeled": 806,
+   "modeled_bc_pct": 36.2
+  },
+  {
+   "cuisine": "Japanese",
+   "inspections": 3190,
+   "median_score": 13.0,
+   "typical_grade": "A",
+   "modeled": 661,
+   "modeled_bc_pct": 36.6
+  },
+  {
+   "cuisine": "Caribbean",
+   "inspections": 3064,
+   "median_score": 15.0,
+   "typical_grade": "B",
+   "modeled": 738,
+   "modeled_bc_pct": 43.6
+  },
+  {
+   "cuisine": "Italian",
+   "inspections": 2979,
+   "median_score": 13.0,
+   "typical_grade": "A",
+   "modeled": 619,
+   "modeled_bc_pct": 25.4
+  },
+  {
+   "cuisine": "Chicken",
+   "inspections": 2625,
+   "median_score": 12.0,
+   "typical_grade": "A",
+   "modeled": 532,
+   "modeled_bc_pct": 31.4
+  },
+  {
+   "cuisine": "Donuts",
+   "inspections": 2126,
+   "median_score": 10.0,
+   "typical_grade": "A",
+   "modeled": 320,
+   "modeled_bc_pct": 10.9
+  },
+  {
+   "cuisine": "Juice, Smoothies, Fruit Salads",
+   "inspections": 2004,
+   "median_score": 12.0,
+   "typical_grade": "A",
+   "modeled": 383,
+   "modeled_bc_pct": 26.9
+  },
+  {
+   "cuisine": "Sandwiches",
+   "inspections": 1796,
+   "median_score": 12.0,
+   "typical_grade": "A",
+   "modeled": 368,
+   "modeled_bc_pct": 30.7
+  },
+  {
+   "cuisine": "Hamburgers",
+   "inspections": 1778,
+   "median_score": 10.0,
+   "typical_grade": "A",
+   "modeled": 278,
+   "modeled_bc_pct": 19.1
+  }
+ ],
+ "cuisine_bc_note": "B or C share among the modeled inspections (graded, first visits excluded)",
+ "correlation": {
+  "columns": [
+   "score",
+   "n_violations",
+   "n_critical",
+   "latitude",
+   "longitude"
+  ],
+  "matrix": [
+   [
+    1.0,
+    0.85,
+    0.86,
+    0.02,
+    -0.02
+   ],
+   [
+    0.85,
+    1.0,
+    0.89,
+    0.02,
+    -0.01
+   ],
+   [
+    0.86,
+    0.89,
+    1.0,
+    0.02,
+    -0.02
+   ],
+   [
+    0.02,
+    0.02,
+    0.02,
+    1.0,
+    -1.0
+   ],
+   [
+    -0.02,
+    -0.01,
+    -0.02,
+    -1.0,
+    1.0
+   ]
+  ]
+ },
+ "models": [
+  {
+   "model": "Dummy (always A)",
+   "train_roc_auc": 0.5,
+   "test_roc_auc": 0.5,
+   "test_pr_auc": 0.332,
+   "test_accuracy": 0.668,
+   "precision_at_0_5": 0.0,
+   "recall_at_0_5": 0.0,
+   "caught_at_0_5": 0
+  },
+  {
+   "model": "Logistic regression",
+   "train_roc_auc": 0.644,
+   "test_roc_auc": 0.644,
+   "test_pr_auc": 0.496,
+   "test_accuracy": 0.553,
+   "precision_at_0_5": 0.402,
+   "recall_at_0_5": 0.71,
+   "caught_at_0_5": 2330
+  },
+  {
+   "model": "Random forest",
+   "train_roc_auc": 1.0,
+   "test_roc_auc": 0.641,
+   "test_pr_auc": 0.491,
+   "test_accuracy": 0.685,
+   "precision_at_0_5": 0.554,
+   "recall_at_0_5": 0.256,
+   "caught_at_0_5": 840
+  },
+  {
+   "model": "Gradient boosting",
+   "train_roc_auc": 0.87,
+   "test_roc_auc": 0.636,
+   "test_pr_auc": 0.493,
+   "test_accuracy": 0.672,
+   "precision_at_0_5": 0.509,
+   "recall_at_0_5": 0.312,
+   "caught_at_0_5": 1025
+  }
+ ],
+ "zip_highest": [
+  {
+   "zip": "11355",
+   "boro": "Queens",
+   "inspections": 822,
+   "graded": 342,
+   "pct_bc": 33.3,
+   "median_score": 22.0,
+   "mean_critical": 2.3
+  },
+  {
+   "zip": "11419",
+   "boro": "Queens",
+   "inspections": 449,
+   "graded": 203,
+   "pct_bc": 28.1,
+   "median_score": 18.0,
+   "mean_critical": 2.0
+  },
+  {
+   "zip": "10030",
+   "boro": "Manhattan",
+   "inspections": 93,
+   "graded": 46,
+   "pct_bc": 23.9,
+   "median_score": 13.0,
+   "mean_critical": 1.9
+  },
+  {
+   "zip": "11368",
+   "boro": "Queens",
+   "inspections": 1023,
+   "graded": 499,
+   "pct_bc": 23.6,
+   "median_score": 14.0,
+   "mean_critical": 1.8
+  },
+  {
+   "zip": "11428",
+   "boro": "Queens",
+   "inspections": 152,
+   "graded": 77,
+   "pct_bc": 23.4,
+   "median_score": 13.0,
+   "mean_critical": 2.0
+  },
+  {
+   "zip": "10026",
+   "boro": "Manhattan",
+   "inspections": 216,
+   "graded": 103,
+   "pct_bc": 23.3,
+   "median_score": 13.5,
+   "mean_critical": 1.8
+  },
+  {
+   "zip": "11354",
+   "boro": "Queens",
+   "inspections": 1844,
+   "graded": 793,
+   "pct_bc": 23.2,
+   "median_score": 18.0,
+   "mean_critical": 2.0
+  },
+  {
+   "zip": "10466",
+   "boro": "Bronx",
+   "inspections": 331,
+   "graded": 187,
+   "pct_bc": 23.0,
+   "median_score": 13.0,
+   "mean_critical": 1.7
+  },
+  {
+   "zip": "10454",
+   "boro": "Bronx",
+   "inspections": 342,
+   "graded": 162,
+   "pct_bc": 21.6,
+   "median_score": 13.0,
+   "mean_critical": 1.7
+  },
+  {
+   "zip": "11372",
+   "boro": "Queens",
+   "inspections": 1481,
+   "graded": 678,
+   "pct_bc": 20.6,
+   "median_score": 15.0,
+   "mean_critical": 1.9
+  }
+ ],
+ "zip_busiest": [
+  {
+   "zip": "10003",
+   "boro": "Manhattan",
+   "inspections": 2260,
+   "graded": 1177,
+   "pct_bc": 9.9,
+   "median_score": 12.0,
+   "mean_critical": 1.5
+  },
+  {
+   "zip": "10001",
+   "boro": "Manhattan",
+   "inspections": 2212,
+   "graded": 1198,
+   "pct_bc": 9.5,
+   "median_score": 12.0,
+   "mean_critical": 1.4
+  },
+  {
+   "zip": "10019",
+   "boro": "Manhattan",
+   "inspections": 2106,
+   "graded": 1140,
+   "pct_bc": 8.4,
+   "median_score": 12.0,
+   "mean_critical": 1.5
+  },
+  {
+   "zip": "10036",
+   "boro": "Manhattan",
+   "inspections": 2025,
+   "graded": 1029,
+   "pct_bc": 9.9,
+   "median_score": 12.0,
+   "mean_critical": 1.4
+  },
+  {
+   "zip": "10013",
+   "boro": "Manhattan",
+   "inspections": 1958,
+   "graded": 929,
+   "pct_bc": 14.9,
+   "median_score": 13.0,
+   "mean_critical": 1.7
+  }
+ ],
+ "zip_lowest": [
+  {
+   "zip": "10281",
+   "inspections": 57,
+   "graded": 39,
+   "pct_bc": 0.0
+  },
+  {
+   "zip": "10121",
+   "inspections": 189,
+   "graded": 163,
+   "pct_bc": 1.2
+  },
+  {
+   "zip": "11430",
+   "inspections": 136,
+   "graded": 103,
+   "pct_bc": 1.9
+  },
+  {
+   "zip": "11429",
+   "inspections": 98,
+   "graded": 64,
+   "pct_bc": 3.1
+  },
+  {
+   "zip": "10464",
+   "inspections": 93,
+   "graded": 61,
+   "pct_bc": 3.3
+  },
+  {
+   "zip": "11693",
+   "inspections": 92,
+   "graded": 60,
+   "pct_bc": 3.3
+  },
+  {
+   "zip": "11239",
+   "inspections": 80,
+   "graded": 48,
+   "pct_bc": 4.2
+  },
+  {
+   "zip": "10006",
+   "inspections": 167,
+   "graded": 104,
+   "pct_bc": 4.8
+  },
+  {
+   "zip": "10119",
+   "inspections": 79,
+   "graded": 42,
+   "pct_bc": 4.8
+  },
+  {
+   "zip": "10280",
+   "inspections": 76,
+   "graded": 42,
+   "pct_bc": 4.8
+  }
+ ],
+ "nta_highest": [
+  {
+   "nta": "Queensboro Hill",
+   "inspections": 125,
+   "graded": 53,
+   "pct_bc": 34.0,
+   "median_score": 23.0
+  },
+  {
+   "nta": "South Richmond Hill",
+   "inspections": 132,
+   "graded": 54,
+   "pct_bc": 33.3,
+   "median_score": 21.0
+  },
+  {
+   "nta": "East Flatbush-Farragut",
+   "inspections": 115,
+   "graded": 48,
+   "pct_bc": 29.2,
+   "median_score": 17.5
+  },
+  {
+   "nta": "East New York-City Line",
+   "inspections": 207,
+   "graded": 107,
+   "pct_bc": 25.2,
+   "median_score": 15.5
+  },
+  {
+   "nta": "Flushing-Willets Point",
+   "inspections": 1960,
+   "graded": 824,
+   "pct_bc": 25.0,
+   "median_score": 19.0
+  },
+  {
+   "nta": "Corona",
+   "inspections": 524,
+   "graded": 267,
+   "pct_bc": 24.7,
+   "median_score": 13.0
+  },
+  {
+   "nta": "Kingsbridge Heights-Van Cortlandt Village",
+   "inspections": 96,
+   "graded": 50,
+   "pct_bc": 24.0,
+   "median_score": 15.0
+  },
+  {
+   "nta": "East Flushing",
+   "inspections": 183,
+   "graded": 84,
+   "pct_bc": 22.6,
+   "median_score": 17.0
+  },
+  {
+   "nta": "Ozone Park (North)",
+   "inspections": 140,
+   "graded": 71,
+   "pct_bc": 22.5,
+   "median_score": 17.0
+  },
+  {
+   "nta": "Allerton",
+   "inspections": 206,
+   "graded": 116,
+   "pct_bc": 22.4,
+   "median_score": 13.0
+  }
+ ],
+ "history_example": {
+  "camis": "50098804",
+  "rows": [
+   {
+    "inspection_date": "2024-01-23",
+    "inspection_type": "Cycle Inspection / Compliance Inspection",
+    "score": 83.0,
+    "prior_count": 0,
+    "prior_mean_score": null,
+    "last_score": null
+   },
+   {
+    "inspection_date": "2024-01-30",
+    "inspection_type": "Cycle Inspection / Reopening Inspection",
+    "score": 39.0,
+    "prior_count": 1,
+    "prior_mean_score": 83.0,
+    "last_score": 83.0
+   },
+   {
+    "inspection_date": "2024-02-05",
+    "inspection_type": "Cycle Inspection / Reopening Inspection",
+    "score": 11.0,
+    "prior_count": 2,
+    "prior_mean_score": 61.0,
+    "last_score": 39.0
+   },
+   {
+    "inspection_date": "2024-02-08",
+    "inspection_type": "Cycle Inspection / Reopening Inspection",
+    "score": 13.0,
+    "prior_count": 3,
+    "prior_mean_score": 44.3,
+    "last_score": 11.0
+   },
+   {
+    "inspection_date": "2024-02-26",
+    "inspection_type": "Cycle Inspection / Reopening Inspection",
+    "score": 0.0,
+    "prior_count": 4,
+    "prior_mean_score": 36.5,
+    "last_score": 13.0
+   },
+   {
+    "inspection_date": "2024-04-25",
+    "inspection_type": "Cycle Inspection / Initial Inspection",
+    "score": 22.0,
+    "prior_count": 5,
+    "prior_mean_score": 29.2,
+    "last_score": 0.0
+   }
+  ]
+ }
+}

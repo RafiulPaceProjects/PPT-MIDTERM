@@ -4,7 +4,8 @@
 (function () {
   "use strict";
   const params = new URLSearchParams(location.search);
-  const exporting = params.has("export");
+  const printing = /print-pdf/.test(location.search);
+  const exporting = params.has("export") || printing;
   const root = document.documentElement;
 
   if (exporting) root.classList.add("exporting");
@@ -60,6 +61,8 @@
     backgroundTransition: "none",
     // export shows every fragment in its final state (the post-reveal slide)
     fragments: !exporting,
+    pdfSeparateFragments: false,
+    pdfMaxPagesPerSlide: 1,
     plugins: [RevealNotes],
   });
 
@@ -93,6 +96,11 @@
     window.DeckInteractions.init({ exporting });
     placeChrome();
     onSlide(event.currentSlide, null);
+    if (printing) {
+      // the print view lays every slide out at once: draw them all
+      await new Promise((ok) => setTimeout(ok, 300));
+      document.querySelectorAll(".reveal .slides section").forEach((s) => window.DeckCharts.renderSlide(s));
+    }
     if (exporting) window.DeckInteractions.finalStates();
     // the capture tool waits for this flag
     requestAnimationFrame(() => requestAnimationFrame(() => { window.__deckReady = true; }));

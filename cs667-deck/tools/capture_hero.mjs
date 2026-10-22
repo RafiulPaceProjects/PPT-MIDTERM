@@ -49,8 +49,12 @@ for (let i = 0; i < 250; i++) {
 execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-framerate", "25", "-i", join(frames, "f%04d.png"),
   "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "26", "-movflags", "+faststart",
   join(DECK_ROOT, "assets/video/hero_rotate.mp4")]);
+// VP9 too, for browsers built without H.264
+execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-framerate", "25", "-i", join(frames, "f%04d.png"),
+  "-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "38", "-row-mt", "1", "-pix_fmt", "yuv420p",
+  join(DECK_ROOT, "assets/video/hero_rotate.webm")]);
 rmSync(frames, { recursive: true });
-console.log("wrote assets/video/hero_rotate.mp4");
+console.log("wrote assets/video/hero_rotate.mp4 and .webm");
 
 await browser.close();
 server.close();

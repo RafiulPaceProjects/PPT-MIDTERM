@@ -1,0 +1,116 @@
+[
+ {
+  "index": 0,
+  "id": "title",
+  "title": "A bad grade is partly visible before the inspector arrives",
+  "notes": "Speaker: Rafiul. Target: 0:40.\n\n\"Every restaurant in this city gets graded. We asked whether the grade can be seen coming — using only what is known before the inspection happens.\"\n\nIntroduce both of us and the course. The picture behind the title is our hero map; we come back to it on slide 8."
+ },
+ {
+  "index": 1,
+  "id": "rule",
+  "title": "The prediction is only allowed to use what exists before the visit",
+  "notes": "Speaker: Rafiul. Target: 0:45.\n\nThe problem, precisely: will this inspection end in a B or C (1) rather than an A (0)? Two users: the Department of Health and Mental Hygiene, which has to decide where inspectors go first, and restaurant operators, who meet the grading system when an inspector is already in the kitchen.\n\nPoint at the red box before any result appears: nothing measured during the inspection itself is ever a predictor. That is the leakage rule, and every later slide obeys it."
+ },
+ {
+  "index": 2,
+  "id": "rows",
+  "title": "295,356 rows are not 295,356 inspections",
+  "notes": "Speaker: Rafiul. Target: 0:50.\n\nThis is the dataset slide. The raw file has 295,356 rows and 27 columns, one row per violation. We grouped it into 96,897 inspections across 31,443 restaurants.\n\nThe key is restaurant + date + inspection type. Date alone would wrongly merge awaiting export same-day pairs into fake inspections."
+ },
+ {
+  "index": 3,
+  "id": "tail",
+  "title": "The median inspection passes — the tail is the story",
+  "notes": "Speaker: Rafiul. Target: 1:05.\n\nScores are violation points, so lower is better. The median inspection scores 13, which is exactly the A boundary. The mean is 17.9 because the tail drags it up.\n\nPast the IQR fence at 46.5 points sit 4,095 inspections (5.0% of scored ones); the worst scored 214. We kept them: they are real failed inspections, not recording errors."
+ },
+ {
+  "index": 4,
+  "id": "missing",
+  "title": "43% of inspections have no grade, and that is structure, not dirt",
+  "notes": "Speaker: Rafiul. Target: 0:55. (If running long, cut this slide to one sentence.)\n\nGrade date is missing for 45.5%, grade for 43.2%, score for 14.7%, cuisine for 4.1%.\n\nMissing grades are pending inspections, not sloppy data. Plant the seed: the grading process has a timeline. Slide 9 harvests it."
+ },
+ {
+  "index": 5,
+  "id": "borough",
+  "title": "Borough tells you almost nothing; cuisine tells you a little",
+  "notes": "Speaker: Rafiul. Target: 1:15.\n\nThe two most natural explanations, tested in one view. Borough medians: Manhattan 12; Bronx, Brooklyn, Queens and Staten Island all 13. A one-point gap cannot drive a model.\n\nCuisine spreads further: Donuts and Hamburgers at 10, Latin American at 16. Click a cuisine chip to pin it; Grady's placard shows the letter that median would earn.\n\nStatic record: the cuisine explorer is interactive only in the live HTML deck; this .pptx shows its resting state."
+ },
+ {
+  "index": 6,
+  "id": "traps",
+  "title": "The strongest correlation in the file is partly mechanical — and one is fake",
+  "notes": "Speaker: Rafiul. Target: 0:45. Advance twice to ring each trap.\n\nScore and critical violations correlate at 0.86 — but the score is made of violation points, so that is arithmetic. Latitude and longitude at −1.00 is the city's diagonal shape. Naming both traps here is what makes the deck Q&A-proof.\n\nQ&A armor: \"Your headline correlation is mechanical, and your best features are just past scores — circular?\" — We flagged the mechanical correlation ourselves, on our own slide, and banned same-inspection fields for exactly that reason. Past scores are known before the predicted visit, built strictly from earlier inspections, and validated on a later period the model never trained on."
+ },
+ {
+  "index": 7,
+  "id": "map",
+  "title": "The busiest places are not the riskiest places",
+  "notes": "Speaker: Rafiul. Target: 1:00. Moment 2, the live 3D map.\n\nOpen on the flat view; hover ZIP 11355 and read its numbers aloud (33.3% B or C, 342 graded inspections). Then go live: \"Every column is a ZIP code. Height is workload — how many inspections. Color is risk — the share that ended B or C.\" Tilt, one slow rotation toward Manhattan: \"The tallest columns are all Manhattan, and they are pale — 8 to 10 percent, below the citywide share. The reddest column is out here in Flushing.\" Click back to the flat view and present from there.\n\nFallback chain: live iframe → poster image on the slide → 10-second rotation recording. If \"Go live\" cannot load within 4 seconds, the poster stays and the rotation recording plays instead; carry on talking.\n\nQ&A armor: \"ZIP/NTA rates rest on wildly different counts — why trust the red areas?\" — Only regions with at least 30 graded inspections earn a color; the rest are greyed \"not enough inspections to judge\"; counts ride in every tooltip and are printed for the headline ZIP (342 graded); the boundary match is awaiting export; and the stated limit: a high-rate ZIP describes inspected activity there, not any single restaurant in it.\n\nStatic record: this .pptx is the static record of a live deck. The 3D map, its rotation and the hover tooltips exist only in the live HTML version."
+ },
+ {
+  "index": 8,
+  "id": "discovery",
+  "title": "First visits never fail — the grade is settled at the second visit",
+  "notes": "Speaker: Rafiul, then Shadman steps in mid-slide and does not hand back. Target: 1:30. Moment 1, the reveal.\n\n\"We expected some first visits to fail. Watch the B and C bars on the left.\" — click; bars collapse to zero, crosstab fades in — \"Zero. Not rare — zero. A bad first visit leaves with the grade unsettled, and the letter is decided at the re-inspection. So we removed every first visit from the training data — keeping them would have taught the model the paperwork instead of the restaurants.\"\n\nNever cut the pause before the click. Numbers: 31,758 graded initial inspections, every one an A; 32.9% of 18,744 graded re-inspections end B or C.\n\nToggle \"Scored 14+\" if asked whether first visits really score better: the share of scored inspections at 14+ points is awaiting export on first visits vs awaiting export on re-inspections. First visits do score badly; they just never get the letter.\n\nQ&A armor: \"You threw away 31,758 rows — cherry-picking? And isn't inspection type leakage?\" — Type is known before the visit, so it is a fair feature. The rows went because their target is structurally pending: a first visit cannot receive the label being predicted. Keeping them trains the model on the grading process; the crosstab is in the notebook.\n\nStatic record: the reveal animation and the toggle exist only in the live HTML deck; this .pptx shows the slide after the reveal, with both states printed beneath."
+ },
+ {
+  "index": 9,
+  "id": "history",
+  "title": "A restaurant's past is the fairest predictor of its next visit",
+  "notes": "Speaker: Shadman. Target: 1:00.\n\nHistory is built from strictly earlier inspections: the shift comes before the statistic, and the notebook proves it — every restaurant's first row starts with zero history. ZIP is excluded on purpose; borough and coordinates carry location.\n\n18,998 modeled inspections, 33.8% B or C. Time split: train up to the end of 2024 (9,111), test from 2025 on (9,887). A random split would leak the same restaurant into both sides.\n\nQ&A armor: \"Why not a random split?\" — \"The scores would be better, and that is the problem: the same restaurants would sit on both sides, so the model would partly be recognizing places it already saw fail.\"\n\nAlso from slide 9: \"isn't inspection type leakage?\" — type is known before the visit, so it is a fair feature."
+ },
+ {
+  "index": 10,
+  "id": "pipeline",
+  "title": "The pipeline is plain on purpose — and PCA told us to keep it that way",
+  "notes": "Speaker: Shadman. Target: 0:45. (If running long, cut the PCA half to one line.)\n\nIdentical treatment for train and test. PCA on the numeric features spreads variance across components — PC1 21.8%, PC2 16.6%, 8 of 11 components for 90% — so the features are not copies of each other, and the originals stay because they can be explained in words.\n\nLogistic regression on the components reaches 0.631 at best vs 0.644 for the full model."
+ },
+ {
+  "index": 11,
+  "id": "models",
+  "title": "The simplest model won — the forest memorized the training years",
+  "notes": "Speaker: Shadman. Target: 0:55.\n\nRead the gaps, not the bars. Logistic regression: 0.644 train, 0.644 test. Random forest: 1.000 train, 0.641 test — it memorized the training years. Gradient boosting sits between: 0.870 / 0.636.\n\nFlip the card: the dummy scores 66.8% accuracy while catching 0 bad inspections, which is why accuracy is not the measure. The winner is logistic regression, a modest signal, stated plainly.\n\nQ&A armor: \"0.644 is barely better than a coin flip. Why is this useful?\" — It is a ranking score and the use is ranking: at the chosen threshold it catches 82.2% of bad inspections from pre-visit information alone, beating borough, cuisine, or the dummy (which catches none). The closing slide states what it is not strong enough for: judging one restaurant alone.\n\nStatic record: the card flip and the chart tooltips exist only in the live HTML deck; this .pptx shows the card after the reveal."
+ },
+ {
+  "index": 12,
+  "id": "threshold",
+  "title": "The threshold is a policy choice, not a setting",
+  "notes": "Speaker: Shadman. Target: 1:05. Moment 3, the threshold slider.\n\n\"The threshold is not a setting in the code. It is a policy: how many bad inspections are we willing to miss?\" Drag slowly to 0.45 while the counts move: \"At 0.45 we catch 82 of every 100 inspections that will end B or C. The cost is on the other side of the matrix: about six in ten flags still end with an A. For an inspector's visit list, that trade is worth it. For labeling a restaurant, it would not be.\"\n\nNever cut the drag. At 0.45: recall 82.2%, precision 37.6% — the highest threshold that still catches at least 80% of B or C. The slider stops only at thresholds the model was evaluated at; it never interpolates. Arrow keys move it; Esc or click outside returns the keys to the slides.\n\nStatic record: the slider exists only in the live HTML deck; this .pptx shows the chosen stop, 0.45."
+ },
+ {
+  "index": 13,
+  "id": "process",
+  "title": "We planned like Waterfall and worked like Agile",
+  "notes": "Speaker: Shadman. Target: 0:40 (keep it under 40 seconds).\n\n\"The frame was fixed before we started: a deadline, a public raw dataset, set deliverables. That is a waterfall plan, the top row. Underneath it we ran two one-week sprints. On October 21, building the visit-type maps, we found that first visits never get a B or C. We rebuilt the modeling population that same day. A pure waterfall plan would have shipped a model trained on the wrong target. The deadline never moved. The plan underneath it did, once, on evidence.\""
+ },
+ {
+  "index": 14,
+  "id": "close",
+  "title": "A prioritization tool, not a judge",
+  "notes": "Speaker: Shadman. Target: 0:50.\n\nClose the opening question: yes, a bad grade is partly visible before the inspector walks in — 0.644 ranking quality, 82.2% of bad inspections caught at 0.45, and the worst ZIP at 33.3% against 12.9% citywide.\n\nLimits in one line: a prioritization tool orders a visit list; it does not label a restaurant. Next steps: richer history features, per-visit-type models, probability calibration. \"Questions.\"\n\nStatic record: this .pptx is the static record of a live deck. The animations, the threshold slider and the 3D interaction exist only in the live HTML version."
+ },
+ {
+  "index": 15,
+  "id": "b1-zips",
+  "title": "Risk by ZIP code holds up only where the counts do",
+  "notes": "Backup, Q&A only. Every rate here rests on at least 30 graded inspections; counts are printed beside every rate."
+ },
+ {
+  "index": 16,
+  "id": "b2-confusion",
+  "title": "At the default 0.5 threshold the model misses more bad inspections",
+  "notes": "Backup, Q&A only. Why not 0.5? At 0.5 the model misses 954 bad inspections; at 0.45 it misses 583."
+ },
+ {
+  "index": 17,
+  "id": "b3-cuisine",
+  "title": "Cuisine pushes the model in both directions",
+  "notes": "Backup, Q&A only. Cuisine is the feature the model leans on most by permutation importance (test ROC-AUC drop 0.0457 when shuffled)."
+ },
+ {
+  "index": 18,
+  "id": "b4-limits",
+  "title": "What the maps cannot say",
+  "notes": "Backup, Q&A only. Use for \"why trust the red areas?\" — see slide 8's notes for the full answer."
+ }
+]

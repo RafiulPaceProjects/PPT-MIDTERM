@@ -55,10 +55,23 @@ for (let i = 0; i < total; i++) {
     const s = Reveal.getCurrentSlide();
     const n = s.querySelector("aside.notes");
     return { index: Reveal.getIndices().h, id: s.id, title: (s.querySelector("h1, h2")?.innerText || "").trim(),
-             notes: n ? n.innerText.trim() : "" };
+             // the notes are hidden, so read each paragraph's text and normalise its whitespace
+             notes: n ? [...n.querySelectorAll("p")].map((p) => p.textContent.replace(/\s+/g, " ").trim()).join("\n\n") : "" };
   }));
 }
 writeFileSync(join(out, "notes.json"), JSON.stringify(notes, null, 1));
+
+// print backup (a handout, not the graded artifact): reveal's print view, one slide per page
+if (args.includes("--pdf")) {
+  const pdfPage = await context.newPage();
+  await pdfPage.route("**/*", (route) => (route.request().url().startsWith(server.url) ? route.continue() : route.abort()));
+  await pdfPage.goto(`${server.url}/index.html?print-pdf&export=1`);
+  await pdfPage.waitForFunction(() => window.__deckReady === true, null, { timeout: 30000 });
+  await pdfPage.waitForTimeout(800);
+  const pdf = join(DECK_ROOT, "export/CS667_Technical_Presentation_handout.pdf");
+  await pdfPage.pdf({ path: pdf, width: "1920px", height: "1080px", printBackground: true, preferCSSPageSize: true });
+  console.log("wrote", pdf);
+}
 console.log(`captured ${notes.length} of ${total} slides -> ${out}`);
 if (external.length) console.log("blocked external requests:\n  " + [...new Set(external)].join("\n  "));
 if (failed.length) console.log("failed local requests:\n  " + [...new Set(failed)].join("\n  "));

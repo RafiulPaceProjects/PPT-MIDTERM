@@ -251,8 +251,8 @@
         text(svg, cx, h - bottom + 58, `${fmt(n, "int")} graded`, { class: isInitial ? "real-initial-label" : "", "text-anchor": "middle", "font-size": 18 });
       }
     });
-    if (measure === "score" && opts.small) {
-      text(svg, w - 4, top - 8, "no B or C is ever issued on a first visit", { "text-anchor": "end", "font-size": 13, class: "initial-note" });
+    if (measure === "score" && opts.small) {   // only on the first-visit side
+      text(svg, w / 3, top - 8, "no B or C is ever issued on a first visit", { "text-anchor": "middle", "font-size": 13, class: "initial-note" });
     }
     el("line", { x1: opts.small ? 0 : 60, x2: w, y1: top + ph, y2: top + ph, class: "axis" }, svg);
   }

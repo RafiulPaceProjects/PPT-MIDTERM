@@ -46,7 +46,7 @@ decides what changes. Nothing is edited to make a row pass.
 | key_metrics.json | `dataset.raw_rows` | 295356 | 295356 | ok |
 | key_metrics.json | `dataset.inspections` | 96897 | 96897 | ok |
 | key_metrics.json | `dataset.restaurants` | 31443 | 31443 | ok |
-| key_metrics.json | `dataset.same_day_multi_type` | 8456 | None | PENDING (no notebook output) |
+| key_metrics.json | `dataset.same_day_multi_type` | 8456 | 8456 | ok |
 | key_metrics.json | `score.median` | 13.0 | 13.0 | ok |
 | key_metrics.json | `score.mean` | 17.869195 | 17.869195 | ok |
 | key_metrics.json | `score.upper_fence` | 46.5 | 46.5 | ok |
@@ -69,14 +69,11 @@ decides what changes. Nothing is edited to make a row pass.
 | key_metrics.json | `visit_kind.initial_graded` | 31758 | 31758 | ok |
 | key_metrics.json | `visit_kind.initial_bc` | 0 | 0 | ok |
 | key_metrics.json | `visit_kind.reinspection_bc_pct` | 32.9 | 32.9 | ok |
-| key_metrics.json | `visit_kind.initial_pct_scored_14_plus` | 41.8 | None | PENDING (no notebook output) |
-| key_metrics.json | `visit_kind.reinspection_pct_scored_14_plus` | 37.1 | None | PENDING (no notebook output) |
+| key_metrics.json | `visit_kind.initial_pct_scored_14_plus` | 41.8 | 41.8 | ok |
+| key_metrics.json | `visit_kind.reinspection_pct_scored_14_plus` | 37.1 | 37.1 | ok |
 | key_metrics.json | `population.population_bc_pct` | 33.8 | 33.8 | ok |
 | key_metrics.json | `population.modeled_bc_pct` | 33.8 | 33.8 | ok |
-| key_metrics.json | `zip.zcta_match_pct` | 99.6 | None | PENDING (no notebook output) |
+| key_metrics.json | `zip.zcta_match_pct` | 99.6 | 99.6 | ok |
 
 ## Values still pending
 
-- `same_day_multi_type`: described in a markdown cell only; no cell prints it. Run `tools/notebook_export_cell.py` in Colab.
-- `visit_kind_scored_14_plus`: cell 13.5 (initial vs re-inspection maps) was saved as 'Output hidden'. Run `tools/notebook_export_cell.py` in Colab.
-- `zcta_match_pct`: cell 13.4 (ZIP risk map) was saved as 'Output hidden'. Run `tools/notebook_export_cell.py` in Colab.

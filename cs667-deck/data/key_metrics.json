@@ -10,7 +10,7 @@
   "latest_inspection": "2026-10-19",
   "inspections": 96897,
   "restaurants": 31443,
-  "same_day_multi_type": null
+  "same_day_multi_type": 8456
  },
  "score": {
   "count": 82619,
@@ -68,8 +68,10 @@
   "reinspection_bc": 6174,
   "reinspection_bc_pct": 32.9,
   "reinspection_note": "graded re-inspections with a usable location (modeling_table.csv)",
-  "initial_pct_scored_14_plus": null,
-  "reinspection_pct_scored_14_plus": null
+  "initial_pct_scored_14_plus": 41.8,
+  "reinspection_pct_scored_14_plus": 37.1,
+  "initial_scored": 58062,
+  "reinspection_scored": 20276
  },
  "history": {
   "first_row_check_passed": true,
@@ -140,7 +142,7 @@
   "busiest_pale_min_pct": 8.4,
   "busiest_pale_max_pct": 9.9,
   "busiest_pale_count": 4,
-  "zcta_match_pct": null
+  "zcta_match_pct": 99.6
  },
  "nta": {
   "polygons": 262,
@@ -162,18 +164,5 @@
   "auc_90pct_components": 0.631,
   "auc_original_features": 0.644
  },
- "pending": [
-  {
-   "key": "same_day_multi_type",
-   "reason": "described in a markdown cell only; no cell prints it"
-  },
-  {
-   "key": "visit_kind_scored_14_plus",
-   "reason": "cell 13.5 (initial vs re-inspection maps) was saved as 'Output hidden'"
-  },
-  {
-   "key": "zcta_match_pct",
-   "reason": "cell 13.4 (ZIP risk map) was saved as 'Output hidden'"
-  }
- ]
+ "pending": []
 }

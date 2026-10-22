@@ -266,7 +266,9 @@
           ? `<b>ZIP ${zip}</b>, ${name.toLowerCase()}<br>${fmt(p.pct_high, "pct1")} scored 14 or more<br>${fmt(p.scored, "int")} scored inspections`
           : `<b>ZIP ${zip}</b>, ${name.toLowerCase()}<br>too few to judge (${fmt(p.scored, "int")} scored)`);
       }
-      text(svg, x0, 12, name, { "font-size": 15, "font-weight": 700, fill: "var(--ink)" });
+      const overall = get(`key_metrics.visit_kind.${kind}_pct_scored_14_plus`);
+      text(svg, x0, 12, overall == null ? name : `${name}: ${fmt(overall, "pct1")} scored 14+`,
+        { "font-size": 15, "font-weight": 700, fill: "var(--ink)" });
       const lx = x0 + mw * 0.66;
       if (kind === "initial") {
         text(svg, lx, h * 0.42, "no B or C is ever", { "font-size": 13, class: "initial-note" });

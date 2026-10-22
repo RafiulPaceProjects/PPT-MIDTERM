@@ -14,12 +14,16 @@ Data as of October 21, 2026 (the NYC Open Data file downloaded that day).
 | `source/nta_risk_table.csv` | `438280c75b80c52a` |
 | `source/html/map_risk_zip.html` | `25d884b10ca132f8` |
 | `source/html/map_initial_vs_reinspection.html` | `0066ebf77ea5a026` |
+| `source/deck_exports.json` | `a3b1f2f89b73d39f` |
+
+`source/deck_exports.json` was supplied by the team: Values from the October 21, 2026 run of the CS667 midterm notebook pipeline, computed with the notebook's own subsets (map figures use the coordinate-cleaned inspection set, as in notebook Section 13). Supplied to fill the three deck figures the notebook rendered but did not print as text.
+Its shares are checked against its own counts and against the per-ZIP map data.
 
 ## Exports
 
 | File | sha256 |
 |---|---|
-| `key_metrics.json` | `8922372c4f709214` |
+| `key_metrics.json` | `ae0632a5ce90fb2c` |
 | `thresholds.json` | `64cf6ff8a4711ed4` |
 | `curves.json` | `c0d1096ccf281598` |
 | `confusion.json` | `cc4a302a85709750` |
@@ -27,10 +31,8 @@ Data as of October 21, 2026 (the NYC Open Data file downloaded that day).
 | `tables.json` | `8e10fb3223239361` |
 | `pca.json` | `1ce8888e020c4563` |
 | `maps.json` | `cf3d57524bf61dac` |
-| `deck-data.js` (all of the above, as one script) | `14580221b3466a0d` |
+| `deck-data.js` (all of the above, as one script) | `37e75cff47831bf5` |
 
 ## Pending
 
-- `same_day_multi_type`: described in a markdown cell only; no cell prints it
-- `visit_kind_scored_14_plus`: cell 13.5 (initial vs re-inspection maps) was saved as 'Output hidden'
-- `zcta_match_pct`: cell 13.4 (ZIP risk map) was saved as 'Output hidden'
+None.

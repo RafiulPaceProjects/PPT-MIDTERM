@@ -77,20 +77,21 @@ python3 tools/stamp_numbers.py             # numbers into index.html
 python3 tools/inline_mascot.py             # only if src/assets-src/mascot.svg changed
 ```
 
+### Values the team supplied
+
+Three figures the notebook printed while it ran, but never saved, come from
+`source/deck_exports.json`: 8,456 same-day pairs, 41.8% / 37.1% of scored first visits and
+re-inspections at 14+ points, and the 99.6% ZIP boundary match. The team supplied them from
+the October 21 run. The exporter checks each share against its own counts and the 14+
+counts against the per-ZIP map data before using them. `tools/notebook_export_cell.py` can
+regenerate the same file from a Colab run.
+
 ### Still open
 
-| What | Why | Where it shows |
-|---|---|---|
-| 8,456 same-day restaurant pairs | only stated in a markdown cell; no cell prints it | slide 3 notes |
-| 41.8% / 37.1% scored 14+ (first visits / re-inspections) | printed by cell 13.5, whose output was saved as "Output hidden"; the map file has per-ZIP shares only | slide 9 notes |
-| 99.6% ZIP boundary match | printed by cell 13.4, whose output was saved as "Output hidden" | slide 8 notes, B4 |
-| RF 0.640 / GB 0.637 / 3,281 in the spec | the notebook says **0.641 / 0.636 / 3,284**; the deck shows the notebook's values | slides 12, 13 |
-
-Until the first three are exported, the deck shows a red "awaiting export" label in their
-place, and `qa_check.py` fails. To fill them in, run `tools/notebook_export_cell.py` as the
-last cell of the notebook in Colab. The cell refuses to run unless the file it downloads is
-still the October 21, 2026 file. Upload the `deck_exports.json` it writes to `source/`, then
-run the re-export commands above.
+The spec quotes random forest 0.640, gradient boosting 0.637 and 3,281 bad inspections. The
+notebook says **0.641, 0.636 and 3,284**, and the deck shows the notebook's values, so
+`qa_check.py` reports those three fixtures as mismatched until the spec or the notebook
+changes.
 
 ## Building the StaticRecord
 

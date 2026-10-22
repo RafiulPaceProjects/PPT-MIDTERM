@@ -415,6 +415,49 @@ def from_maps(hero_zips):
                        "panels": panels}}
 
 
+# ---------------------------------------------------------------- deck_exports.json
+
+def normalize_extra(raw, mapdata):
+    """Accept deck_exports.json in either shape: the one tools/notebook_export_cell.py
+    writes, or the team-supplied one (same_day_multi_type_pairs, *_scored_14_plus,
+    zip_boundary_match). Every share must equal its own counts, and the counts must
+    fit the per-ZIP map data, or the export stops."""
+    if raw is None:
+        return None
+    if "record_date" in raw:                      # written by the Colab cell
+        if raw["record_date"] != "10/21/2026":
+            sys.exit("export failed: deck_exports.json is not from the October 21, 2026 file")
+        return raw
+    if "October 21, 2026" not in raw.get("_about", ""):
+        sys.exit("export failed: deck_exports.json does not say it is from the October 21, 2026 run")
+    problems = []
+    visit = {}
+    for kind, key in (("initial", "initial_scored_14_plus"), ("reinspection", "reinspection_scored_14_plus")):
+        v = raw[key]
+        if round(100 * v["scored_14_plus"] / v["scored"], 1) != v["share_pct"]:
+            problems.append(f"{key}: share does not match its counts")
+        if mapdata:
+            ps = mapdata["panels"]["panels"][kind]
+            in_maps = sum(p["scored"] for p in ps)
+            known_high = round(sum(p["pct_high"] * p["scored"] / 100 for p in ps if p["reliable"]))
+            unknown = sum(p["scored"] for p in ps if not p["reliable"]) + (v["scored"] - in_maps)
+            if in_maps > v["scored"] or not known_high <= v["scored_14_plus"] <= known_high + unknown:
+                problems.append(f"{key}: counts do not fit the per-ZIP map data")
+        visit[kind] = {"scored": v["scored"], "scored_14_plus": v["scored_14_plus"], "pct_scored_14_plus": v["share_pct"]}
+    zb = raw["zip_boundary_match"]
+    if round(100 * zb["inspections_matched"] / zb["inspections_with_zip"], 1) != zb["share_pct"]:
+        problems.append("zip_boundary_match: share does not match its counts")
+    if mapdata and zb["zips_matched_to_boundary"] != len(mapdata["risk"]):
+        problems.append("zip_boundary_match: ZIP count differs from the risk map")
+    if problems:
+        sys.exit("export failed: deck_exports.json is inconsistent:\n  " + "\n  ".join(problems))
+    return {"same_day_multi_type": raw["same_day_multi_type_pairs"], "visit_kind": visit,
+            "zcta_match": {"pct_matched": zb["share_pct"], "inspections_matched": zb["inspections_matched"],
+                           "inspections_with_zip": zb["inspections_with_zip"],
+                           "zips_matched": zb["zips_matched_to_boundary"], "zips_in_data": zb["zips_in_data"]},
+            "provenance": raw.get("_about")}
+
+
 # ---------------------------------------------------------------- refit
 
 HISTORY_COLS = ["prior_count", "prior_mean_score", "prior_bc_share", "prior_mean_critical",
@@ -581,6 +624,8 @@ def build(nb, pop, nta, fit, extra, mapdata=None):
             "initial_pct_scored_14_plus": take("visit_kind_scored_14_plus",
                                                vk and vk["initial"]["pct_scored_14_plus"]),
             "reinspection_pct_scored_14_plus": vk and vk["reinspection"]["pct_scored_14_plus"],
+            "initial_scored": vk and vk["initial"].get("scored"),
+            "reinspection_scored": vk and vk["reinspection"].get("scored"),
         },
         "history": {k: v for k, v in nb["history"].items() if k not in ("example",)},
         "split": {"train_rows": nb["history"]["train_rows"], "train_bc_pct": nb["history"]["train_bc_pct"],
@@ -857,11 +902,10 @@ def main():
     fit = refit(pop)
     verify_refit(nb, fit)
     extra = json.loads(EXTRA.read_text()) if EXTRA.exists() else None
-    if extra and extra.get("record_date") != "10/21/2026":
-        sys.exit("export failed: deck_exports.json is not from the October 21, 2026 file")
 
     DATA.mkdir(exist_ok=True)
     mapdata = from_maps(nb["hero"]["zips"])
+    extra = normalize_extra(extra, mapdata)
     docs = {name: clean({"as_of": AS_OF, **doc}) for name, doc in build(nb, pop, nta, fit, extra, mapdata).items()}
 
     if "--check" in sys.argv:
@@ -882,6 +926,9 @@ def main():
                 f"Data as of {AS_OF_TEXT} (the NYC Open Data file downloaded that day).", "",
                 "## Sources", "", "| Source | sha256 |", "|---|---|"]
     manifest += [f"| `{p.relative_to(ROOT)}` | `{sha(p)[:16]}` |" for p in sources]
+    if extra and extra.get("provenance"):
+        manifest += ["", "`source/deck_exports.json` was supplied by the team: " + extra["provenance"],
+                     "Its shares are checked against its own counts and against the per-ZIP map data."]
     manifest += ["", "## Exports", "", "| File | sha256 |", "|---|---|"]
     for name, doc in docs.items():
         path = DATA / name

@@ -1,0 +1,21 @@
+{
+  "_about": "Values from the October 21, 2026 run of the CS667 midterm notebook pipeline, computed with the notebook's own subsets (map figures use the coordinate-cleaned inspection set, as in notebook Section 13). Supplied to fill the three deck figures the notebook rendered but did not print as text.",
+  "same_day_multi_type_pairs": 8456,
+  "initial_scored_14_plus": {
+    "scored": 58062,
+    "scored_14_plus": 24247,
+    "share_pct": 41.8
+  },
+  "reinspection_scored_14_plus": {
+    "scored": 20276,
+    "scored_14_plus": 7520,
+    "share_pct": 37.1
+  },
+  "zip_boundary_match": {
+    "zips_matched_to_boundary": 203,
+    "zips_in_data": 223,
+    "inspections_with_zip": 95010,
+    "inspections_matched": 94637,
+    "share_pct": 99.6
+  }
+}

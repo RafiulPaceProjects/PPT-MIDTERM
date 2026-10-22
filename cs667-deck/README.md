@@ -61,6 +61,11 @@ index.html                        charts are drawn in the browser from data/deck
   notebook printed** (cells 58, 60, 62). It currently matches all of them: 4 models,
   6 threshold stops, and the coefficients.
 - **The hero map's ZIP data** comes from the HTML the notebook embedded in cell 44.
+- **ZIP boundaries and per-ZIP values** come from `source/html/map_risk_zip.html` and
+  `map_initial_vs_reinspection.html`, the files cells 13.4 and 13.5 wrote. The exporter stops
+  if the risk map and the hero data disagree on any ZIP they share (203 agree).
+- `source/html/nyc_hex_3d.html` (10 MB) is kept as a source only. The deck never links it,
+  per INV-6; open it on its own if you want the street-level view.
 - `data/FIXTURES.md` checks the exports against the numbers quoted in the build spec.
 
 To re-export, which is a deliberate step that should show up in the git diff:
@@ -77,8 +82,8 @@ python3 tools/inline_mascot.py             # only if src/assets-src/mascot.svg c
 | What | Why | Where it shows |
 |---|---|---|
 | 8,456 same-day restaurant pairs | only stated in a markdown cell; no cell prints it | slide 3 notes |
-| 41.8% / 37.1% scored 14+ (first visits / re-inspections) | cell 13.5's output was saved as "Output hidden" | slide 9 toggle, notes |
-| 99.6% ZIP boundary match | cell 13.4's output was saved as "Output hidden" | slide 8 notes, B4 |
+| 41.8% / 37.1% scored 14+ (first visits / re-inspections) | printed by cell 13.5, whose output was saved as "Output hidden"; the map file has per-ZIP shares only | slide 9 notes |
+| 99.6% ZIP boundary match | printed by cell 13.4, whose output was saved as "Output hidden" | slide 8 notes, B4 |
 | RF 0.640 / GB 0.637 / 3,281 in the spec | the notebook says **0.641 / 0.636 / 3,284**; the deck shows the notebook's values | slides 12, 13 |
 
 Until the first three are exported, the deck shows a red "awaiting export" label in their
@@ -122,13 +127,14 @@ export/                 the StaticRecord and the handout
 ## Decisions to know about
 
 - **Hero poster and rotation video.** These are rendered from the notebook's own ColumnLayer
-  data and settings (heights, colours, radius) with a local deck.gl. The original HTML
+  data and settings (heights, colors, radius) with a local deck.gl. The original HTML
   loads its basemap and deck.gl from CDNs that this build environment can't reach, so the
   poster has no street map underneath. The camera is closer than the notebook's zoom 10,
   where the columns stand only a few pixels tall.
-- **Slide 8's flat panel.** It is a dot map of ZIP centroids, not a filled-polygon map: the
-  ZIP polygons were never saved, and the uploaded copy of `map_risk_zip.html` stops at 1 MB.
-  When `deck_exports.json` supplies the polygons, the data is ready for a filled map.
+- **Slide 8's flat panel and slide 9's "Scored 14+" toggle** are drawn natively from the
+  notebook's two Plotly maps (boundaries simplified to about 10,000 points), in the deck's
+  own color ramp. The live Plotly files need map tiles from the network, so they are not
+  embedded.
 - **The 3D score scatter is not used.** It encodes the score as height, which breaks INV-4.
   The 10 MB hexagon map is not linked from the deck at all.
 - **Cuisine B-or-C shares (slide 6 explorer)** are computed over the modeled inspections

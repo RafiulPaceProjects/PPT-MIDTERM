@@ -177,10 +177,26 @@
       matrix.map((row, i) => [names[columns[i]], ...row.map((r) => fmt(r, "dec2"))]));
   };
 
-  /* slide 8: flat ZIP risk map from the hero's ZIP centroids */
+  /* ZIP polygons (map_risk_zip.html's boundary file) projected into a box */
+  function zipProjection(shapes, x0, y0, w, h, pad = 12) {
+    const kx = Math.cos((40.7 * Math.PI) / 180);
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (const polys of Object.values(shapes)) for (const poly of polys) for (const [lon, lat] of poly[0]) {
+      minX = Math.min(minX, lon * kx); maxX = Math.max(maxX, lon * kx); minY = Math.min(minY, lat); maxY = Math.max(maxY, lat);
+    }
+    const s = Math.min((w - 2 * pad) / (maxX - minX), (h - 2 * pad) / (maxY - minY));
+    const ox = x0 + (w - s * (maxX - minX)) / 2, oy = y0 + h - (h - s * (maxY - minY)) / 2;
+    const pt = ([lon, lat]) => `${(ox + s * (lon * kx - minX)).toFixed(1)} ${(oy - s * (lat - minY)).toFixed(1)}`;
+    return (polys) => polys.map((poly) => poly.map((ring) => "M" + ring.map(pt).join("L") + "Z").join("")).join("");
+  }
+
+  /* slide 8: flat ZIP risk map. Filled ZIPs when the boundary file is exported;
+     ZIP centroids as dots otherwise. */
   charts.zipmap = function (fig) {
     const zips = get("maps.zips"), clip = get("maps.color_scale.clip_pct");
     const plot = fig.querySelector(".plot");
+    const shapes = get("maps.zcta_shapes"), risk = get("maps.risk_zip");
+    if (shapes && risk) return zipChoropleth(fig, plot, zips, shapes, risk, clip);
     const { svg, w, h } = svgIn(plot, "Map of ZIP codes: dot size is inspections, color is the share ending B or C");
     const lat0 = 40.7, kx = Math.cos((lat0 * Math.PI) / 180);
     const xs = zips.map((z) => z.lon * kx), ys = zips.map((z) => z.lat);
@@ -207,6 +223,61 @@
       zips.map((z) => [z.zip, fmt(z.inspections, "int"), fmt(z.graded, "int"),
         z.reliable ? fmt(z.pct_bc, "pct1") : "not enough inspections to judge"]));
   };
+
+  function zipChoropleth(fig, plot, zips, shapes, risk, clip) {
+    const { svg, w, h } = svgIn(plot, "Map of ZIP codes coloured by the share of graded inspections ending B or C");
+    const path = zipProjection(shapes, 0, 0, w, h, 8);
+    const hero = Object.fromEntries(zips.map((z) => [z.zip, z]));
+    const byZip = Object.fromEntries(risk.map((r) => [r.zip, r]));
+    const worst = get("key_metrics.zip.worst.zip");
+    const g = el("g", { class: "hover-dim" }, svg);
+    for (const [zip, polys] of Object.entries(shapes)) {
+      const r = byZip[zip], z = hero[zip];
+      const fill = !r ? "#EEF0F2" : r.reliable ? rampColor(r.pct_bc, clip) : "var(--unreliable)";
+      const shape = el("path", { d: path(polys), class: "hl zip", fill, stroke: "#FFFFFF", "stroke-width": 0.8, "data-zip": zip }, g);
+      tip(shape, !r ? `<b>ZIP ${zip}</b><br>no inspections matched to this ZIP`
+        : r.reliable
+          ? `<b>ZIP ${zip}</b><br>${fmt(z.pct_bc, "pct1")} ended B or C<br>${fmt(r.graded, "int")} graded of ${fmt(z.inspections, "int")} inspections`
+          : `<b>ZIP ${zip}</b><br>not enough inspections to judge<br>${fmt(r.graded, "int")} graded of ${fmt(z.inspections, "int")} inspections`);
+    }
+    el("path", { d: path(shapes[worst]), fill: "none", stroke: "var(--ink)", "stroke-width": 3 }, svg);
+    const wb = svg.querySelector(`path[data-zip="${worst}"]`).getBBox();
+    text(svg, wb.x + wb.width + 8, wb.y + 6, `${worst}: ${fmt(hero[worst].pct_bc, "pct1")}`, { class: "val", "font-size": 22 });
+    srTable(fig, "B or C share by ZIP code", ["ZIP", "Inspections", "Graded", "B or C share"],
+      risk.map((r) => [r.zip, fmt(hero[r.zip].inspections, "int"), fmt(r.graded, "int"),
+        r.reliable ? fmt(hero[r.zip].pct_bc, "pct1") : "not enough inspections to judge"]));
+  }
+
+  /* slide 9 toggle, "Scored 14+": the notebook's paired ZIP maps (cell 13.5),
+     one colour scale for both, grey under the 20-scored floor */
+  function visitMaps(svg, w, h) {
+    const vp = get("maps.visit_kind_panels"), shapes = get("maps.zcta_shapes");
+    const zmax = vp.shared_zmax, gap = 16, mw = (w - gap) / 2;
+    [["initial", "First visits"], ["reinspection", "Re-inspections"]].forEach(([kind, name], i) => {
+      const x0 = i * (mw + gap);
+      const path = zipProjection(shapes, x0, 16, mw * 0.62, h - 16, 2);
+      const byZip = Object.fromEntries(vp.panels[kind].map((p) => [p.zip, p]));
+      const g = el("g", {}, svg);
+      for (const [zip, polys] of Object.entries(shapes)) {
+        const p = byZip[zip];
+        const shape = el("path", { d: path(polys), stroke: "#FFFFFF", "stroke-width": 0.3,
+          fill: !p ? "#EEF0F2" : p.reliable ? rampColor(p.pct_high, zmax) : "var(--unreliable)" }, g);
+        if (p) tip(shape, p.reliable
+          ? `<b>ZIP ${zip}</b>, ${name.toLowerCase()}<br>${fmt(p.pct_high, "pct1")} scored 14 or more<br>${fmt(p.scored, "int")} scored inspections`
+          : `<b>ZIP ${zip}</b>, ${name.toLowerCase()}<br>too few to judge (${fmt(p.scored, "int")} scored)`);
+      }
+      text(svg, x0, 12, name, { "font-size": 15, "font-weight": 700, fill: "var(--ink)" });
+      const lx = x0 + mw * 0.66;
+      if (kind === "initial") {
+        text(svg, lx, h * 0.42, "no B or C is ever", { "font-size": 13, class: "initial-note" });
+        text(svg, lx, h * 0.42 + 16, "issued on a first visit", { "font-size": 13, class: "initial-note" });
+      } else {
+        text(svg, lx, h * 0.42, "scored 14+:", { "font-size": 13 });
+        text(svg, lx, h * 0.42 + 16, `0 to ${fmt(zmax, "pct0")}, one scale`, { "font-size": 13 });
+        text(svg, lx, h * 0.42 + 32, `grey: < ${vp.floor_scored} scored`, { "font-size": 13 });
+      }
+    });
+  }
 
   /* slide 9: B-or-C share by visit kind, with the pre-reveal ghost */
   function visitBars(svg, w, h, opts) {
@@ -277,7 +348,8 @@
       const before = plot.dataset.chartMini === "before";
       const { svg, w, h } = svgIn(plot, before ? "What we expected before looking: unknown" : "What the file says");
       hatchDefs(svg);
-      visitBars(svg, w, h, { small: true, ghost: before, measure: before ? "grade" : measure });
+      if (!before && measure === "score" && get("maps.visit_kind_panels") && get("maps.zcta_shapes")) visitMaps(svg, w, h);
+      else visitBars(svg, w, h, { small: true, ghost: before, measure: before ? "grade" : measure });
     });
   };
 

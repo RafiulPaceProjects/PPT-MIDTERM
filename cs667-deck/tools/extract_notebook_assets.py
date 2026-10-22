@@ -47,7 +47,8 @@ DUPLICATES = {(62, 1)}
 
 # cell index -> file name, for the HTML maps embedded in the outputs.
 # map_risk_zip.html, map_initial_vs_reinspection.html and nyc_hex_3d.html are
-# NOT recoverable: Colab saved those cells as "Output hidden".
+# not in the outputs (Colab saved those cells as "Output hidden"); the
+# copies in source/html are the files the notebook wrote, uploaded by hand.
 HTML = {
     34: "map_density.html",
     44: "nyc_zip_3d_hero.html",

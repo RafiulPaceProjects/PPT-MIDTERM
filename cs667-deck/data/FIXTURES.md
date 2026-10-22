@@ -80,5 +80,3 @@ decides what changes. Nothing is edited to make a row pass.
 - `same_day_multi_type`: described in a markdown cell only; no cell prints it. Run `tools/notebook_export_cell.py` in Colab.
 - `visit_kind_scored_14_plus`: cell 13.5 (initial vs re-inspection maps) was saved as 'Output hidden'. Run `tools/notebook_export_cell.py` in Colab.
 - `zcta_match_pct`: cell 13.4 (ZIP risk map) was saved as 'Output hidden'. Run `tools/notebook_export_cell.py` in Colab.
-- `visit_kind_zip_panels`: cell 13.5's per-ZIP panels were saved as 'Output hidden'. Run `tools/notebook_export_cell.py` in Colab.
-- `zcta_shapes`: the ZIP boundary polygons were never saved by the notebook. Run `tools/notebook_export_cell.py` in Colab.

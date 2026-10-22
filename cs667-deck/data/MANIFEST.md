@@ -12,25 +12,25 @@ Data as of October 21, 2026 (the NYC Open Data file downloaded that day).
 | `source/CS667_Fall2026_Midterm_RafiulHaider_ShadmanRahman_RestaurantInspections.ipynb` | `3f6fde131c3ff7b8` |
 | `source/modeling_table.csv` | `e42a11200d5666fb` |
 | `source/nta_risk_table.csv` | `438280c75b80c52a` |
+| `source/html/map_risk_zip.html` | `25d884b10ca132f8` |
+| `source/html/map_initial_vs_reinspection.html` | `0066ebf77ea5a026` |
 
 ## Exports
 
 | File | sha256 |
 |---|---|
-| `key_metrics.json` | `5eee655032d262c7` |
+| `key_metrics.json` | `8922372c4f709214` |
 | `thresholds.json` | `64cf6ff8a4711ed4` |
 | `curves.json` | `c0d1096ccf281598` |
 | `confusion.json` | `cc4a302a85709750` |
 | `importance.json` | `6a65428ea6729744` |
 | `tables.json` | `8e10fb3223239361` |
 | `pca.json` | `1ce8888e020c4563` |
-| `maps.json` | `3da606ca6d2b652f` |
-| `deck-data.js` (all of the above, as one script) | `0726f2d11e16aecb` |
+| `maps.json` | `cf3d57524bf61dac` |
+| `deck-data.js` (all of the above, as one script) | `14580221b3466a0d` |
 
 ## Pending
 
 - `same_day_multi_type`: described in a markdown cell only; no cell prints it
 - `visit_kind_scored_14_plus`: cell 13.5 (initial vs re-inspection maps) was saved as 'Output hidden'
 - `zcta_match_pct`: cell 13.4 (ZIP risk map) was saved as 'Output hidden'
-- `visit_kind_zip_panels`: cell 13.5's per-ZIP panels were saved as 'Output hidden'
-- `zcta_shapes`: the ZIP boundary polygons were never saved by the notebook

@@ -40,6 +40,8 @@ NOTEBOOK = SRC / "CS667_Fall2026_Midterm_RafiulHaider_ShadmanRahman_RestaurantIn
 MODELING = SRC / "modeling_table.csv"
 NTA = SRC / "nta_risk_table.csv"
 EXTRA = SRC / "deck_exports.json"
+RISK_MAP = SRC / "html" / "map_risk_zip.html"
+VISIT_MAP = SRC / "html" / "map_initial_vs_reinspection.html"
 DATA = ROOT / "data"
 AS_OF = "2026-10-21"
 AS_OF_TEXT = "October 21, 2026"
@@ -310,6 +312,109 @@ def from_notebook(cells):
     return nb
 
 
+# ---------------------------------------------------------------- maps
+
+def plotly_traces(path):
+    """The data array of the figure's Plotly.newPlot(...) call."""
+    text = path.read_text(encoding="utf8")
+    at = text.find("Plotly.newPlot(")
+    if at < 0:
+        sys.exit(f"export failed: no Plotly figure in {path.name}")
+    return json.JSONDecoder().raw_decode(text, text.index("[", at))[0]
+
+
+def z_values(trace):
+    """Plotly stores z either as a list or as a base64 typed array."""
+    z = trace["z"]
+    if isinstance(z, dict):
+        import base64
+        return np.frombuffer(base64.b64decode(z["bdata"]), dtype=np.dtype(z["dtype"])).tolist()
+    return z
+
+
+def _rdp(points, eps):
+    """Douglas-Peucker on one ring (lon scaled by cos(lat) so eps is isotropic)."""
+    if len(points) < 5:
+        return points
+    k = math.cos(math.radians(40.7))
+    a, b = points[0], points[-1]
+    ax, ay, bx, by = a[0] * k, a[1], b[0] * k, b[1]
+    dx, dy = bx - ax, by - ay
+    norm = math.hypot(dx, dy)
+    best, idx = -1.0, 0
+    for i in range(1, len(points) - 1):
+        px, py = points[i][0] * k, points[i][1]
+        d = abs(dy * px - dx * py + bx * ay - by * ax) / norm if norm else math.hypot(px - ax, py - ay)
+        if d > best:
+            best, idx = d, i
+    if best <= eps:
+        return [a, b]
+    return _rdp(points[: idx + 1], eps)[:-1] + _rdp(points[idx:], eps)
+
+
+def simplify(geometry, eps=0.00035):
+    polys = geometry["coordinates"] if geometry["type"] == "MultiPolygon" else [geometry["coordinates"]]
+    out = []
+    for poly in polys:
+        rings = []
+        for ring in poly:
+            r = _rdp([tuple(p) for p in ring], eps)
+            if len(r) >= 4:
+                rings.append([[round(x, 4), round(y, 4)] for x, y in r])
+        if rings:
+            out.append(rings)
+    return out
+
+
+def from_maps(hero_zips):
+    """ZIP polygons, the risk map's per-ZIP values and the visit-kind panels,
+    read from the two Plotly maps the notebook wrote (cells 13.4 and 13.5)."""
+    if not (RISK_MAP.exists() and VISIT_MAP.exists()):
+        return None
+    risk = plotly_traces(RISK_MAP)
+    visit = plotly_traces(VISIT_MAP)
+
+    shapes = {f["properties"]["zcta5"]: simplify(f["geometry"]) for f in risk[0]["geojson"]["features"]}
+
+    hero = {z["zip"]: z for z in hero_zips}
+    risk_rows, problems = [], []
+    for trace in risk:
+        reliable = trace.get("name") == "B or C share"
+        for zip_, z, txt in zip(trace["locations"], z_values(trace), trace["text"]):
+            graded = int(re.search(r"Graded: ([\d,]+)", txt).group(1).replace(",", ""))
+            row = {"zip": zip_, "reliable": reliable, "graded": graded,
+                   "pct_bc": round(z, 4) if reliable else None}
+            h = hero.get(zip_)
+            # the risk map and the hero must agree on every ZIP they share
+            if h is None or h["graded"] != graded or h["reliable"] != reliable or \
+                    (reliable and round(z, 1) != h["pct_bc"]):
+                problems.append(zip_)
+            risk_rows.append(row)
+    if problems:
+        sys.exit(f"export failed: risk map and hero data disagree on ZIPs {problems[:5]}")
+
+    panels = {"initial": [], "reinspection": []}
+    zmax = None
+    for trace in visit:
+        kind = "initial" if trace.get("subplot", "map") == "map" else "reinspection"
+        reliable = "colorbar" in trace
+        if reliable:
+            zmax = trace["zmax"]
+        for zip_, z, txt in zip(trace["locations"], z_values(trace), trace["text"]):
+            scored = int(re.search(r"Scored(?: inspections)?: ([\d,]+)", txt).group(1).replace(",", ""))
+            med = re.search(r"Median score: (\d+)", txt)
+            panels[kind].append({"zip": zip_, "scored": scored, "reliable": reliable,
+                                 "pct_high": round(z, 4) if reliable else None,
+                                 "median_score": int(med.group(1)) if med else None})
+    floor = 20
+    bad = [p["zip"] for k in panels for p in panels[k] if (p["scored"] >= floor) != p["reliable"]]
+    if bad:
+        sys.exit(f"export failed: visit-kind panels break the 20-scored floor on {bad[:5]}")
+    return {"shapes": shapes, "risk": risk_rows,
+            "panels": {"floor_scored": floor, "shared_zmax": zmax, "measure": "share of scored inspections at 14 points or more",
+                       "panels": panels}}
+
+
 # ---------------------------------------------------------------- refit
 
 HISTORY_COLS = ["prior_count", "prior_mean_score", "prior_bc_share", "prior_mean_critical",
@@ -436,7 +541,7 @@ PENDING_REASONS = {
 }
 
 
-def build(nb, pop, nta, fit, extra):
+def build(nb, pop, nta, fit, extra, mapdata=None):
     pending = []
 
     def take(key, value):
@@ -586,8 +691,8 @@ def build(nb, pop, nta, fit, extra):
     pca = {**nb["pca"], "figures": {"variance": "assets/img/pca_variance.png",
                                     "scatter": "assets/img/pca_scatter.png"}}
 
-    panels = (extra or {}).get("visit_kind_zip_panels")
-    shapes = (extra or {}).get("zcta_shapes")
+    panels = (extra or {}).get("visit_kind_zip_panels") or (mapdata and mapdata["panels"])
+    shapes = (extra or {}).get("zcta_shapes") or (mapdata and mapdata["shapes"])
     maps = {
         "zips": nb["hero"]["zips"],
         "view": nb["hero"]["view"],
@@ -597,6 +702,9 @@ def build(nb, pop, nta, fit, extra):
         "min_graded": 30,
         "visit_kind_panels": take("visit_kind_zip_panels", panels),
         "zcta_shapes": take("zcta_shapes", shapes),
+        "risk_zip": mapdata and mapdata["risk"],
+        "sources": {"zips": "cell 44 hero HTML", "shapes_and_risk": "map_risk_zip.html (cell 13.4)",
+                    "visit_kind_panels": "map_initial_vs_reinspection.html (cell 13.5)"},
     }
     key_metrics["pending"] = pending
     return {"key_metrics.json": key_metrics, "thresholds.json": thresholds, "curves.json": curves,
@@ -753,7 +861,8 @@ def main():
         sys.exit("export failed: deck_exports.json is not from the October 21, 2026 file")
 
     DATA.mkdir(exist_ok=True)
-    docs = {name: clean({"as_of": AS_OF, **doc}) for name, doc in build(nb, pop, nta, fit, extra).items()}
+    mapdata = from_maps(nb["hero"]["zips"])
+    docs = {name: clean({"as_of": AS_OF, **doc}) for name, doc in build(nb, pop, nta, fit, extra, mapdata).items()}
 
     if "--check" in sys.argv:
         # verify only: the frozen exports must equal a fresh build (INV-10)
@@ -766,13 +875,13 @@ def main():
         print(json.dumps({"stale": stale, "bundle_ok": bundle_ok, "fixture_failures": failures,
                           "pending": [p["key"] for p in docs["key_metrics.json"]["pending"]]}))
         return 1 if stale or not bundle_ok or failures else 0
-    sources = [NOTEBOOK, MODELING, NTA] + ([EXTRA] if extra else [])
+    sources = [NOTEBOOK, MODELING, NTA] + ([RISK_MAP, VISIT_MAP] if mapdata else []) + ([EXTRA] if extra else [])
     manifest = ["# Data manifest", "",
                 "Generated by `tools/export_deck_data.py`. Do not edit by hand; re-exporting is a",
                 "deliberate, diffed event and re-runs the numbers gate (INV-10).", "",
                 f"Data as of {AS_OF_TEXT} (the NYC Open Data file downloaded that day).", "",
                 "## Sources", "", "| Source | sha256 |", "|---|---|"]
-    manifest += [f"| `source/{p.name}` | `{sha(p)[:16]}` |" for p in sources]
+    manifest += [f"| `{p.relative_to(ROOT)}` | `{sha(p)[:16]}` |" for p in sources]
     manifest += ["", "## Exports", "", "| File | sha256 |", "|---|---|"]
     for name, doc in docs.items():
         path = DATA / name

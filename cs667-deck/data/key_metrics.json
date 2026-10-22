@@ -174,14 +174,6 @@
   {
    "key": "zcta_match_pct",
    "reason": "cell 13.4 (ZIP risk map) was saved as 'Output hidden'"
-  },
-  {
-   "key": "visit_kind_zip_panels",
-   "reason": "cell 13.5's per-ZIP panels were saved as 'Output hidden'"
-  },
-  {
-   "key": "zcta_shapes",
-   "reason": "the ZIP boundary polygons were never saved by the notebook"
   }
  ]
 }

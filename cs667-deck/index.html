@@ -26,7 +26,7 @@
 
 <section id="title" class="title-slide" data-slide-type="title" data-timing="40" data-speaker="Rafiul"
          data-mascot-state="idle" data-mascot-letter="A" data-act="I">
-  <div class="poster-bg"><img src="assets/img/hero_poster.png" alt="Inspections per ZIP code drawn as 3D columns across New York City: height is the number of inspections, colour the share ending B or C."></div>
+  <div class="poster-bg"><img src="assets/img/hero_poster.png" alt="Inspections per ZIP code drawn as 3D columns across New York City: height is the number of inspections, color the share ending B or C."></div>
   <div class="veil"></div>
   <div class="title-block">
     <span class="kicker rv" style="--d:0">CS 667 midterm · Technical presentation</span>
@@ -37,7 +37,7 @@
     <div class="names">Rafiul Haider · Shadman Rahman</div>
     <div class="course">CS 667 Practical Data Science · Fall 2026 · Dr. Krishna Bathula, Pace University · October 2026</div>
   </div>
-  <p class="poster-note">Column height: inspections per ZIP code. Colour: share ending B or C.</p>
+  <p class="poster-note">Column height: inspections per ZIP code. Color: share ending B or C.</p>
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
     <p><b>Speaker: Rafiul. Target: 0:40.</b></p>
@@ -74,7 +74,7 @@
   <aside class="notes">
     <p><b>Speaker: Rafiul. Target: 0:45.</b></p>
     <p>The problem, precisely: will this inspection end in a B or C (1) rather than an A (0)? Two users: the Department of Health and Mental Hygiene, which has to decide where inspectors go first, and restaurant operators, who meet the grading system when an inspector is already in the kitchen.</p>
-    <p>Point at the red box before any result appears: nothing measured during the inspection itself is ever a predictor. That is the leakage rule, and every later slide obeys it.</p>
+    <p>Point at the red box before any result appears: nothing measured during the inspection itself is ever a predictor. That is the leakage rule, and every later slide follows it.</p>
   </aside>
 </section>
 
@@ -122,10 +122,10 @@
           <div class="tail-band" aria-hidden="true"></div>
           <div class="tail-label"></div>
         </div>
-        <figcaption class="caption">Inspection score, one bar per score band (notebook figure). <span class="lib">Lower is better</span>: 0–<span data-bind="key_metrics.score.a_boundary" data-fmt="num0" data-value="13">13</span> points is an A. Shaded: past the outlier fence.</figcaption>
+        <figcaption class="caption">Inspection score, one bar per score band (notebook figure). <span class="lib">Lower is better</span>: 0 to <span data-bind="key_metrics.score.a_boundary" data-fmt="num0" data-value="13">13</span> points is an A. The shaded band is past the outlier fence.</figcaption>
       </figure>
       <div class="col" style="display:flex; flex-direction:column; gap:30px">
-        <div class="stat rv" style="--d:3"><span class="num" style="color:var(--grade-a)" data-bind="key_metrics.score.median" data-fmt="num0" data-count data-value="13.0">13</span><span class="lbl">median score — exactly the top of the A band</span></div>
+        <div class="stat rv" style="--d:3"><span class="num" style="color:var(--grade-a)" data-bind="key_metrics.score.median" data-fmt="num0" data-count data-value="13.0">13</span><span class="lbl">median score, exactly the top of the A band</span></div>
         <div class="stat rv" style="--d:5"><span class="num mid" data-bind="key_metrics.score.mean" data-fmt="num1" data-count data-value="17.869195">17.9</span><span class="lbl">mean score, dragged up by the tail</span></div>
         <div class="stat rv" style="--d:7"><span class="num mid" style="color:var(--grade-c)" data-bind="key_metrics.score.n_above_fence" data-fmt="int" data-count data-value="4095">4,095</span><span class="lbl">inspections past the fence at <b data-bind="key_metrics.score.upper_fence" data-fmt="num1" data-value="46.5">46.5</b> points; the worst scored <b data-bind="key_metrics.score.max" data-fmt="num0" data-value="214.0">214</b></span></div>
       </div>
@@ -152,7 +152,7 @@
       <div class="col" style="display:flex; flex-direction:column; gap:22px">
         <p class="lede rv" style="--d:4">A missing grade is mostly a <b>pending</b> grade: the inspection happened, and the letter is not settled yet.</p>
         <p class="small rv" style="--d:6">The interim codes N, Z and P sit in the grade column for the same reason. The grading process has a timeline, and the file is a snapshot of it.</p>
-        <p class="small rv" style="--d:8">So we read a missing grade as a fact about where an inspection sits in that timeline — not as sloppy data to fill in.</p>
+        <p class="small rv" style="--d:8">So we treat a missing grade as information about where that inspection sits in the timeline, and we don't fill it in.</p>
       </div>
     </div>
   </div>
@@ -173,10 +173,10 @@
       <figure class="chart col" data-chart="borough" aria-label="Median inspection score by borough">
         <div class="chart-title rv" style="--d:0">Median score by borough</div>
         <div class="plot"></div>
-        <figcaption class="caption">Points, <span class="lib">lower is better</span>. Bar colour: the grade that median would earn. <span data-bind="tables.borough[0].count" data-fmt="int" data-value="84">84</span> scored inspections with no borough recorded are not shown.</figcaption>
+        <figcaption class="caption">Points, <span class="lib">lower is better</span>. Bar color shows the grade that median would earn. <span data-bind="tables.borough[0].count" data-fmt="int" data-value="84">84</span> scored inspections with no borough recorded are not shown.</figcaption>
       </figure>
       <figure class="chart col" data-chart="cuisine" aria-label="Median inspection score for the fifteen most-inspected cuisines">
-        <div class="chart-title rv" style="--d:2">Median score, the most-inspected cuisines <span class="caption" style="font-weight:400">— pick one</span></div>
+        <div class="chart-title rv" style="--d:2">Median score, the most-inspected cuisines <span class="caption" style="font-weight:400">(click one)</span></div>
         <div class="plot"></div>
         <div class="cuisine-readout caption" aria-live="polite"></div>
         <figcaption class="caption">Points, <span class="lib">lower is better</span>. B or C share: among modeled inspections (graded, first visits excluded).</figcaption>
@@ -206,11 +206,11 @@
       <div class="col" style="display:flex; flex-direction:column; gap:26px">
         <div class="card line fragment trap-note" data-fragment-index="1" data-trap="0">
           <h3><span style="color:var(--accent-ink)">Trap 1</span> · score ↔ critical violations, <span data-bind="tables.correlation.matrix[0][2]" data-fmt="dec2" data-value="0.86">0.86</span></h3>
-          <p class="small" style="margin:0">The score is <b>built from</b> violation points. This is arithmetic, not a discovery — and it is why same-inspection fields are banned as predictors.</p>
+          <p class="small" style="margin:0">The score is <b>built from</b> violation points, so this correlation is arithmetic. It is also the reason same-inspection fields are banned as predictors.</p>
         </div>
         <div class="card line fragment trap-note" data-fragment-index="2" data-trap="1">
           <h3><span style="color:var(--accent-ink)">Trap 2</span> · latitude ↔ longitude, <span data-bind="tables.correlation.matrix[3][4]" data-fmt="dec2" data-value="-1.0">−1.00</span></h3>
-          <p class="small" style="margin:0">The city runs southwest to northeast, so as one goes up the other comes down. It describes the map, not restaurants.</p>
+          <p class="small" style="margin:0">The city runs southwest to northeast, so as one goes up the other comes down. That is the shape of the map, and it tells us nothing about restaurants.</p>
         </div>
       </div>
     </div>
@@ -218,7 +218,7 @@
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
     <p><b>Speaker: Rafiul. Target: 0:45.</b> Advance twice to ring each trap.</p>
-    <p>Score and critical violations correlate at <span data-bind="tables.correlation.matrix[0][2]" data-fmt="dec2" data-value="0.86">0.86</span> — but the score is made of violation points, so that is arithmetic. Latitude and longitude at <span data-bind="tables.correlation.matrix[3][4]" data-fmt="dec2" data-value="-1.0">−1.00</span> is the city's diagonal shape. Naming both traps here is what makes the deck Q&amp;A-proof.</p>
+    <p>Score and critical violations correlate at <span data-bind="tables.correlation.matrix[0][2]" data-fmt="dec2" data-value="0.86">0.86</span>, but the score is made of violation points, so that is arithmetic. Latitude and longitude at <span data-bind="tables.correlation.matrix[3][4]" data-fmt="dec2" data-value="-1.0">−1.00</span> is the city's diagonal shape. Naming both traps here is what makes the deck Q&amp;A-proof.</p>
     <p><b>Q&amp;A armor:</b> "Your headline correlation is mechanical, and your best features are just past scores — circular?" — We flagged the mechanical correlation ourselves, on our own slide, and banned same-inspection fields for exactly that reason. Past scores are known before the predicted visit, built strictly from earlier inspections, and validated on a later period the model never trained on.</p>
   </aside>
 </section>
@@ -235,7 +235,7 @@
           <source src="assets/video/hero_rotate.mp4" type="video/mp4">
           <source src="assets/video/hero_rotate.webm" type="video/webm">
         </video>
-        <div class="map-key">Height = <b>workload</b> (inspections per ZIP)<br>Colour = <b>risk</b> (share ending B or C)</div>
+        <div class="map-key">Height = <b>workload</b> (inspections per ZIP)<br>Color = <b>risk</b> (share ending B or C)</div>
         <div class="live-ctl">
           <button class="btn" type="button" data-interactive data-go-live aria-label="Go live: open the interactive 3D map">Go live</button>
           <span class="live-status" role="status"></span>
@@ -345,10 +345,10 @@
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
     <p><b>Speaker: Shadman. Target: 1:00.</b></p>
-    <p>History is built from strictly earlier inspections: the shift comes before the statistic, and the notebook proves it — every restaurant's first row starts with zero history. ZIP is excluded on purpose; borough and coordinates carry location.</p>
+    <p>History is built from strictly earlier inspections: the shift comes before the statistic, and the notebook proves it: every restaurant's first row starts with zero history. ZIP is excluded on purpose; borough and coordinates carry location.</p>
     <p><span data-bind="key_metrics.population.modeled_rows" data-fmt="int" data-value="18998">18,998</span> modeled inspections, <span data-bind="key_metrics.population.modeled_bc_pct" data-fmt="pct1" data-value="33.8">33.8%</span> B or C. Time split: train up to the end of 2024 (<span data-bind="key_metrics.split.train_rows" data-fmt="int" data-value="9111">9,111</span>), test from 2025 on (<span data-bind="key_metrics.split.test_rows" data-fmt="int" data-value="9887">9,887</span>). A random split would leak the same restaurant into both sides.</p>
     <p><b>Q&amp;A armor:</b> "Why not a random split?" — "The scores would be better, and that is the problem: the same restaurants would sit on both sides, so the model would partly be recognizing places it already saw fail."</p>
-    <p>Also from slide 9: "isn't inspection type leakage?" — type is known before the visit, so it is a fair feature.</p>
+    <p>Also from slide 9: "isn't inspection type leakage?" Type is known before the visit, so it is a fair feature.</p>
   </aside>
 </section>
 
@@ -374,7 +374,7 @@
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
     <p><b>Speaker: Shadman. Target: 0:45.</b> (If running long, cut the PCA half to one line.)</p>
-    <p>Identical treatment for train and test. PCA on the numeric features spreads variance across components — PC1 <span data-bind="key_metrics.pca.pc1_pct" data-fmt="pct1" data-value="21.8">21.8%</span>, PC2 <span data-bind="key_metrics.pca.pc2_pct" data-fmt="pct1" data-value="16.6">16.6%</span>, <span data-bind="key_metrics.pca.n_for_90pct" data-fmt="int" data-value="8">8</span> of <span data-bind="key_metrics.pca.n_features" data-fmt="int" data-value="11">11</span> components for 90% — so the features are not copies of each other, and the originals stay because they can be explained in words.</p>
+    <p>Identical treatment for train and test. PCA on the numeric features spreads the variance across components (PC1 <span data-bind="key_metrics.pca.pc1_pct" data-fmt="pct1" data-value="21.8">21.8%</span>, PC2 <span data-bind="key_metrics.pca.pc2_pct" data-fmt="pct1" data-value="16.6">16.6%</span>, <span data-bind="key_metrics.pca.n_for_90pct" data-fmt="int" data-value="8">8</span> of <span data-bind="key_metrics.pca.n_features" data-fmt="int" data-value="11">11</span> components for 90%), so the features are not copies of each other, and the originals stay because they can be explained in words.</p>
     <p>Logistic regression on the components reaches <span data-bind="key_metrics.pca.auc_90pct_components" data-fmt="dec3" data-value="0.631">0.631</span> at best vs <span data-bind="key_metrics.pca.auc_original_features" data-fmt="dec3" data-value="0.644">0.644</span> for the full model.</p>
   </aside>
 </section>
@@ -411,7 +411,7 @@
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
     <p><b>Speaker: Shadman. Target: 0:55.</b></p>
-    <p>Read the gaps, not the bars. Logistic regression: <span data-bind="tables.models[Logistic regression].train_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> train, <span data-bind="tables.models[Logistic regression].test_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> test. Random forest: <span data-bind="tables.models[Random forest].train_roc_auc" data-fmt="dec3" data-value="1.0">1.000</span> train, <span data-bind="tables.models[Random forest].test_roc_auc" data-fmt="dec3" data-value="0.641">0.641</span> test — it memorized the training years. Gradient boosting sits between: <span data-bind="tables.models[Gradient boosting].train_roc_auc" data-fmt="dec3" data-value="0.87">0.870</span> / <span data-bind="tables.models[Gradient boosting].test_roc_auc" data-fmt="dec3" data-value="0.636">0.636</span>.</p>
+    <p>Read the gaps, not the bars. Logistic regression: <span data-bind="tables.models[Logistic regression].train_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> train, <span data-bind="tables.models[Logistic regression].test_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> test. Random forest: <span data-bind="tables.models[Random forest].train_roc_auc" data-fmt="dec3" data-value="1.0">1.000</span> train, <span data-bind="tables.models[Random forest].test_roc_auc" data-fmt="dec3" data-value="0.641">0.641</span> test. It memorized the training years. Gradient boosting sits between: <span data-bind="tables.models[Gradient boosting].train_roc_auc" data-fmt="dec3" data-value="0.87">0.870</span> / <span data-bind="tables.models[Gradient boosting].test_roc_auc" data-fmt="dec3" data-value="0.636">0.636</span>.</p>
     <p>Flip the card: the dummy scores <span data-bind="key_metrics.dummy.test_accuracy" data-fmt="frac_pct1" data-value="0.668">66.8%</span> accuracy while catching <span data-bind="key_metrics.dummy.caught" data-fmt="int" data-value="0">0</span> bad inspections, which is why accuracy is not the measure. The winner is logistic regression, a modest signal, stated plainly.</p>
     <p><b>Q&amp;A armor:</b> "<span data-bind="key_metrics.model.test_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> is barely better than a coin flip. Why is this useful?" — It is a ranking score and the use is ranking: at the chosen threshold it catches <span data-bind="key_metrics.model.recall" data-fmt="frac_pct1" data-value="0.822">82.2%</span> of bad inspections from pre-visit information alone, beating borough, cuisine, or the dummy (which catches none). The closing slide states what it is not strong enough for: judging one restaurant alone.</p>
     <p><i>Static record:</i> the card flip and the chart tooltips exist only in the live HTML deck; this .pptx shows the card after the reveal.</p>
@@ -460,7 +460,7 @@
   <aside class="notes">
     <p><b>Speaker: Shadman. Target: 1:05. Moment 3, the threshold slider.</b></p>
     <p>"The threshold is not a setting in the code. It is a policy: how many bad inspections are we willing to miss?" Drag slowly to <span data-bind="thresholds.default" data-fmt="thr" data-value="0.45">0.45</span> while the counts move: "At <span data-bind="thresholds.default" data-fmt="thr" data-value="0.45">0.45</span> we catch <span data-bind="key_metrics.model.recall" data-fmt="per100" data-value="0.822">82</span> of every 100 inspections that will end B or C. The cost is on the other side of the matrix: about <span data-bind="key_metrics.model.precision" data-fmt="inv_tenths_word" data-value="0.376">six</span> in ten flags still end with an A. For an inspector's visit list, that trade is worth it. For labeling a restaurant, it would not be."</p>
-    <p>Never cut the drag. At <span data-bind="thresholds.default" data-fmt="thr" data-value="0.45">0.45</span>: recall <span data-bind="key_metrics.model.recall" data-fmt="frac_pct1" data-value="0.822">82.2%</span>, precision <span data-bind="key_metrics.model.precision" data-fmt="frac_pct1" data-value="0.376">37.6%</span> — the highest threshold that still catches at least 80% of B or C. The slider stops only at thresholds the model was evaluated at; it never interpolates. Arrow keys move it; Esc or click outside returns the keys to the slides.</p>
+    <p>Never cut the drag. At <span data-bind="thresholds.default" data-fmt="thr" data-value="0.45">0.45</span>: recall <span data-bind="key_metrics.model.recall" data-fmt="frac_pct1" data-value="0.822">82.2%</span>, precision <span data-bind="key_metrics.model.precision" data-fmt="frac_pct1" data-value="0.376">37.6%</span>. It is the highest threshold that still catches at least 80% of B or C. The slider stops only at thresholds the model was evaluated at; it never interpolates. Arrow keys move it; Esc or click outside returns the keys to the slides.</p>
     <p><i>Static record:</i> the slider exists only in the live HTML deck; this .pptx shows the chosen stop, <span data-bind="thresholds.default" data-fmt="thr" data-value="0.45">0.45</span>.</p>
   </aside>
 </section>
@@ -528,7 +528,7 @@
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span>Project timeline, October 2026</span></footer>
   <aside class="notes">
     <p><b>Speaker: Shadman. Target: 0:40 (keep it under 40 seconds).</b></p>
-    <p>"The frame was fixed before we started: a deadline, a public raw dataset, set deliverables. That is a waterfall plan, the top row. Underneath it we ran two one-week sprints. On October 21, building the visit-type maps, we found that first visits never get a B or C. We rebuilt the modeling population that same day. A pure waterfall plan would have shipped a model trained on the wrong target. The deadline never moved. The plan underneath it did, once, on evidence."</p>
+    <p>"Before we started, the deadline, the data source and the deliverables were already fixed. That's a waterfall plan, the top row. Underneath it we ran two one-week sprints. On October 21, building the visit-type maps, we found that first visits never get a B or C. We rebuilt the modeling population that same day. A pure waterfall plan would have shipped a model trained on the wrong target. The deadline never moved. The plan underneath it did, once, on evidence."</p>
   </aside>
 </section>
 
@@ -543,7 +543,7 @@
       <div class="card rv" style="--d:4"><div class="num" data-bind="key_metrics.zip.worst.pct_bc" data-fmt="pct1" data-count data-value="33.3">33.3%</div><div class="lbl">worst reliable ZIP's B or C share (<span data-bind="key_metrics.zip.worst.zip" data-fmt="str" data-value="&quot;11355&quot;">11355</span>), vs <span data-bind="key_metrics.zip.citywide_pct_bc" data-fmt="pct1" data-value="12.9">12.9%</span> citywide</div></div>
     </div>
     <div class="next">
-      <div class="rv" style="--d:6"><h3>What it is</h3><ul><li>It orders a visit list from pre-visit information alone.</li><li>It does not label a restaurant: a flag is a reason to look, not a verdict.</li></ul></div>
+      <div class="rv" style="--d:6"><h3>What it is</h3><ul><li>It orders a visit list from pre-visit information alone.</li><li>It does not label a restaurant. A flag is a reason to look first.</li></ul></div>
       <div class="rv" style="--d:8"><h3>Next steps</h3><ol><li>Richer history features</li><li>Per-visit-type models</li><li>Probability calibration</li></ol></div>
     </div>
     <div class="rv" style="--d:8; display:flex; justify-content:space-between; align-items:end; margin-top:30px">
@@ -554,7 +554,7 @@
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
     <p><b>Speaker: Shadman. Target: 0:50.</b></p>
-    <p>Close the opening question: yes, a bad grade is partly visible before the inspector walks in — <span data-bind="key_metrics.model.test_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> ranking quality, <span data-bind="key_metrics.model.recall" data-fmt="frac_pct1" data-value="0.822">82.2%</span> of bad inspections caught at <span data-bind="key_metrics.model.threshold" data-fmt="thr" data-value="0.45">0.45</span>, and the worst ZIP at <span data-bind="key_metrics.zip.worst.pct_bc" data-fmt="pct1" data-value="33.3">33.3%</span> against <span data-bind="key_metrics.zip.citywide_pct_bc" data-fmt="pct1" data-value="12.9">12.9%</span> citywide.</p>
+    <p>Close the opening question: yes, a bad grade is partly visible before the inspector walks in. We get <span data-bind="key_metrics.model.test_roc_auc" data-fmt="dec3" data-value="0.644">0.644</span> ranking quality, <span data-bind="key_metrics.model.recall" data-fmt="frac_pct1" data-value="0.822">82.2%</span> of bad inspections caught at <span data-bind="key_metrics.model.threshold" data-fmt="thr" data-value="0.45">0.45</span>, and the worst ZIP at <span data-bind="key_metrics.zip.worst.pct_bc" data-fmt="pct1" data-value="33.3">33.3%</span> against <span data-bind="key_metrics.zip.citywide_pct_bc" data-fmt="pct1" data-value="12.9">12.9%</span> citywide.</p>
     <p>Limits in one line: a prioritization tool orders a visit list; it does not label a restaurant. Next steps: richer history features, per-visit-type models, probability calibration. "Questions."</p>
     <p><i>Static record:</i> this .pptx is the static record of a live deck. The animations, the threshold slider and the 3D interaction exist only in the live HTML version.</p>
   </aside>
@@ -612,7 +612,7 @@
   <div class="stage">
     <figure class="chart" data-chart="cuisinecoef" aria-label="Logistic regression coefficients for each grouped cuisine">
       <div class="plot hover-dim"></div>
-      <figcaption class="caption">Logistic regression coefficients for grouped cuisine (one-hot, relative to the other levels). Right: pushes toward B or C. Left: pushes toward A.</figcaption>
+      <figcaption class="caption">Logistic regression coefficients for grouped cuisine (one-hot, relative to the other levels). Bars to the right push toward B or C; bars to the left push toward A.</figcaption>
     </figure>
   </div>
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
@@ -627,7 +627,7 @@
   <h2 class="claim">What the maps cannot say</h2>
   <div class="stage">
     <div class="limits">
-      <div class="card"><h3>Inspections are not a random sample</h3><p>Re-inspections happen because a first visit went badly, so busy, troubled areas are over-represented. A map of inspections is a map of inspection activity.</p></div>
+      <div class="card"><h3>Inspections are not a random sample</h3><p>Re-inspections happen because a first visit went badly, so places with more bad first visits get inspected more often. These maps show where inspectors went.</p></div>
       <div class="card"><h3>The ≥ <span data-bind="key_metrics.zip.min_graded" data-fmt="int" data-value="30">30</span> floor</h3><p>A region earns a B or C rate only with at least <span data-bind="key_metrics.zip.min_graded" data-fmt="int" data-value="30">30</span> graded inspections: <span data-bind="key_metrics.zip.reliable_zip_codes" data-fmt="int" data-value="178">178</span> of <span data-bind="key_metrics.zip.zip_codes" data-fmt="int" data-value="223">223</span> ZIPs, <span data-bind="key_metrics.nta.reliable" data-fmt="int" data-value="198">198</span> of <span data-bind="key_metrics.nta.neighborhoods" data-fmt="int" data-value="223">223</span> neighborhoods. The rest are grey: not enough inspections to judge.</p></div>
       <div class="card"><h3>Boundaries match, almost</h3><p>Postal ZIPs and Census ZCTAs are cousins: <span data-bind="key_metrics.zip.zcta_match_pct" data-fmt="pct1" data-pending="">awaiting export</span> of inspections with a ZIP land in a boundary polygon. The neighborhood join placed <span data-bind="key_metrics.nta.placed" data-fmt="int" data-value="94970">94,970</span> of <span data-bind="key_metrics.nta.placed_of" data-fmt="int" data-value="95010">95,010</span> mapped inspections.</p></div>
       <div class="card"><h3>A rate describes a place's inspections</h3><p>A high-rate ZIP describes the inspected activity there, not any single restaurant in it.</p></div>
@@ -635,7 +635,7 @@
   </div>
   <footer class="slide-foot"><span>NYC restaurant inspections · DOHMH via NYC Open Data</span><span class="sep">|</span><span class="asof">Data as of <span data-bind="key_metrics.as_of_text" data-fmt="str" data-value="&quot;October 21, 2026&quot;">October 21, 2026</span></span></footer>
   <aside class="notes">
-    <p><b>Backup, Q&amp;A only.</b> Use for "why trust the red areas?" — see slide 8's notes for the full answer.</p>
+    <p><b>Backup, Q&amp;A only.</b> Use for "why trust the red areas?" The full answer is in slide 8's notes.</p>
   </aside>
 </section>
 

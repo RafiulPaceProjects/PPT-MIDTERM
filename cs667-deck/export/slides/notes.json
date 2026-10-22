@@ -9,7 +9,7 @@
   "index": 1,
   "id": "rule",
   "title": "The prediction is only allowed to use what exists before the visit",
-  "notes": "Speaker: Rafiul. Target: 0:45.\n\nThe problem, precisely: will this inspection end in a B or C (1) rather than an A (0)? Two users: the Department of Health and Mental Hygiene, which has to decide where inspectors go first, and restaurant operators, who meet the grading system when an inspector is already in the kitchen.\n\nPoint at the red box before any result appears: nothing measured during the inspection itself is ever a predictor. That is the leakage rule, and every later slide obeys it."
+  "notes": "Speaker: Rafiul. Target: 0:45.\n\nThe problem, precisely: will this inspection end in a B or C (1) rather than an A (0)? Two users: the Department of Health and Mental Hygiene, which has to decide where inspectors go first, and restaurant operators, who meet the grading system when an inspector is already in the kitchen.\n\nPoint at the red box before any result appears: nothing measured during the inspection itself is ever a predictor. That is the leakage rule, and every later slide follows it."
  },
  {
   "index": 2,
@@ -39,7 +39,7 @@
   "index": 6,
   "id": "traps",
   "title": "The strongest correlation in the file is partly mechanical — and one is fake",
-  "notes": "Speaker: Rafiul. Target: 0:45. Advance twice to ring each trap.\n\nScore and critical violations correlate at 0.86 — but the score is made of violation points, so that is arithmetic. Latitude and longitude at −1.00 is the city's diagonal shape. Naming both traps here is what makes the deck Q&A-proof.\n\nQ&A armor: \"Your headline correlation is mechanical, and your best features are just past scores — circular?\" — We flagged the mechanical correlation ourselves, on our own slide, and banned same-inspection fields for exactly that reason. Past scores are known before the predicted visit, built strictly from earlier inspections, and validated on a later period the model never trained on."
+  "notes": "Speaker: Rafiul. Target: 0:45. Advance twice to ring each trap.\n\nScore and critical violations correlate at 0.86, but the score is made of violation points, so that is arithmetic. Latitude and longitude at −1.00 is the city's diagonal shape. Naming both traps here is what makes the deck Q&A-proof.\n\nQ&A armor: \"Your headline correlation is mechanical, and your best features are just past scores — circular?\" — We flagged the mechanical correlation ourselves, on our own slide, and banned same-inspection fields for exactly that reason. Past scores are known before the predicted visit, built strictly from earlier inspections, and validated on a later period the model never trained on."
  },
  {
   "index": 7,
@@ -57,37 +57,37 @@
   "index": 9,
   "id": "history",
   "title": "A restaurant's past is the fairest predictor of its next visit",
-  "notes": "Speaker: Shadman. Target: 1:00.\n\nHistory is built from strictly earlier inspections: the shift comes before the statistic, and the notebook proves it — every restaurant's first row starts with zero history. ZIP is excluded on purpose; borough and coordinates carry location.\n\n18,998 modeled inspections, 33.8% B or C. Time split: train up to the end of 2024 (9,111), test from 2025 on (9,887). A random split would leak the same restaurant into both sides.\n\nQ&A armor: \"Why not a random split?\" — \"The scores would be better, and that is the problem: the same restaurants would sit on both sides, so the model would partly be recognizing places it already saw fail.\"\n\nAlso from slide 9: \"isn't inspection type leakage?\" — type is known before the visit, so it is a fair feature."
+  "notes": "Speaker: Shadman. Target: 1:00.\n\nHistory is built from strictly earlier inspections: the shift comes before the statistic, and the notebook proves it: every restaurant's first row starts with zero history. ZIP is excluded on purpose; borough and coordinates carry location.\n\n18,998 modeled inspections, 33.8% B or C. Time split: train up to the end of 2024 (9,111), test from 2025 on (9,887). A random split would leak the same restaurant into both sides.\n\nQ&A armor: \"Why not a random split?\" — \"The scores would be better, and that is the problem: the same restaurants would sit on both sides, so the model would partly be recognizing places it already saw fail.\"\n\nAlso from slide 9: \"isn't inspection type leakage?\" Type is known before the visit, so it is a fair feature."
  },
  {
   "index": 10,
   "id": "pipeline",
   "title": "The pipeline is plain on purpose — and PCA told us to keep it that way",
-  "notes": "Speaker: Shadman. Target: 0:45. (If running long, cut the PCA half to one line.)\n\nIdentical treatment for train and test. PCA on the numeric features spreads variance across components — PC1 21.8%, PC2 16.6%, 8 of 11 components for 90% — so the features are not copies of each other, and the originals stay because they can be explained in words.\n\nLogistic regression on the components reaches 0.631 at best vs 0.644 for the full model."
+  "notes": "Speaker: Shadman. Target: 0:45. (If running long, cut the PCA half to one line.)\n\nIdentical treatment for train and test. PCA on the numeric features spreads the variance across components (PC1 21.8%, PC2 16.6%, 8 of 11 components for 90%), so the features are not copies of each other, and the originals stay because they can be explained in words.\n\nLogistic regression on the components reaches 0.631 at best vs 0.644 for the full model."
  },
  {
   "index": 11,
   "id": "models",
   "title": "The simplest model won — the forest memorized the training years",
-  "notes": "Speaker: Shadman. Target: 0:55.\n\nRead the gaps, not the bars. Logistic regression: 0.644 train, 0.644 test. Random forest: 1.000 train, 0.641 test — it memorized the training years. Gradient boosting sits between: 0.870 / 0.636.\n\nFlip the card: the dummy scores 66.8% accuracy while catching 0 bad inspections, which is why accuracy is not the measure. The winner is logistic regression, a modest signal, stated plainly.\n\nQ&A armor: \"0.644 is barely better than a coin flip. Why is this useful?\" — It is a ranking score and the use is ranking: at the chosen threshold it catches 82.2% of bad inspections from pre-visit information alone, beating borough, cuisine, or the dummy (which catches none). The closing slide states what it is not strong enough for: judging one restaurant alone.\n\nStatic record: the card flip and the chart tooltips exist only in the live HTML deck; this .pptx shows the card after the reveal."
+  "notes": "Speaker: Shadman. Target: 0:55.\n\nRead the gaps, not the bars. Logistic regression: 0.644 train, 0.644 test. Random forest: 1.000 train, 0.641 test. It memorized the training years. Gradient boosting sits between: 0.870 / 0.636.\n\nFlip the card: the dummy scores 66.8% accuracy while catching 0 bad inspections, which is why accuracy is not the measure. The winner is logistic regression, a modest signal, stated plainly.\n\nQ&A armor: \"0.644 is barely better than a coin flip. Why is this useful?\" — It is a ranking score and the use is ranking: at the chosen threshold it catches 82.2% of bad inspections from pre-visit information alone, beating borough, cuisine, or the dummy (which catches none). The closing slide states what it is not strong enough for: judging one restaurant alone.\n\nStatic record: the card flip and the chart tooltips exist only in the live HTML deck; this .pptx shows the card after the reveal."
  },
  {
   "index": 12,
   "id": "threshold",
   "title": "The threshold is a policy choice, not a setting",
-  "notes": "Speaker: Shadman. Target: 1:05. Moment 3, the threshold slider.\n\n\"The threshold is not a setting in the code. It is a policy: how many bad inspections are we willing to miss?\" Drag slowly to 0.45 while the counts move: \"At 0.45 we catch 82 of every 100 inspections that will end B or C. The cost is on the other side of the matrix: about six in ten flags still end with an A. For an inspector's visit list, that trade is worth it. For labeling a restaurant, it would not be.\"\n\nNever cut the drag. At 0.45: recall 82.2%, precision 37.6% — the highest threshold that still catches at least 80% of B or C. The slider stops only at thresholds the model was evaluated at; it never interpolates. Arrow keys move it; Esc or click outside returns the keys to the slides.\n\nStatic record: the slider exists only in the live HTML deck; this .pptx shows the chosen stop, 0.45."
+  "notes": "Speaker: Shadman. Target: 1:05. Moment 3, the threshold slider.\n\n\"The threshold is not a setting in the code. It is a policy: how many bad inspections are we willing to miss?\" Drag slowly to 0.45 while the counts move: \"At 0.45 we catch 82 of every 100 inspections that will end B or C. The cost is on the other side of the matrix: about six in ten flags still end with an A. For an inspector's visit list, that trade is worth it. For labeling a restaurant, it would not be.\"\n\nNever cut the drag. At 0.45: recall 82.2%, precision 37.6%. It is the highest threshold that still catches at least 80% of B or C. The slider stops only at thresholds the model was evaluated at; it never interpolates. Arrow keys move it; Esc or click outside returns the keys to the slides.\n\nStatic record: the slider exists only in the live HTML deck; this .pptx shows the chosen stop, 0.45."
  },
  {
   "index": 13,
   "id": "process",
   "title": "We planned like Waterfall and worked like Agile",
-  "notes": "Speaker: Shadman. Target: 0:40 (keep it under 40 seconds).\n\n\"The frame was fixed before we started: a deadline, a public raw dataset, set deliverables. That is a waterfall plan, the top row. Underneath it we ran two one-week sprints. On October 21, building the visit-type maps, we found that first visits never get a B or C. We rebuilt the modeling population that same day. A pure waterfall plan would have shipped a model trained on the wrong target. The deadline never moved. The plan underneath it did, once, on evidence.\""
+  "notes": "Speaker: Shadman. Target: 0:40 (keep it under 40 seconds).\n\n\"Before we started, the deadline, the data source and the deliverables were already fixed. That's a waterfall plan, the top row. Underneath it we ran two one-week sprints. On October 21, building the visit-type maps, we found that first visits never get a B or C. We rebuilt the modeling population that same day. A pure waterfall plan would have shipped a model trained on the wrong target. The deadline never moved. The plan underneath it did, once, on evidence.\""
  },
  {
   "index": 14,
   "id": "close",
   "title": "A prioritization tool, not a judge",
-  "notes": "Speaker: Shadman. Target: 0:50.\n\nClose the opening question: yes, a bad grade is partly visible before the inspector walks in — 0.644 ranking quality, 82.2% of bad inspections caught at 0.45, and the worst ZIP at 33.3% against 12.9% citywide.\n\nLimits in one line: a prioritization tool orders a visit list; it does not label a restaurant. Next steps: richer history features, per-visit-type models, probability calibration. \"Questions.\"\n\nStatic record: this .pptx is the static record of a live deck. The animations, the threshold slider and the 3D interaction exist only in the live HTML version."
+  "notes": "Speaker: Shadman. Target: 0:50.\n\nClose the opening question: yes, a bad grade is partly visible before the inspector walks in. We get 0.644 ranking quality, 82.2% of bad inspections caught at 0.45, and the worst ZIP at 33.3% against 12.9% citywide.\n\nLimits in one line: a prioritization tool orders a visit list; it does not label a restaurant. Next steps: richer history features, per-visit-type models, probability calibration. \"Questions.\"\n\nStatic record: this .pptx is the static record of a live deck. The animations, the threshold slider and the 3D interaction exist only in the live HTML version."
  },
  {
   "index": 15,
@@ -111,6 +111,6 @@
   "index": 18,
   "id": "b4-limits",
   "title": "What the maps cannot say",
-  "notes": "Backup, Q&A only. Use for \"why trust the red areas?\" — see slide 8's notes for the full answer."
+  "notes": "Backup, Q&A only. Use for \"why trust the red areas?\" The full answer is in slide 8's notes."
  }
 ]

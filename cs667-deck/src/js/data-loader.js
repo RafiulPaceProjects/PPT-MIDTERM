@@ -181,7 +181,7 @@
   charts.zipmap = function (fig) {
     const zips = get("maps.zips"), clip = get("maps.color_scale.clip_pct");
     const plot = fig.querySelector(".plot");
-    const { svg, w, h } = svgIn(plot, "Map of ZIP codes: dot size is inspections, colour is the share ending B or C");
+    const { svg, w, h } = svgIn(plot, "Map of ZIP codes: dot size is inspections, color is the share ending B or C");
     const lat0 = 40.7, kx = Math.cos((lat0 * Math.PI) / 180);
     const xs = zips.map((z) => z.lon * kx), ys = zips.map((z) => z.lat);
     const [minX, maxX, minY, maxY] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];

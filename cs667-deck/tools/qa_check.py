@@ -51,7 +51,7 @@ def attr(tag, name):
 # numbers a slide may carry without a DataExport: calendar, course, labels, rules
 ALLOWED = [
     r"\b20(?:07|24|25|26)\b", r"\b(?:Oct(?:ober)?\.?) \d{1,2}(?:\s*[–-]\s*\d{1,2})?(?:, )?",
-    r"(?i)\bslides? \d{1,2}(?: to \d{1,2})?\b", r"\bMoment [1-3]\b", r"\bF1\b", r"\b0–", r"\b0%", r"\b5(?::00)? PM\b",
+    r"(?i)\bslides? \d{1,2}(?: to \d{1,2})?\b", r"\bMoment [1-3]\b", r"\bF1\b", r"\b0–", r"\b0 to\b", r"\b0%", r"\b5(?::00)? PM\b",
     r"\bCS 667\b", r"\bFall 2026\b", r"\bAct [IVX]+\b", r"\bB[1-4]\b", r"\bSprint [12]\b", r"\bTrap [12]\b",
     r"\bPC[12]\b", r"\b43nn-pn8j\b", r"\b14\+", r"\b0–\b", r"\b(?:80|90)%", r"\bof every 100\b", r"\bin 10\b",
     r"= [01]\b", r"\(\d\)", r"\b\d{1,2}:\d{2}\b", r"\b\d+ seconds?\b", r"\b10-second\b", r"\b3D\b", r"\b[1-3]\b(?=\s*[A-Z][a-z])",

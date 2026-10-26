@@ -1,0 +1,62 @@
+{
+ "provenance": "EDA summary, static from the Stage 00 audit; not rerun by this app.",
+ "datasets": {
+  "MMFakeBench": {
+   "split": "official test",
+   "rows": 10000,
+   "class_support": {
+    "original": 3000,
+    "textual_veracity_distortion": 3000,
+    "visual_veracity_distortion": 1000,
+    "mismatch": 3000
+   },
+   "validation_rows": 1000,
+   "referenced_images_present": 11000,
+   "test_png_failing_pillow_verify": 1,
+   "test_png_failure_reason": "truncated",
+   "duplicate_normalized_text_groups": 53,
+   "duplicate_normalized_text_rows": 109,
+   "normalized_text_overlap_with_validation": 3,
+   "image_byte_duplicate_groups_crossing_val_test": 28,
+   "test_rows_empty_source_metadata": 100,
+   "empty_source_metadata_label": "all visual-distortion / Fake",
+   "distinct_source_pairs": 14,
+   "label_pure_source_pairs": 13
+  },
+  "VERITE": {
+   "split": "current repository CSV",
+   "rows": 1001,
+   "class_support": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 325
+   },
+   "unique_image_basenames": 663,
+   "archive_files": 664,
+   "documented_rows": 1000,
+   "documented_class_support": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 324
+   }
+  },
+  "NewsCLIPpings": {
+   "split": "validation",
+   "rows": 7024,
+   "class_support": {
+    "pristine": 3512,
+    "falsified": 3512
+   },
+   "balanced_by_construction": true,
+   "unique_images_streamed": 5943,
+   "source_dataset_strategies": 4,
+   "rows_per_strategy": 1756
+  }
+ },
+ "cross_cutting": [
+  "MMFakeBench test was inspected before evaluation.",
+  "MMFakeBench source names encode the label (91.5% source-metadata rule).",
+  "VERITE population mismatch (1,001 rows vs documented 1,000) is unresolved.",
+  "NewsCLIPpings image-reuse terms are unresolved."
+ ]
+}

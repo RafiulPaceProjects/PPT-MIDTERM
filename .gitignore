@@ -1,0 +1,4 @@
+data/raw/
+*.zip
+*.tar.gz
+.DS_Store

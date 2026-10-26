@@ -1,0 +1,362 @@
+{
+  "verified_date": "2026-10-18",
+  "purpose": "Primary-source comparison ledger. Numbers are published reports, not local results. Dates identify version/release history where verified.",
+  "local_comparison_target": {
+    "artifact": "data/processed/protocol/baseline_controls_v1",
+    "status": "completed_small_diagnostics_not_benchmark_estimates",
+    "mmfakebench": "16 tune examples; 16 usable on each of six branches; branch metrics exist but are small development controls, not full validation/test results.",
+    "verite": {
+      "attempted": 6,
+      "text_usable": 6,
+      "vision_text_usable": 6,
+      "image_paired_final_fusion_usable": 5,
+      "blocked": 1,
+      "row_ids": [
+        "verite:local:68",
+        "verite:local:232",
+        "verite:local:362",
+        "verite:local:745",
+        "verite:local:846",
+        "verite:local:1000"
+      ]
+    },
+    "newsclippings": {
+      "attempted": 4,
+      "text_usable": 4,
+      "vision_text_usable": 4,
+      "image_paired_final_fusion_usable": 0,
+      "blocked": 4,
+      "row_ids": [
+        "newsclippings:val:2801",
+        "newsclippings:val:3515",
+        "newsclippings:val:5134",
+        "newsclippings:val:5882"
+      ]
+    },
+    "regime": "pretrained local LAYA components; no optimizer steps, per frozen manifest.",
+    "population_parity": "none; small tune/external diagnostic samples are not official complete or split-equivalent populations.",
+    "comparability": "all published-to-local comparisons remain nonmatched; status/metrics are saved but the local samples are too small and differ in population, split, task mapping and/or image availability.",
+    "earlier_smoke": "baseline_study_smoke_v1 was 12 MMFakeBench tune rows, status-only interface smoke."
+  },
+  "entries": [
+    {
+      "dataset": "mmfakebench",
+      "citation": "Liu et al., MMFakeBench: A Mixed-Source Multimodal Misinformation Detection Benchmark for LVLMs, ICLR 2025",
+      "publication_date": "ICLR 2025; arXiv v1 submitted 2024-06-13; arXiv version history not included in this ledger",
+      "source": "https://proceedings.iclr.cc/paper_files/paper/2025/file/d6c53fe062716387ff0df73cc53de60c-Paper-Conference.pdf",
+      "table_location": "Table 2 PDF p.7 native four-way; Appendix Table 6 p.15 binary; Appendix Table 7 p.16 NewsCLIPpings/Fakeddit; Table 9 p.17 fine-tuning. Table 3 is titled detector comparison and reports overall values, but no Table 3 metric is transcribed here.",
+      "tasks": [
+        {
+          "name": "native_four_way",
+          "population": {
+            "validation": 1000,
+            "test": 10000
+          },
+          "metric": "macro_f1_percent",
+          "results": [
+            {
+              "model": "GPT-4V Standard",
+              "split": "validation",
+              "value": 51.0,
+              "regime": "zero-shot standard prompt"
+            },
+            {
+              "model": "GPT-4V MMD-Agent",
+              "split": "validation",
+              "value": 61.6,
+              "regime": "zero-shot agent prompt"
+            },
+            {
+              "model": "LLaVA-1.6-34B Standard",
+              "split": "validation",
+              "value": 25.7,
+              "regime": "zero-shot standard prompt"
+            },
+            {
+              "model": "LLaVA-1.6-34B MMD-Agent",
+              "split": "validation",
+              "value": 49.9,
+              "regime": "zero-shot agent prompt"
+            },
+            {
+              "model": "GPT-4V Standard",
+              "split": "test",
+              "value": 48.8,
+              "regime": "zero-shot standard prompt"
+            },
+            {
+              "model": "GPT-4V MMD-Agent",
+              "split": "test",
+              "value": 61.5,
+              "regime": "zero-shot agent prompt"
+            }
+          ]
+        },
+        {
+          "name": "binary_fake_vs_real",
+          "population": {
+            "validation": 1000,
+            "test": 10000
+          },
+          "metric": "F1_percent; paper does not say macro in binary section",
+          "results": [
+            {
+              "model": "GPT-4V Standard",
+              "split": "validation",
+              "value": 72.3,
+              "regime": "zero-shot standard prompt"
+            },
+            {
+              "model": "GPT-4V MMD-Agent",
+              "split": "validation",
+              "value": 74.0,
+              "regime": "zero-shot agent prompt"
+            },
+            {
+              "model": "GPT-4V Standard",
+              "split": "test",
+              "value": 74.2,
+              "regime": "zero-shot standard prompt"
+            },
+            {
+              "model": "GPT-4V MMD-Agent",
+              "split": "test",
+              "value": 72.8,
+              "regime": "zero-shot agent prompt"
+            }
+          ]
+        }
+      ],
+      "native_labels": [
+        "real",
+        "textual veracity distortion",
+        "visual veracity distortion",
+        "cross-modal consistency distortion"
+      ],
+      "external_tools_evidence": "MMD-Agent uses external knowledge/API retrieval; paper specifies Wikipedia and Google Knowledge Graph conditions. Standard prompting is the no-agent comparison.",
+      "model_accessibility": "Paper identifies LLaVA as open source and GPT-4V as proprietary; current checkpoint/service access not checked. Specialized HAMMER/FKA-Owl source/results are in the paper.",
+      "verification_status": "primary_paper_text_and_exact_tables_verified; ambiguous_Table3_metric_excluded",
+      "comparability_to_baseline_controls_v1": "Non-comparable numerical comparison: completed16-row tune controls differ from1000 validation/10000 test populations, with distinct models and tools. Native four-way task aligns conceptually; binary head and publication binary metric require separate treatment.",
+      "notes": "Table 2 native four-way values are macro-F1. Appendix Table 6 binary values use F1, not explicitly macro-F1; accuracy is a separate column. Table 3 numeric entries are intentionally omitted because its caption does not state a metric and the extracted 61.6 repeats Table 2 GPT-4V MMD-Agent macro-F1. Table 9 fine-tuned detector figures are F1, but evaluation split is unspecified and are omitted.",
+      "comparison_status": "non-comparable"
+    },
+    {
+      "dataset": "mmfakebench",
+      "citation": "Shopnil et al., MERIT: Modular Framework for Multimodal Misinformation Detection with Web-Grounded Reasoning, arXiv:2510.17590v2",
+      "publication_date": "v1 submitted 2025-10-20; v2 revised 2026-04-26",
+      "source": "https://arxiv.org/abs/2510.17590v2",
+      "table_location": "Section 4 Experimental Setup and Table 1 in Section 5.1 of v2; HTML paragraphs 146-175",
+      "task": "binary misinformation/not-misinformation classification; native four-way labels are collapsed, so not the local four-way task",
+      "split": "validation 1,000; stratified 5,000-sample test subset from official 10,000, seed 42",
+      "metric": "binary F1 (positive=Misinformation), accuracy also reported",
+      "results": [
+        {
+          "model": "MERIT / GPT-4o-mini",
+          "split": "validation",
+          "value": 81.65,
+          "metric": "F1 percent",
+          "regime": "inference-time modular framework; no domain-specific task training stated"
+        },
+        {
+          "model": "MERIT / GPT-4o-mini",
+          "split": "validation",
+          "value": 75.1,
+          "metric": "accuracy percent",
+          "regime": "same"
+        },
+        {
+          "model": "MERIT / GPT-4o-mini",
+          "split": "5,000 sample stratified test subset",
+          "value": 81.44,
+          "metric": "F1 percent",
+          "regime": "same"
+        },
+        {
+          "model": "MMD-Agent reimplementation / GPT-4o-mini",
+          "split": "validation",
+          "value": 78.8,
+          "metric": "F1 percent",
+          "regime": "same model controlled comparison"
+        }
+      ],
+      "external_tools_evidence": "DuckDuckGo web retrieval; 3 question chains x 3 questions per sample, up to five results each; multimodal visual assessment and alignment modules.",
+      "model_accessibility": "GPT-4o-mini via OpenAI API, proprietary hosted service; no local checkpoint availability asserted.",
+      "verification_status": "primary_arxiv_v2_html_verified",
+      "comparability_to_baseline_controls_v1": "all published-to-local comparisons remain nonmatched; status/metrics are saved but the local samples are too small and differ in population, split, task mapping and/or image availability.",
+      "notes": "Version v2 title is MERIT. Earlier v1 title used MIRAGE; use current v2 title. The paper explicitly acknowledges 5,000 test samples are a stratified 50% subset. Local MMFakeBench sample is 16 tune items; no split/population match.",
+      "comparison_status": "non-comparable"
+    },
+    {
+      "dataset": "mmfakebench_newsclippings_verite",
+      "citation": "Yan et al., TRUST-VL: An Explainable News Assistant for General Multimodal Misinformation Detection, EMNLP 2025",
+      "publication_date": "arXiv v1 submitted 2025-09-04; arXiv v2 dated 2025-10-30; EMNLP 2025 paper",
+      "source": "https://arxiv.org/html/2509.04448",
+      "table_location": "Section 4 implementation/metrics lines 133-134; Table 2 distribution lines 111-117; Table 3 results lines 135-155; Appendix B dataset details.",
+      "results": [
+        {
+          "dataset": "mmfakebench",
+          "model": "TRUST-VL-13B",
+          "split": "evaluation population Table 2; split name not stated",
+          "metric": "accuracy_percent",
+          "value": 87.3,
+          "regime": "three-stage supervised training; final stage fine-tunes on 198K TRUST-Instruct reasoning samples"
+        },
+        {
+          "dataset": "mmfakebench",
+          "model": "TRUST-VL-13B",
+          "split": "evaluation population Table 2; split name not stated",
+          "metric": "macro_f1_percent",
+          "value": 85.42,
+          "regime": "same"
+        },
+        {
+          "dataset": "newsclippings",
+          "model": "TRUST-VL-13B",
+          "split": "balanced evaluation population Table 2; split name not stated",
+          "metric": "accuracy_percent",
+          "value": 90.35,
+          "regime": "same"
+        },
+        {
+          "dataset": "newsclippings",
+          "model": "TRUST-VL-13B",
+          "split": "balanced evaluation population Table 2; split name not stated",
+          "metric": "macro_f1_percent",
+          "value": 90.35,
+          "regime": "same"
+        },
+        {
+          "dataset": "verite",
+          "model": "TRUST-VL-13B",
+          "split": "balanced binary evaluation subset Table 2, not native full three-way test",
+          "metric": "accuracy_percent",
+          "value": 73.75,
+          "regime": "same"
+        },
+        {
+          "dataset": "verite",
+          "model": "TRUST-VL-13B",
+          "split": "balanced binary evaluation subset Table 2, not native full three-way test",
+          "metric": "macro_f1_percent",
+          "value": 73.61,
+          "regime": "same"
+        }
+      ],
+      "external_tools_evidence": "Section 3 describes open-domain cross-modal retrieval and evidence inputs. Section 4.1 results correspond to the trained model.",
+      "model_accessibility": "Official repository public TRUST-VL-13B and TRUST-Instruct release announced 2025-10-20; repository license is Apache-2.0; checkpoint gating status not verified.",
+      "verification_status": "primary_arxiv_v2_html_tables_and_metrics_verified; exact split names explicitly left unstated",
+      "comparability_to_baseline_controls_v1": "non-comparable: local MMFakeBench 16 tune rows, VERITE 6 rows and NewsCLIPpings 4 rows; TRUST-VL uses supervised three-stage training, evidence retrieval, binary targets, and a 400-row balanced binary VERITE subset.",
+      "notes": "Table 2 counts No/Yes as MMFakeBench 300/700, NewsCLIPpings 3632/3632, VERITE 200/200. Appendix B states TRUST-VL prompt asks for binary Real/Fake; VERITE is a balanced 400-item subset, not the official native three-way 1000-row set. Table 2 does not state the named dataset split.",
+      "task": "TRUST-VL prompt converts each benchmark item to binary Real/Fake (see Appendix B task notes); metrics are accuracy and macro-F1, Section 4.",
+      "split": "Paper evaluation distribution in Table 2. Exact source split naming is not explicit in table; MMFakeBench 1,000, NewsCLIPpings 7,264 balanced rows, VERITE 400 balanced binary rows.",
+      "population": {
+        "mmfakebench": 1000,
+        "newsclippings": 7264,
+        "verite": 400
+      },
+      "comparison_status": "non-comparable"
+    },
+    {
+      "dataset": "newsclippings",
+      "citation": "Luo, Darrell, Rohrbach, NewsCLIPpings: Automatic Generation of Out-of-Context Multimodal Media, EMNLP 2021 / arXiv:2104.05893v2",
+      "publication_date": "arXiv v1 submitted 2021-04-13; v2 revised 2021-09-21; EMNLP Nov 2021",
+      "source": "https://arxiv.org/abs/2104.05893v2",
+      "html_source": "https://arxiv.org/html/2104.05893v2",
+      "table_location": "Original NewsCLIPpings arXiv v2 HTML Table 1 (dataset populations) and Table 3 (test accuracy); later ICLR 2025 paper Table 7 separately provides selected-model F1 values.",
+      "task": "binary pristine vs falsified; original paper evaluates pair classification",
+      "split": "Merged/Balanced test",
+      "population": {
+        "test_pairs": 7264,
+        "train_pairs": 71072,
+        "validation_pairs": 7024
+      },
+      "metric": "classification_accuracy",
+      "results": [
+        {
+          "model": "CLIP ViT-B/32 multimodal",
+          "split": "Merged/Balanced test",
+          "value": 0.6023,
+          "regime": "both CLIP and VisualBERT models are fine-tuned during training with classifiers (Section 4.1); CLIP is also used off-the-shelf for dataset construction/filtering, not as the reported trained test classifier"
+        },
+        {
+          "model": "VisualBERT-VN",
+          "split": "Merged/Balanced test",
+          "value": 0.5863,
+          "regime": "both CLIP and VisualBERT models are fine-tuned during training with classifiers (Section 4.1); CLIP is also used off-the-shelf for dataset construction/filtering, not as the reported trained test classifier"
+        }
+      ],
+      "external_tools_evidence": "Construction uses CLIP, spaCy NER, REL/Wikipedia linking, SBERT-WK, Faster R-CNN and Places365. Both benchmark CLIP and VisualBERT models are fine-tuned with classifiers (Section4.1); construction/filtering uses off-the-shelf CLIP. No web retrieval inference in Table3.",
+      "model_accessibility": "CLIP and VisualBERT described as research models; paper provides public dataset identifiers/code repo. Current weights/access not checked.",
+      "verification_status": "original_paper_v2_html_table_verified",
+      "comparability_to_baseline_controls_v1": "Non-comparable: completed4-row local validation sample has no visual outputs; original Merged/Balanced test contains7264 pairs with supervised training. Native binary pairing task aligns, but population, split, visual availability and training differ.",
+      "notes": "Original paper Section 4.1 states both models are fine-tuned as they train classifiers. Table 3 merged/balanced test accuracy is 0.6023 CLIP and 0.5863 VisualBERT-VN. CLIP is also used during construction, but reported model score is not off-the-shelf-only.",
+      "comparison_status": "non-comparable"
+    },
+    {
+      "dataset": "verite",
+      "citation": "Papadopoulos et al., VERITE: A Robust Benchmark for Multimodal Misinformation Detection Accounting for Unimodal Bias, arXiv:2304.14133; journal version Int. J. Multimedia Information Retrieval 13 (2024)",
+      "publication_date": "arXiv submitted 2023-04-27; journal version 2024",
+      "source": "https://arxiv.org/abs/2304.14133",
+      "official_repository": "https://github.com/stevejpapad/image-text-verification",
+      "table_location": "Paper Table 1, section 4.1: VERITE test class counts True 338 / OOC 324 / MC 338; Table 5, section 5: multiclass accuracy",
+      "task": "native three-way classification: True, out-of-context (OOC), miscaptioned (MC)",
+      "split": "real-world test set; hyperparameters selected using generated in-distribution validation",
+      "population": 1000,
+      "metric": "multiclass accuracy percent",
+      "results": [
+        {
+          "model": "D(I,C), CLIP-NESt + CHASMA-D + NC-t2t (Table 5)",
+          "value": 52.1,
+          "regime": "supervised Transformer detector trained on generated/aggregated datasets including CHASMA-D"
+        },
+        {
+          "model": "D(I,C), CHASMA + NC-t2t",
+          "value": 48.7,
+          "regime": "supervised Transformer detector trained on generated datasets"
+        },
+        {
+          "model": "D(I,C), CHASMA-D + NC-t2t",
+          "value": 49.0,
+          "regime": "supervised Transformer detector trained on generated datasets"
+        }
+      ],
+      "external_tools_evidence": "CLIP ViT-L/14 feature extraction and CHASMA generation; no retrieval tool for detector prediction reported in this protocol.",
+      "model_accessibility": "Official repo provides code and processed features; CLIP ViT-L/14 dependency. Current checkpoint availability not checked.",
+      "verification_status": "primary_paper_and_official_repository_verified",
+      "comparability_to_baseline_controls_v1": "Non-comparable numerical comparison: local6-row unfiltered evaluation has5 common multimodal rows, differs from official1000-row native test, and uses pretrained LAYA rather than supervised detector heads. Local1001-row population discrepancy remains unresolved.",
+      "population_reconciliation": {
+        "official_repository_claim": "Final VERITE.csv has 1000 rows: True 338, Miscaptioned 338, Out-of-Context 324 (repo lines 247, 254).",
+        "local_observation": "Configured local CSV has 1001 rows: true 338, miscaptioned 338, out-of-context 325; counted labels only.",
+        "status": "unresolved",
+        "interpretation": "One extra local OOC-labeled row; no verified basis to classify it as duplicate or remove it."
+      },
+      "notes": "Table 5 row gives CLIP-NESt + CHASMA-D + NC-t2t at 52.1%. Nearby prose says CLIP-NESt + Misalign + NC-t2t, which conflicts with the table; ledger follows the explicit table row and records this source inconsistency.",
+      "comparison_status": "non-comparable"
+    },
+    {
+      "dataset": "mmfakebench",
+      "citation": "Li et al., MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning, arXiv:2609.30698",
+      "publication_date": "arXiv submitted 2026-09-25",
+      "source": "https://arxiv.org/abs/2609.30698",
+      "table_location": "Abstract/Section 1 reports multi-class accuracy; exact detailed table, validation/test split and population not transcribed into this ledger",
+      "task": "mixed-source fine-grained multiclass source prediction",
+      "split": null,
+      "population": null,
+      "metric": "multiclass accuracy percent",
+      "results": [
+        {
+          "model": "Qwen2.5-VL-7B plus MM-VeriAgent",
+          "value": 70.4,
+          "comparison": "backbone baseline 34.3",
+          "regime": "agent trained with GRPO reinforcement learning; specialized tools; target training exposure details pending full paper table"
+        }
+      ],
+      "external_tools_evidence": "Specialized callable text, vision and cross-modal tools; paper says no explicit tool search at inference after tool-use policy training.",
+      "model_accessibility": "Qwen2.5-VL-7B is open-weight; trained agent/checkpoint access not checked.",
+      "verification_status": "primary_arxiv_abstract_verified_but_table_population_unverified",
+      "comparability_to_baseline_controls_v1": "non-comparable: 16 tune rows differ from publication evaluation; RL-trained agent and tools differ from pretrained local controls.",
+      "notes": "Recent result recorded as a signal only, not a clean comparison, until full-paper table, split and metric protocol are verified.",
+      "comparison_status": "non-comparable"
+    }
+  ]
+}

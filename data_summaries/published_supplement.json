@@ -1,0 +1,93 @@
+{
+ "verified_date": "2026-10-25",
+ "purpose": "Dashboard-only supplement to data/workflows/baseline_study/published_references.json. Values checked against the primary papers' tables online on 2026-10-25 (PDF text via pdftotext for CCN and SNIFFER, arXiv HTML for LAMAR). Published reports, not local results; all non-comparable with this zero-shot study.",
+ "entries": [
+  {
+   "dataset": "newsclippings",
+   "citation": "Abdelnabi, Hasan, Fritz, Open-Domain, Content-based, Multi-modal Fact-checking of Out-of-Context Images via Online Resources (CCN), CVPR 2022",
+   "source": "https://arxiv.org/abs/2112.00061",
+   "table_location": "arXiv v3 PDF page 6, Table 2: 'Classification performance on the test set for our model in comparison with baselines.' (also Table 1 row 12)",
+   "task": "binary pristine vs falsified (native NewsCLIPpings task)",
+   "metric": "accuracy percent",
+   "split": "Merged/Balanced test",
+   "population": {"newsclippings": 7264},
+   "results": [
+    {"model": "CCN (Consistency-Checking Network)", "split": "Merged/Balanced test", "value": 84.7,
+     "regime": "trained classifier with evidence retrieved from the web (Google Vision inverse image search, Google custom image search)"}
+   ],
+   "external_tools_evidence": "Web evidence: image-caption pairs used as web-search queries; inverse image search and caption-based image search (paper p.3).",
+   "verification_status": "primary_pdf_table_verified_2026-10-25",
+   "comparison_status": "non-comparable"
+  },
+  {
+   "dataset": "newsclippings",
+   "citation": "Qi, Yan, Hsu, Lee, SNIFFER: Multimodal Large Language Model for Explainable Out-of-Context Misinformation Detection, CVPR 2024",
+   "source": "https://arxiv.org/abs/2403.03170",
+   "table_location": "PDF page 6, Table 1: 'Performance (%) comparison between SNIFFER and baselines.' (also Table 2 full-model row)",
+   "task": "binary pristine vs falsified (native NewsCLIPpings task)",
+   "metric": "accuracy percent",
+   "split": "Merged/Balance test",
+   "population": {"newsclippings": 7264},
+   "results": [
+    {"model": "SNIFFER (InstructBLIP, instruction-tuned)", "split": "Merged/Balance test", "value": 88.4,
+     "regime": "two-stage instruction tuning on NewsCLIPpings-derived data (71K task samples) plus web-retrieved evidence (reverse image search pages, Google entity detection)"}
+   ],
+   "external_tools_evidence": "Caption plus text from webpages retrieved via image search, and Google Entity Detection API (paper p.5).",
+   "verification_status": "primary_pdf_table_verified_2026-10-25",
+   "comparison_status": "non-comparable"
+  },
+  {
+   "dataset": "newsclippings",
+   "citation": "Papadopoulos et al., Latent Reconstruction from Generated Data for Multimodal Misinformation Detection (LAMAR), arXiv:2504.06010v3 (13 Jan 2026)",
+   "source": "https://arxiv.org/abs/2504.06010",
+   "table_location": "arXiv v3 HTML, Table 3: 'Performance of models on the True vs. OOC task, trained on the NewsCLIPpings dataset and evaluated on both NewsCLIPpings and VERITE.'",
+   "task": "binary True vs OOC (native NewsCLIPpings task)",
+   "metric": "accuracy percent",
+   "split": "NewsCLIPpings original test split (Section 4.4); test population size not confirmed here",
+   "population": null,
+   "results": [
+    {"model": "LAMAR [E2E, Attention]", "split": "NewsCLIPpings test", "value": 84.8,
+     "regime": "trained end-to-end on NewsCLIPpings train"},
+    {"model": "LAMAR [E2E, Gate]", "split": "NewsCLIPpings test", "value": 84.7,
+     "regime": "trained end-to-end on NewsCLIPpings train"}
+   ],
+   "external_tools_evidence": "None reported for detection; supervised training.",
+   "verification_status": "primary_arxiv_html_table_verified_2026-10-25",
+   "comparison_status": "non-comparable"
+  },
+  {
+   "dataset": "verite",
+   "citation": "Papadopoulos et al., Latent Reconstruction from Generated Data for Multimodal Misinformation Detection (LAMAR), arXiv:2504.06010v3 (13 Jan 2026)",
+   "source": "https://arxiv.org/abs/2504.06010",
+   "table_location": "arXiv v3 HTML, Table 4: 'Comparison of multi-class models trained either on CHASMA, LLaVA-D3, Molmo-D3, and evaluated on VERITE.'",
+   "task": "native three-way classification: True, miscaptioned, out-of-context",
+   "metric": "multiclass accuracy percent",
+   "split": "VERITE evaluation",
+   "population": null,
+   "results": [
+    {"model": "LAMAR [E2E, Gate], trained on Molmo-D3 (+ NewsCLIPpings for OOC)", "split": "VERITE", "value": 54.9,
+     "regime": "supervised on synthetic VLM-generated miscaptions plus NewsCLIPpings"}
+   ],
+   "verification_status": "primary_arxiv_html_table_verified_2026-10-25",
+   "comparison_status": "non-comparable"
+  },
+  {
+   "dataset": "verite",
+   "citation": "Papadopoulos et al., Latent Reconstruction from Generated Data for Multimodal Misinformation Detection (LAMAR), arXiv:2504.06010v3 (13 Jan 2026)",
+   "source": "https://arxiv.org/abs/2504.06010",
+   "table_location": "arXiv v3 HTML, Table 3 (True vs. OOC, trained on NewsCLIPpings)",
+   "task": "binary True vs OOC subset of VERITE, not the native three-way task",
+   "metric": "accuracy percent",
+   "split": "VERITE True vs OOC",
+   "population": null,
+   "results": [
+    {"model": "LAMAR [E2E, Gate]", "split": "VERITE True vs OOC", "value": 76.3,
+     "regime": "trained end-to-end on NewsCLIPpings train"},
+    {"model": "LAMAR [E2E, Attention]", "split": "VERITE True vs OOC", "value": 75.1,
+     "regime": "trained end-to-end on NewsCLIPpings train"}
+   ],
+   "verification_status": "primary_arxiv_html_table_verified_2026-10-25",
+   "comparison_status": "non-comparable"
+  }
+ ]
+}

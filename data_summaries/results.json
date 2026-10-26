@@ -1,0 +1,828 @@
+{
+ "meta": {
+  "as_of": "2026-10-25",
+  "checkpoint": "f2fe3c12cb6d04c59d8a190250bf3fb40fc828dc",
+  "questions": "dataset_native_paper_aligned_v2_20261021",
+  "tests": 54,
+  "gates": 22,
+  "audit": "28/28",
+  "tier0": "identical (max delta 0.0)"
+ },
+ "runs": [
+  {
+   "key": "mm_paired",
+   "title": "MMFakeBench \u00b7 official test \u00b7 paired",
+   "dataset": "MMFakeBench",
+   "arm": "Paired",
+   "trace": "de8e8b21d3d7",
+   "counts": {
+    "attempted": 10000,
+    "usable": 9999,
+    "error": 1,
+    "blocked": 0
+   },
+   "labels": [
+    "original",
+    "textual_veracity_distortion",
+    "visual_veracity_distortion",
+    "mismatch"
+   ],
+   "support": {
+    "original": 3000,
+    "textual_veracity_distortion": 2999,
+    "visual_veracity_distortion": 1000,
+    "mismatch": 3000
+   },
+   "accuracy": 0.2642264226422642,
+   "macro_f1": 0.20374178877322477,
+   "balanced_accuracy": 0.22454365344003557,
+   "per_class": {
+    "original": {
+     "precision": 0.2601626016260163,
+     "recall": 0.21333333333333335,
+     "f1": 0.23443223443223446,
+     "support": 3000
+    },
+    "textual_veracity_distortion": {
+     "precision": 0.2831140746080375,
+     "recall": 0.5238412804268089,
+     "f1": 0.36757136172204025,
+     "support": 2999
+    },
+    "visual_veracity_distortion": {
+     "precision": 0.2736842105263158,
+     "recall": 0.026,
+     "f1": 0.04748858447488584,
+     "support": 1000
+    },
+    "mismatch": {
+     "precision": 0.21372031662269128,
+     "recall": 0.135,
+     "f1": 0.1654749744637385,
+     "support": 3000
+    }
+   },
+   "confusion": [
+    [
+     640,
+     1847,
+     37,
+     476
+    ],
+    [
+     693,
+     1571,
+     10,
+     725
+    ],
+    [
+     375,
+     310,
+     26,
+     289
+    ],
+    [
+     752,
+     1821,
+     22,
+     405
+    ]
+   ],
+   "ece": 0.0815,
+   "brier": 0.7649,
+   "ci": [
+    0.2553,
+    0.2734
+   ],
+   "modality": "image + text",
+   "metrics_file": "data/processed/protocol/dataset_native_baseline_20261025_test_ablation_v1/mmfakebench_test_paired/paired.metrics.json"
+  },
+  {
+   "key": "mm_text",
+   "title": "MMFakeBench \u00b7 official test \u00b7 text-only",
+   "dataset": "MMFakeBench",
+   "arm": "Text only",
+   "trace": "a28f7f77e4d2",
+   "counts": {
+    "attempted": 10000,
+    "usable": 10000,
+    "error": 0,
+    "blocked": 0
+   },
+   "labels": [
+    "original",
+    "textual_veracity_distortion",
+    "visual_veracity_distortion",
+    "mismatch"
+   ],
+   "support": {
+    "original": 3000,
+    "textual_veracity_distortion": 3000,
+    "visual_veracity_distortion": 1000,
+    "mismatch": 3000
+   },
+   "accuracy": 0.2793,
+   "macro_f1": 0.2181232686415408,
+   "balanced_accuracy": 0.24075,
+   "per_class": {
+    "original": {
+     "precision": 0.26424870466321243,
+     "recall": 0.221,
+     "f1": 0.24069704120530042,
+     "support": 3000
+    },
+    "textual_veracity_distortion": {
+     "precision": 0.2959750173490632,
+     "recall": 0.5686666666666667,
+     "f1": 0.38931994523048835,
+     "support": 3000
+    },
+    "visual_veracity_distortion": {
+     "precision": 0.12371134020618557,
+     "recall": 0.048,
+     "f1": 0.069164265129683,
+     "support": 1000
+    },
+    "mismatch": {
+     "precision": 0.280806572068708,
+     "recall": 0.12533333333333332,
+     "f1": 0.1733118230006914,
+     "support": 3000
+    }
+   },
+   "confusion": [
+    [
+     663,
+     1829,
+     108,
+     400
+    ],
+    [
+     697,
+     1706,
+     112,
+     485
+    ],
+    [
+     397,
+     477,
+     48,
+     78
+    ],
+    [
+     752,
+     1752,
+     120,
+     376
+    ]
+   ],
+   "ece": 0.0123,
+   "brier": 0.7522,
+   "ci": [
+    0.2705,
+    0.2885
+   ],
+   "modality": "text only",
+   "metrics_file": "data/processed/protocol/dataset_native_baseline_20261025_test_ablation_v1/mmfakebench_test_vision_text/vision_text.metrics.json"
+  },
+  {
+   "key": "mm_image",
+   "title": "MMFakeBench \u00b7 official test \u00b7 image-only sample",
+   "dataset": "MMFakeBench",
+   "arm": "Image only",
+   "trace": "318289882e09",
+   "counts": {
+    "attempted": 1000,
+    "usable": 1000,
+    "error": 0,
+    "blocked": 0
+   },
+   "labels": [
+    "original",
+    "textual_veracity_distortion",
+    "visual_veracity_distortion",
+    "mismatch"
+   ],
+   "support": {
+    "original": 329,
+    "textual_veracity_distortion": 273,
+    "visual_veracity_distortion": 119,
+    "mismatch": 279
+   },
+   "accuracy": 0.261,
+   "macro_f1": 0.1969747587550245,
+   "balanced_accuracy": 0.21494820936663564,
+   "per_class": {
+    "original": {
+     "precision": 0.294010889292196,
+     "recall": 0.49240121580547114,
+     "f1": 0.36818181818181817,
+     "support": 329
+    },
+    "textual_veracity_distortion": {
+     "precision": 0.1778846153846154,
+     "recall": 0.13553113553113552,
+     "f1": 0.15384615384615385,
+     "support": 273
+    },
+    "visual_veracity_distortion": {
+     "precision": 0.25,
+     "recall": 0.01680672268907563,
+     "f1": 0.031496062992125984,
+     "support": 119
+    },
+    "mismatch": {
+     "precision": 0.2575107296137339,
+     "recall": 0.21505376344086022,
+     "f1": 0.23437499999999997,
+     "support": 279
+    }
+   },
+   "confusion": [
+    [
+     162,
+     91,
+     0,
+     76
+    ],
+    [
+     152,
+     37,
+     5,
+     79
+    ],
+    [
+     87,
+     12,
+     2,
+     18
+    ],
+    [
+     150,
+     68,
+     1,
+     60
+    ]
+   ],
+   "ece": 0.0575,
+   "brier": null,
+   "ci": [
+    0.2358,
+    0.2847
+   ],
+   "modality": "image only",
+   "metrics_file": "data/processed/protocol/dataset_native_baseline_20261026_baseline_v1/mmfakebench_test_image_sample/image.metrics.json"
+  },
+  {
+   "key": "verite_paired",
+   "title": "VERITE \u00b7 current CSV \u00b7 paired",
+   "dataset": "VERITE",
+   "arm": "Paired",
+   "trace": "c4749c27294f",
+   "counts": {
+    "attempted": 1001,
+    "usable": 1001,
+    "error": 0,
+    "blocked": 0
+   },
+   "labels": [
+    "true",
+    "miscaptioned",
+    "out-of-context"
+   ],
+   "support": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 325
+   },
+   "accuracy": 0.35664335664335667,
+   "macro_f1": 0.3457854160772558,
+   "balanced_accuracy": 0.35467455621301774,
+   "per_class": {
+    "true": {
+     "precision": 0.35824175824175825,
+     "recall": 0.4822485207100592,
+     "f1": 0.41109709962168983,
+     "support": 338
+    },
+    "miscaptioned": {
+     "precision": 0.3775811209439528,
+     "recall": 0.378698224852071,
+     "f1": 0.378138847858198,
+     "support": 338
+    },
+    "out-of-context": {
+     "precision": 0.3188405797101449,
+     "recall": 0.20307692307692307,
+     "f1": 0.2481203007518797,
+     "support": 325
+    }
+   },
+   "confusion": [
+    [
+     163,
+     102,
+     73
+    ],
+    [
+     142,
+     128,
+     68
+    ],
+    [
+     150,
+     109,
+     66
+    ]
+   ],
+   "ece": 0.0955,
+   "brier": null,
+   "ci": [
+    0.3317,
+    0.3816
+   ],
+   "modality": "image + text",
+   "metrics_file": "data/processed/protocol/dataset_native_baseline_verite_local_images_v1/verite_local_1001_paired/paired.metrics.json"
+  },
+  {
+   "key": "verite_text",
+   "title": "VERITE \u00b7 current CSV \u00b7 text-only",
+   "dataset": "VERITE",
+   "arm": "Text only",
+   "trace": "e9c2bd51ee86",
+   "counts": {
+    "attempted": 1001,
+    "usable": 1001,
+    "error": 0,
+    "blocked": 0
+   },
+   "labels": [
+    "true",
+    "miscaptioned",
+    "out-of-context"
+   ],
+   "support": {
+    "true": 338,
+    "miscaptioned": 338,
+    "out-of-context": 325
+   },
+   "accuracy": 0.35864135864135865,
+   "macro_f1": 0.35832410451464103,
+   "balanced_accuracy": 0.35909270216962524,
+   "per_class": {
+    "true": {
+     "precision": 0.34527687296416937,
+     "recall": 0.3136094674556213,
+     "f1": 0.32868217054263565,
+     "support": 338
+    },
+    "miscaptioned": {
+     "precision": 0.39308176100628933,
+     "recall": 0.3698224852071006,
+     "f1": 0.38109756097560976,
+     "support": 338
+    },
+    "out-of-context": {
+     "precision": 0.3404255319148936,
+     "recall": 0.39384615384615385,
+     "f1": 0.36519258202567767,
+     "support": 325
+    }
+   },
+   "confusion": [
+    [
+     106,
+     99,
+     133
+    ],
+    [
+     98,
+     125,
+     115
+    ],
+    [
+     103,
+     94,
+     128
+    ]
+   ],
+   "ece": 0.0404,
+   "brier": null,
+   "ci": [
+    0.3297,
+    0.3886
+   ],
+   "modality": "text only",
+   "metrics_file": "data/processed/protocol/dataset_native_baseline_20261026_baseline_v1/verite_vision_text/vision_text.metrics.json"
+  },
+  {
+   "key": "ncp",
+   "title": "NewsCLIPpings \u00b7 streamed local evaluation",
+   "dataset": "NewsCLIPpings",
+   "arm": "Paired",
+   "trace": "ncp_stream_v1",
+   "counts": {
+    "attempted": 7024,
+    "usable": 7024,
+    "error": 0,
+    "blocked": 0
+   },
+   "labels": [
+    "pristine",
+    "falsified"
+   ],
+   "support": {
+    "pristine": 3512,
+    "falsified": 3512
+   },
+   "accuracy": 0.5082574031890661,
+   "macro_f1": 0.41846856452085496,
+   "balanced_accuracy": 0.5082574031890661,
+   "per_class": {
+    "falsified": {
+     "f1": 0.6469746524938675,
+     "precision": 0.5046237244897959,
+     "recall": 0.9011958997722096,
+     "support": 3512
+    },
+    "pristine": {
+     "f1": 0.1899624765478424,
+     "precision": 0.538563829787234,
+     "recall": 0.11531890660592255,
+     "support": 3512
+    }
+   },
+   "confusion": [
+    [
+     405,
+     3107
+    ],
+    [
+     347,
+     3165
+    ]
+   ],
+   "ece": 0.16626887813211846,
+   "brier": 0.2816847592568337,
+   "ci": [
+    0.4977935943060498,
+    0.5181118083285796
+   ],
+   "modality": "image + text",
+   "metrics_file": "data/reports/baseline_study/ncp_metrics_2026-10-25.json",
+   "per_strategy": {
+    "0": {
+     "accuracy": 0.5028473804100227,
+     "balanced_accuracy": 0.5028473804100227,
+     "confusion": [
+      [
+       78,
+       800
+      ],
+      [
+       73,
+       805
+      ]
+     ],
+     "labels": [
+      "pristine",
+      "falsified"
+     ],
+     "macro_f1": 0.400006340491435,
+     "n": 1756,
+     "per_class": {
+      "falsified": {
+       "f1": 0.648409182440596,
+       "precision": 0.5015576323987538,
+       "recall": 0.9168564920273349,
+       "support": 878
+      },
+      "pristine": {
+       "f1": 0.15160349854227403,
+       "precision": 0.5165562913907285,
+       "recall": 0.0888382687927107,
+       "support": 878
+      }
+     }
+    },
+    "1": {
+     "accuracy": 0.5125284738041003,
+     "balanced_accuracy": 0.5125284738041003,
+     "confusion": [
+      [
+       116,
+       762
+      ],
+      [
+       94,
+       784
+      ]
+     ],
+     "labels": [
+      "pristine",
+      "falsified"
+     ],
+     "macro_f1": 0.43004999029314694,
+     "n": 1756,
+     "per_class": {
+      "falsified": {
+       "f1": 0.6468646864686468,
+       "precision": 0.5071151358344114,
+       "recall": 0.8929384965831435,
+       "support": 878
+      },
+      "pristine": {
+       "f1": 0.21323529411764708,
+       "precision": 0.5523809523809524,
+       "recall": 0.13211845102505695,
+       "support": 878
+      }
+     }
+    },
+    "2": {
+     "accuracy": 0.5136674259681093,
+     "balanced_accuracy": 0.5136674259681093,
+     "confusion": [
+      [
+       70,
+       808
+      ],
+      [
+       46,
+       832
+      ]
+     ],
+     "labels": [
+      "pristine",
+      "falsified"
+     ],
+     "macro_f1": 0.4008435042343018,
+     "n": 1756,
+     "per_class": {
+      "falsified": {
+       "f1": 0.6608419380460684,
+       "precision": 0.5073170731707317,
+       "recall": 0.9476082004555809,
+       "support": 878
+      },
+      "pristine": {
+       "f1": 0.14084507042253522,
+       "precision": 0.603448275862069,
+       "recall": 0.07972665148063782,
+       "support": 878
+      }
+     }
+    },
+    "3": {
+     "accuracy": 0.5039863325740319,
+     "balanced_accuracy": 0.5039863325740319,
+     "confusion": [
+      [
+       141,
+       737
+      ],
+      [
+       134,
+       744
+      ]
+     ],
+     "labels": [
+      "pristine",
+      "falsified"
+     ],
+     "macro_f1": 0.43767755531674196,
+     "n": 1756,
+     "per_class": {
+      "falsified": {
+       "f1": 0.6307757524374735,
+       "precision": 0.5023632680621202,
+       "recall": 0.8473804100227791,
+       "support": 878
+      },
+      "pristine": {
+       "f1": 0.24457935819601043,
+       "precision": 0.5127272727272727,
+       "recall": 0.16059225512528474,
+       "support": 878
+      }
+     }
+    }
+   },
+   "auc": {
+    "out_of_context": 0.4676864077474691,
+    "wrong_image": 0.4481872434763207
+   }
+  }
+ ],
+ "differences": {
+  "mm_full": {
+   "accuracy_a": 0.2642264226422642,
+   "accuracy_b": 0.27932793279327933,
+   "branch_a": "paired",
+   "branch_b": "vision_text",
+   "difference_95": [
+    -0.024414648789273564,
+    -0.005409195632575378
+   ],
+   "note": "descriptive; rows are grouped, so the interval resamples groups",
+   "shared_rows": 9999
+  },
+  "mm_sample": {
+   "n_shared": 1000,
+   "clusters": 996,
+   "resamples": 2000,
+   "seed": 20261018,
+   "accuracy": 0.0010000000000000009,
+   "accuracy_95": [
+    -0.027108433734939763,
+    0.029970029970029954
+   ],
+   "macro_f1": -0.0166450315854563,
+   "macro_f1_95": [
+    -0.048692957266546405,
+    0.016329725586135047
+   ]
+  },
+  "verite": {
+   "n_shared": 1001,
+   "clusters": 663,
+   "resamples": 2000,
+   "seed": 20261018,
+   "accuracy": -0.001998001998001986,
+   "accuracy_95": [
+    -0.03596403596403597,
+    0.030969030969030975
+   ],
+   "macro_f1": -0.012538688437385204,
+   "macro_f1_95": [
+    -0.04595978626706987,
+    0.021102131138589053
+   ],
+   "definition": "paired (image+text) minus vision_text (text only)"
+  }
+ },
+ "validity": {
+  "source_rule": {
+   "accuracy": 0.914991499149915,
+   "confusion": [
+    [
+     3000,
+     0,
+     0,
+     0
+    ],
+    [
+     250,
+     2749,
+     0,
+     0
+    ],
+    [
+     600,
+     0,
+     400,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     3000
+    ]
+   ],
+   "distinct_pairs": 14,
+   "labels": [
+    "original",
+    "textual_veracity_distortion",
+    "visual_veracity_distortion",
+    "mismatch"
+   ],
+   "macro_f1": 0.8509618977957061,
+   "n": 9999,
+   "per_class": {
+    "mismatch": {
+     "f1": 1.0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "support": 3000
+    },
+    "original": {
+     "f1": 0.8759124087591241,
+     "precision": 0.7792207792207793,
+     "recall": 1.0,
+     "support": 3000
+    },
+    "textual_veracity_distortion": {
+     "f1": 0.9565066109951288,
+     "precision": 1.0,
+     "recall": 0.9166388796265422,
+     "support": 2999
+    },
+    "visual_veracity_distortion": {
+     "f1": 0.5714285714285715,
+     "precision": 1.0,
+     "recall": 0.4,
+     "support": 1000
+    }
+   },
+   "unseen_pairs": 350
+  },
+  "ceiling": {
+   "accuracy": 0.94999499949995,
+   "distinct_pairs": 14,
+   "n": 9999,
+   "pure_pairs": 13
+  },
+  "majority": {
+   "accuracy": 0.3000300030003,
+   "confusion": [
+    [
+     3000,
+     0,
+     0,
+     0
+    ],
+    [
+     2999,
+     0,
+     0,
+     0
+    ],
+    [
+     1000,
+     0,
+     0,
+     0
+    ],
+    [
+     3000,
+     0,
+     0,
+     0
+    ]
+   ],
+   "label": "original",
+   "labels": [
+    "original",
+    "textual_veracity_distortion",
+    "visual_veracity_distortion",
+    "mismatch"
+   ],
+   "macro_f1": 0.11539349180706208,
+   "n": 9999,
+   "per_class": {
+    "mismatch": {
+     "f1": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "support": 3000
+    },
+    "original": {
+     "f1": 0.46157396722824834,
+     "precision": 0.3000300030003,
+     "recall": 1.0,
+     "support": 3000
+    },
+    "textual_veracity_distortion": {
+     "f1": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "support": 2999
+    },
+    "visual_veracity_distortion": {
+     "f1": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "support": 1000
+    }
+   }
+  }
+ },
+ "timeline": [
+  {
+   "date": "18 Oct",
+   "title": "Harness built and exercised",
+   "text": "Native adapters, scoring/resume safeguards, six-route smoke."
+  },
+  {
+   "date": "19 Oct",
+   "title": "Research contract made explicit",
+   "text": "Separate native labels and metrics; expose inputs; retain qualifications."
+  },
+  {
+   "date": "21\u201322 Oct",
+   "title": "VERITE coverage recovered",
+   "text": "Official archive verified; paired run over all 1,001 CSV rows."
+  },
+  {
+   "date": "23\u201324 Oct",
+   "title": "Historical text-only test disclosed",
+   "text": "10,000-row legacy run audited; post-hoc; no image pixels."
+  },
+  {
+   "date": "25 Oct",
+   "title": "Baseline completed",
+   "text": "Test paired/text/image arms, VERITE text-only, streamed NewsCLIPpings, tier-0, gates, independent audit."
+  }
+ ]
+}

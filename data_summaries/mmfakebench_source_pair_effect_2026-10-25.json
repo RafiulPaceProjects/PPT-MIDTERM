@@ -1,0 +1,493 @@
+{
+ "across_pairs": {
+  "clusters_spanning_pairs": 36,
+  "distinct_pairs": 14,
+  "equal_weight_difference": -0.027785428285428286,
+  "equal_weight_difference_95": [
+   -0.04195248794276807,
+   -0.014732235871177902
+  ],
+  "n_weighted_difference": -0.015101510151015102,
+  "n_weighted_equals_pooled": true,
+  "pairs_range_above_zero": 2,
+  "pairs_range_below_zero": 7,
+  "pairs_range_spans_zero": 5
+ },
+ "date": "2026-10-25",
+ "inputs": {
+  "annotations": "data/raw/MMFakeBench/MMFakeBench_test.json",
+  "manifest": "data/processed/protocol/dataset_native_baseline_20261025_test_ablation_v1/mmfakebench_test_paired/manifest.json",
+  "paired": "data/processed/protocol/dataset_native_baseline_20261025_test_ablation_v1/mmfakebench_test_paired/paired.predictions.jsonl",
+  "reference": "data/reports/baseline_study/mmfakebench_test_ablation_2026-10-25.json",
+  "text": "data/processed/protocol/dataset_native_baseline_20261025_test_ablation_v1/mmfakebench_test_vision_text/vision_text.predictions.jsonl"
+ },
+ "method": {
+  "clusters": "exact image bytes (manifest image_sha256)",
+  "difference": "paired accuracy minus text-only accuracy on the same rows",
+  "reading": "descriptive ranges, not confirmatory",
+  "resamples": 2000,
+  "seed": 20261018
+ },
+ "new_inference": false,
+ "pairs": [
+  {
+   "accuracy_paired": 0.135,
+   "accuracy_text": 0.186,
+   "clusters": 2000,
+   "difference": -0.051,
+   "difference_95": [
+    -0.071,
+    -0.0315
+   ],
+   "gold": {
+    "original": 2000
+   },
+   "image_broke": 258,
+   "image_fixed": 156,
+   "image_source": "VisualNews",
+   "label_pure": true,
+   "n": 2000,
+   "predicted_share_paired": {
+    "mismatch": 0.132,
+    "original": 0.135,
+    "textual_veracity_distortion": 0.7295,
+    "visual_veracity_distortion": 0.0035
+   },
+   "predicted_share_text": {
+    "mismatch": 0.1565,
+    "original": 0.186,
+    "textual_veracity_distortion": 0.611,
+    "visual_veracity_distortion": 0.0465
+   },
+   "text_source": "VisualNews"
+  },
+  {
+   "accuracy_paired": 0.12533333333333332,
+   "accuracy_text": 0.18333333333333332,
+   "clusters": 1486,
+   "difference": -0.058,
+   "difference_95": [
+    -0.08122503328894808,
+    -0.03523936170212766
+   ],
+   "gold": {
+    "mismatch": 1500
+   },
+   "image_broke": 215,
+   "image_fixed": 128,
+   "image_source": "Newsclipings",
+   "label_pure": true,
+   "n": 1500,
+   "predicted_share_paired": {
+    "mismatch": 0.12533333333333332,
+    "original": 0.14066666666666666,
+    "textual_veracity_distortion": 0.73,
+    "visual_veracity_distortion": 0.004
+   },
+   "predicted_share_text": {
+    "mismatch": 0.18333333333333332,
+    "original": 0.21933333333333332,
+    "textual_veracity_distortion": 0.548,
+    "visual_veracity_distortion": 0.04933333333333333
+   },
+   "text_source": "Newsclipings"
+  },
+  {
+   "accuracy_paired": 0.076,
+   "accuracy_text": 0.104,
+   "clusters": 998,
+   "difference": -0.028,
+   "difference_95": [
+    -0.050100200400801605,
+    -0.005
+   ],
+   "gold": {
+    "original": 500,
+    "visual_veracity_distortion": 500
+   },
+   "image_broke": 77,
+   "image_fixed": 49,
+   "image_source": "Fakeddit",
+   "label_pure": false,
+   "macro_f1_paired_within_pair": 0.11215511142553945,
+   "macro_f1_text_within_pair": 0.14221436790303432,
+   "n": 1000,
+   "predicted_share_paired": {
+    "mismatch": 0.274,
+    "original": 0.204,
+    "textual_veracity_distortion": 0.508,
+    "visual_veracity_distortion": 0.014
+   },
+   "predicted_share_text": {
+    "mismatch": 0.073,
+    "original": 0.317,
+    "textual_veracity_distortion": 0.576,
+    "visual_veracity_distortion": 0.034
+   },
+   "text_source": "Fakeddit"
+  },
+  {
+   "accuracy_paired": 0.166,
+   "accuracy_text": 0.062,
+   "clusters": 1000,
+   "difference": 0.104,
+   "difference_95": [
+    0.077,
+    0.132
+   ],
+   "gold": {
+    "mismatch": 1000
+   },
+   "image_broke": 51,
+   "image_fixed": 155,
+   "image_source": "COCO-Counterfactuals",
+   "label_pure": true,
+   "n": 1000,
+   "predicted_share_paired": {
+    "mismatch": 0.166,
+    "original": 0.505,
+    "textual_veracity_distortion": 0.314,
+    "visual_veracity_distortion": 0.015
+   },
+   "predicted_share_text": {
+    "mismatch": 0.062,
+    "original": 0.362,
+    "textual_veracity_distortion": 0.555,
+    "visual_veracity_distortion": 0.021
+   },
+   "text_source": "COCO-Counterfactuals"
+  },
+  {
+   "accuracy_paired": 0.24324324324324326,
+   "accuracy_text": 0.23923923923923923,
+   "clusters": 999,
+   "difference": 0.004004004004004004,
+   "difference_95": [
+    -0.031031031031031032,
+    0.037037037037037035
+   ],
+   "gold": {
+    "textual_veracity_distortion": 999
+   },
+   "image_broke": 150,
+   "image_fixed": 154,
+   "image_source": "AI-generated Image",
+   "label_pure": true,
+   "n": 999,
+   "predicted_share_paired": {
+    "mismatch": 0.26226226226226224,
+    "original": 0.4914914914914915,
+    "textual_veracity_distortion": 0.24324324324324326,
+    "visual_veracity_distortion": 0.003003003003003003
+   },
+   "predicted_share_text": {
+    "mismatch": 0.12112112112112113,
+    "original": 0.6006006006006006,
+    "textual_veracity_distortion": 0.23923923923923923,
+    "visual_veracity_distortion": 0.03903903903903904
+   },
+   "text_source": "Fever"
+  },
+  {
+   "accuracy_paired": 0.8133333333333334,
+   "accuracy_text": 0.8333333333333334,
+   "clusters": 613,
+   "difference": -0.02,
+   "difference_95": [
+    -0.05533596837944664,
+    0.013175230566534914
+   ],
+   "gold": {
+    "textual_veracity_distortion": 750
+   },
+   "image_broke": 88,
+   "image_fixed": 73,
+   "image_source": "Repurposed Image",
+   "label_pure": true,
+   "n": 750,
+   "predicted_share_paired": {
+    "mismatch": 0.12533333333333332,
+    "original": 0.058666666666666666,
+    "textual_veracity_distortion": 0.8133333333333334,
+    "visual_veracity_distortion": 0.0026666666666666666
+   },
+   "predicted_share_text": {
+    "mismatch": 0.06933333333333333,
+    "original": 0.050666666666666665,
+    "textual_veracity_distortion": 0.8333333333333334,
+    "visual_veracity_distortion": 0.04666666666666667
+   },
+   "text_source": "Fakenewsnet"
+  },
+  {
+   "accuracy_paired": 0.604,
+   "accuracy_text": 0.42,
+   "clusters": 480,
+   "difference": 0.184,
+   "difference_95": [
+    0.12922465208747516,
+    0.24096385542168675
+   ],
+   "gold": {
+    "original": 500
+   },
+   "image_broke": 66,
+   "image_fixed": 158,
+   "image_source": "MS-COCO",
+   "label_pure": true,
+   "n": 500,
+   "predicted_share_paired": {
+    "mismatch": 0.22,
+    "original": 0.604,
+    "textual_veracity_distortion": 0.128,
+    "visual_veracity_distortion": 0.048
+   },
+   "predicted_share_text": {
+    "mismatch": 0.078,
+    "original": 0.42,
+    "textual_veracity_distortion": 0.494,
+    "visual_veracity_distortion": 0.008
+   },
+   "text_source": "MS-COCO"
+  },
+  {
+   "accuracy_paired": 0.74,
+   "accuracy_text": 0.72,
+   "clusters": 426,
+   "difference": 0.02,
+   "difference_95": [
+    -0.030927835051546393,
+    0.0694980694980695
+   ],
+   "gold": {
+    "textual_veracity_distortion": 500
+   },
+   "image_broke": 75,
+   "image_fixed": 85,
+   "image_source": "Repurposed Image",
+   "label_pure": true,
+   "n": 500,
+   "predicted_share_paired": {
+    "mismatch": 0.156,
+    "original": 0.094,
+    "textual_veracity_distortion": 0.74,
+    "visual_veracity_distortion": 0.01
+   },
+   "predicted_share_text": {
+    "mismatch": 0.194,
+    "original": 0.034,
+    "textual_veracity_distortion": 0.72,
+    "visual_veracity_distortion": 0.052
+   },
+   "text_source": "GPT-generated Rumor"
+  },
+  {
+   "accuracy_paired": 0.334,
+   "accuracy_text": 0.512,
+   "clusters": 500,
+   "difference": -0.178,
+   "difference_95": [
+    -0.23,
+    -0.128
+   ],
+   "gold": {
+    "textual_veracity_distortion": 500
+   },
+   "image_broke": 140,
+   "image_fixed": 51,
+   "image_source": "AI-generated Image",
+   "label_pure": true,
+   "n": 500,
+   "predicted_share_paired": {
+    "mismatch": 0.456,
+    "original": 0.21,
+    "textual_veracity_distortion": 0.334,
+    "visual_veracity_distortion": 0.0
+   },
+   "predicted_share_text": {
+    "mismatch": 0.412,
+    "original": 0.066,
+    "textual_veracity_distortion": 0.512,
+    "visual_veracity_distortion": 0.01
+   },
+   "text_source": "GPT-generated Rumor"
+  },
+  {
+   "accuracy_paired": 0.102,
+   "accuracy_text": 0.078,
+   "clusters": 500,
+   "difference": 0.024,
+   "difference_95": [
+    -0.008,
+    0.056
+   ],
+   "gold": {
+    "mismatch": 500
+   },
+   "image_broke": 30,
+   "image_fixed": 42,
+   "image_source": "DGM4",
+   "label_pure": true,
+   "n": 500,
+   "predicted_share_paired": {
+    "mismatch": 0.102,
+    "original": 0.072,
+    "textual_veracity_distortion": 0.824,
+    "visual_veracity_distortion": 0.002
+   },
+   "predicted_share_text": {
+    "mismatch": 0.078,
+    "original": 0.122,
+    "textual_veracity_distortion": 0.75,
+    "visual_veracity_distortion": 0.05
+   },
+   "text_source": "DGM4"
+  },
+  {
+   "accuracy_paired": 0.04857142857142857,
+   "accuracy_text": 0.02857142857142857,
+   "clusters": 350,
+   "difference": 0.02,
+   "difference_95": [
+    -0.008571428571428572,
+    0.04857142857142857
+   ],
+   "gold": {
+    "visual_veracity_distortion": 350
+   },
+   "image_broke": 10,
+   "image_fixed": 17,
+   "image_source": "AI-generated Image",
+   "label_pure": true,
+   "n": 350,
+   "predicted_share_paired": {
+    "mismatch": 0.2342857142857143,
+    "original": 0.6085714285714285,
+    "textual_veracity_distortion": 0.10857142857142857,
+    "visual_veracity_distortion": 0.04857142857142857
+   },
+   "predicted_share_text": {
+    "mismatch": 0.08,
+    "original": 0.38857142857142857,
+    "textual_veracity_distortion": 0.5028571428571429,
+    "visual_veracity_distortion": 0.02857142857142857
+   },
+   "text_source": "MS-COCO"
+  },
+  {
+   "accuracy_paired": 0.724,
+   "accuracy_text": 0.904,
+   "clusters": 250,
+   "difference": -0.18,
+   "difference_95": [
+    -0.236,
+    -0.12
+   ],
+   "gold": {
+    "textual_veracity_distortion": 250
+   },
+   "image_broke": 54,
+   "image_fixed": 9,
+   "image_source": "AI-generated Image",
+   "label_pure": true,
+   "n": 250,
+   "predicted_share_paired": {
+    "mismatch": 0.252,
+    "original": 0.024,
+    "textual_veracity_distortion": 0.724,
+    "visual_veracity_distortion": 0.0
+   },
+   "predicted_share_text": {
+    "mismatch": 0.032,
+    "original": 0.036,
+    "textual_veracity_distortion": 0.904,
+    "visual_veracity_distortion": 0.028
+   },
+   "text_source": "Gossipcop"
+  },
+  {
+   "accuracy_paired": 0.0,
+   "accuracy_text": 0.05,
+   "clusters": 100,
+   "difference": -0.05,
+   "difference_95": [
+    -0.1,
+    -0.01
+   ],
+   "gold": {
+    "visual_veracity_distortion": 100
+   },
+   "image_broke": 5,
+   "image_fixed": 0,
+   "image_source": "",
+   "label_pure": true,
+   "n": 100,
+   "predicted_share_paired": {
+    "mismatch": 0.2,
+    "original": 0.05,
+    "textual_veracity_distortion": 0.75,
+    "visual_veracity_distortion": 0.0
+   },
+   "predicted_share_text": {
+    "mismatch": 0.18,
+    "original": 0.12,
+    "textual_veracity_distortion": 0.65,
+    "visual_veracity_distortion": 0.05
+   },
+   "text_source": ""
+  },
+  {
+   "accuracy_paired": 0.02,
+   "accuracy_text": 0.2,
+   "clusters": 50,
+   "difference": -0.18,
+   "difference_95": [
+    -0.3,
+    -0.06
+   ],
+   "gold": {
+    "visual_veracity_distortion": 50
+   },
+   "image_broke": 10,
+   "image_fixed": 1,
+   "image_source": "AI-generated Image",
+   "label_pure": true,
+   "n": 50,
+   "predicted_share_paired": {
+    "mismatch": 0.3,
+    "original": 0.42,
+    "textual_veracity_distortion": 0.26,
+    "visual_veracity_distortion": 0.02
+   },
+   "predicted_share_text": {
+    "mismatch": 0.14,
+    "original": 0.26,
+    "textual_veracity_distortion": 0.4,
+    "visual_veracity_distortion": 0.2
+   },
+   "text_source": "VisualNews"
+  }
+ ],
+ "pooled": {
+  "clusters": 9716,
+  "difference": -0.015101510151015102,
+  "difference_95": [
+   -0.024414648789273564,
+   -0.005409195632575378
+  ],
+  "matches_saved_report": true,
+  "n": 9999,
+  "predicted_share_paired": {
+   "mismatch": 0.18951895189518952,
+   "original": 0.24602460246024602,
+   "textual_veracity_distortion": 0.5549554955495549,
+   "visual_veracity_distortion": 0.009500950095009501
+  },
+  "predicted_share_text": {
+   "mismatch": 0.1338133813381338,
+   "original": 0.25092509250925094,
+   "textual_veracity_distortion": 0.5764576457645765,
+   "visual_veracity_distortion": 0.0388038803880388
+  }
+ }
+}

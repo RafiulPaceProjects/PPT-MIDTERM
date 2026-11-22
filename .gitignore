@@ -1,4 +1,29 @@
-data/raw/
+# Datasets and large binaries
+data/
 *.zip
+*.tar
 *.tar.gz
+*.tgz
+*.jsonl
+*.parquet
+*.npy
+*.npz
+
+# Secrets — never commit credentials or tokens
+.env
+.env.*
+*token*
+*.pem
+*.key
+*credential*
+*secret*
+
+# OS / editor junk
 .DS_Store
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

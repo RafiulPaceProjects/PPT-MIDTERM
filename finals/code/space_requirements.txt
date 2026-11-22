@@ -1,0 +1,9 @@
+gradio
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers
+peft
+pillow
+huggingface_hub
+# laya MUST be the dev install (the VLM package): PyPI 'laya' has no VLM code.
+# Pinned to the rehearsal-verified commit of r33drichards/laya-vision.
+laya @ git+https://github.com/r33drichards/laya-vision@9e1e2419d855ad3e1a2af4d4bd1ef6be5418842c

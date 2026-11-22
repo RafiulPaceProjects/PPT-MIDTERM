@@ -18,6 +18,17 @@ sides before matching:
 Matching is then done on the normalized trailing path (publisher/filename,
 e.g. "bbc/<...>/<file>.jpg"). A referenced entry that itself has no
 publisher segment still matches by its full normalized path.
+
+Field evidence (2026-11-22, real-archive field test — see
+VISUALNEWS_FIELD_TEST_2026-11-22.md): 9,339 images censused across three
+windows of the real origin.tar. The archive's payloads are healthy
+(exactly 1 decode failure) but its NAMES lie at source-dependent rates:
+4.9% of .jpg-named members in the BBC window at 30 GB are actually
+GIF/PNG/BMP, vs 0.05% in the guardian window at 65 GB. This module
+therefore never consults the extension: every decision is made on the
+decoded bytes. Non-JPEG formats, palette/RGBA modes, progressive JPEGs
+and animated images are DATASET PROPERTIES (census material), never
+skip reasons; only integrity failures skip.
 """
 
 from __future__ import annotations
@@ -33,6 +44,15 @@ from PIL import Image
 # Placeholder-integrity rule: a real news photo is never a 1x1-style stub.
 # Anything with either side below this is treated as degenerate.
 MIN_DIMENSION = 8
+
+# Memory-safety ceiling on DECLARED pixels, checked from the header
+# before any decode allocation. Field evidence: the largest image in
+# 9,339 censused was 3.6 M pixels, so this ceiling sits ~55x above
+# anything the real archive contains and can only fire on a payload
+# unlike the real data (corrupt/hostile header). PIL's own
+# DecompressionBomb threshold (~89.5 M px) only warns; a stream pass
+# should refuse, not warn, before allocating.
+HARD_PIXEL_LIMIT = 200_000_000
 
 KNOWN_SOURCES = ("bbc", "guardian", "usa_today", "washington_post")
 
@@ -75,12 +95,29 @@ def verify_image_bytes(data: bytes):
         return False, "empty_member", None
     try:
         img = Image.open(io.BytesIO(data))
+        # Oversize guard (field evidence at HARD_PIXEL_LIMIT): refuse on
+        # declared dimensions BEFORE load() allocates the decode buffer.
+        if img.width * img.height > HARD_PIXEL_LIMIT:
+            return False, "oversize_dimensions", None
+        # Full decode. Format is whatever the BYTES say (JPEG/PNG/GIF/BMP
+        # all occur behind .jpg names in the real archive); the member
+        # name's extension is never consulted. For animated images this
+        # decodes frame 0 — frame 0 is what the pipeline judges
+        # (methods note, field test D8).
         img.load()
     except Exception as exc:  # noqa: BLE001 - any decode failure is a skip
         return False, _reason_for_exception(exc), None
     if img.width < MIN_DIMENSION or img.height < MIN_DIMENSION:
         return False, "degenerate_dimensions", None
     try:
+        # Palette images carrying byte-transparency (present in the real
+        # guardian tree; PIL warns "Palette images with Transparency
+        # expressed in bytes should be converted to RGBA images" on a
+        # direct P->RGB convert, observed on the field test's stderr):
+        # route through RGBA first, per PIL's own guidance, so the
+        # transparency is handled instead of silently mishandled.
+        if img.mode == "P" and "transparency" in img.info:
+            img = img.convert("RGBA")
         rgb = img.convert("RGB")
     except Exception as exc:  # noqa: BLE001
         return False, _reason_for_exception(exc), None
@@ -144,7 +181,10 @@ def _open_stream(source):
         return source, (lambda: None)
     if isinstance(source, (str,)) and source.startswith(("http://", "https://")):
         req = urllib.request.Request(source, headers={"User-Agent": "laya-stream/1.0"})
-        resp = urllib.request.urlopen(req)  # raises HTTPError/URLError
+        # timeout = inactivity timeout on the socket (per read), NOT a
+        # total-transfer deadline — a stalled stream raises so the caller
+        # can restart the pass instead of hanging forever.
+        resp = urllib.request.urlopen(req, timeout=120)  # raises HTTPError/URLError
         if getattr(resp, "status", 200) >= 400:
             resp.close()
             raise OSError(f"HTTP {resp.status} for {source}")

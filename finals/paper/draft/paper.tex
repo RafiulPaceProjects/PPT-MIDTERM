@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
+\usepackage{graphicx}
 
 %%%%%%%%% TITLE - PLEASE UPDATE TITLE HERE
 \title{Testing Input Evidence and System One Decisions in Misinformation Classification\\[2pt] \large Pre-registered Fine-Tuning of a Typed-Decision Vision-Language Model across Three Benchmarks}
@@ -35,7 +36,14 @@ Multimodal misinformation is false in structurally different ways, yet benchmark
 %%%%%%%%% INTRODUCTION %%%%%%%%%%
 Multimodal misinformation rarely lies in one modality alone. A social-media post pairs an image with a caption, and the pair can be false in structurally different ways: the text can distort facts, the image can be manipulated or miscaptioned, and two individually authentic items can be placed together out of context. A useful detector therefore needs to say not only \emph{whether} a pair is false but \emph{how} it is false. This typed-decision view connects to earlier evidence-based claim verification \citep{Thorne2018FeverLargescale, Augenstein2019MultifcRealworld, Guo2021SurveyAutomated}, to surveys that separate factuality from harm \citep{Alam2021SurveyMultimodal}, and to work on detecting and grounding manipulated media \citep{Shao2023DetectingGrounding}. Benchmarks such as MMFakeBench \citep{Liu2024MmfakebenchMixedsource}, NewsCLIPpings \citep{Luo2021NewsclippingsAutomatic}, and VERITE \citep{Papadopoulos2023VeriteRobust} operationalize this typology with different label spaces and native metrics.
 
-This paper extends a companion study by the same team, \emph{Testing Input Evidence and System One Decisions in Misinformation Classification}, which measured how classification responds to changes in input evidence (a publisher cue removed from text, images degraded, the image modality withheld) while every model stayed frozen. That study characterised sensitivity; this one intervenes. It asks what changes when the evidence a model has internalised is itself altered, through pre-registered fine-tuning of a typed-decision vision-language model, and it reports the outcomes, positive and negative, under frozen selection rules on the same family of benchmarks. Where the companion study varied the input at evaluation time, this paper varies it at training time; the two are complementary halves of one question.
+This paper extends a companion study by the same team, \emph{Testing Input Evidence and System One Decisions in Misinformation Classification}, which measured how classification responds to changes in input evidence (a publisher cue removed from text, images degraded, the image modality withheld) while every model stayed frozen. That study characterised sensitivity; this one intervenes. It asks what changes when the evidence a model has internalised is itself altered, through pre-registered fine-tuning of a typed-decision vision-language model, and it reports the outcomes, positive and negative, under frozen selection rules on the same family of benchmarks. Where the companion study varied the input at evaluation time, this paper varies it at training time; the two are complementary halves of one question. Figure~\ref{fig:sard} redraws the companion study's three evidence tests together with the accuracies it reported.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_sard.pdf}
+\caption{The companion study's three evidence tests and their accuracies. Top: the three tests as drawn in the companion study's opening figure (Seidenberg Annual Research Day (SARD), Pace University, 11 December 2026), redrawn. Bottom: accuracy in the reference condition and in the changed-evidence condition. On WELFake, a TF-IDF support vector machine scores 96.5\% on cleaned text and 96.2\% after the ``Reuters'' cue is removed; on CIFAKE, a fine-tuned ResNet18 scores 96.3\% on clean images and 85.6\% after Gaussian blur at evaluation; on MMFakeBench, frozen LAYA-Vision scores 27.93\% with text alone and 26.42\% with image and text. These are the companion study's results, measured with frozen models; this paper's own results are in Section~\ref{sec:experiments}.}
+\label{fig:sard}
+\end{figure}
 
 Most current progress is dominated by large vision-language models (LVLMs) and agent frameworks. Contrastively pretrained encoders such as CLIP \citep{Radford2021LearningTransferable}, instruction-tuned assistants such as LLaVA and InstructBLIP \citep{Liu2023VisualInstruction, Dai2023InstructblipTowards}, and compact LVLMs \citep{Zhu2024LlavaphiEfficient} provide strong zero-shot image--text representations. Agent wrappers compose these models with tools and retrieval: HuggingGPT and ViperGPT turn multimodal inference into programmed tool use \citep{Shen2023HugginggptSolving, Surs2023VipergptVisual}; SNIFFER adds external evidence for explainable out-of-context detection \citep{Qi2024SnifferMultimodal}; MMD-Agent integrates reasoning and tools on MMFakeBench \citep{Liu2024MmfakebenchMixedsource}. Subsequent systems add evidence retrieval, type-aware reasoning, or test-time search; while promising, they frequently use validation, retrieval, or private re-split protocols that make their published figures difficult to compare directly. These systems often require frontier APIs, external retrieval, test-time search, or private re-splits, and operational cost is rarely disclosed.
 
@@ -81,7 +89,14 @@ Per-dataset packs fix the questions, label spaces, native metrics, and calibrati
 Gold labels, item IDs, file paths, and source metadata are never model inputs. To measure the risk of shortcut learning, we define a metadata-only rule that reads only the two provenance fields \( \texttt{text\_source} \) and \( \texttt{image\_source} \), maps each observed source combination to the most frequent label, and predicts every item with that provenance as that label. This rule uses no image or text content. It reaches 0.9150 macro-F1 on the MMFakeBench tune split, and 0.9150 accuracy / 0.8510 macro-F1 on the official test split. We report this leakage ceiling as a benchmark warning rather than as a model result. This audit is deliberately narrow: it examines only explicit source metadata. It does not test for content-based source-identifying cues such as watermarks, text style, or image artifacts. The ceiling therefore demonstrates that a metadata-only shortcut exists; it does not quantify every possible shortcut signal in the benchmark.
 
 \subsection{Model Architecture and Trainable Arms}
-LAYA-Vision is a 201M-parameter typed-decision vision-language model with a language encoder and a two-layer decision head. The checkpoint used is \( \texttt{thaitea/laya-vision} \) at pinned revision \( \texttt{f2fe3c12cb6d04c59d8a190250bf3fb40fc828dc} \). The model does not generate free text; it returns probabilities over a fixed option set in a single forward pass. The checkpoint is used exactly as released, and fine-tuning does not modify the architecture.
+LAYA-Vision is a 201M-parameter typed-decision vision-language model with a language encoder and a two-layer decision head. The checkpoint used is \( \texttt{thaitea/laya-vision} \) at pinned revision \( \texttt{f2fe3c12cb6d04c59d8a190250bf3fb40fc828dc} \). The model does not generate free text; it returns probabilities over a fixed option set in a single forward pass. The checkpoint is used exactly as released, and fine-tuning does not modify the architecture. Figure~\ref{fig:arch} shows the computation.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_arch.pdf}
+\caption{LAYA-Vision as used in this study. An image--text pair enters one forward pass: the vision tower is frozen in both training arms; the language encoder and the two-layer decision head are trained, directly in the full arm and through low-rank adapters in the LoRA arm; and the head answers two typed questions, a native choice question over the dataset pack's classes and a binary fake screen. The choice verdict headlines; disagreement between the two answers is labelled uncertain.}
+\label{fig:arch}
+\end{figure}
 
 We compare two trainable arms. The full arm trains the language encoder and decision head, with 114,728,323 of 201,161,347 parameters trainable. The vision tower is frozen in both arms due to a library limitation; following the binding labelling rule, this arm is always described as encoder-plus-head fine-tuning, never full-model fine-tuning. The LoRA arm follows \citet{Hu2021LoraLowrank} with rank \(r=16\), scaling factor \( \alpha=32\), dropout \(0.05\), and targets the query, value, key, output, gate, up, and down projections. Its learning rate is \( \texttt{lr\_lora}=0.001\), and it is always reported as such. Rank-scaling issues are relevant because higher ranks are explored in the supplementary tier \citep{Kalajdzievski2023RankStabilization}.
 
@@ -138,7 +153,14 @@ Paired resampling confidence intervals use 2,000 resamples, and differences betw
 \subsection{Experimental Setup and Cost Ledger}
 Training uses seed 20261122, maximum sequence length 1024, batch size 8, and bf16 precision. The full arm uses \( \texttt{lr\_encoder}=1\times10^{-5} \) and \( \texttt{lr\_head}=1\times10^{-3} \). The LoRA arm uses \( \texttt{lr\_lora}=0.001 \). For MMFakeBench, the development partition is carved from the official 1,000-item validation split as stated in Section~\ref{sec:method}; the full validation split is scored as an internal check, and the official 10,000-item test split is scored only once at the end. The NewsCLIPpings trained arm is carved from its official train split only: 2,501 items over 2,120 unique images, divided into 2,001 train items, 250 tune items, and 250 calibration items. This carve is a registration-driven subset, not a sample from arbitrary data, and its size follows from the run machine's storage budget under the saved training-subset exception: evaluation must stream the 91 GB VisualNews archive, whereas the carve saves exactly the official train-split items needed for the arm. Selection on NewsCLIPpings uses the native question form only because the two question forms have flipped label indices; evaluation uses streamed official validation rows.
 
-Table~\ref{tab:cost} reports the complete metered GPU cost ledger. It excludes human engineering time, data acquisition, and environmental externalities, which are not metered by the run machine. The total metered GPU spend for the entire programme is approximately \$5.64, including rehearsal, 29 trainings, both streamed evaluation passes, and failures. Inference is measured at 0.16 seconds per item on the run machine, corresponding to about \$0.04 per 1,000 predictions. Notebook-only execution on the run machine's Jupyter kernel is recorded as a deviation.
+Table~\ref{tab:cost} reports the complete metered GPU cost ledger. It excludes human engineering time, data acquisition, and environmental externalities, which are not metered by the run machine. The total metered GPU spend for the entire programme is approximately \$5.64, including rehearsal, 29 trainings, both streamed evaluation passes, and failures. Inference is measured at 0.16 seconds per item on the run machine, corresponding to about \$0.04 per 1,000 predictions. Notebook-only execution on the run machine's Jupyter kernel is recorded as a deviation. Figure~\ref{fig:pipeline} summarises the frozen pipeline end to end.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_pipeline.pdf}
+\caption{The frozen experiment pipeline. Dataset packs fix the questions, label spaces, and native metrics before any scoring; selection uses the tune split only; calibration is fitted on the reserved split after selection; and the official test split is scored exactly once, by the frozen winner.}
+\label{fig:pipeline}
+\end{figure}
 
 \begin{table}[t]
 \centering
@@ -162,7 +184,7 @@ Artifact size & \(\approx 805\) MB \\
 \end{table}
 
 \subsection{MMFakeBench Grid Selection and Headline Test Result}
-Table~\ref{tab:grid} ranks all 12 pre-registered grid configurations by tune macro-F1. The frozen winner is \( \texttt{full\_soft\_ce\_735} \), with tune macro-F1 0.7389 and tune accuracy 0.7429. Within this library's two objectives and under this recipe, soft-ce beats rlcd in all six matched pairs. Two failure modes are recorded: the full-rlcd training loss falls to approximately 0.00, and \( \texttt{lora\_rlcd\_735} \) collapses onto the original class with tune macro-F1 0.1946.
+Table~\ref{tab:grid} ranks all 12 pre-registered grid configurations by tune macro-F1. The frozen winner is \( \texttt{full\_soft\_ce\_735} \), with tune macro-F1 0.7389 and tune accuracy 0.7429. Within this library's two objectives and under this recipe, soft-ce beats rlcd in all six matched pairs. Two failure modes are recorded: the full-rlcd training loss falls to approximately 0.00, and \( \texttt{lora\_rlcd\_735} \) collapses onto the original class with tune macro-F1 0.1946. Figure~\ref{fig:grid} presents the same selection as a heatmap.
 
 \begin{table}[t]
 \centering
@@ -189,9 +211,16 @@ lora\_rlcd\_735 & 0.1946 & 0.3333 \\
 \end{tabular}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_grid.pdf}
+\caption{The MMFakeBench grid of Table~\ref{tab:grid} as a heatmap (tune macro-F1, \(n = 105\) tune items). The frozen winner, full encoder-plus-head with soft-ce at 735 steps (0.7389), is outlined.}
+\label{fig:grid}
+\end{figure}
+
 The winner's per-class tune recalls are 0.656 for original, 0.969 for textual veracity distortion, 0.700 for visual veracity distortion, and 0.613 for mismatch. On the full validation split, the winner reaches accuracy 0.769 and macro-F1 0.7571, while the pretrained baseline under the same frozen wording reaches accuracy 0.293 and macro-F1 0.2079. Table~\ref{tab:mmfake} summarizes the headline test result. The official MMFakeBench test split is scored exactly once, on 9,999 paired rows with the single undecodable item excluded symmetrically from both arms. The winner reaches macro-F1 0.6020 versus baseline 0.2037. Paired resampling gives \(\Delta=+0.3983\), 95\% CI \([+0.3853, +0.4108]\). Every per-class recall improves.
 
-The validation-to-test gap for the winner is large: 0.7571 validation macro-F1 versus 0.6020 test macro-F1. This is not a general test-time protocol failure, because the pretrained baseline is nearly flat across the same two splits (0.2079 validation versus 0.2037 test). Instead, the gap is consistent with selection on a small 105-item tune split and specialization to validation-style examples, while the official test contains 10,000 image--text pairs and a broader source/label composition. The per-class test recalls show that the largest remaining errors are on visual veracity distortion (0.512) and mismatch (0.422). By design, we do not use the test split to adapt the model or to select a different configuration after this single scoring.
+The validation-to-test gap for the winner is large: 0.7571 validation macro-F1 versus 0.6020 test macro-F1. This is not a general test-time protocol failure, because the pretrained baseline is nearly flat across the same two splits (0.2079 validation versus 0.2037 test). Instead, the gap is consistent with selection on a small 105-item tune split and specialization to validation-style examples, while the official test contains 10,000 image--text pairs and a broader source/label composition. The per-class test recalls show that the largest remaining errors are on visual veracity distortion (0.512) and mismatch (0.422). By design, we do not use the test split to adapt the model or to select a different configuration after this single scoring. Figure~\ref{fig:headline} collects the before-and-after headline result for each of the three datasets on a common scale.
 
 \begin{table}[t]
 \centering
@@ -214,6 +243,13 @@ Test recall: mismatch & 0.135 & 0.422 \\
 \end{tabular}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_headline.pdf}
+\caption{Before-and-after headline results, one panel per dataset, each on its native metric. Left: MMFakeBench test macro-F1, baseline 0.2037 to winner 0.6020. Centre: NewsCLIPpings validation accuracy, baseline 0.5141 to trained 0.5104, a null result. Right: VERITE accuracy under transfer only, baseline 0.3467 to 0.3506, near-flat. The three metrics are never averaged across datasets.}
+\label{fig:headline}
+\end{figure}
+
 \subsection{NewsCLIPpings Trained Arm and Streamed Evaluation}
 Table~\ref{tab:ncp} reports the NewsCLIPpings arm. The training carve uses only official train-split rows, so no validation or test rows enter training. The pretrained baseline scores 7,024 out of 7,024 streamed validation rows with accuracy 0.5141 and predicts falsified for 93\% of rows. The trained winner scores the same rows with accuracy 0.5104: a null result against this run's own baseline. Its pristine recall is 0.164, falsified recall is 0.857, binary-screen AUC is 0.529, and mean confidence is approximately 0.500. The trained model still predicts falsified for 84.6\% of pairs.
 
@@ -230,8 +266,8 @@ Metric & Baseline & Trained winner \\
 \midrule
 Accuracy & 0.5141 & 0.5104 \\
 Pristine recall & 0.084 & 0.164 \\
-Falsified recall & n/a & 0.857 \\
-Binary-screen AUC & n/a & 0.529 \\
+Falsified recall & 0.944 & 0.857 \\
+Binary-screen AUC & 0.549 & 0.529 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -254,9 +290,9 @@ Metric & Baseline & MMFakeBench winner transferred \\
 \midrule
 Accuracy & 0.3467 & 0.3506 \\
 Macro-F1 & 0.2819 & 0.2798 \\
-Truthful recall & n/a & 0.808 \\
-Miscaptioned recall & n/a & 0.148 \\
-Out-of-context recall & n/a & 0.086 \\
+Truthful recall & 0.429 & 0.808 \\
+Miscaptioned recall & 0.009 & 0.148 \\
+Out-of-context recall & 0.612 & 0.086 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -283,7 +319,14 @@ Split-half validation, using half-fitted \(T\approx1.65\) & 0.0994 & 0.021 \\
 The disposition is as executed: H5 stands as registered with this qualification, the published MMFakeBench pack ships \(T=1.0\), and \(T\approx1.6\) is documented only as a deployment-calibration alternative. This is a concrete instance that a temperature is a property of model-times-distribution, not a model constant \citep{Guo2017CalibrationModern, Ovadia2019CanYou, Minderer2021RevisitingCalibration}.
 
 \subsection{Supplementary Ablations, Protocol Audit, and Competitive Position}
-The supplementary ablation tier runs after selection and never feeds selection, calibration, or test-once scoring. A second seed of the winner recipe reaches 0.7320, so the winner is not a lucky-seed artifact at the tune level. Encoder learning-rate variants score 0.7178, 0.6871, 0.6438, and 0.6217. LoRA rank r8 reaches 0.7037 at 490 steps, while r32 collapses or diverges: 0.1168 at 490 steps and 0.2244 at 735 steps with training loss rising from 0.762 to 1.070. At this data scale, higher LoRA rank is a stability hazard under the standard recipe. Head-only fine-tuning scores at most 0.4899 and is never described as a linear probe. The data-size curve collapses at 122 training items \((0.1168)\), improves to 0.3670 at 245 items, and reaches 0.6598 at 490 items, indicating a minimum-data cliff.
+The supplementary ablation tier runs after selection and never feeds selection, calibration, or test-once scoring. A second seed of the winner recipe reaches 0.7320, so the winner is not a lucky-seed artifact at the tune level. Encoder learning-rate variants score 0.7178, 0.6871, 0.6438, and 0.6217. LoRA rank r8 reaches 0.7037 at 490 steps, while r32 collapses or diverges: 0.1168 at 490 steps and 0.2244 at 735 steps with training loss rising from 0.762 to 1.070. At this data scale, higher LoRA rank is a stability hazard under the standard recipe. Head-only fine-tuning scores at most 0.4899 and is never described as a linear probe. The data-size curve collapses at 122 training items \((0.1168)\), improves to 0.3670 at 245 items, and reaches 0.6598 at 490 items, indicating a minimum-data cliff. Figure~\ref{fig:ablations} plots the data-size curve and the LoRA rank ladder.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_ablations.pdf}
+\caption{Supplementary-tier behaviour on the MMFakeBench tune split. (a) The data-size curve at 490 steps: performance collapses at 122 training items (0.1168), recovers at 245 items (0.3670), and reaches 0.6598 at 490 items. (b) The LoRA rank ladder under soft-ce: rank 8 and rank 16 remain trainable at both step budgets, while rank 32 collapses. The rank-16 column is the main grid's LoRA arm.}
+\label{fig:ablations}
+\end{figure}
 
 We did not retrain standard vision-language baselines such as CLIP, VisualBERT, or LXMERT under the frozen 490-example protocol. This is a pre-registered single-model audit: adding multiple model families would produce a benchmark sweep rather than the receipted protocol study we froze. A benchmark sweep would also need to choose one of several incompatible protocols; since protocol fragmentation is one of the paper's findings, mixing new retrained baselines into only one of those protocols would not resolve the fragmentation and could be misleading. For external systems we therefore use published Protocol A results and label every protocol rather than creating new mixed comparisons.
 
@@ -378,6 +421,17 @@ Data size 490, 490 steps & 0.6598 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\section{Execution Evidence}
+\label{app:evidence}
+The study was executed as a single notebook run, and the notebook is the run record: anyone can check each stage's input, process, and output in the executed cells without further explanation. Figure~\ref{fig:collage} reproduces verbatim excerpts of that record, covering the frozen configuration, the environment and GPU check, the grid results, winner selection, the test-once guard, and the final hypothesis verdicts.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.89\textheight,keepaspectratio]{figures/collage_colab.png}
+\caption{Execution evidence from the run notebook, reproduced verbatim. Panels show, in order: the frozen configuration; the pinned environment and GPU check; the training grid's tune macro-F1 table; winner selection on the tune split; the test-once marker, which refuses any re-scoring; and the H1--H5 verdicts computed against the frozen rule. Repeated library deprecation warnings are omitted from the excerpts; no values are altered.}
+\label{fig:collage}
+\end{figure}
 
 %%%%%%%%% Appendix %%%%%%%%%%
 

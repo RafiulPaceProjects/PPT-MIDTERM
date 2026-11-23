@@ -1036,6 +1036,54 @@
   {
    "value": "20261122",
    "source": "Main run 2026-11-22: registered seed 20261122 (final_results_bundle.json, config record)"
+  },
+  {
+   "value": "96.5",
+   "source": "Companion study (SARD 2026 accepted abstract, Seidenberg Annual Research Day, Pace University, 11 December 2026): WELFake TF-IDF SVM accuracy (%) on cleaned text"
+  },
+  {
+   "value": "96.2",
+   "source": "Companion study (SARD 2026 accepted abstract): WELFake TF-IDF SVM accuracy (%) after removing the Reuters cue, same split and seed"
+  },
+  {
+   "value": "96.3",
+   "source": "Companion study (SARD 2026 accepted abstract): CIFAKE fine-tuned ResNet18 accuracy (%) on clean test images"
+  },
+  {
+   "value": "85.6",
+   "source": "Companion study (SARD 2026 accepted abstract): CIFAKE ResNet18 accuracy (%) after Gaussian blur (sigma = 0.5) at evaluation"
+  },
+  {
+   "value": "27.93",
+   "source": "Companion study (SARD 2026 accepted abstract): MMFakeBench frozen LAYA-Vision accuracy (%), text alone, 10,000 cases"
+  },
+  {
+   "value": "26.42",
+   "source": "Companion study (SARD 2026 accepted abstract): MMFakeBench frozen LAYA-Vision accuracy (%), image + text, 9,999 usable cases"
+  },
+  {
+   "value": "18",
+   "source": "Companion study (SARD 2026 accepted abstract): the digit string is part of the model name ResNet18, not a measured quantity"
+  },
+  {
+   "value": "0.944",
+   "source": "BASELINE_DETAILS_2026-11-23.md: NewsCLIPpings baseline falsified recall 0.944476 (3,317/3,512), recomputed from the PASS 1 baseline prediction file; proof check reproduces published baseline accuracy 0.5141 exactly"
+  },
+  {
+   "value": "0.549",
+   "source": "BASELINE_DETAILS_2026-11-23.md: NewsCLIPpings baseline binary-screen AUC 0.548801 from per-row noul fake_probability in the PASS 1 baseline prediction file"
+  },
+  {
+   "value": "0.429",
+   "source": "BASELINE_DETAILS_2026-11-23.md: VERITE baseline truthful recall 0.428994 (145/338), recomputed from the baseline paired prediction file; proof check reproduces published baseline accuracy 0.3467 and macro-F1 0.2819 exactly"
+  },
+  {
+   "value": "0.009",
+   "source": "BASELINE_DETAILS_2026-11-23.md: VERITE baseline miscaptioned recall 0.008876 (3/338), recomputed from the baseline paired prediction file"
+  },
+  {
+   "value": "0.612",
+   "source": "BASELINE_DETAILS_2026-11-23.md: VERITE baseline out-of-context recall 0.612308 (199/325), recomputed from the baseline paired prediction file"
   }
  ]
 }

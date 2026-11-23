@@ -127,3 +127,34 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
 - No numbers, results, or claims changed. Gate: PASS, 0 warnings; 13 pages,
   0 undefined citations/references; the compiled PDF contains zero
   occurrences of "Gemini", zero rendered em dashes, and zero "additionally".
+
+## v0.2.0 — 2026-11-23 (minor: figures and baseline details, author direction)
+- Seven figures added at the author's direction, so reviewers can see the
+  results and the system rather than only read tables: (1) the companion
+  study's three evidence tests redrawn from its SARD abstract (its Figure 1
+  is a schematic of the three tests; the chart plots the abstract's own
+  stated accuracies — WELFake 96.5 → 96.2, CIFAKE 96.3 → 85.6, MMFakeBench
+  frozen 27.93 text-only vs 26.42 image+text), captioned as the companion
+  study's results; (2) a LAYA-Vision architecture diagram (frozen vision
+  tower, trainable encoder/head, choice + noul questions, arbitration);
+  (3) the frozen experiment pipeline flow; (4) the 12-configuration tune
+  grid as a heatmap with the winner outlined; (5) before/after headline
+  bars per dataset on native metrics, with the NewsCLIPpings null and the
+  VERITE near-flat results shown at the same scale; (6) the data-size
+  curve and LoRA rank ladder from the supplementary tier; (7) an appendix
+  collage of verbatim excerpts from the executed run notebook (frozen
+  configuration, environment/GPU check, grid table, winner selection,
+  test-once marker, H1–H5 verdicts; repeated library deprecation warnings
+  omitted, no values altered).
+- The five baseline cells left "n/a" in v0.1.5 are now filled from the
+  saved baseline prediction files (BASELINE_DETAILS_2026-11-23.md;
+  recomputation reproduces the published baseline accuracies exactly):
+  NewsCLIPpings baseline falsified recall 0.944 and binary-screen AUC
+  0.549; VERITE baseline recalls 0.429 (truthful), 0.009 (miscaptioned),
+  0.612 (out-of-context). No "n/a" cells remain.
+- Every figure number traces to `tools/verified_numbers.json` (271
+  entries; the six companion-study accuracies, the five baseline details,
+  and the ResNet18 name digit added with their sources). Gate: PASS,
+  0 warnings; 17 pages, 0 undefined citations/references; the compiled
+  PDF still contains zero occurrences of the prohibited terminology and
+  zero rendered em dashes.

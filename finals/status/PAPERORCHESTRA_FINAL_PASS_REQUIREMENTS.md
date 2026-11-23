@@ -40,6 +40,16 @@ numbers pasted in. Operator lessons behind each rule: mistakes.md §PO-1..6.
 - Writer seat: gemini-4-neon (Rafiul's pick). Reflection/enrichment:
   flash-lite tier. Refinement rounds capped to fit the $10 Gemini cap;
   spend reported with the delivery.
+- **Reflection seat ALSO runs DeepSeek's best model, deepseek-v4-pro**
+  (Rafiul, 2026-11-22 19:24 ET; verified live on his account today —
+  re-verify at pre-flight). PaperOrchestra's agents are Gemini-wired, so
+  v4-pro does not sit inside its loop: it runs a reflection/critique pass
+  over each draft and its critiques feed the refinement stage — the
+  mas.py division of labor (DeepSeek does narrow work, Gemini
+  coordinates). An in-tool routing patch may be attempted at pre-flight
+  ONLY if it smoke-tests clean; otherwise the external pass is the
+  default — the final run is never put at risk for it. DeepSeek spend is
+  separate from the $10 Gemini cap and is reported alongside it.
 - Amendments (b) frozen vision tower, (c) NCP training arm + H2 re-aim,
   (d) supplementary tier: disclosed in the paper as amendments, with the
   pre-registered H1–H5 stated as registered.

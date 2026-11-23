@@ -2216,6 +2216,34 @@
   {
    "value": "670",
    "source": "ANALYSIS_GAPS.md section 5 (verified from stageb_carve.json): Stage B carve holds 670 unique images across 700 items, zero item and image overlap between splits"
+  },
+  {
+   "value": "0.0467",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15 scale probe); v2_probe/uplift/scale_probe_results.json: scale-probe headline accuracy on the 300 probe items"
+  },
+  {
+   "value": "0.3833",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15); scale_probe_results.json: paired headline delta, scale probe minus Stage A P0"
+  },
+  {
+   "value": "0.3267",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15); scale_probe_results.json: paired delta interval upper bound magnitude 0.3267"
+  },
+  {
+   "value": "274",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15); scale_probe_results.json: scale-probe uncertain count of 300 probe items"
+  },
+  {
+   "value": "0.0132",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15); scale_probe_results.json: scale-probe pristine headline accuracy"
+  },
+  {
+   "value": "0.0811",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15); scale_probe_results.json: scale-probe falsified headline accuracy"
+  },
+  {
+   "value": "0.8716",
+   "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15 comparator); scale_probe_results.json: Stage A P0 falsified headline accuracy on the 300 probe items"
   }
  ]
 }

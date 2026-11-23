@@ -289,3 +289,36 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
 - **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings);
   TinyTeX compile clean, 35 pages, zero undefined citations or
   references; no "bootstrap" wording, no em dashes in prose.
+
+## v0.5.0 — 2026-11-23 — FINAL: the scale-probe fold-in
+
+- **Information (the last pending slot, now filled):** the
+  NewsCLIPpings scale probe (Amendment 15) result is in the
+  Registered Follow-On subsection, on the evidence of
+  `LAYA_FINAL_RECORD.md` 5.4 and
+  `v2_probe/uplift/scale_probe_results.json`: headline 0.0467
+  against Stage A P0 0.4300 on the same 300 probe items, paired
+  delta -0.3833 [-0.4433, -0.3267], accuracy including uncertain
+  0.5000 against 0.5133, 274 of 300 uncertain, per-class headline
+  0.0132 pristine and 0.0811 falsified. Registered verdict: the
+  NewsCLIPpings null is not a data-size artifact; it hardens at
+  scale. Seven numbers added to `tools/verified_numbers.json`,
+  each sourced to the record.
+- **Information (provenance):** the VERITE full-set passage now
+  carries the truncated-checkpoint incident and its exact
+  reproduction: the pulled ADAPTED tensor failed its header
+  check, the arm was retrained under its registered recipe, the
+  retraining receipt matches the original run's log to full
+  float precision, and its held-out labels agree with the
+  original predictions on all 200 common items (record 5.4;
+  `v2_probe/uplift/verite_fullset_results.json`).
+- **Finality:** no pending slots remain. The record behind this
+  version (record 5.4, 7, and 8) also carries the Amendment 16
+  tune read, the near-tie label counts behind the full-set
+  reconciliation (21 BASE and 24 TRANSFER of 1,001;
+  `PAPER_DEFENSE_AUDIT.md` item P5), and the uplift session
+  ledger (spend $2.0483, final balance $3.2705, pod terminated).
+- **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings);
+  TinyTeX compile clean, 36 pages, zero undefined citations or
+  references; every added passage confirmed in the built PDF; no
+  "bootstrap" wording, no em dashes in prose.

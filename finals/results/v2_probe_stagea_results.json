@@ -1,0 +1,2526 @@
+{
+ "n_items": 298,
+ "arms": {
+  "P0": {
+   "acc_headline": 0.42953020134228187,
+   "acc_incl_uncertain": 0.5134228187919463,
+   "n_uncertain": 44,
+   "n": 298
+  },
+  "P1A": {
+   "acc_headline": 0.44966442953020136,
+   "acc_incl_uncertain": 0.5302013422818792,
+   "n_uncertain": 56,
+   "n": 298
+  },
+  "P2A": {
+   "acc_headline": 0.44966442953020136,
+   "acc_incl_uncertain": 0.5302013422818792,
+   "n_uncertain": 56,
+   "n": 298
+  },
+  "P1B": {
+   "acc_headline": 0.37919463087248323,
+   "acc_incl_uncertain": 0.5067114093959731,
+   "n_uncertain": 80,
+   "n": 298
+  }
+ },
+ "note": "n=30 pilot: NO success verdict (registered)",
+ "delta_P1A_vs_P0": {
+  "delta": 0.020134228187919462,
+  "ci95": [
+   -0.026845637583892617,
+   0.06711409395973154
+  ]
+ },
+ "delta_P2A_vs_P0": {
+  "delta": 0.020134228187919462,
+  "ci95": [
+   -0.026845637583892617,
+   0.06711409395973154
+  ]
+ },
+ "delta_P1B_vs_P0": {
+  "delta": -0.050335570469798654,
+  "ci95": [
+   -0.09731543624161074,
+   -0.003355704697986577
+  ]
+ },
+ "strata_P1A": {
+  "no_evidence": {
+   "acc_headline": 0.5,
+   "acc_incl_uncertain": 0.5188679245283019,
+   "n_uncertain": 6,
+   "n": 106,
+   "falsified_acc": 0.9259259259259259,
+   "gold_mix": {
+    "pristine": 52,
+    "falsified": 54
+   }
+  },
+  "binding_found": {
+   "acc_headline": 0.4722222222222222,
+   "acc_incl_uncertain": 0.5555555555555556,
+   "n_uncertain": 17,
+   "n": 72,
+   "falsified_acc": 0.8157894736842105,
+   "gold_mix": {
+    "falsified": 38,
+    "pristine": 34
+   }
+  },
+  "corroboration_only": {
+   "acc_headline": 0.39166666666666666,
+   "acc_incl_uncertain": 0.525,
+   "n_uncertain": 33,
+   "n": 120,
+   "falsified_acc": 0.6727272727272727,
+   "gold_mix": {
+    "pristine": 65,
+    "falsified": 55
+   }
+  }
+ },
+ "date_strata_P1A": {
+  "none": {
+   "acc_headline": 0.5,
+   "acc_incl_uncertain": 0.5188679245283019,
+   "n_uncertain": 6,
+   "n": 106
+  },
+  "undated_only": {
+   "acc_headline": 0.4101123595505618,
+   "acc_incl_uncertain": 0.5280898876404494,
+   "n_uncertain": 48,
+   "n": 178
+  },
+  "mixed": {
+   "acc_headline": 0.7142857142857143,
+   "acc_incl_uncertain": 0.8571428571428571,
+   "n_uncertain": 1,
+   "n": 7
+  },
+  "dated_clean_only": {
+   "acc_headline": 0.42857142857142855,
+   "acc_incl_uncertain": 0.42857142857142855,
+   "n_uncertain": 1,
+   "n": 7
+  }
+ },
+ "coverage_P1A": 0.6442953020134228,
+ "scalars_P1A": {
+  "newsclippings:val:52": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:135": {
+   "binding_clusters": 1,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:140": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:164": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:176": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:205": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:213": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:217": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:220": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:227": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:230": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:251": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:303": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:316": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:350": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:358": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:361": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:396": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:418": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:463": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:486": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:510": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:520": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:534": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:539": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:558": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:570": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:683": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:690": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:711": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:743": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:766": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:791": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:820": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:826": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:843": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:859": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:869": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:877": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:949": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:994": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1030": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1035": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1053": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1065": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1088": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1095": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1127": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1132": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1145": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1149": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1180": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1224": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1239": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1244": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1247": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1316": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1355": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1356": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:1378": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1387": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1389": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:1390": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1406": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1419": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1425": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1534": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1538": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1549": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1607": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1663": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1683": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1728": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1754": {
+   "binding_clusters": 4,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:1768": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1789": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:1815": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1879": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:1962": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:1963": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:1967": {
+   "binding_clusters": 3,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:1972": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2017": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2049": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 0.6666666666666666,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2076": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2092": {
+   "binding_clusters": 3,
+   "indep_clusters": 4,
+   "agree_scalar": 0.5,
+   "binding_stance": "supports",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2097": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": "neither",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2122": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2123": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2124": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2147": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2149": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2164": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2192": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2220": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2223": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2248": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2367": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2376": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2394": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2400": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2423": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2440": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2452": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2482": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2492": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2511": {
+   "binding_clusters": 2,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2517": {
+   "binding_clusters": 3,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2519": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2521": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2532": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2621": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2669": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2699": {
+   "binding_clusters": 4,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2700": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": -0.3333333333333333,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2735": {
+   "binding_clusters": 3,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2756": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:2787": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2828": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2832": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:2846": {
+   "binding_clusters": 3,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2885": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2927": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2937": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:2974": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3007": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3010": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3057": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3092": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3106": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3139": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3142": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3152": {
+   "binding_clusters": 3,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3156": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3189": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3195": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3203": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3210": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3238": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3243": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3244": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 0.6666666666666666,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3245": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3284": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3297": {
+   "binding_clusters": 1,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3364": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3411": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3468": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3505": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3510": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3521": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3529": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3547": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3585": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3609": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3671": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3694": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3702": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3705": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3708": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3710": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3715": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3721": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3722": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3724": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3726": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3730": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3740": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3791": {
+   "binding_clusters": 4,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3840": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:3908": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3924": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3927": {
+   "binding_clusters": 2,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:3937": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:3961": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4019": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4032": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4056": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4059": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4113": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4119": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4131": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4133": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4146": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4158": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.25,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4159": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.25,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4207": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4211": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4230": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4249": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4263": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4264": {
+   "binding_clusters": 4,
+   "indep_clusters": 4,
+   "agree_scalar": 0.5,
+   "binding_stance": "supports",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4277": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4343": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4356": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4402": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4444": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4486": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4550": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4564": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4639": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4680": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4682": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4695": {
+   "binding_clusters": 3,
+   "indep_clusters": 3,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4724": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4729": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4745": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4770": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4877": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4894": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:4923": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:4934": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:4959": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5074": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5080": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5117": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5123": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5130": {
+   "binding_clusters": 3,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5138": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5143": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5175": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5192": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5204": {
+   "binding_clusters": 3,
+   "indep_clusters": 4,
+   "agree_scalar": 0.75,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5230": {
+   "binding_clusters": 1,
+   "indep_clusters": 2,
+   "agree_scalar": -0.5,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5244": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5274": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5288": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5300": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5302": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5350": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5356": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5361": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5402": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5414": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5416": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5461": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.75,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5483": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5518": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5521": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5550": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5575": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5584": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5610": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5642": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5712": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5713": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5751": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5806": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5817": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5861": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5862": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5890": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:5906": {
+   "binding_clusters": 3,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5955": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:5970": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:5979": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6038": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6075": {
+   "binding_clusters": 4,
+   "indep_clusters": 4,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6151": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6164": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6206": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6213": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6249": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6255": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6270": {
+   "binding_clusters": 1,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6285": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6296": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6306": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6307": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6319": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6353": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6375": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6407": {
+   "binding_clusters": 2,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6418": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6426": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6440": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": -1.0,
+   "binding_stance": "contradicts",
+   "any_binding_contradicts": true,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6483": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6581": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6590": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6593": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6595": {
+   "binding_clusters": 4,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6604": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6607": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6652": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6704": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6744": {
+   "binding_clusters": 0,
+   "indep_clusters": 2,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6767": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6775": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 0.6666666666666666,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6836": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6854": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6859": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  },
+  "newsclippings:val:6873": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6953": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6962": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6967": {
+   "binding_clusters": 1,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": "supports",
+   "any_binding_contradicts": false,
+   "stratum": "binding"
+  },
+  "newsclippings:val:6969": {
+   "binding_clusters": 0,
+   "indep_clusters": 3,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:6998": {
+   "binding_clusters": 0,
+   "indep_clusters": 4,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:7001": {
+   "binding_clusters": 0,
+   "indep_clusters": 1,
+   "agree_scalar": 1.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "corroboration_only"
+  },
+  "newsclippings:val:7003": {
+   "binding_clusters": 0,
+   "indep_clusters": 0,
+   "agree_scalar": 0.0,
+   "binding_stance": null,
+   "any_binding_contradicts": false,
+   "stratum": "none"
+  }
+ },
+ "evidencegate_modes": {
+  "always_on_acc": 0.44966442953020136,
+  "triggered": {
+   "fire_rate": 1.0,
+   "acc_headline": 0.44966442953020136,
+   "acc_incl_uncertain": 0.5302013422818792,
+   "n_uncertain": 56,
+   "n": 298
+  },
+  "gated": {
+   "acc_headline": 0.3691275167785235,
+   "flips_blocked_to_uncertain": 50,
+   "flips_allowed": 3,
+   "flip_precision_allowed": 0.6666666666666666
+  }
+ },
+ "clean_win_P1A": {
+  "clean": 46,
+  "lucky": 88,
+  "wrong_or_uncertain": 164,
+  "clean_share_of_correct": 0.34328358208955223
+ },
+ "tier1_items": 298,
+ "p0_vs_frozen_v1": {
+  "label_agreement": 0.9731543624161074,
+  "n_compared": 298
+ }
+}

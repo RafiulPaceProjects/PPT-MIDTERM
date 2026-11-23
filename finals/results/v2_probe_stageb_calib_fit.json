@@ -1,0 +1,28 @@
+{
+ "temperature": {
+  "pair_only": 0.0328,
+  "evidence": 0.03
+ },
+ "threshold": {
+  "pair_only": 0.5456,
+  "evidence": 0.52
+ },
+ "n": {
+  "pair_only": 100,
+  "evidence": 100
+ },
+ "nll": {
+  "pair_only": {
+   "raw_T1": 0.6929,
+   "fitted_T": 0.6897
+  },
+  "evidence": {
+   "raw_T1": 0.693,
+   "fitted_T": 0.6889
+  }
+ },
+ "bal_acc_at_threshold": {
+  "pair_only": 0.63,
+  "evidence": 0.58
+ }
+}

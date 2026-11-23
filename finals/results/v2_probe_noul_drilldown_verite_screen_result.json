@@ -1,0 +1,239 @@
+{
+ "dataset": "verite",
+ "n": 100,
+ "n_fake": 64,
+ "baseline_W0_T1_tau0.5": {
+  "acc": 0.59,
+  "alpha": 0.7222222222222222
+ },
+ "variants": {
+  "0": {
+   "axis": "control (pack W0)",
+   "auc": 0.5251736111111112,
+   "view_T1_tau0.5": {
+    "acc": 0.59,
+    "alpha": 0.7222222222222222,
+    "delta_vs_W0": 0.0,
+    "delta_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "fitted_T": 4.520245273466366,
+   "nll_fitted": 0.6747829308925606,
+   "nll_T1": 0.8366006041271413,
+   "fitted_tau": 0.5,
+   "view_fitted": {
+    "acc": 0.59,
+    "alpha": 0.7222222222222222,
+    "delta_vs_baseline": 0.0,
+    "ece": 0.09538981867980209
+   },
+   "ece_T1": 0.21958293760432962,
+   "wording_length": {
+    "words": 49,
+    "chars": 342
+   },
+   "truncation": {
+    "n_items_flagged": 0,
+    "state_tokens_dropped_values": []
+   }
+  },
+  "1": {
+   "axis": "direct probability",
+   "auc": 0.4344618055555556,
+   "view_T1_tau0.5": {
+    "acc": 0.35,
+    "alpha": 0.05555555555555555,
+    "delta_vs_W0": -0.24,
+    "delta_ci95": [
+     -0.39000000000000007,
+     -0.07999999999999996
+    ]
+   },
+   "fitted_T": 11.999999999950138,
+   "nll_fitted": 0.7169380304964078,
+   "nll_T1": 1.2673495867063618,
+   "fitted_tau": 0.475,
+   "view_fitted": {
+    "acc": 0.42,
+    "alpha": 0.3055555555555556,
+    "delta_vs_baseline": -0.16999999999999998,
+    "ece": 0.18306804954702136
+   },
+   "ece_T1": 0.4662651484125306,
+   "wording_length": {
+    "words": 46,
+    "chars": 271
+   },
+   "truncation": {
+    "n_items_flagged": 0,
+    "state_tokens_dropped_values": []
+   }
+  },
+  "2": {
+   "axis": "decomposed two-failure-modes",
+   "auc": 0.5217013888888888,
+   "view_T1_tau0.5": {
+    "acc": 0.39,
+    "alpha": 0.2777777777777778,
+    "delta_vs_W0": -0.19999999999999996,
+    "delta_ci95": [
+     -0.36000000000000004,
+     -0.010000000000000009
+    ]
+   },
+   "fitted_T": 11.999999999950138,
+   "nll_fitted": 0.7034158773261545,
+   "nll_T1": 0.9692983036008984,
+   "fitted_tau": 0.475,
+   "view_fitted": {
+    "acc": 0.59,
+    "alpha": 0.5833333333333334,
+    "delta_vs_baseline": 0.0,
+    "ece": 0.155586408685132
+   },
+   "ece_T1": 0.33274495164074347,
+   "wording_length": {
+    "words": 56,
+    "chars": 324
+   },
+   "truncation": {
+    "n_items_flagged": 0,
+    "state_tokens_dropped_values": []
+   }
+  },
+  "3": {
+   "axis": "original context",
+   "auc": 0.5677083333333334,
+   "view_T1_tau0.5": {
+    "acc": 0.44,
+    "alpha": 0.16666666666666666,
+    "delta_vs_W0": -0.14999999999999997,
+    "delta_ci95": [
+     -0.31000000000000005,
+     0.02999999999999997
+    ]
+   },
+   "fitted_T": 11.999999999950138,
+   "nll_fitted": 0.7022504278293715,
+   "nll_T1": 0.9835901152706283,
+   "fitted_tau": 0.475,
+   "view_fitted": {
+    "acc": 0.62,
+    "alpha": 0.5555555555555556,
+    "delta_vs_baseline": 0.030000000000000027,
+    "ece": 0.15728264725012478
+   },
+   "ece_T1": 0.3761672966442818,
+   "wording_length": {
+    "words": 42,
+    "chars": 240
+   },
+   "truncation": {
+    "n_items_flagged": 0,
+    "state_tokens_dropped_values": []
+   }
+  },
+  "4": {
+   "axis": "conservative / strictness",
+   "auc": 0.5043402777777778,
+   "view_T1_tau0.5": {
+    "acc": 0.42,
+    "alpha": 0.16666666666666666,
+    "delta_vs_W0": -0.16999999999999998,
+    "delta_ci95": [
+     -0.34,
+     0.010000000000000009
+    ]
+   },
+   "fitted_T": 11.999999999950138,
+   "nll_fitted": 0.7065095437602392,
+   "nll_T1": 1.036766763749008,
+   "fitted_tau": 0.475,
+   "view_fitted": {
+    "acc": 0.53,
+    "alpha": 0.5833333333333334,
+    "delta_vs_baseline": -0.05999999999999994,
+    "ece": 0.15847206217782017
+   },
+   "ece_T1": 0.3663978866275,
+   "wording_length": {
+    "words": 50,
+    "chars": 286
+   },
+   "truncation": {
+    "n_items_flagged": 0,
+    "state_tokens_dropped_values": []
+   }
+  },
+  "5": {
+   "axis": "claim-framed",
+   "auc": 0.4796006944444444,
+   "view_T1_tau0.5": {
+    "acc": 0.39,
+    "alpha": 0.05555555555555555,
+    "delta_vs_W0": -0.19999999999999996,
+    "delta_ci95": [
+     -0.36000000000000004,
+     -0.030000000000000027
+    ]
+   },
+   "fitted_T": 11.999999999950138,
+   "nll_fitted": 0.7120220418358397,
+   "nll_T1": 1.1489040696775275,
+   "fitted_tau": 0.475,
+   "view_fitted": {
+    "acc": 0.46,
+    "alpha": 0.4722222222222222,
+    "delta_vs_baseline": -0.12999999999999995,
+    "ece": 0.1669433943040327
+   },
+   "ece_T1": 0.4266275998345603,
+   "wording_length": {
+    "words": 37,
+    "chars": 202
+   },
+   "truncation": {
+    "n_items_flagged": 0,
+    "state_tokens_dropped_values": []
+   }
+  }
+ },
+ "B3": {
+  "members": [
+   0,
+   2,
+   3
+  ],
+  "member_T": {
+   "0": 4.520245273466366,
+   "2": 11.999999999950138,
+   "3": 11.999999999950138
+  },
+  "tau_B3": 0.5,
+  "acc": 0.55,
+  "alpha": 0.6111111111111112,
+  "delta_vs_baseline": -0.039999999999999925,
+  "auc": 0.5303819444444444,
+  "ece": 0.1351760154874771,
+  "at_tau_0.5": {
+   "acc": 0.55,
+   "alpha": 0.6111111111111112
+  },
+  "member_agreement_rate": 0.37,
+  "admissible": false
+ },
+ "best_admissible_single": 3,
+ "deployed_phase1": {
+  "form": "single",
+  "members": [
+   3
+  ],
+  "T": {
+   "3": 11.999999999950138
+  },
+  "tau": 0.475
+ },
+ "strict_incidents_total": 0
+}

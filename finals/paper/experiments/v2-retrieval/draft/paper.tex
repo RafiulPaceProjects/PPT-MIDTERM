@@ -1,6 +1,6 @@
-% EXPERIMENT DRAFT — v2 retrieval study fork (exp-v0.1). NOT part of the v1 paper line.
-% Numbers present are from the v1 final_results_bundle.json only. Results section is
-% empty by gate discipline until verified probe artifacts exist.
+% EXPERIMENT DRAFT — v2 retrieval study fork (exp-v0.7). NOT part of the v1 paper line.
+% Numbers are from the v1 final_results_bundle.json and, from exp-v0.7, the v2
+% probe's verified artifacts (named in the CHANGELOG entry for each version).
 \documentclass{article}
 \title{Does Evidence Help? A Retrieval-Augmented Re-Test of Out-of-Context
 Detection with a Small Typed-Decision Model}
@@ -113,7 +113,76 @@ adopted. Two board fixes have no published equivalent and stand as contributions
 of this study if validated: binding-vs-corroboration passage tagging with a
 decontamination ablation, and a syndication-aware cluster-counting flip policy.
 \section{Results}
-% EMPTY until verified probe artifacts land (see README promotion rule).
+% First results land in exp-v0.7: the VERITE full track (verified probe
+% artifact: verite_sidearm_results.json) and the retrieval repair record
+% (probe REPORT.md). NewsCLIPpings Stage A / Stage B remain pending.
+\subsection{VERITE full track: adaptation, transfer, and evidence on a held-out carve}
+The VERITE side-arm registered under Amendment 9 was scored on the
+identical held-out 200 items (support: 65 true, 65 miscaptioned,
+70 out-of-context) from a group-aware split of the local copy of the
+dataset. Four arms were compared: the frozen base model (BASE), the
+v1 MMFakeBench winner applied without VERITE training (TRANSFER), a
+model fine-tuned on the carve's train side with the v1 recipe family
+(ADAPTED), and the base model judging caption plus retrieved evidence
+under this fork's EvidenceGate construction (EVIDENCE).
+
+\begin{center}
+\begin{tabular}{lcccc}
+Arm & Accuracy & Recall true & Recall miscaptioned & Recall out-of-context \\
+BASE & 0.285 & 0.2462 & 0.0 & 0.5857 \\
+TRANSFER & 0.320 & 0.6615 & 0.2 & 0.1143 \\
+ADAPTED & 0.330 & 0.3538 & 0.3846 & 0.2571 \\
+EVIDENCE & 0.325 & 0.3077 & 0.0 & 0.6429 \\
+\end{tabular}
+\end{center}
+
+Macro-F1 for the three non-evidence arms is 0.2154 (BASE), 0.2855
+(TRANSFER), and 0.3310 (ADAPTED). The registered success criterion ---
+ADAPTED beats TRANSFER with the paired resampling interval's lower
+bound above zero --- is \textbf{not met}: ADAPTED minus TRANSFER is
+$+0.010$ with interval $[-0.080, +0.095]$. ADAPTED has the most
+balanced per-class profile and the best macro-F1, but no significant
+accuracy gain at this size. EVIDENCE minus BASE is $+0.040$ with
+interval $[-0.005, +0.090]$: a small positive point estimate whose
+interval includes zero, and the evidence arm still recalls no
+miscaptioned items at all --- the class where binding evidence was
+expected to bite. \textbf{Comparability warning:} these numbers are a
+held-out carve of the local copy under this study's protocol; they
+are NOT comparable to published full-set VERITE numbers, and they do
+not reopen the v1 H3 verdict.
+
+\subsection{Retrieval instrument failure and repair}
+The probe's first batch retrieval failed as an instrument, not as a
+measurement: concurrent query streams tripped a search-engine
+suspension and the search layer silently returned empty result lists
+for most item--variant pairs. The repair re-ran only the failed pairs
+serially, with per-pair checkpointing, under the frozen query lists
+and the same date and contamination rules; repaired records are
+flagged in the snapshots. Final state: the NewsCLIPpings probe set
+recovered to 597 of 600 (item, variant) pairs non-empty, with
+headline coverage 193 of 300 items (64.3\%) after reassembly; the
+VERITE set recovered to 349 of 400 pairs (324 repaired, 51 left
+marked retrieval-failed), giving the EVIDENCE arm headline coverage
+of 89 of 200 items (44.5\%); the Stage B carve recovered to 694 of
+700 variant-A pools non-empty. A re-retrieval audit on the pilot
+items showed live search results are not reproducible at a one-day
+lag, which is the quantitative justification for the frozen-snapshot
+design: every number in this fork is computed against the hashed
+snapshots, never against a fresh search.
+
+\subsection{Registered next}
+Pending on the pod phase, in registered order: the NewsCLIPpings
+pilot judging and Stage A (zero-shot evidence judging against the
+pair-only control on the probe items, under its registered success
+sheet), then Stage B (the small fine-tune on the frozen carve, with
+the Amendment 6 noul attunement). Also registered, as Amendment 11,
+is a noul drill-down: a baseline screen of varied fake-question
+wordings applied uniformly per dataset run, the top three wordings
+carried into fine-tuning, and one winner chosen per dataset under a
+pre-stated admissibility rule (a wording replaces the current one
+only if it gains on selection data without raising the false-alarm
+rate on genuinely pristine items). Its design of record is the
+structure-and-drilldown document in the study record.
 \section{Discussion}
 % To be written from probe evidence only.
 \end{document}

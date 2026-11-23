@@ -1,8 +1,769 @@
-{"_comment":"Allowlist for tools/verify_draft.py number tracing. UNITS CONVENTION: every value is stored exactly as it appears in its source record. LAYA main-run headline metrics are proportions in [0,1] (e.g. 0.6020). Competitor Protocol-A values from COMPETITIVE_LANDSCAPE_2026-11-22.md are stored as PERCENTAGES as published there (61.5 means macro-F1 61.5, i.e. 0.615) -- never mix the two conventions in one sentence without a protocol/units label. October-audit values are stored as printed in the October draft/audit (mixed % and proportions, as they appear in v0.0). RULE: an entry may be added only with a source naming the bundle, audit, or scout file that authorises the number. An entry with no source is itself a gate failure.","numbers":[{"source":"Main run 2026-11-22: winner test macro-F1, MMFakeBench official test, scored once (final_results_bundle / test_once record)","value":"0.6020"},{"source":"Main run 2026-11-22: winner test accuracy 0.6130 (test_once record)","value":"0.613"},{"source":"Baseline paired test macro-F1: October ablation audit AND main-run test_once pairing baseline (both records agree)","value":"0.2037"},{"source":"Main run 2026-11-22: winner (full, soft_ce, 735 steps) tune macro-F1 (runs/winner record)","value":"0.7389"},{"source":"Main run 2026-11-22: seed-check rerun tune macro-F1, seed 20261123 (supplementary tier)","value":"0.7320"},{"source":"Main run 2026-11-22: paired bootstrap delta, winner vs baseline test macro-F1 (test_once record)","value":"0.3983"},{"source":"Rounded form of 0.3983 (same source)","value":"0.398"},{"source":"Main run 2026-11-22: bootstrap 95% CI lower bound (test_once record)","value":"0.3853"},{"source":"Main run 2026-11-22: bootstrap 95% CI upper bound (test_once record)","value":"0.4108"},{"source":"Rounded form of 0.3853 (same source)","value":"0.385"},{"source":"Rounded form of 0.4108 (same source)","value":"0.411"},{"source":"Main run 2026-11-22: winner macro-F1 on MMFakeBench validation (trained eval)","value":"0.7571"},{"source":"Main run 2026-11-22: winner accuracy on MMFakeBench validation (trained eval)","value":"0.769"},{"source":"Main run 2026-11-22: base-model accuracy on MMFakeBench validation, run wording (baseline stream)","value":"0.293"},{"source":"Main run 2026-11-22: base-model macro-F1 on MMFakeBench validation, run wording (baseline stream)","value":"0.2079"},{"source":"Main run 2026-11-22: PASS 1 NewsCLIPpings validation baseline accuracy, 7,024/7,024 rows, 0 skipped","value":"0.5141"},{"source":"October record: NewsCLIPpings validation accuracy under October question wording","value":"0.5083"},{"source":"Main run 2026-11-22: VERITE trained-transfer accuracy, corrected rerun (H3 not met)","value":"0.3506"},{"source":"Main run 2026-11-22: VERITE baseline accuracy (paired, base checkpoint)","value":"0.3467"},{"source":"October diagnostic: source-metadata rule accuracy on tune = leakage ceiling (study record; metadata ban)","value":"0.9150"},{"source":"CAL-1: fitted choice-question temperature on MMFakeBench calib split (CALIBRATION_FINDING_2026-11-22.md)","value":"8.4214"},{"source":"CAL-1: calib-split ECE before temperature scaling (CALIBRATION_FINDING_2026-11-22.md)","value":"0.2664"},{"source":"CAL-1: calib-split ECE after temperature scaling, in-sample (CALIBRATION_FINDING_2026-11-22.md)","value":"0.0865"},{"source":"CAL-1: held-out MMFakeBench validation raw ECE (CALIBRATION_FINDING_2026-11-22.md)","value":"0.1056"},{"source":"Rounded form of 0.1056 (same source)","value":"0.106"},{"source":"CAL-1: held-out validation ECE with calib temperature applied -- transfer failure (CALIBRATION_FINDING_2026-11-22.md)","value":"0.3955"},{"source":"Rounded form of 0.3955 (same source)","value":"0.396"},{"source":"CAL-1: split-half held-out raw ECE, half B (CALIBRATION_FINDING_2026-11-22.md)","value":"0.0994"},{"source":"Rounded form of 0.0994 (same source)","value":"0.099"},{"source":"CAL-1: split-half held-out ECE after half-A temperature fit (CALIBRATION_FINDING_2026-11-22.md)","value":"0.021"},{"source":"CAL-1: split-half fitted temperature, half A (CALIBRATION_FINDING_2026-11-22.md)","value":"1.65"},{"source":"CAL-1: full-validation fitted temperature (CALIBRATION_FINDING_2026-11-22.md)","value":"1.6"},{"source":"NCP pack fitted choice temperature (PASS 2 runtime manifest; subject to the held-out ECE gate before publication)","value":"3.857"},{"source":"NCP pack fitted score temperature 2.100 (PASS 2 runtime manifest; same gate as 3.857)","value":"2.1"},{"source":"NCP pack fitted noul temperature (PASS 2 runtime manifest; same gate as 3.857)","value":"3.053"},{"source":"Main run 2026-11-22: NCP arm winner tune macro-F1 0.4930, native form, n=250 (ncp_winner record)","value":"0.493"},{"source":"Main run 2026-11-22: NCP arm winner tune accuracy, n=250 (ncp_winner record)","value":"0.508"},{"source":"Training-set size of the MMFakeBench winner recipe (490 items; study record)","value":"490"},{"source":"NewsCLIPpings training-arm carve: train items (swarm-3 verified carve)","value":"2001"},{"source":"NewsCLIPpings training-arm carve: unique images (swarm-3 verified carve)","value":"2120"},{"source":"NewsCLIPpings training-arm carve: tune items and calib items, each (swarm-3 verified carve)","value":"250"},{"source":"LAYA-Vision checkpoint parameter count, millions (model record; October audit)","value":"201"},{"source":"MMFakeBench official test split size (benchmark paper, arXiv:2406.08772)","value":"10000"},{"source":"NewsCLIPpings Merged-Balanced validation split size (dataset record)","value":"7024"},{"source":"VERITE local copy row count (official set is 1,000; local copy carries one extra row -- always print with this qualifier)","value":"1001"},{"source":"MMFakeBench official validation split size; also VERITE official set size (benchmark papers)","value":"1000"},{"source":"Whole-study RunPod spend in USD, metered (COMPETITIVE_METRICS_2026-11-22.md)","value":"5.64"},{"source":"RunPod pod burn rate, USD per hour (console-verified; COMPETITIVE_METRICS_2026-11-22.md)","value":"0.897"},{"source":"LAYA inference cost per 1,000 predictions in USD, derived from measured 0.16 s/item at $0.897/hr (COMPETITIVE_METRICS_2026-11-22.md)","value":"0.04"},{"source":"Measured mean prediction latency, seconds per item (COMPETITIVE_METRICS_2026-11-22.md)","value":"0.16"},{"source":"Winner checkpoint footprint, MB (study record; COMPETITIVE_METRICS_2026-11-22.md)","value":"805"},{"source":"ESTIMATE: USD cost of scoring the 10,000-item test set once with GPT-4V Standard at published API rates (COMPETITIVE_METRICS_2026-11-22.md) -- always print as an estimate","value":"155"},{"source":"ESTIMATE: lower bound, USD cost of the same test pass with MMD-Agent (COMPETITIVE_METRICS_2026-11-22.md) -- always print as an estimate","value":"450"},{"source":"ESTIMATE: upper bound, USD cost of the same test pass with MMD-Agent (COMPETITIVE_METRICS_2026-11-22.md) -- always print as an estimate","value":"750"},{"source":"PERCENT: GPT-4V + MMD-Agent MMFakeBench TEST macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)","value":"61.5"},{"source":"PERCENT: GPT-4V + MMD-Agent MMFakeBench VALIDATION macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)","value":"61.6"},{"source":"PERCENT: GPT-4V Standard MMFakeBench TEST macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)","value":"48.8"},{"source":"PERCENT: SCPO Top-1 extraction MMFakeBench macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)","value":"57.3"},{"source":"PERCENT: DeceptionDecoded fine-tuned MMFakeBench macro-F1 -- SPLIT UNVERIFIED, conditional comparison only (COMPETITIVE_LANDSCAPE_2026-11-22.md)","value":"58.66"},{"source":"PERCENT: two sourced uses -- SCPO Recall-extraction macro-F1 (never quote as Top-1) and fine-tuned CLIP NewsCLIPpings accuracy (COMPETITIVE_LANDSCAPE_2026-11-22.md; competitors_ooc.md)","value":"66.1"},{"source":"PERCENT: VERITE original benchmark best multiclass accuracy (competitors_ooc.md)","value":"52.1"},{"source":"PERCENT: LAMAR VERITE multiclass accuracy, current SOTA (competitors_ooc.md). NOTE: the same digits appear in the October record as the VERITE probe accuracy -- cite the context, not just the number.","value":"54.9"},{"source":"PERCENT: NewsCLIPpings human average accuracy (competitors_ooc.md)","value":"65.6"},{"source":"PERCENT: AITR NewsCLIPpings accuracy, evidence-based (competitors_ooc.md)","value":"93.3"},{"source":"PERCENT: SNIFFER NewsCLIPpings accuracy (competitors_ooc.md; Qi et al. 2024)","value":"88.4"},{"source":"Percentage points: NewsCLIPpings transfer-probe gain, October record (VERIFICATION_NOTE_2026-11-22.md); also the reference value in the registered H2 criterion","value":"6.24"},{"source":"OCTOBER AUDIT: MMFakeBench validation, hosted text route accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.256"},{"source":"OCTOBER AUDIT: MMFakeBench validation, hosted text route macro-F1 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.203"},{"source":"OCTOBER AUDIT: MMFakeBench validation, hosted text route balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.328"},{"source":"OCTOBER AUDIT: MMFakeBench validation, local text route accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.267"},{"source":"OCTOBER AUDIT: MMFakeBench validation, local text route macro-F1 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.221"},{"source":"OCTOBER AUDIT: MMFakeBench validation, local text route balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.338"},{"source":"OCTOBER AUDIT: MMFakeBench validation, paired route accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.320"},{"source":"OCTOBER AUDIT: MMFakeBench validation, paired route macro-F1 0.19849 rounded as printed in v0.0 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.199"},{"source":"OCTOBER AUDIT: MMFakeBench validation, paired route balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.303"},{"source":"OCTOBER AUDIT: TF-IDF grouped OOF accuracy, 700 dev rows (VERIFICATION_NOTE_2026-11-22.md)","value":"0.499"},{"source":"OCTOBER AUDIT: TF-IDF grouped OOF macro-F1 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.416"},{"source":"OCTOBER AUDIT: TF-IDF grouped OOF balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)","value":"0.423"},{"source":"OCTOBER AUDIT: paired binary accuracy = all-Fake floor, 700 of 1,000 validation items Fake (VERIFICATION_NOTE_2026-11-22.md)","value":"0.695"},{"source":"OCTOBER AUDIT: paired noul AUC as printed in v0.0 (audit precision 0.5168) (VERIFICATION_NOTE_2026-11-22.md)","value":"0.517"},{"source":"OCTOBER AUDIT: MMFakeBench test ablation, paired accuracy, n=9,999 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.2642"},{"source":"OCTOBER AUDIT: MMFakeBench test ablation, text-only accuracy, n=10,000 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.2793"},{"source":"OCTOBER AUDIT: MMFakeBench test ablation, text-only macro-F1 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.2181"},{"source":"OCTOBER AUDIT: paired minus text-only accuracy difference, percentage points (VERIFICATION_NOTE_2026-11-22.md; v0.0 prints the CI in proportions -- known unit-mix flag)","value":"1.51"},{"source":"OCTOBER AUDIT: ablation difference CI bound, proportion units as printed in v0.0 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.0244"},{"source":"OCTOBER AUDIT: ablation difference CI bound, proportion units as printed in v0.0 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.0054"},{"source":"OCTOBER AUDIT: MS-COCO source-pair effect, percentage points (VERIFICATION_NOTE_2026-11-22.md)","value":"18.40"},{"source":"OCTOBER AUDIT: GPT-Rumor/AI-Image source-pair effect, percentage points (VERIFICATION_NOTE_2026-11-22.md)","value":"17.80"},{"source":"OCTOBER AUDIT: ceiling on visual-distortion prediction rate for AI-generated images, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"4.9"},{"source":"OCTOBER AUDIT: AI-image source-pair row count, 350+50 (VERIFICATION_NOTE_2026-11-22.md)","value":"400"},{"source":"OCTOBER AUDIT: NewsCLIPpings rows featurized for the transfer probe (VERIFICATION_NOTE_2026-11-22.md)","value":"78336"},{"source":"OCTOBER AUDIT: transfer-probe featurization time, hours (VERIFICATION_NOTE_2026-11-22.md)","value":"4.58"},{"source":"OCTOBER AUDIT: selected probe regularization lambda=0.001 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.001"},{"source":"OCTOBER AUDIT: probe training accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"57.8"},{"source":"OCTOBER AUDIT: probe validation accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"56.6"},{"source":"OCTOBER AUDIT: NewsCLIPpings test zero-shot accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"51.1"},{"source":"OCTOBER AUDIT: NewsCLIPpings test probe accuracy and macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"57.4"},{"source":"OCTOBER AUDIT: NewsCLIPpings test zero-shot AUC (VERIFICATION_NOTE_2026-11-22.md)","value":"0.528"},{"source":"OCTOBER AUDIT: NewsCLIPpings test probe AUC (VERIFICATION_NOTE_2026-11-22.md)","value":"0.598"},{"source":"OCTOBER AUDIT: transfer-probe gain CI lower bound, percentage points (VERIFICATION_NOTE_2026-11-22.md)","value":"4.76"},{"source":"OCTOBER AUDIT: transfer-probe gain CI upper bound, percentage points (VERIFICATION_NOTE_2026-11-22.md)","value":"7.70"},{"source":"OCTOBER AUDIT: NewsCLIPpings zero-shot accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"50.10"},{"source":"OCTOBER AUDIT: NewsCLIPpings zero-shot accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"52.14"},{"source":"OCTOBER AUDIT: NewsCLIPpings zero-shot macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"42.1"},{"source":"OCTOBER AUDIT: NewsCLIPpings zero-shot ECE, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"16.4"},{"source":"OCTOBER AUDIT: NewsCLIPpings probe accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"56.26"},{"source":"OCTOBER AUDIT: NewsCLIPpings probe accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"58.44"},{"source":"OCTOBER AUDIT: NewsCLIPpings probe ECE, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"1.1"},{"source":"OCTOBER AUDIT: VERITE zero-shot accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)","value":"50.5"},{"source":"OCTOBER AUDIT: VERITE probe gain, percentage points, CI spans zero -- inconclusive (VERIFICATION_NOTE_2026-11-22.md)","value":"4.37"},{"source":"OCTOBER AUDIT: prompt-wording candidate tune macro-F1 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.290"},{"source":"OCTOBER AUDIT: prompt-wording incumbent tune macro-F1 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.259"},{"source":"Frozen protocol: minimum adoption gain +0.03 macro-F1 (October frozen protocol; also the registered MIN_GAIN of the main run)","value":"0.03"},{"source":"OCTOBER AUDIT: wording-experiment bootstrap CI bound (VERIFICATION_NOTE_2026-11-22.md)","value":"0.072"},{"source":"OCTOBER AUDIT: wording-experiment bootstrap CI bound (VERIFICATION_NOTE_2026-11-22.md)","value":"0.127"},{"source":"OCTOBER AUDIT: tune-split standard error, approx. 0.045 macro-F1 at n=105 (VERIFICATION_NOTE_2026-11-22.md)","value":"0.045"},{"source":"OCTOBER RECORD: fine-tuned CLIP ViT-B/32 NewsCLIPpings accuracy as recorded in the October experimental log (VERIFICATION_NOTE_2026-11-22.md). NOTE: the 2026-11-22 landscape audit records 66.1 for fine-tuned CLIP under its protocol -- the v0.1 rewrite must reconcile the two before printing either.","value":"60.2"},{"source":"OCTOBER DRAFT as printed: SNIFFER NewsCLIPpings accuracy 'exceeding 88%' (precise value 88.4, competitors_ooc.md)","value":"88"},{"source":"OCTOBER AUDIT / benchmark paper Table 2: GPT-4V Standard VALIDATION macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md). WARNING CONTEXT: v0.0 section 4.6 prints this beside 49.9 without regime labels -- the known mix-up; the v0.1 rewrite must label regimes.","value":"51.0"},{"source":"OCTOBER AUDIT / benchmark paper Table 2: LLaVA-1.6-34B + MMD-Agent VALIDATION macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md). See the warning context on 51.0.","value":"49.9"},{"source":"Benchmark paper Table 2: LLaVA-1.6-34B Standard VALIDATION macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md) -- the value the v0.1 rewrite needs to fix the section 4.6 regime mix","value":"25.7"},{"source":"MMFakeBench total pairs, 1,000 validation + 10,000 test (benchmark paper, arXiv:2406.08772)","value":"11000"},{"source":"NewsCLIPpings Merged-Balanced total pairs as stated in the October record (71,072 train + 7,024 validation + 7,264 test)","value":"85360"},{"source":"NewsCLIPpings Merged-Balanced train split size (dataset record)","value":"71072"},{"source":"NewsCLIPpings Merged-Balanced test split size (dataset record)","value":"7264"},{"source":"OCTOBER AUDIT: MMFakeBench development partition size; also the Fake count in the 1,000-row validation split (VERIFICATION_NOTE_2026-11-22.md)","value":"700"},{"source":"OCTOBER AUDIT: per-class denominators in the validation recall counts and the determinism sample size (VERIFICATION_NOTE_2026-11-22.md)","value":"300"},{"source":"OCTOBER AUDIT: visual-class denominator in the validation recall counts (22/100) (VERIFICATION_NOTE_2026-11-22.md)","value":"100"},{"source":"OCTOBER AUDIT: tune split size, rows (VERIFICATION_NOTE_2026-11-22.md)","value":"105"},{"source":"OCTOBER AUDIT: pooled probe state dimensionality, 576-d (VERIFICATION_NOTE_2026-11-22.md)","value":"576"},{"source":"OCTOBER AUDIT: model context length, tokens (VERIFICATION_NOTE_2026-11-22.md)","value":"512"},{"source":"OCTOBER AUDIT: LAYA text model parameter count, millions (VERIFICATION_NOTE_2026-11-22.md)","value":"421"},{"source":"Chance level for binary AUC/accuracy as printed in v0.0 (constant)","value":"0.5"},{"source":"OCTOBER AUDIT: determinism check maximum label delta across batch sizes (VERIFICATION_NOTE_2026-11-22.md)","value":"0.0"},{"source":"Structural: frozen-rule recall-drop ceiling, 5 percentage points (October frozen protocol)","value":"5"},{"source":"Structural: MMFakeBench class count (benchmark paper); also October determinism batch size","value":"4"},{"source":"Structural: VERITE class count (benchmark paper); also 'under 3 points' margin vs fine-tuned CLIP in the October record","value":"3"},{"source":"Structural: October determinism batch size (1, 4, 8) (VERIFICATION_NOTE_2026-11-22.md)","value":"8"},{"source":"Apache License version 2.0, LAYA model license (model record)","value":"2.0"},    {"value": "2026", "source": "Byline: capstone term, Fall 2026 (PAPERORCHESTRA_FINAL_PASS_REQUIREMENTS.md byline)"},
-    {"value": "320", "source": "OCTOBER AUDIT: usable state tokens after question and options, approx. 320 of the 512-token context (VERIFICATION_NOTE_2026-11-22.md)"},
-    {"value": "95", "source": "Structural: 95% confidence-interval level used throughout (frozen protocol constant)"},
-    {"value": "1", "source": "OCTOBER AUDIT: per-class recall count, original class 1/300 on validation (VERIFICATION_NOTE_2026-11-22.md); also October determinism batch size 1"},
-    {"value": "22", "source": "OCTOBER AUDIT: per-class recall count, visual class 22/100 on validation (VERIFICATION_NOTE_2026-11-22.md)"},
-    {"value": "289", "source": "OCTOBER AUDIT: per-class recall count, mismatch class 289/300 on validation (VERIFICATION_NOTE_2026-11-22.md)"},
-    {"value": "32", "source": "Model-name constant: CLIP ViT-B/32 patch size, as in the fine-tuned CLIP reference (competitors_ooc.md)"},
-    {"value": "34", "source": "Model-name constant: LLaVA-1.6-34B parameter count in billions, MMFakeBench benchmark paper Table 2 (competitors_mmfakebench.md)"}]}
+{
+ "_comment": "Allowlist for tools/verify_draft.py number tracing. UNITS CONVENTION: every value is stored exactly as it appears in its source record. LAYA main-run headline metrics are proportions in [0,1] (e.g. 0.6020). Competitor Protocol-A values from COMPETITIVE_LANDSCAPE_2026-11-22.md are stored as PERCENTAGES as published there (61.5 means macro-F1 61.5, i.e. 0.615) -- never mix the two conventions in one sentence without a protocol/units label. October-audit values are stored as printed in the October draft/audit (mixed % and proportions, as they appear in v0.0). RULE: an entry may be added only with a source naming the bundle, audit, or scout file that authorises the number. An entry with no source is itself a gate failure.",
+ "numbers": [
+  {
+   "source": "Main run 2026-11-22: winner test macro-F1, MMFakeBench official test, scored once (final_results_bundle / test_once record)",
+   "value": "0.6020"
+  },
+  {
+   "source": "Main run 2026-11-22: winner test accuracy 0.6130 (test_once record)",
+   "value": "0.613"
+  },
+  {
+   "source": "Baseline paired test macro-F1: October ablation audit AND main-run test_once pairing baseline (both records agree)",
+   "value": "0.2037"
+  },
+  {
+   "source": "Main run 2026-11-22: winner (full, soft_ce, 735 steps) tune macro-F1 (runs/winner record)",
+   "value": "0.7389"
+  },
+  {
+   "source": "Main run 2026-11-22: seed-check rerun tune macro-F1, seed 20261123 (supplementary tier)",
+   "value": "0.7320"
+  },
+  {
+   "source": "Main run 2026-11-22: paired bootstrap delta, winner vs baseline test macro-F1 (test_once record)",
+   "value": "0.3983"
+  },
+  {
+   "source": "Rounded form of 0.3983 (same source)",
+   "value": "0.398"
+  },
+  {
+   "source": "Main run 2026-11-22: bootstrap 95% CI lower bound (test_once record)",
+   "value": "0.3853"
+  },
+  {
+   "source": "Main run 2026-11-22: bootstrap 95% CI upper bound (test_once record)",
+   "value": "0.4108"
+  },
+  {
+   "source": "Rounded form of 0.3853 (same source)",
+   "value": "0.385"
+  },
+  {
+   "source": "Rounded form of 0.4108 (same source)",
+   "value": "0.411"
+  },
+  {
+   "source": "Main run 2026-11-22: winner macro-F1 on MMFakeBench validation (trained eval)",
+   "value": "0.7571"
+  },
+  {
+   "source": "Main run 2026-11-22: winner accuracy on MMFakeBench validation (trained eval)",
+   "value": "0.769"
+  },
+  {
+   "source": "Main run 2026-11-22: base-model accuracy on MMFakeBench validation, run wording (baseline stream)",
+   "value": "0.293"
+  },
+  {
+   "source": "Main run 2026-11-22: base-model macro-F1 on MMFakeBench validation, run wording (baseline stream)",
+   "value": "0.2079"
+  },
+  {
+   "source": "Main run 2026-11-22: PASS 1 NewsCLIPpings validation baseline accuracy, 7,024/7,024 rows, 0 skipped",
+   "value": "0.5141"
+  },
+  {
+   "source": "October record: NewsCLIPpings validation accuracy under October question wording",
+   "value": "0.5083"
+  },
+  {
+   "source": "Main run 2026-11-22: VERITE trained-transfer accuracy, corrected rerun (H3 not met)",
+   "value": "0.3506"
+  },
+  {
+   "source": "Main run 2026-11-22: VERITE baseline accuracy (paired, base checkpoint)",
+   "value": "0.3467"
+  },
+  {
+   "source": "October diagnostic: source-metadata rule accuracy on tune = leakage ceiling (study record; metadata ban)",
+   "value": "0.9150"
+  },
+  {
+   "source": "CAL-1: fitted choice-question temperature on MMFakeBench calib split (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "8.4214"
+  },
+  {
+   "source": "CAL-1: calib-split ECE before temperature scaling (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "0.2664"
+  },
+  {
+   "source": "CAL-1: calib-split ECE after temperature scaling, in-sample (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "0.0865"
+  },
+  {
+   "source": "CAL-1: held-out MMFakeBench validation raw ECE (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "0.1056"
+  },
+  {
+   "source": "Rounded form of 0.1056 (same source)",
+   "value": "0.106"
+  },
+  {
+   "source": "CAL-1: held-out validation ECE with calib temperature applied -- transfer failure (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "0.3955"
+  },
+  {
+   "source": "Rounded form of 0.3955 (same source)",
+   "value": "0.396"
+  },
+  {
+   "source": "CAL-1: split-half held-out raw ECE, half B (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "0.0994"
+  },
+  {
+   "source": "Rounded form of 0.0994 (same source)",
+   "value": "0.099"
+  },
+  {
+   "source": "CAL-1: split-half held-out ECE after half-A temperature fit (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "0.021"
+  },
+  {
+   "source": "CAL-1: split-half fitted temperature, half A (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "1.65"
+  },
+  {
+   "source": "CAL-1: full-validation fitted temperature (CALIBRATION_FINDING_2026-11-22.md)",
+   "value": "1.6"
+  },
+  {
+   "source": "NCP pack fitted choice temperature (PASS 2 runtime manifest; subject to the held-out ECE gate before publication)",
+   "value": "3.857"
+  },
+  {
+   "source": "NCP pack fitted score temperature 2.100 (PASS 2 runtime manifest; same gate as 3.857)",
+   "value": "2.1"
+  },
+  {
+   "source": "NCP pack fitted noul temperature (PASS 2 runtime manifest; same gate as 3.857)",
+   "value": "3.053"
+  },
+  {
+   "source": "Main run 2026-11-22: NCP arm winner tune macro-F1 0.4930, native form, n=250 (ncp_winner record)",
+   "value": "0.493"
+  },
+  {
+   "source": "Main run 2026-11-22: NCP arm winner tune accuracy, n=250 (ncp_winner record)",
+   "value": "0.508"
+  },
+  {
+   "source": "Training-set size of the MMFakeBench winner recipe (490 items; study record)",
+   "value": "490"
+  },
+  {
+   "source": "NewsCLIPpings training-arm carve: train items (swarm-3 verified carve)",
+   "value": "2001"
+  },
+  {
+   "source": "NewsCLIPpings training-arm carve: unique images (swarm-3 verified carve)",
+   "value": "2120"
+  },
+  {
+   "source": "NewsCLIPpings training-arm carve: tune items and calib items, each (swarm-3 verified carve)",
+   "value": "250"
+  },
+  {
+   "source": "LAYA-Vision checkpoint parameter count, millions (model record; October audit)",
+   "value": "201"
+  },
+  {
+   "source": "MMFakeBench official test split size (benchmark paper, arXiv:2406.08772)",
+   "value": "10000"
+  },
+  {
+   "source": "NewsCLIPpings Merged-Balanced validation split size (dataset record)",
+   "value": "7024"
+  },
+  {
+   "source": "VERITE local copy row count (official set is 1,000; local copy carries one extra row -- always print with this qualifier)",
+   "value": "1001"
+  },
+  {
+   "source": "MMFakeBench official validation split size; also VERITE official set size (benchmark papers)",
+   "value": "1000"
+  },
+  {
+   "source": "Whole-study RunPod spend in USD, metered (COMPETITIVE_METRICS_2026-11-22.md)",
+   "value": "5.64"
+  },
+  {
+   "source": "RunPod pod burn rate, USD per hour (console-verified; COMPETITIVE_METRICS_2026-11-22.md)",
+   "value": "0.897"
+  },
+  {
+   "source": "LAYA inference cost per 1,000 predictions in USD, derived from measured 0.16 s/item at $0.897/hr (COMPETITIVE_METRICS_2026-11-22.md)",
+   "value": "0.04"
+  },
+  {
+   "source": "Measured mean prediction latency, seconds per item (COMPETITIVE_METRICS_2026-11-22.md)",
+   "value": "0.16"
+  },
+  {
+   "source": "Winner checkpoint footprint, MB (study record; COMPETITIVE_METRICS_2026-11-22.md)",
+   "value": "805"
+  },
+  {
+   "source": "ESTIMATE: USD cost of scoring the 10,000-item test set once with GPT-4V Standard at published API rates (COMPETITIVE_METRICS_2026-11-22.md) -- always print as an estimate",
+   "value": "155"
+  },
+  {
+   "source": "ESTIMATE: lower bound, USD cost of the same test pass with MMD-Agent (COMPETITIVE_METRICS_2026-11-22.md) -- always print as an estimate",
+   "value": "450"
+  },
+  {
+   "source": "ESTIMATE: upper bound, USD cost of the same test pass with MMD-Agent (COMPETITIVE_METRICS_2026-11-22.md) -- always print as an estimate",
+   "value": "750"
+  },
+  {
+   "source": "PERCENT: GPT-4V + MMD-Agent MMFakeBench TEST macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)",
+   "value": "61.5"
+  },
+  {
+   "source": "PERCENT: GPT-4V + MMD-Agent MMFakeBench VALIDATION macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)",
+   "value": "61.6"
+  },
+  {
+   "source": "PERCENT: GPT-4V Standard MMFakeBench TEST macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)",
+   "value": "48.8"
+  },
+  {
+   "source": "PERCENT: SCPO Top-1 extraction MMFakeBench macro-F1 (COMPETITIVE_LANDSCAPE_2026-11-22.md, Protocol A)",
+   "value": "57.3"
+  },
+  {
+   "source": "PERCENT: DeceptionDecoded fine-tuned MMFakeBench macro-F1 -- SPLIT UNVERIFIED, conditional comparison only (COMPETITIVE_LANDSCAPE_2026-11-22.md)",
+   "value": "58.66"
+  },
+  {
+   "source": "PERCENT: two sourced uses -- SCPO Recall-extraction macro-F1 (never quote as Top-1) and fine-tuned CLIP NewsCLIPpings accuracy (COMPETITIVE_LANDSCAPE_2026-11-22.md; competitors_ooc.md)",
+   "value": "66.1"
+  },
+  {
+   "source": "PERCENT: VERITE original benchmark best multiclass accuracy (competitors_ooc.md)",
+   "value": "52.1"
+  },
+  {
+   "source": "PERCENT: LAMAR VERITE multiclass accuracy, current SOTA (competitors_ooc.md). NOTE: the same digits appear in the October record as the VERITE probe accuracy -- cite the context, not just the number.",
+   "value": "54.9"
+  },
+  {
+   "source": "PERCENT: NewsCLIPpings human average accuracy (competitors_ooc.md)",
+   "value": "65.6"
+  },
+  {
+   "source": "PERCENT: AITR NewsCLIPpings accuracy, evidence-based (competitors_ooc.md)",
+   "value": "93.3"
+  },
+  {
+   "source": "PERCENT: SNIFFER NewsCLIPpings accuracy (competitors_ooc.md; Qi et al. 2024)",
+   "value": "88.4"
+  },
+  {
+   "source": "Percentage points: NewsCLIPpings transfer-probe gain, October record (VERIFICATION_NOTE_2026-11-22.md); also the reference value in the registered H2 criterion",
+   "value": "6.24"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, hosted text route accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.256"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, hosted text route macro-F1 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.203"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, hosted text route balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.328"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, local text route accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.267"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, local text route macro-F1 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.221"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, local text route balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.338"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, paired route accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.320"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, paired route macro-F1 0.19849 rounded as printed in v0.0 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.199"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench validation, paired route balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.303"
+  },
+  {
+   "source": "OCTOBER AUDIT: TF-IDF grouped OOF accuracy, 700 dev rows (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.499"
+  },
+  {
+   "source": "OCTOBER AUDIT: TF-IDF grouped OOF macro-F1 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.416"
+  },
+  {
+   "source": "OCTOBER AUDIT: TF-IDF grouped OOF balanced accuracy (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.423"
+  },
+  {
+   "source": "OCTOBER AUDIT: paired binary accuracy = all-Fake floor, 700 of 1,000 validation items Fake (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.695"
+  },
+  {
+   "source": "OCTOBER AUDIT: paired noul AUC as printed in v0.0 (audit precision 0.5168) (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.517"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench test ablation, paired accuracy, n=9,999 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.2642"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench test ablation, text-only accuracy, n=10,000 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.2793"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench test ablation, text-only macro-F1 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.2181"
+  },
+  {
+   "source": "OCTOBER AUDIT: paired minus text-only accuracy difference, percentage points (VERIFICATION_NOTE_2026-11-22.md; v0.0 prints the CI in proportions -- known unit-mix flag)",
+   "value": "1.51"
+  },
+  {
+   "source": "OCTOBER AUDIT: ablation difference CI bound, proportion units as printed in v0.0 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.0244"
+  },
+  {
+   "source": "OCTOBER AUDIT: ablation difference CI bound, proportion units as printed in v0.0 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.0054"
+  },
+  {
+   "source": "OCTOBER AUDIT: MS-COCO source-pair effect, percentage points (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "18.40"
+  },
+  {
+   "source": "OCTOBER AUDIT: GPT-Rumor/AI-Image source-pair effect, percentage points (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "17.80"
+  },
+  {
+   "source": "OCTOBER AUDIT: ceiling on visual-distortion prediction rate for AI-generated images, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "4.9"
+  },
+  {
+   "source": "OCTOBER AUDIT: AI-image source-pair row count, 350+50 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "400"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings rows featurized for the transfer probe (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "78336"
+  },
+  {
+   "source": "OCTOBER AUDIT: transfer-probe featurization time, hours (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "4.58"
+  },
+  {
+   "source": "OCTOBER AUDIT: selected probe regularization lambda=0.001 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.001"
+  },
+  {
+   "source": "OCTOBER AUDIT: probe training accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "57.8"
+  },
+  {
+   "source": "OCTOBER AUDIT: probe validation accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "56.6"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings test zero-shot accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "51.1"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings test probe accuracy and macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "57.4"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings test zero-shot AUC (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.528"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings test probe AUC (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.598"
+  },
+  {
+   "source": "OCTOBER AUDIT: transfer-probe gain CI lower bound, percentage points (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "4.76"
+  },
+  {
+   "source": "OCTOBER AUDIT: transfer-probe gain CI upper bound, percentage points (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "7.70"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings zero-shot accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "50.10"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings zero-shot accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "52.14"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings zero-shot macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "42.1"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings zero-shot ECE, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "16.4"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings probe accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "56.26"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings probe accuracy CI bound, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "58.44"
+  },
+  {
+   "source": "OCTOBER AUDIT: NewsCLIPpings probe ECE, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "1.1"
+  },
+  {
+   "source": "OCTOBER AUDIT: VERITE zero-shot accuracy, percent (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "50.5"
+  },
+  {
+   "source": "OCTOBER AUDIT: VERITE probe gain, percentage points, CI spans zero -- inconclusive (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "4.37"
+  },
+  {
+   "source": "OCTOBER AUDIT: prompt-wording candidate tune macro-F1 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.290"
+  },
+  {
+   "source": "OCTOBER AUDIT: prompt-wording incumbent tune macro-F1 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.259"
+  },
+  {
+   "source": "Frozen protocol: minimum adoption gain +0.03 macro-F1 (October frozen protocol; also the registered MIN_GAIN of the main run)",
+   "value": "0.03"
+  },
+  {
+   "source": "OCTOBER AUDIT: wording-experiment bootstrap CI bound (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.072"
+  },
+  {
+   "source": "OCTOBER AUDIT: wording-experiment bootstrap CI bound (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.127"
+  },
+  {
+   "source": "OCTOBER AUDIT: tune-split standard error, approx. 0.045 macro-F1 at n=105 (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.045"
+  },
+  {
+   "source": "OCTOBER RECORD: fine-tuned CLIP ViT-B/32 NewsCLIPpings accuracy as recorded in the October experimental log (VERIFICATION_NOTE_2026-11-22.md). NOTE: the 2026-11-22 landscape audit records 66.1 for fine-tuned CLIP under its protocol -- the v0.1 rewrite must reconcile the two before printing either.",
+   "value": "60.2"
+  },
+  {
+   "source": "OCTOBER DRAFT as printed: SNIFFER NewsCLIPpings accuracy 'exceeding 88%' (precise value 88.4, competitors_ooc.md)",
+   "value": "88"
+  },
+  {
+   "source": "OCTOBER AUDIT / benchmark paper Table 2: GPT-4V Standard VALIDATION macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md). WARNING CONTEXT: v0.0 section 4.6 prints this beside 49.9 without regime labels -- the known mix-up; the v0.1 rewrite must label regimes.",
+   "value": "51.0"
+  },
+  {
+   "source": "OCTOBER AUDIT / benchmark paper Table 2: LLaVA-1.6-34B + MMD-Agent VALIDATION macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md). See the warning context on 51.0.",
+   "value": "49.9"
+  },
+  {
+   "source": "Benchmark paper Table 2: LLaVA-1.6-34B Standard VALIDATION macro-F1, percent (VERIFICATION_NOTE_2026-11-22.md) -- the value the v0.1 rewrite needs to fix the section 4.6 regime mix",
+   "value": "25.7"
+  },
+  {
+   "source": "MMFakeBench total pairs, 1,000 validation + 10,000 test (benchmark paper, arXiv:2406.08772)",
+   "value": "11000"
+  },
+  {
+   "source": "NewsCLIPpings Merged-Balanced total pairs as stated in the October record (71,072 train + 7,024 validation + 7,264 test)",
+   "value": "85360"
+  },
+  {
+   "source": "NewsCLIPpings Merged-Balanced train split size (dataset record)",
+   "value": "71072"
+  },
+  {
+   "source": "NewsCLIPpings Merged-Balanced test split size (dataset record)",
+   "value": "7264"
+  },
+  {
+   "source": "OCTOBER AUDIT: MMFakeBench development partition size; also the Fake count in the 1,000-row validation split (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "700"
+  },
+  {
+   "source": "OCTOBER AUDIT: per-class denominators in the validation recall counts and the determinism sample size (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "300"
+  },
+  {
+   "source": "OCTOBER AUDIT: visual-class denominator in the validation recall counts (22/100) (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "100"
+  },
+  {
+   "source": "OCTOBER AUDIT: tune split size, rows (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "105"
+  },
+  {
+   "source": "OCTOBER AUDIT: pooled probe state dimensionality, 576-d (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "576"
+  },
+  {
+   "source": "OCTOBER AUDIT: model context length, tokens (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "512"
+  },
+  {
+   "source": "OCTOBER AUDIT: LAYA text model parameter count, millions (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "421"
+  },
+  {
+   "source": "Chance level for binary AUC/accuracy as printed in v0.0 (constant)",
+   "value": "0.5"
+  },
+  {
+   "source": "OCTOBER AUDIT: determinism check maximum label delta across batch sizes (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "0.0"
+  },
+  {
+   "source": "Structural: frozen-rule recall-drop ceiling, 5 percentage points (October frozen protocol)",
+   "value": "5"
+  },
+  {
+   "source": "Structural: MMFakeBench class count (benchmark paper); also October determinism batch size",
+   "value": "4"
+  },
+  {
+   "source": "Structural: VERITE class count (benchmark paper); also 'under 3 points' margin vs fine-tuned CLIP in the October record",
+   "value": "3"
+  },
+  {
+   "source": "Structural: October determinism batch size (1, 4, 8) (VERIFICATION_NOTE_2026-11-22.md)",
+   "value": "8"
+  },
+  {
+   "source": "Apache License version 2.0, LAYA model license (model record)",
+   "value": "2.0"
+  },
+  {
+   "value": "2026",
+   "source": "Byline: capstone term, Fall 2026 (PAPERORCHESTRA_FINAL_PASS_REQUIREMENTS.md byline)"
+  },
+  {
+   "value": "320",
+   "source": "OCTOBER AUDIT: usable state tokens after question and options, approx. 320 of the 512-token context (VERIFICATION_NOTE_2026-11-22.md)"
+  },
+  {
+   "value": "95",
+   "source": "Structural: 95% confidence-interval level used throughout (frozen protocol constant)"
+  },
+  {
+   "value": "1",
+   "source": "OCTOBER AUDIT: per-class recall count, original class 1/300 on validation (VERIFICATION_NOTE_2026-11-22.md); also October determinism batch size 1"
+  },
+  {
+   "value": "22",
+   "source": "OCTOBER AUDIT: per-class recall count, visual class 22/100 on validation (VERIFICATION_NOTE_2026-11-22.md)"
+  },
+  {
+   "value": "289",
+   "source": "OCTOBER AUDIT: per-class recall count, mismatch class 289/300 on validation (VERIFICATION_NOTE_2026-11-22.md)"
+  },
+  {
+   "value": "32",
+   "source": "Model-name constant: CLIP ViT-B/32 patch size, as in the fine-tuned CLIP reference (competitors_ooc.md)"
+  },
+  {
+   "value": "34",
+   "source": "Model-name constant: LLaVA-1.6-34B parameter count in billions, MMFakeBench benchmark paper Table 2 (competitors_mmfakebench.md)"
+  },
+  {
+   "value": "0.5104",
+   "source": "v1 final_results_bundle.json: NewsCLIPpings trained-arm val accuracy (H2)"
+  },
+  {
+   "value": "0.5002",
+   "source": "v1 PASS 2 runtime manifest: NewsCLIPpings base mean top-confidence 0.50025, as rounded in the study record"
+  },
+  {
+   "value": "11",
+   "source": "Board hardening review 2026-11-22 (BOARD_EVIDENCEGATE_HARDENING.md): 11 ranked items"
+  },
+  {
+   "value": "30",
+   "source": "EvidenceGate design (DESIGN.md): headline-pool date enforcement window, 30 days after the item"
+  },
+  {
+   "value": "245",
+   "source": "v1 recipe family: 245-step budget (notebook CONFIG STEP_GRID; NCP winner step count)"
+  },
+  {
+   "value": "500",
+   "source": "EvidenceGate design (DESIGN.md): Stage B train carve size, 500 items"
+  },
+  {
+   "value": "200",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 held-out item count"
+  },
+  {
+   "value": "65",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 per-class support (true / miscaptioned)"
+  },
+  {
+   "value": "70",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 per-class support (out-of-context)"
+  },
+  {
+   "value": "0.285",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 BASE accuracy"
+  },
+  {
+   "value": "0.330",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED accuracy"
+  },
+  {
+   "value": "0.325",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 EVIDENCE accuracy"
+  },
+  {
+   "value": "0.2462",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 BASE recall true"
+  },
+  {
+   "value": "0.5857",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 BASE recall out-of-context"
+  },
+  {
+   "value": "0.6615",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 TRANSFER recall true"
+  },
+  {
+   "value": "0.2",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 TRANSFER recall miscaptioned"
+  },
+  {
+   "value": "0.1143",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 TRANSFER recall out-of-context"
+  },
+  {
+   "value": "0.3538",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED recall true"
+  },
+  {
+   "value": "0.3846",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED recall miscaptioned"
+  },
+  {
+   "value": "0.2571",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED recall out-of-context"
+  },
+  {
+   "value": "0.3077",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 EVIDENCE recall true"
+  },
+  {
+   "value": "0.6429",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 EVIDENCE recall out-of-context"
+  },
+  {
+   "value": "0.010",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED minus TRANSFER delta"
+  },
+  {
+   "value": "0.080",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED minus TRANSFER CI bound"
+  },
+  {
+   "value": "0.095",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 ADAPTED minus TRANSFER CI bound"
+  },
+  {
+   "value": "0.040",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 EVIDENCE minus BASE delta"
+  },
+  {
+   "value": "0.005",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 EVIDENCE minus BASE CI bound"
+  },
+  {
+   "value": "0.090",
+   "source": "v2 probe VERITE side-arm: verite_sidearm_results.json (held-out 200 items, scored 2026-11-23) \u2014 EVIDENCE minus BASE CI bound"
+  },
+  {
+   "value": "0.2154",
+   "source": "v2 probe REPORT.md, VERITE track table (macro-F1 computed from the same prediction files) \u2014 BASE macro-F1"
+  },
+  {
+   "value": "0.2855",
+   "source": "v2 probe REPORT.md, VERITE track table (macro-F1 computed from the same prediction files) \u2014 TRANSFER macro-F1"
+  },
+  {
+   "value": "0.3310",
+   "source": "v2 probe REPORT.md, VERITE track table (macro-F1 computed from the same prediction files) \u2014 ADAPTED macro-F1"
+  },
+  {
+   "value": "481",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 empty probe (item, variant) pairs attempted"
+  },
+  {
+   "value": "600",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 probe (item, variant) pairs total"
+  },
+  {
+   "value": "597",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 probe pairs non-empty after repair"
+  },
+  {
+   "value": "193",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 probe items with headline coverage after reassembly"
+  },
+  {
+   "value": "64.3",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 probe headline coverage, percent"
+  },
+  {
+   "value": "349",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 VERITE pairs non-empty after repair"
+  },
+  {
+   "value": "324",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 VERITE empty pairs repaired"
+  },
+  {
+   "value": "51",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 VERITE pairs left RETRIEVAL-FAILED"
+  },
+  {
+   "value": "694",
+   "source": "v2 probe REPORT.md, repair outcomes section (2026-11-23) \u2014 Stage B variant-A pools non-empty after repair"
+  },
+  {
+   "value": "89",
+   "source": "v2 probe REPORT.md, VERITE assembly (post-repair) section \u2014 VERITE held-out items with at least one usable passage"
+  },
+  {
+   "value": "44.5",
+   "source": "v2 probe REPORT.md, VERITE assembly (post-repair) section \u2014 VERITE EVIDENCE-arm headline coverage, percent"
+  },
+  {
+   "value": "9",
+   "source": "EvidenceGate design (DESIGN.md): Amendment 9, VERITE promoted to a full track + EVIDENCE arm"
+  },
+  {
+   "value": "6",
+   "source": "EvidenceGate design (DESIGN.md): Amendment 6, Stage B noul attunement"
+  }
+ ]
+}

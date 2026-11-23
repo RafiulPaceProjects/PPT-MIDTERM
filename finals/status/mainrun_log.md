@@ -608,3 +608,46 @@ Baseline 0.2079 -> +0.531 on tune. Selection on tune only; test untouched.
   sync the executed notebook to Drive WITH a timestamped receipt +
   Drive read-back (modifiedTime/version); same discipline at
   test-once, verdict, and pre-termination boundaries.
+
+## SECTION 7d DATA-AXIS BUG + FIX (2026-11-22 ~19:15-19:35 ET)
+- BUG (mine, in the section 7d cell design): the data-axis subset files
+  were written into runs/supplementary/data_*/ carrying the records'
+  ORIGINAL relative image paths ("../../../raw/...", valid only from
+  the protocol dir). The trainer resolves images relative to the train
+  file's own dir, so every data-axis training image missed and was
+  skipped per-record. The cell produced a 7,053,646-line skip stream
+  (1.41 GB of notebook output) and was STOPPED (kernel C2 killed)
+  before either data config wrote a receipt. NO garbage receipts exist.
+- UNAFFECTED: configs 1-13 (head x4, LoRA r8/r32 x4, encoder-LR x4,
+  seed check) trained from the original train file in place — receipts
+  valid, including lora_r8_soft_ce_490 = 0.7037.
+- FIX: notebook surgery on the pod copy — (1) cell 30's giant stream
+  trimmed to head+tail 120 lines with an explicit truncation marker
+  (notebook 1.50 GB -> 6.5 MB; the receipts carry the numbers, the
+  spam was one repeated message); (2) a completion cell inserted at
+  index 31 (all later cells shift +1; bootstrap is now cell 41,
+  test-once cell 40, publish cell 57, bundle cell 59, record cell 61)
+  that regenerates both subsets with paths rebased to
+  "../../../data/raw/...", VERIFIES the first image resolves, trains
+  both data configs, and assembles supplementary_table.json + the
+  data curve. Driver C3 executing it now.
+- Carve note: image count grew slowly under CPU contention with
+  section 7d (292 saved by ~19:30 ET); expected to accelerate now.
+
+## SECTION 7d COMPLETE (2026-11-22 ~19:45 ET) — 15/15 receipts
+seedcheck_full_soft_ce_735_seed20261123 0.7320 | full_lr2e-5_735 0.7178 |
+lora_r8_soft_ce_490 0.7037 | full_lr2e-5_490 0.6871 |
+full_lr5e-6_735 0.6438 | lora_r8_735 0.6362 | full_lr5e-6_490 0.6217 |
+head_rlcd_735 0.4899 | head_soft_ce_490 0.4238 | data_245 0.3670 |
+head_soft_ce_735 0.3098 | head_rlcd_490 0.2590 | lora_r32_735 0.2244 |
+lora_r32_490 0.1168 | data_122 0.1168.
+DATA CURVE (490 steps, winner recipe): 122 items -> 0.1168 (collapsed
+to "original" only), 245 -> 0.3670 (2 of 4 classes), 490 -> 0.6598.
+Seed check: winner recipe at seed 20261123 = 0.7320 vs 0.7389 (tight).
+- DRIVE SYNC RECEIPT (stage boundary, per swarm steer): merged
+  notebook pushed to Drive "Research" (1QGTWMo0cBP5aw5Zm2vUVtrh1Ak__r8j7)
+  at 2026-11-22 19:26:04 ET; read-back: modifiedTime
+  2026-11-23T00:26:03.737Z, size 6,754,363 bytes (exact match),
+  version 45. Same receipt discipline at test-once, verdict, and
+  pre-termination boundaries.
+- Balance $6.3617 at ~19:47 ET (spend $3.41 at $0.90/hr).

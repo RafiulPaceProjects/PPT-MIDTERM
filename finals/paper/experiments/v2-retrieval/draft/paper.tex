@@ -20,6 +20,34 @@ $\rightarrow$ timestamped evidence snapshots $\rightarrow$ LAYA judges pair-only
 pair+evidence on the same 300 validation items (paired comparison, bootstrap
 interval). Fact-check domains are excluded in the headline arm and measured in a
 second arm. Coverage and abstention are reported, not hidden.
+
+\section{Feature: Search $\rightarrow$ LAYA}
+The system feature under test: a SearXNG search is run for each item; the retrieved
+evidence is passed into LAYA's context; LAYA then issues the decision. The model is
+unchanged --- the variable is the evidence in its context.
+\subsection{Attuned questions (registered wording)}
+The evidence arm does not reuse the pair-only questions. \textbf{Choice} (native;
+pristine/falsified): ``Consider the image, its caption, and the retrieved evidence
+below, which reports what is independently known about the people, places, events,
+and origins involved. Does the caption accurately describe this image in its
+original context? Choose pristine if the caption truthfully describes the image as
+originally published, or falsified if the caption misrepresents the image, its
+origin, or its context.'' \textbf{Noul} (binary): ``Given the image, the caption,
+and the retrieved evidence, what is the probability that this image--caption
+pairing is fake --- that the caption does not truthfully describe the image in its
+original context?'' The pair-only control arm keeps the v1 pack questions verbatim;
+the comparison therefore measures the evidence system as deployed, and the paper
+says so.
+\subsection{Attuned scoring}
+Primary: paired accuracy delta (evidence arm minus pair-only) on identical items,
+bootstrap interval. Strata: evidence-found vs no-evidence items reported
+separately. Contamination: headline arm excludes fact-check domains; a second arm
+includes them; both reported. Arbitration: the evidence-arm choice headlines;
+choice/noul disagreement is reported as ``uncertain'' (the v1 rule). Calibration:
+evidence-arm temperatures are fitted only on a reserved calibration slice of
+train-split items, never on validation, with fit-split and held-out ECE both
+reported. Coverage: the share of items with at least one usable evidence passage
+inside the token budget is a headline number, not a footnote.
 \section{Results}
 % EMPTY until verified probe artifacts land (see README promotion rule).
 \section{Discussion}

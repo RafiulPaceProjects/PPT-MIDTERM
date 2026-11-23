@@ -7,3 +7,10 @@
   source: final_results_bundle.json) and the probe design summary.
 - No probe results exist yet; the Results section is intentionally empty and the
   gate discipline forbids filling it from anything but verified probe artifacts.
+
+## exp-v0.2 (2026-11-22)
+- Feature section added: "Search -> LAYA" (SearXNG evidence passed into LAYA's
+  context; LAYA decides), with the attuned CHOICE and NOUL question wordings
+  registered verbatim and the attuned scoring sheet (paired delta, evidence
+  strata, contamination arms, arbitration, CAL-1 calibration rule, coverage).
+- Still no probe results; Results remains empty by gate discipline.

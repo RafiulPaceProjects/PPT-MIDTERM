@@ -29,3 +29,10 @@
   per-pack routing policy (NewsCLIPpings evidence-on, MMFakeBench evidence-off)
   plus a per-item uncertainty trigger; detach = byte-identical to v1.
 - Probe scoring extended: always-on vs uncertainty-triggered modes compared.
+
+## exp-v0.5 (2026-11-22)
+- Hardening subsection added from the adversarial board review: the three
+  pre-Stage-A binding requirements (binding vs corroboration tagging,
+  publication-date enforcement with leakage audit, verdict-neutral
+  image-description diagnostic) summarised; full 11-item ranked list in the
+  study record (BOARD_EVIDENCEGATE_HARDENING.md).

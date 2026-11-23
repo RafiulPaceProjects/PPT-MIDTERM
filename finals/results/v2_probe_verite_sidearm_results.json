@@ -1,0 +1,94 @@
+{
+ "arms": {
+  "BASE": {
+   "n": 200,
+   "accuracy": 0.285,
+   "per_class_recall": {
+    "true": {
+     "n": 65,
+     "recall": 0.2462
+    },
+    "miscaptioned": {
+     "n": 65,
+     "recall": 0.0
+    },
+    "out-of-context": {
+     "n": 70,
+     "recall": 0.5857
+    }
+   }
+  },
+  "TRANSFER": {
+   "n": 200,
+   "accuracy": 0.32,
+   "per_class_recall": {
+    "true": {
+     "n": 65,
+     "recall": 0.6615
+    },
+    "miscaptioned": {
+     "n": 65,
+     "recall": 0.2
+    },
+    "out-of-context": {
+     "n": 70,
+     "recall": 0.1143
+    }
+   }
+  },
+  "ADAPTED": {
+   "n": 200,
+   "accuracy": 0.33,
+   "per_class_recall": {
+    "true": {
+     "n": 65,
+     "recall": 0.3538
+    },
+    "miscaptioned": {
+     "n": 65,
+     "recall": 0.3846
+    },
+    "out-of-context": {
+     "n": 70,
+     "recall": 0.2571
+    }
+   }
+  },
+  "EVIDENCE": {
+   "n": 200,
+   "accuracy": 0.325,
+   "per_class_recall": {
+    "true": {
+     "n": 65,
+     "recall": 0.3077
+    },
+    "miscaptioned": {
+     "n": 65,
+     "recall": 0.0
+    },
+    "out-of-context": {
+     "n": 70,
+     "recall": 0.6429
+    }
+   }
+  }
+ },
+ "comparability_warning": "Held-out 20% carve of the local 1,001-row copy; NOT comparable to published full-set VERITE numbers (LAMAR 54.9 / benchmark best 52.1).",
+ "adapted_minus_transfer": {
+  "n_items": 200,
+  "delta": 0.01,
+  "ci95": [
+   -0.08,
+   0.095
+  ]
+ },
+ "success_adapted_beats_transfer": false,
+ "evidence_minus_base": {
+  "n_items": 200,
+  "delta": 0.04,
+  "ci95": [
+   -0.005,
+   0.09
+  ]
+ }
+}

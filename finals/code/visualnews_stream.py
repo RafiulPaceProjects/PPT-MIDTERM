@@ -172,6 +172,136 @@ class SkipLedger:
         }
 
 
+class _ParallelRangeReader:
+    """Sequential file-like over an HTTP resource, fetched with parallel
+    range segments (escalation added 2026-11-22, main run: the Rice host
+    caps a single connection at ~1.9 MB/s; 8 parallel range reads measured
+    14.6 MB/s aggregate from the pod). Bytes are served strictly in order;
+    verification/ledger semantics upstream are unchanged. If the server
+    does not honor Range, open() raises and the caller falls back to the
+    plain single stream. A segment that cannot be fetched (after retries)
+    or a 120 s stall raises OSError — a stream-level failure, matching
+    the module's restart-the-pass contract."""
+
+    SEGMENT_BYTES = 8 << 20        # 8 MiB per range request
+    WORKERS = 12
+    WINDOW = 24                    # max segments buffered ahead (~192 MiB)
+    STALL_SECONDS = 120
+
+    def __init__(self, url, total):
+        self.url = url
+        self.total = total
+        self.n_segments = (total + self.SEGMENT_BYTES - 1) // self.SEGMENT_BYTES
+        self._buf = {}             # seg_idx -> bytes
+        self._cond = __import__("threading").Condition()
+        self._next_fetch = 0
+        self._read_seg = 0
+        self._read_off = 0
+        self._error = None
+        self._closed = False
+        self.bytes_served = 0
+        import threading
+        self._threads = [threading.Thread(target=self._worker, daemon=True)
+                         for _ in range(self.WORKERS)]
+        for t in self._threads:
+            t.start()
+
+    @classmethod
+    def open(cls, url):
+        req = urllib.request.Request(url, headers={"User-Agent": "laya-stream/1.0",
+                                                   "Range": "bytes=0-0"})
+        resp = urllib.request.urlopen(req, timeout=60)
+        try:
+            cr = resp.headers.get("Content-Range", "")
+            if resp.status != 206 or "/" not in cr:
+                raise OSError("range requests not honored")
+            total = int(cr.rsplit("/", 1)[1])
+        finally:
+            resp.close()
+        return cls(url, total)
+
+    def _fetch(self, idx):
+        start = idx * self.SEGMENT_BYTES
+        end = min(start + self.SEGMENT_BYTES, self.total) - 1
+        last = None
+        for _attempt in range(3):
+            try:
+                req = urllib.request.Request(
+                    self.url, headers={"User-Agent": "laya-stream/1.0",
+                                       "Range": f"bytes={start}-{end}"})
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    if r.status != 206:
+                        raise OSError(f"HTTP {r.status} on segment {idx}")
+                    return r.read()
+            except Exception as exc:  # noqa: BLE001 - retried, then stream-level
+                last = exc
+        raise OSError(f"segment {idx} failed after retries: {last!r}")
+
+    def _worker(self):
+        import time
+        while not self._closed and self._error is None:
+            with self._cond:
+                if self._next_fetch >= self.n_segments:
+                    return
+                if self._next_fetch >= self._read_seg + self.WINDOW:
+                    self._cond.wait(timeout=1.0)
+                    continue
+                idx = self._next_fetch
+                self._next_fetch += 1
+            try:
+                data = self._fetch(idx)
+            except Exception as exc:  # noqa: BLE001
+                with self._cond:
+                    self._error = exc
+                    self._cond.notify_all()
+                return
+            with self._cond:
+                self._buf[idx] = data
+                self._cond.notify_all()
+
+    def read(self, n=-1):
+        if n == 0:
+            return b""
+        if n is None or n < 0:
+            chunks = []
+            while True:
+                c = self.read(1 << 20)
+                if not c:
+                    return b"".join(chunks)
+                chunks.append(c)
+        import time
+        deadline = time.monotonic() + self.STALL_SECONDS
+        while True:
+            with self._cond:
+                if self._error is not None:
+                    raise OSError(f"parallel stream failed: {self._error!r}")
+                data = self._buf.get(self._read_seg)
+                if data is not None:
+                    break
+                if self._read_seg >= self.n_segments:
+                    return b""
+                if time.monotonic() > deadline:
+                    raise OSError("parallel stream stalled (no segment in 120 s)")
+                self._cond.wait(timeout=2.0)
+        avail = len(data) - self._read_off
+        take = min(avail, n)
+        out = data[self._read_off:self._read_off + take]
+        self._read_off += take
+        self.bytes_served += take
+        if self._read_off >= len(data):
+            with self._cond:
+                self._buf.pop(self._read_seg, None)
+                self._read_seg += 1
+                self._read_off = 0
+                self._cond.notify_all()
+        return out
+
+    def close(self):
+        self._closed = True
+        with self._cond:
+            self._cond.notify_all()
+
+
 def _open_stream(source):
     """Return (fileobj, closer) for a URL, local path, or binary file object.
 
@@ -180,6 +310,11 @@ def _open_stream(source):
     if hasattr(source, "read"):
         return source, (lambda: None)
     if isinstance(source, (str,)) and source.startswith(("http://", "https://")):
+        try:
+            reader = _ParallelRangeReader.open(source)
+            return reader, reader.close
+        except Exception:
+            pass  # fall through to the plain single stream
         req = urllib.request.Request(source, headers={"User-Agent": "laya-stream/1.0"})
         # timeout = inactivity timeout on the socket (per read), NOT a
         # total-transfer deadline — a stalled stream raises so the caller

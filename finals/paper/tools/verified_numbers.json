@@ -1084,6 +1084,26 @@
   {
    "value": "0.612",
    "source": "BASELINE_DETAILS_2026-11-23.md: VERITE baseline out-of-context recall 0.612308 (199/325), recomputed from the baseline paired prediction file"
+  },
+  {
+   "value": "200000000",
+   "source": "finals/code/visualnews_stream.py: HARD_PIXEL_LIMIT = 200_000_000, the declared-pixel ceiling refused before any decode allocation in verify_image_bytes"
+  },
+  {
+   "value": "600",
+   "source": "EvidenceGate design (EVIDENCEGATE_DESIGN.md section 4.4): PASSAGE_MAX_CHARS = 600, the per-passage character cap in evidence selection"
+  },
+  {
+   "value": "20",
+   "source": "EvidenceGate design (EVIDENCEGATE_DESIGN.md section 4.4): RETRIEVE_TIMEOUT_S = 20, the per-query search timeout in the RETRIEVE transport step"
+  },
+  {
+   "value": "240",
+   "source": "v2 probe repair script (v2_probe/repair_retrieval.py): circuit-breaker pause of 240 s after 10 consecutive empty queries"
+  },
+  {
+   "value": "256",
+   "source": "EvidenceGate design (EVIDENCEGATE_DESIGN.md sections 4.4/5): the digit string is part of the hash algorithm name SHA-256 used for evidence snapshot integrity, not a measured quantity (same convention as the ResNet18 entry)"
   }
  ]
 }

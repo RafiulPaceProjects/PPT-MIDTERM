@@ -91,6 +91,10 @@ RLCD_W_CE = 1.0
 DEFAULT_BATCH_SIZE = 8  # the notebook CONFIG's BATCH_SIZE (not passed per-call)
 
 CLASS4_CRITERIA = 4  # the native MMFakeBench four-way choice form
+TUNE_FORM = "class4"  # the form the tune (selection) metric is computed on;
+# the NewsCLIPpings arm patches this to "native" (its two forms share a
+# criteria count but carry FLIPPED label indices — pooling them corrupts
+# the metric). See the F1/F2 deviation note, main run 2026-11-22.
 
 
 # ---------------------------------------------------------------------------------------------------------
@@ -147,6 +151,11 @@ def load_records(path):
 
 def _record_form(rec):
     """'class4' for the native four-way choice form, else the question type/shape."""
+    rid = str(rec.get("id") or "")
+    if rid.endswith(":native"):
+        return "native"
+    if rid.endswith(":binary"):
+        return "binary"
     q = rec.get("question") or {}
     if q.get("type") == "choice" and isinstance(q.get("criteria"), dict) and len(q["criteria"]) == CLASS4_CRITERIA:
         return "class4"
@@ -190,7 +199,7 @@ def validate_records(records, path="<records>", check_images=False):
     return {"n": len(records), "forms": forms, "missing_images": missing_images}
 
 
-def _examples(vlm_train, path, form=None):
+def _examples(vlm_train, path, form=None, dataset="mmfakebench"):
     """Prepared records -> laya training/eval examples via ``jsonl_example``.
 
     ``form="class4"`` keeps only the native four-way choice records (the
@@ -205,7 +214,7 @@ def _examples(vlm_train, path, form=None):
     for rec in records:
         if form is not None and _record_form(rec) != form:
             continue
-        ex = vlm_train.jsonl_example(rec, root, dataset="mmfakebench")
+        ex = vlm_train.jsonl_example(rec, root, dataset=dataset)
         if ex is None:
             dropped += 1
             continue
@@ -266,6 +275,7 @@ def _tune_metrics(vlm_train, agent, tune_examples):
     recalls = per_class_recall(y_true, y_pred, k)
     acc = sum(1 for t, p in zip(y_true, y_pred) if t == p) / len(y_true)
     return {
+        "tune_metric_form": TUNE_FORM,
         "tune_macro_f1": macro_f1(y_true, y_pred, k),
         "tune_accuracy": acc,
         "tune_per_class_recall": {name: recalls[i] for i, name in enumerate(names)},
@@ -390,7 +400,7 @@ def _trainable_count(model):
 def train_full_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=245,
                         lr_encoder=1e-5, lr_head=1e-3, seed=0,
                         train_file=None, tune_file=None, out_dir=None,
-                        batch_size=DEFAULT_BATCH_SIZE):
+                        batch_size=DEFAULT_BATCH_SIZE, dataset="mmfakebench"):
     """FULL arm: language encoder + decision head trained, vision tower frozen.
 
     Runs ``vlm_train.train(freeze="full")`` for ``loss="rlcd"`` (the native
@@ -403,8 +413,8 @@ def train_full_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=245,
         raise ValueError("out_dir is required")
     torch, laya, vlm_train = _laya_modules()
     agent = laya.load_vlm(ckpt_id, revision=revision)
-    train_examples = _examples(vlm_train, train_file)
-    tune_examples = _examples(vlm_train, tune_file, form="class4")
+    train_examples = _examples(vlm_train, train_file, dataset=dataset)
+    tune_examples = _examples(vlm_train, tune_file, form=TUNE_FORM, dataset=dataset)
     if loss == "rlcd":
         losses = vlm_train.train(
             agent.model, agent.processor, train_examples,
@@ -421,6 +431,54 @@ def train_full_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=245,
         )
     result = {
         "arm": "full", "loss": loss, "steps": max_steps, "seed": seed,
+        "base": ckpt_id, "revision": revision,
+        "lr_encoder": lr_encoder, "lr_head": lr_head,
+        "n_train_records": len(train_examples),
+        "trainable_params": _trainable_count(agent.model),
+        "loss_first": float(losses[0]), "loss_last": float(losses[-1]),
+        "losses": [float(v) for v in losses],
+    }
+    result.update(_tune_metrics(vlm_train, agent, tune_examples))
+    return _finish(agent, out_dir, result)
+
+
+def train_head_only_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=490,
+                             lr_head=1e-3, lr_encoder=1e-5, seed=0,
+                             train_file=None, tune_file=None, out_dir=None,
+                             batch_size=DEFAULT_BATCH_SIZE, dataset="mmfakebench"):
+    """HEAD-ONLY arm (supplementary tier, amendment (d) 2026-11-22): only the
+    decision head trains — type_emb / head / scorer / act_head — with the
+    encoder AND vision tower frozen, via the library's own freeze="head"
+    (``vlm_train.set_trainable``). Mirrors ``train_full_finetune`` in
+    everything else: rlcd runs ``vlm_train.train(freeze="head")``; soft_ce
+    sets trainable to "head" and runs the module's CE-only loop (its
+    encoder group is then empty by construction). Receipt arm = "head".
+    Supplementary receipts live under runs/supplementary/ and never feed
+    selection, calibration, or test (the caller's out_dir enforces it).
+    """
+    _check_common(loss, max_steps, train_file, tune_file)
+    if out_dir is None:
+        raise ValueError("out_dir is required")
+    torch, laya, vlm_train = _laya_modules()
+    agent = laya.load_vlm(ckpt_id, revision=revision)
+    train_examples = _examples(vlm_train, train_file, dataset=dataset)
+    tune_examples = _examples(vlm_train, tune_file, form=TUNE_FORM, dataset=dataset)
+    if loss == "rlcd":
+        losses = vlm_train.train(
+            agent.model, agent.processor, train_examples,
+            steps=max_steps, batch_size=batch_size, freeze="head",
+            lr_head=lr_head, lr_backbone=lr_encoder, seed=seed,
+            sigma=RLCD_SIGMA, group_size=RLCD_GROUP_SIZE, w_sph=RLCD_W_SPH, w_ce=RLCD_W_CE,
+        )
+    else:  # soft_ce
+        vlm_train.set_trainable(agent.model, "head")
+        losses = _train_soft_ce(
+            torch, vlm_train, agent.model, agent.processor, train_examples,
+            steps=max_steps, batch_size=batch_size, seed=seed,
+            lr_encoder_group=lr_encoder, lr_head_group=lr_head,
+        )
+    result = {
+        "arm": "head", "loss": loss, "steps": max_steps, "seed": seed,
         "base": ckpt_id, "revision": revision,
         "lr_encoder": lr_encoder, "lr_head": lr_head,
         "n_train_records": len(train_examples),
@@ -458,7 +516,7 @@ def train_lora_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=245,
                         lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_targets=None,
                         lr_lora=1e-3, lr_head=1e-3, seed=0,
                         train_file=None, tune_file=None, out_dir=None,
-                        batch_size=DEFAULT_BATCH_SIZE):
+                        batch_size=DEFAULT_BATCH_SIZE, dataset="mmfakebench"):
     """LoRA arm: peft adapters on the encoder, base frozen, head trained.
 
     The binding proven in the 2026-11-22 rehearsal: ``LoraConfig`` over
@@ -480,8 +538,8 @@ def train_lora_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=245,
     except ImportError as exc:
         raise ImportError("the LoRA arm needs peft (pinned 0.22.0): %r" % (exc,)) from exc
     agent = laya.load_vlm(ckpt_id, revision=revision)
-    train_examples = _examples(vlm_train, train_file)
-    tune_examples = _examples(vlm_train, tune_file, form="class4")
+    train_examples = _examples(vlm_train, train_file, dataset=dataset)
+    tune_examples = _examples(vlm_train, tune_file, form=TUNE_FORM, dataset=dataset)
     targets = _filter_lora_targets(agent.model.encoder, lora_targets)
     agent.model.encoder = get_peft_model(
         agent.model.encoder,
@@ -526,7 +584,7 @@ def train_lora_finetune(ckpt_id, revision=None, loss="rlcd", max_steps=245,
 # ---------------------------------------------------------------------------------------------------------
 
 
-def select_and_calibrate(winner_dir, calib_file, out_dir=None):
+def select_and_calibrate(winner_dir, calib_file, out_dir=None, dataset="mmfakebench"):
     """Fit per-type temperatures on the reserved calib split for a SAVED winner.
 
     Loads the winner checkpoint from ``winner_dir``, collects logits on the
@@ -543,7 +601,7 @@ def select_and_calibrate(winner_dir, calib_file, out_dir=None):
         raise FileNotFoundError("calib records file not found: %s" % calib_file)
     torch, laya, vlm_train = _laya_modules()
     agent = laya.load_vlm(winner_dir)
-    calib_examples = _examples(vlm_train, calib_file)
+    calib_examples = _examples(vlm_train, calib_file, dataset=dataset)
     records = vlm_train.collect_logits(agent.model, agent.processor, calib_examples, batch_size=16)
     temps = [float(t) for t in vlm_train.fit_temperatures_from(records)]
     before = vlm_train.metrics_from(records)["all"]

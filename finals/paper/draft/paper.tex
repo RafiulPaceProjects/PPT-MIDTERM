@@ -433,6 +433,294 @@ The study was executed as a single notebook run, and the notebook is the run rec
 \label{fig:collage}
 \end{figure}
 
+\section{Code Appendix: Pseudocode}
+\label{app:code}
+This appendix compresses the study's own code into pseudocode. Each block is a faithful compression of the real code named in its subsection: the same steps in the same order, with the source's named constants, and no invented steps. The source files are versioned with this paper in the code folder of the study repository. Sections~\ref{app:code-verifier} and~\ref{app:code-parallel} describe components of the reported study. Section~\ref{app:code-v2} documents two components built after the study closed, for the follow-on probe; they are labelled as such, and no result reported above depends on them.
+
+\subsection{The VisualNews Stream Verifier}
+\label{app:code-verifier}
+The verifier (\texttt{visualnews\_stream.py}) is the only route by which NewsCLIPpings evaluation images reach the model. The VisualNews archive is streamed once over HTTP and images are never written to disk. Member names in the archive are unreliable at source-dependent rates (payloads behind \texttt{.jpg} names are sometimes GIF, PNG, or BMP), so every decision is made on the decoded bytes, never on the extension. Only integrity failures skip; dataset properties (non-JPEG payloads, palette or RGBA modes, progressive JPEGs, animated images) never do.
+
+{\footnotesize\begin{verbatim}
+function verify_image_bytes(data):        # -> (ok, reason, image)
+    if data is empty:
+        return (False, "empty_member", None)
+    try:
+        img <- PIL open(data)      # format read from the bytes,
+                                   # never from the member name
+        if img.width * img.height > HARD_PIXEL_LIMIT:
+            return (False, "oversize_dimensions", None)
+                                   # 200,000,000 declared pixels:
+                                   # refuse BEFORE allocating the
+                                   # decode buffer
+        img.load()                 # full decode, not a header
+                                   # sniff: truncated payloads that
+                                   # pass open() fail here. Animated
+                                   # images decode frame 0, which is
+                                   # what the pipeline judges.
+    except any error e:
+        return (False, reason_of(e), None)
+                                   # "truncated" if the error
+                                   # reports truncation, else
+                                   # "decode_error"
+    if img.width < MIN_DIMENSION or img.height < MIN_DIMENSION:
+        return (False, "degenerate_dimensions", None)   # 8 pixels
+    if img.mode is palette and it carries byte transparency:
+        img <- img.convert("RGBA") # per PIL's own guidance, so
+                                   # transparency is handled
+    return (True, None, img.convert("RGB"))
+\end{verbatim}}
+
+{\footnotesize\begin{verbatim}
+procedure stream_verified(source, referenced, on_image):
+    wanted <- { normalize(p) : p  for p in referenced }
+    ledger <- new SkipLedger
+    ledger.note_referenced(each referenced path)
+    stream <- open_stream(source)
+      # a URL is fetched through a parallel range reader (range
+      # segments served strictly in order; if the server does not
+      # honour Range, fall back to a plain single stream); a local
+      # path or an open file object is used directly. Socket reads
+      # carry a 120 s inactivity timeout: a stalled stream raises.
+    seen <- {}
+    for member in tar_stream(stream, mode = "r|*"):
+                                   # one pass, members consumed in
+                                   # archive order
+        if member is not a regular file: continue
+        original <- wanted.get(normalize(member.name))
+        if original is absent: continue
+                                   # unreferenced: its payload is
+                                   # never read; the stream reader
+                                   # discards it as it advances
+        seen.add(normalize(member.name))
+        ledger.note_seen(original)
+        data <- read member payload (empty bytes if none)
+        (ok, reason, image) <- verify_image_bytes(data)
+        if not ok:
+            ledger.skip(original, reason); continue
+        ledger.note_verified(original)
+        results.append({ path: original,
+                         prediction: on_image(original, image) })
+    for each referenced path never seen in the stream:
+        ledger.note_missing(path)
+    return (results, ledger.summary())
+    # summary(): referenced / seen / verified / skipped counts,
+    # skip-reason counts, missing count, and the same accounting
+    # per source (bbc, guardian, usa_today, washington_post,
+    # other). A bad member never raises; only stream-level
+    # failure raises, so the caller can restart the pass.
+
+normalize(p): backslashes -> "/"; strip leading "./" segments
+    and a leading "origin/" prefix. Applied identically to tar
+    member names and to referenced paths before matching.
+\end{verbatim}}
+
+\subsection{The Parallel Stream Engine and Its Equivalence Gate}
+\label{app:code-parallel}
+The streamed validation pass of the NewsCLIPpings trained arm (PASS~2) was restarted on a parallel engine, because the serial pass is bounded by a single sequential tar traversal. The measurement procedure is identical to the serial engine's: same verifier semantics, same checkpoint, same pack questions, same temperatures, same prediction call, same row schema. Only execution concurrency changed, and the parallel engine was trusted only after the equivalence gate below passed. The worker processes live in \texttt{parallel\_stream\_engine.py}; the orchestration and the gate live in \texttt{parallel\_gate\_cell.py}, exported from the executed notebook cell.
+
+{\footnotesize\begin{verbatim}
+procedure run_parallel_pass(pack, checkpoint, rows, out_dir):
+    groups <- rows grouped by image member (one image, many rows)
+    saved  <- prediction rows already in out_dir (resume support)
+    done   <- ids of saved rows with status ok
+    start processes under the SPAWN context (never fork: CUDA
+    cannot be re-initialised in a forked subprocess):
+        1 reader process, 6 decode processes, 4 inference
+        processes; queues byte_q (reader -> decoders), img_q
+        (decoders -> inferers), evt_q (all -> coordinator)
+
+    reader: stream the tar once, in archive order; for each
+        member whose normalised name is wanted and not yet sent,
+        emit a "seen" event and put (path, payload bytes) on
+        byte_q; at end of stream signal reader_done (on stream
+        failure, signal aborted instead)
+    decoder (x6): loop on byte_q (stop on sentinel):
+        verify_image_bytes(bytes); on failure emit skip(path,
+        reason); on success emit verified(path) and put (path,
+        image relayed as lossless PNG bytes) on img_q;
+        then signal decode_done
+    inferer (x4): load the checkpoint once; loop on img_q (stop
+        on sentinel): for each row of this image whose id is not
+        in done, predict with the pack's questions and
+        temperatures and emit the item record on evt_q (status
+        ok; blocked if the row's text is missing; error, with
+        the exception counted, if predict raises);
+        then signal infer_done
+    coordinator (the single writer): consume evt_q; update the
+        SkipLedger from seen / verified / skip events; append
+        each item record to paired.predictions.jsonl, never
+        writing an id already saved; when reader_done arrives,
+        stop the decoders; when all decoders are done, stop the
+        inferers; finish when all inferers report done
+    dead-worker guard: if every inference process has exited
+        without reporting done, abort loudly (the pipeline can
+        never finish); likewise if all processes exit before
+        their completion signals
+    on abort: raise; scored rows stay on disk and resume
+    reconciliation (only when not aborted): members skipped by
+        the verifier or missing from the stream get explicit
+        blocked rows for their unscored rows (reason recorded),
+        so every referenced row is accounted for exactly once;
+        metrics and per-source accounting follow from the
+        completed prediction file
+
+equivalence gate (runs before the full parallel pass):
+    shared <- items scored by BOTH the preserved serial partial
+              and a parallel run limited to the serial-scored
+              members (serial file order is tar order, so the
+              gate reads the tar head only)
+    require |shared| >= 100
+    require predicted labels identical on every shared item
+    require max |p_parallel - p_serial| <= 0.001 on shared items
+    any failure -> abort the restart; resume the serial pass
+    executed run: 120 shared items, zero label mismatches, zero
+    measured probability drift; the gate passed
+\end{verbatim}}
+
+\subsection{Post-Study Additions (v2): EvidenceGate and the Retrieval Repair}
+\label{app:code-v2}
+The two components below were built after this study closed, for the follow-on retrieval probe. They are part of the codebase but not of the study reported above: no result in this paper uses them. They are recorded here so the code record is complete.
+
+EvidenceGate is a pluggable per-item state machine around the paired judgement: it routes an item to a pair-only judgement or to a retrieve-then-judge path. Its configuration lives in the pack (\texttt{mode} in \{off, on, auto\}); with the gate off, behaviour is the pipeline of this study exactly. The specification is versioned in the probe design document.
+
+{\footnotesize\begin{verbatim}
+states:
+    INTAKE    item + pack + checkpoint enter; the image is
+              verified under the discipline of the verifier
+              above
+    ROUTE     the routing decision is computed and recorded,
+              with its reason
+    PAIR_ONLY the paired judgement of this study: pack questions
+              verbatim, caption-only context. In mode auto its
+              verdict is provisional.
+    RETRIEVE  the retrieval pipeline below produces the item's
+              frozen evidence bundle
+    JUDGE     the model judges image + caption + evidence
+              context with the registered evidence questions
+    ARBITRATE the arbitration rule of this study: the choice
+              verdict headlines; choice/noul disagreement gives
+              verdict "uncertain"
+    DONE      terminal: exactly one output record for the item
+    ABSTAIN   terminal, unscored: integrity skip or
+              unrecoverable model failure; counted in the run
+              accounting. Distinct from "uncertain", which is a
+              scored outcome produced by arbitration.
+
+transitions and guards:
+    INTAKE -> ROUTE        image verified; pack + gate load
+    INTAKE -> ABSTAIN      verification fails (skip ledgered),
+                           or pack/checkpoint cannot be loaded
+    ROUTE -> PAIR_ONLY     mode off, or mode auto (pair first)
+    ROUTE -> RETRIEVE      mode on
+    PAIR_ONLY -> ARBITRATE mode off; or mode auto and the
+                           trigger does not fire. Headline is
+                           the pair-only verdict.
+    PAIR_ONLY -> RETRIEVE  mode auto and the trigger fires; the
+                           provisional pair-only verdict is kept
+                           in the record as the control
+    RETRIEVE -> JUDGE      bundle holds at least one passage
+    RETRIEVE -> ARBITRATE  bundle empty or unusable; the
+                           pair-only control verdict headlines
+                           and the trace is flagged
+    JUDGE -> ARBITRATE     always; headline is the evidence
+                           verdict
+    ARBITRATE -> DONE      always
+    any -> ABSTAIN         predict raises, or a bundle's
+                           snapshot hash check fails (never
+                           judge on unverified evidence)
+
+trigger (mode auto): the pair-only pass returns the choice
+    distribution P and the noul fake probability q.
+    margin       = largest P - second-largest P
+    disagreement = (choice headline is fake-side) != (q >= 0.5)
+    RETRIEVE fires iff margin < 0.20 or disagreement
+    (both thresholds are registered knobs, frozen before any
+    results; the trigger measurements are recorded in every
+    item's state trace whether or not retrieval fires)
+
+RETRIEVE, five steps (the search index is transport only: it
+    fetches; it does not rank, select, or decide):
+    1. extraction (deterministic): named entities plus noun
+       chunks from the caption; variant A queries are built
+       from these spans by a fixed template
+    2. harness query expansion: a small model returns a
+       one-line claim restating the caption and 2-3 further
+       queries (variant B); it never sees gold labels or the
+       image, and the claim text is used for queries only,
+       never placed inside the judge's evidence block
+    3. transport: both variants' queries issued to the search
+       index (20 s per-query timeout); results unioned and
+       deduplicated by URL; every result, used or not, is
+       written into the snapshot with its URL, title, snippet,
+       engine, timestamp, query, and variant
+    4. triage: fact-check domains on the versioned
+       contamination list and the item's own source article
+       are excluded from the headline pools (kept in the
+       snapshot, counted); results that merely repeat the
+       caption's own claim are down-ranked, not deleted, and
+       near-duplicate clusters collapse to their best member;
+       survivors are ordered by whether they bear on the
+       claim's checkable content (people, places, events,
+       dates)
+    5. selection + freeze: the top 5 passages, at most 600
+       characters each, are selected in triage order and
+       packed under the token budget; the bundle is written
+       to disk and hashed (SHA-256); from this moment the
+       item's evidence is fixed
+\end{verbatim}}
+
+The retrieval repair loop repaired a silent instrument failure in the probe's batch retrieval: concurrent query load tripped the search engine's suspension, and empty result lists were recorded as if they were results for most item-variants. The repair re-runs only the failed pairs, serially, with the items' frozen query lists and the same contamination rules.
+
+{\footnotesize\begin{verbatim}
+procedure repair_retrieval(items, raw_in, harness_in,
+                           raw_out, harness_out):
+    repair_list <- every (item, variant) whose recorded pool
+                   size is 0
+    new_raw <- all raw records except stale repair records for
+               pairs in repair_list (untouched pairs are copied
+               through verbatim; the original files remain as
+               the pre-repair record)
+    streak <- 0
+    for each (item, variant) in repair_list:
+        pool <- {}
+        for q in the item's frozen query list (unchanged):
+            results <- search(q)     # one query at a time; up
+                                     # to 3 attempts, waiting
+                                     # between attempts
+            if results is empty:
+                streak <- streak + 1
+                if streak reaches 10:      # circuit breaker
+                    sleep 240 s            # engine suspension:
+                    streak <- 0            # pause, then resume
+            else:
+                streak <- 0
+            for each result, in rank order:
+                build its record (query, rank, URL, title,
+                snippet, engine, score, published date,
+                fact-check-domain flag, self-hit flag,
+                timestamp, repair flag set)
+                append the record to new_raw
+                keep the best-scoring record per URL in pool
+            sleep 1 s                # the disciplined rate
+        record the item's new pool size for this variant
+        try: re-run triage and passage selection on the pool;
+             store the triage record and both passage sets
+             (headline: fact-check excluded; second: included)
+        on failure: store the error and empty passage sets,
+             and count the failure
+        mark the item repaired, with the repair timestamp
+        flush both output files   # per-pair checkpoint: outputs
+                                  # are rewritten atomically
+                                  # after every pair, so a
+                                  # stopped run loses nothing
+    flush; write the run statistics (pairs repaired, harness
+    calls and failures, balance before and after, spend)
+    # pairs still empty after the repair are reported as
+    # retrieval-failed, a different state from a genuine
+    # no-evidence item, whose search ran and found nothing
+\end{verbatim}}
+
 %%%%%%%%% Appendix %%%%%%%%%%
 
 \end{document}

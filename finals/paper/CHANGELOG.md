@@ -158,3 +158,43 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
   0 warnings; 17 pages, 0 undefined citations/references; the compiled
   PDF still contains zero occurrences of the prohibited terminology and
   zero rendered em dashes.
+
+## v0.3.0 — 2026-11-23 (minor: code appendix with pseudocode, author direction)
+- New Appendix D, "Code Appendix: Pseudocode", at the author's
+  direction ("put in pseudocode for the NewsCLIPpings verifier and
+  the codebase on the important additions"). Each block is a faithful
+  compression of the real code: same steps, same order, the source's
+  named constants, no invented steps. Contents: (1) the VisualNews
+  stream verifier — `verify_image_bytes` (full decode, oversize and
+  degenerate-dimension refusals, decode-by-content, palette
+  transparency route) and `stream_verified` (single-pass tar stream,
+  path normalisation, referenced-member matching, skip ledger with
+  per-source accounting, 120 s inactivity timeout); (2) the parallel
+  stream engine that executed PASS 2 and its equivalence gate
+  (spawn-context reader/decode/inference processes, single writer,
+  dead-worker guard, reconciliation; gate: at least 100 shared
+  items, labels identical, probability drift at most 0.001 — the
+  executed run compared 120 items with zero mismatches and zero
+  drift); (3) under an explicit "post-study additions" label, the
+  v2 EvidenceGate state machine (Intake → Route → PairOnly|Retrieve
+  → Judge → Arbitrate, with its trigger math and five-step RETRIEVE)
+  and the v2 retrieval repair loop (serial re-run of empty pools,
+  1 s pacing, circuit breaker of 10 consecutive empties → 240 s
+  pause, per-pair checkpoint flush). The v2 blocks state in the
+  appendix itself that no result in the paper depends on them.
+- The same four blocks are committed as a standalone document,
+  `finals/code/PSEUDOCODE.md`, with "what this is / where the real
+  code lives" headers. The real sources are now in `finals/code/`:
+  `visualnews_stream.py` and `laya_trainer.py` refreshed to the
+  final run versions (the earlier copies predated the parallel
+  range reader and the tune-form patch), and
+  `parallel_stream_engine.py` + `parallel_gate_cell.py` added.
+- Five new allowlist entries, all code constants with their source
+  files named (276 entries): the 200,000,000 declared-pixel
+  ceiling, the 600-character passage cap, the 20 s retrieval
+  timeout, the 240 s circuit-breaker pause, and the SHA-256 name
+  digit (same convention as the ResNet18 entry). No results,
+  numbers, or claims of the study changed. Gate: PASS, 0 warnings;
+  22 pages, 0 undefined citations/references, 0 overfull lines; the
+  compiled PDF still contains zero occurrences of the prohibited
+  terminology and zero rendered em dashes.

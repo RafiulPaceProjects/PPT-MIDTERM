@@ -77,3 +77,18 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
   style was in review mode; the names were in the v0.1 source throughout.
 - No scientific content changed. Gate: PASS, 0 warnings; 13 pages,
   0 undefined citations/references.
+
+## v0.1.2 — 2026-11-23 (patch: SARD title and author order)
+- The author supplied the abstract actually accepted to SARD (Seidenberg
+  Annual Research Day 2026, December 11, 2026). Its title supersedes the
+  October three-track draft title used in v0.1.1: the paper is now titled
+  "Testing Input Evidence and System 1 Decisions in Misinformation
+  Classification", subtitle "Pre-registered Fine-Tuning of a Typed-Decision
+  Vision-Language Model across Three Benchmarks".
+- Author order now matches the accepted abstract: Ananya Saravani Ganni,
+  Harika Etikela, Rafiul Haider, and Krishna Batula.
+- The introduction continuity paragraph is rewritten against the accepted
+  abstract: the companion study varied input evidence at evaluation time
+  with frozen models; this paper varies it at training time.
+- No scientific content changed. Gate: PASS, 0 warnings; 13 pages,
+  0 undefined citations/references.

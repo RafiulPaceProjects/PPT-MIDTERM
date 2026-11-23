@@ -251,3 +251,50 @@ scored 0.9150 — leakage, not signal). Full field evidence:
 - **STATUS: OPEN** (accepted design consequence of A2) — mitigated:
   the driver keeps scored rows on abort and resumes; range-resume is
   field-proven.
+
+## PAPERORCHESTRA OPERATOR LESSONS (2026-11-22, noted at Rafiul's instruction)
+
+How the baseline paper was run, what the operator (Muse) did wrong, and the
+binding fixes for the final pass. Full requirements:
+PAPERORCHESTRA_FINAL_PASS_REQUIREMENTS.md.
+
+### PO-1. Bibliography never seeded
+- **ISSUE:** The input bundle carried no dataset/model citations, so the
+  paper shipped with 3 references and none for MMFakeBench, VERITE,
+  NewsCLIPpings, or LAYA itself.
+- **EVIDENCE:** literature_agent_output/citation_map.json holds exactly 3
+  entries (Tu 2024 calibration; Qi 2024 SNIFFER; Pedregosa 2011 sklearn).
+- **FIX (final pass):** seed a required-references list into the bundle;
+  source NewsCLIPpings + LAYA citations via Semantic Scholar — never invent.
+
+### PO-2. Published benchmark numbers not source-checked in the bundle
+- **ISSUE:** §4.6 mixes regimes (GPT-4V Standard 51.0 beside LLaVA
+  MMD-Agent 49.9; LLaVA Standard is 25.7) because the agent assembled
+  published numbers itself.
+- **FIX (final pass):** put a verified benchmark table in the experimental
+  log; the paper cites the table, not its own search.
+
+### PO-3. Author block left blank
+- **ISSUE:** No author details in the bundle → the draft invented
+  "Ambitious AI Researcher / AI Research Institute."
+- **FIX (final pass):** bundle carries Rafiul Haider, Pace University,
+  Analytics Capstone Fall 2026 (CRN 72369), Team 3 names.
+
+### PO-4. Environment and budget not pre-flighted
+- **ISSUE:** Run #2 stalled on a missing LaTeX compiler (installed
+  mid-run) and on the Gemini key hitting its cap (402, topped up mid-run).
+- **FIX (final pass):** pre-flight checklist before launch — toolchain
+  present, key balance vs the $10 cap, Semantic Scholar pacing in place.
+
+### PO-5. Run #1 died silently, unmonitored
+- **ISSUE:** The first run stopped during Literature Review with no error;
+  only an after-the-fact watchdog noticed.
+- **FIX (final pass):** liveness monitoring from minute one, alert-only.
+
+### PO-6. Verification was post-hoc, not a gate
+- **ISSUE:** Numbers verified (all matched) but the 6 flags were found
+  after the PDF existed.
+- **FIX (final pass):** pre-delivery gate — citations present and
+  claim-matched, byline real, benchmark lines sourced, amendments
+  (b)/(c)/(d) disclosed, VERITE local-vs-official phrasing, CI units —
+  checked BEFORE delivery, not after.

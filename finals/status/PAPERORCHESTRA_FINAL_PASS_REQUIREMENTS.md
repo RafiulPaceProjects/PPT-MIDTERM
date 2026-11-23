@@ -37,19 +37,28 @@ numbers pasted in. Operator lessons behind each rule: mistakes.md §PO-1..6.
 ## Run configuration — the system used fully
 - All five agents, full pipeline (outline → literature → writing →
   refinement), not a partial pass.
-- Writer seat: gemini-4-neon (Rafiul's pick). Reflection/enrichment:
-  flash-lite tier. Refinement rounds capped to fit the $10 Gemini cap;
-  spend reported with the delivery.
-- **Reflection seat ALSO runs DeepSeek's best model, deepseek-v4-pro**
-  (Rafiul, 2026-11-22 19:24 ET; verified live on his account today —
-  re-verify at pre-flight). PaperOrchestra's agents are Gemini-wired, so
-  v4-pro does not sit inside its loop: it runs a reflection/critique pass
-  over each draft and its critiques feed the refinement stage — the
-  mas.py division of labor (DeepSeek does narrow work, Gemini
-  coordinates). An in-tool routing patch may be attempted at pre-flight
-  ONLY if it smoke-tests clean; otherwise the external pass is the
-  default — the final run is never put at risk for it. DeepSeek spend is
-  separate from the $10 Gemini cap and is reported alongside it.
+- **Seat map (Rafiul, 2026-11-22 19:25 ET — supersedes the earlier
+  Neon-writer config):**
+  - **Writer = deepseek-v4-pro** (DeepSeek's best model; verified live on
+    his account today — re-verify at pre-flight). It writes the section
+    prose from the frozen outline + the seeded bundle.
+  - **Reflection / thinking = gemini-4-neon** — it critiques DeepSeek's
+    drafts, checks numbers and claims, and drives the refinement loop.
+    (Neon earned this seat in the head-to-head: clean and exact, caught
+    the planted inconsistency.)
+  - **Grunt work = the cheap tiers** (Gemini flash-lite, deepseek-flash
+    where suitable): enrichment, extraction, formatting and citation
+    mechanics, compile fixes.
+  - Mechanism: PaperOrchestra's agents are Gemini-wired, so the writer
+    runs as a hybrid — PaperOrchestra orchestrates (outline, literature,
+    refinement, compile) while v4-pro generates the prose externally and
+    drafts return for Neon reflection + refinement. In-tool writer
+    routing may be attempted at pre-flight ONLY if it smoke-tests clean;
+    otherwise the hybrid is the default — the final run is never put at
+    risk for it.
+  - Budgets: the $10 cap binds the Gemini seats (now lighter — Neon
+    reflects, it does not generate the paper). DeepSeek spend is
+    separate and reported alongside Gemini's at delivery.
 - Amendments (b) frozen vision tower, (c) NCP training arm + H2 re-aim,
   (d) supplementary tier: disclosed in the paper as amendments, with the
   pre-registered H1–H5 stated as registered.

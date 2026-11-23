@@ -42,10 +42,16 @@ numbers pasted in. Operator lessons behind each rule: mistakes.md §PO-1..6.
   - **Writer = deepseek-v4-pro** (DeepSeek's best model; verified live on
     his account today — re-verify at pre-flight). It writes the section
     prose from the frozen outline + the seeded bundle.
-  - **Reflection / thinking = gemini-4-neon** — it critiques DeepSeek's
-    drafts, checks numbers and claims, and drives the refinement loop.
-    (Neon earned this seat in the head-to-head: clean and exact, caught
-    the planted inconsistency.)
+  - **Coordinator / thinker / verifier = gemini-4-neon** (Rafiul,
+    2026-11-22 19:29–19:30 ET) — Neon coordinates the agents and the
+    stage order so the pipeline runs correctly, does the reflection /
+    thinking (critiques DeepSeek's drafts, drives the refinement loop),
+    and VERIFIES the result — numbers traced, citations claim-matched —
+    before anything is delivered. (Neon earned this seat in the
+    head-to-head: clean and exact, caught the planted inconsistency.)
+    Rafiul's rationale, recorded: one strong Gemini seat thinking and
+    verifying while the DeepSeek tiers generate and grind is what
+    reduces the cost.
   - **Grunt work = deepseek-flash** (Rafiul, 2026-11-22 19:29 ET):
     enrichment, extraction, formatting and citation mechanics, compile
     fixes — the DeepSeek flash tier takes all of it.

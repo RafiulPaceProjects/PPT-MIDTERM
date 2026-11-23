@@ -256,3 +256,36 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
 - **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings);
   TinyTeX compile clean, 35 pages, zero undefined citations or
   references; no "bootstrap" wording, no em dashes in prose.
+
+## v0.4.1 — 2026-11-23 (patch: defense-hardening pass, owner direction)
+
+- **Purpose:** red-team pass over v0.4.0 as a hostile examiner would
+  read it; full matrix in `~/workspace/misinfo_run/PAPER_DEFENSE_AUDIT.md`
+  (39 attacks graded: 34 defended by the paper as written, 5 thin,
+  all 5 fixed here; 2 open items, both named in the audit). No new
+  claims; every added number traces to the final record or
+  ANALYSIS_GAPS, with 4 new sourced entries in
+  `tools/verified_numbers.json` (554 total).
+- **Fixes:** (1) NewsCLIPpings macro-F1 pair added (baseline 0.4036,
+  trained 0.4436; record 2.2), in the text and in Table tab:ncp,
+  with the verdict stated to read on the native metric, accuracy.
+  (2) Cost ledger completed with the probe's remaining metered spend
+  from record 8.1 (about $3.05 first pod, $1.20 unreachable pod,
+  about $0.14 wedged pod, about $0.50 of retrieval and assembly
+  calls), so the abstract's complete-ledger claim is itemised in
+  the body. (3) Stage B carve provenance stated in the Stage B
+  section: train-side, disjoint from the probe items, zero item and
+  image overlap between its splits (670 unique images across 700
+  items; ANALYSIS_GAPS 5). (4) VERITE four-arm BASE identified as
+  the base checkpoint read on the held-out 200 only, not the v1
+  full-set baseline. (5) The small difference between the Amendment
+  14 full-set BASE/TRANSFER reads and the v1 reads on the same rows
+  (0.3526 against 0.3467; 0.3586 against 0.3506) is now disclosed in
+  the full-set paragraph, with each verdict stated to rest on its
+  own run's reads.
+- **Pending slot (one, unchanged):** the NewsCLIPpings scale probe
+  (Amendment 15); fold-in still owed before any version is called
+  final.
+- **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings);
+  TinyTeX compile clean, 35 pages, zero undefined citations or
+  references; no "bootstrap" wording, no em dashes in prose.

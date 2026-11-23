@@ -2200,6 +2200,22 @@
   {
    "value": "500",
    "source": "LAYA_FINAL_RECORD.md 3.6/5.3: 500-item Stage B / Arm W train carve"
+  },
+  {
+   "value": "0.4436",
+   "source": "LAYA_FINAL_RECORD.md section 2.2: NewsCLIPpings trained arm macro-F1 on streamed validation (mainrun bundle)"
+  },
+  {
+   "value": "0.4036",
+   "source": "LAYA_FINAL_RECORD.md section 2.2: NewsCLIPpings zero-shot baseline macro-F1 on streamed validation (mainrun bundle)"
+  },
+  {
+   "value": "3.05",
+   "source": "LAYA_FINAL_RECORD.md section 8.1: v2 probe first pod spend, about $3.05 across its sessions"
+  },
+  {
+   "value": "670",
+   "source": "ANALYSIS_GAPS.md section 5 (verified from stageb_carve.json): Stage B carve holds 670 unique images across 700 items, zero item and image overlap between splits"
   }
  ]
 }

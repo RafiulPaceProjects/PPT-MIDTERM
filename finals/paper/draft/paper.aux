@@ -95,63 +95,61 @@
 \newlabel{tab:verite}{{5}{11}{VERITE transfer-only results}{table.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}VERITE Transfer}{11}{subsection.4.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Calibration Analysis and H5}{11}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Supplementary Ablations, Protocol Audit, and Competitive Position}{11}{subsection.4.6}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Calibration measurements under distribution shift.}}{12}{table.6}\protected@file@percent }
 \newlabel{tab:calib}{{6}{12}{Calibration measurements under distribution shift}{table.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The CAL-1 calibration picture. A temperature fitted on the calibration split (choice \(T=8.4214\); the score and screen temperatures stayed at 1.0) improves ECE where it was fitted and on the tune split, then severely harms held-out validation calibration (0.1056 to 0.3955). A split-half fit on the held-out distribution itself (\(T=1.65\); a full-validation fit gives \(T=1.6\)) repairs it (0.0994 to 0.021). A same-distribution fit transfers; a training-distribution fit does not. Both published packs therefore ship at \(T=1.0\).}}{12}{figure.6}\protected@file@percent }
 \newlabel{fig:cal1}{{6}{12}{The CAL-1 calibration picture. A temperature fitted on the calibration split (choice \(T=8.4214\); the score and screen temperatures stayed at 1.0) improves ECE where it was fitted and on the tune split, then severely harms held-out validation calibration (0.1056 to 0.3955). A split-half fit on the held-out distribution itself (\(T=1.65\); a full-validation fit gives \(T=1.6\)) repairs it (0.0994 to 0.021). A same-distribution fit transfers; a training-distribution fit does not. Both published packs therefore ship at \(T=1.0\)}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Supplementary Ablations, Protocol Audit, and Competitive Position}{12}{subsection.4.6}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Supplementary-tier behaviour on the MMFakeBench tune split. (a) The data-size curve at 490 steps: performance collapses at 122 training items (0.1168), recovers at 245 items (0.3670), and reaches 0.6598 at 490 items. (b) The LoRA rank ladder under soft-ce: rank 8 and rank 16 remain trainable at both step budgets, while rank 32 collapses. The rank-16 column is the main grid's LoRA arm.}}{13}{figure.7}\protected@file@percent }
 \newlabel{fig:ablations}{{7}{13}{Supplementary-tier behaviour on the MMFakeBench tune split. (a) The data-size curve at 490 steps: performance collapses at 122 training items (0.1168), recovers at 245 items (0.3670), and reaches 0.6598 at 490 items. (b) The LoRA rank ladder under soft-ce: rank 8 and rank 16 remain trainable at both step budgets, while rank 32 collapses. The rank-16 column is the main grid's LoRA arm}{figure.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The data-size curve on its own (supplementary tier, winner recipe at a fixed 490 steps). At 122 training items the model collapses to a single class (tune macro-F1 0.1168); 245 items give 0.3670 and 490 items give 0.6598. The 0.1168 value is shared, to full precision, with the rank-32 supplementary run at 490 steps: both runs collapse to the same single-class prediction pattern on the same tune split, so the identity is a shared collapse value, not a copying error.}}{13}{figure.8}\protected@file@percent }
 \newlabel{fig:datasize}{{8}{13}{The data-size curve on its own (supplementary tier, winner recipe at a fixed 490 steps). At 122 training items the model collapses to a single class (tune macro-F1 0.1168); 245 items give 0.3670 and 490 items give 0.6598. The 0.1168 value is shared, to full precision, with the rank-32 supplementary run at 490 steps: both runs collapse to the same single-class prediction pattern on the same tune split, so the identity is a shared collapse value, not a copying error}{figure.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}EvidenceGate: Retrieved Evidence at Inference and in Training}{13}{section.5}\protected@file@percent }
-\newlabel{sec:evidencegate}{{5}{13}{EvidenceGate: Retrieved Evidence at Inference and in Training}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Design and Registration}{13}{subsection.5.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Protocol-labelled MMFakeBench comparison.}}{14}{table.7}\protected@file@percent }
 \newlabel{tab:protocol}{{7}{14}{Protocol-labelled MMFakeBench comparison}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}EvidenceGate: Retrieved Evidence at Inference and in Training}{14}{section.5}\protected@file@percent }
+\newlabel{sec:evidencegate}{{5}{14}{EvidenceGate: Retrieved Evidence at Inference and in Training}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Design and Registration}{14}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}The Retrieval Collapse and Its Repair}{14}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Reproducibility Audit}{14}{subsection.5.3}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Stage A on the 300 probe items (frozen v1 NewsCLIPpings winner).}}{15}{table.8}\protected@file@percent }
 \newlabel{tab:stagea}{{8}{15}{Stage A on the 300 probe items (frozen v1 NewsCLIPpings winner)}{table.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Stage B on the same 300 probe items (evidence-trained checkpoint).}}{15}{table.9}\protected@file@percent }
-\newlabel{tab:stageb}{{9}{15}{Stage B on the same 300 probe items (evidence-trained checkpoint)}{table.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Reproducibility Audit}{15}{subsection.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Pilot}{15}{subsection.5.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Stage A: Evidence at the Frozen Model}{15}{subsection.5.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Stage B: Evidence in Training, and the Pristine Collapse}{15}{subsection.5.6}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Fixed-coverage accuracy for the probe's two stages (choice-confidence ranking; plain label accuracy on the most confident fraction, no arbitration). Stars mark accuracy among decided items, plotted at each arm's decided fraction. Stage A: the evidence arm is modestly ahead at every coverage level. Stage B: the arms sit within 0.014 of each other at every level, and pair-only is slightly ahead among decided items (0.5241 against 0.5102), while the headline accounting of Table~\ref {tab:stageb} separates them by 0.2467. The Stage B headline gap is produced by the decided fraction (0.9800 evidence against 0.4833 pair-only), not by accuracy where both arms commit.}}{16}{figure.9}\protected@file@percent }
 \newlabel{fig:coverage}{{9}{16}{Fixed-coverage accuracy for the probe's two stages (choice-confidence ranking; plain label accuracy on the most confident fraction, no arbitration). Stars mark accuracy among decided items, plotted at each arm's decided fraction. Stage A: the evidence arm is modestly ahead at every coverage level. Stage B: the arms sit within 0.014 of each other at every level, and pair-only is slightly ahead among decided items (0.5241 against 0.5102), while the headline accounting of Table~\ref {tab:stageb} separates them by 0.2467. The Stage B headline gap is produced by the decided fraction (0.9800 evidence against 0.4833 pair-only), not by accuracy where both arms commit}{figure.9}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Stage B per-class reads (300 probe items; gold 152 pristine, 148 falsified). Choice recall scores the choice head alone; headline recall scores the arbitrated verdict.}}{16}{table.10}\protected@file@percent }
-\newlabel{tab:stagebclass}{{10}{16}{Stage B per-class reads (300 probe items; gold 152 pristine, 148 falsified). Choice recall scores the choice head alone; headline recall scores the arbitrated verdict}{table.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces VERITE four arms on the held-out 200.}}{17}{table.11}\protected@file@percent }
-\newlabel{tab:verite4}{{11}{17}{VERITE four arms on the held-out 200}{table.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Stage B on the same 300 probe items (evidence-trained checkpoint).}}{16}{table.9}\protected@file@percent }
+\newlabel{tab:stageb}{{9}{16}{Stage B on the same 300 probe items (evidence-trained checkpoint)}{table.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Stage B per-class reads (300 probe items; gold 152 pristine, 148 falsified). Choice recall scores the choice head alone; headline recall scores the arbitrated verdict.}}{17}{table.10}\protected@file@percent }
+\newlabel{tab:stagebclass}{{10}{17}{Stage B per-class reads (300 probe items; gold 152 pristine, 148 falsified). Choice recall scores the choice head alone; headline recall scores the arbitrated verdict}{table.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.7}The Scorer Defect and the Audit}{17}{subsection.5.7}\protected@file@percent }
 \newlabel{sec:scorer}{{5.7}{17}{The Scorer Defect and the Audit}{subsection.5.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.8}The VERITE Four-Arm Track}{17}{subsection.5.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces VERITE four arms on the held-out 200.}}{18}{table.11}\protected@file@percent }
+\newlabel{tab:verite4}{{11}{18}{VERITE four arms on the held-out 200}{table.11}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces VERITE arms on the full local set (1,001 rows), Amendment 14. ADAPTED's full-set read is inflated by construction: 801 of the 1,001 rows are its train and tune side; its clean read stays the held-out 0.330. EVIDENCE has no full-set number: frozen snapshots exist only for the 200 held-out items, and no fresh retrieval was run.}}{18}{table.12}\protected@file@percent }
 \newlabel{tab:veritefull}{{12}{18}{VERITE arms on the full local set (1,001 rows), Amendment 14. ADAPTED's full-set read is inflated by construction: 801 of the 1,001 rows are its train and tune side; its clean read stays the held-out 0.330. EVIDENCE has no full-set number: frozen snapshots exist only for the 200 held-out items, and no fresh retrieval was run}{table.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.9}The Screen Beside the Verdict}{18}{subsection.5.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.10}Registered Follow-On: the NewsCLIPpings Scale Probe}{18}{subsection.5.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}The Noul Drill-Down: Wording, Fitting, and Transfer}{18}{section.6}\protected@file@percent }
-\newlabel{sec:noul}{{6}{18}{The Noul Drill-Down: Wording, Fitting, and Transfer}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Design: Eighteen Frozen Wordings}{18}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}The Noul Drill-Down: Wording, Fitting, and Transfer}{19}{section.6}\protected@file@percent }
+\newlabel{sec:noul}{{6}{19}{The Noul Drill-Down: Wording, Fitting, and Transfer}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Design: Eighteen Frozen Wordings}{19}{subsection.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The Three Tune Screens}{19}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Corrected-Rule Verdicts}{19}{subsection.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Phase 2: A Small Training Test}{20}{subsection.6.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Phase 3: The Reporting Evaluations}{20}{subsection.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}The Temperature Lesson}{20}{subsection.6.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Closing Experiments}{20}{section.7}\protected@file@percent }
-\newlabel{sec:closing}{{7}{20}{Closing Experiments}{section.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}MMFakeBench Phase 3 (Validation Only)}{20}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}The Temperature Lesson}{21}{subsection.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Closing Experiments}{21}{section.7}\protected@file@percent }
+\newlabel{sec:closing}{{7}{21}{Closing Experiments}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}MMFakeBench Phase 3 (Validation Only)}{21}{subsection.7.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}G12: The Confirmation Screen}{21}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Arm W: Stage B with a Frozen Wikipedia Corpus}{21}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Arm W: Stage B with a Frozen Wikipedia Corpus}{22}{subsection.7.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {8}Situations Faced}{22}{section.8}\protected@file@percent }
 \newlabel{sec:situations}{{8}{22}{Situations Faced}{section.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Threats to Validity and Warnings}{23}{section.9}\protected@file@percent }
-\newlabel{sec:threats}{{9}{23}{Threats to Validity and Warnings}{section.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Threats to Validity}{23}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Threats to Validity and Warnings}{24}{section.9}\protected@file@percent }
+\newlabel{sec:threats}{{9}{24}{Threats to Validity and Warnings}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Threats to Validity}{24}{subsection.9.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Warnings for Benchmark Users}{24}{subsection.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{24}{section.10}\protected@file@percent }
-\newlabel{sec:conclusion}{{10}{24}{Conclusion}{section.10}{}}
 \bibdata{bibliography}
 \bibcite{Alam2021SurveyMultimodal}{{1}{2021}{{Alam et~al.}}{{Alam, Cresci, Chakraborty, Silvestri, Dimitrov, Martino, Shaar, Firooz, and Nakov}}}
 \bibcite{Augenstein2019MultifcRealworld}{{2}{2019}{{Augenstein et~al.}}{{Augenstein, Lioma, Wang, Lima, Hansen, Hansen, and Simonsen}}}
@@ -159,6 +157,8 @@
 \bibcite{Dai2023InstructblipTowards}{{4}{2023}{{Dai et~al.}}{{Dai, Li, Li, Tiong, Zhao, Wang, Li, Fung, and Hoi}}}
 \bibcite{Gao2021ClipadapterBetter}{{5}{2021}{{Gao et~al.}}{{Gao, Geng, Zhang, Ma, Fang, Zhang, Li, and Qiao}}}
 \bibcite{Gebru2018DatasheetsDatasets}{{6}{2018}{{Gebru et~al.}}{{Gebru, Morgenstern, Vecchione, Vaughan, Wallach, Daumé, and Crawford}}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{25}{section.10}\protected@file@percent }
+\newlabel{sec:conclusion}{{10}{25}{Conclusion}{section.10}{}}
 \bibcite{Gibbs2021AdaptiveConformal}{{7}{2021}{{Gibbs \& Candès}}{{Gibbs and Candès}}}
 \bibcite{Guo2017CalibrationModern}{{8}{2017}{{Guo et~al.}}{{Guo, Pleiss, Sun, and Weinberger}}}
 \bibcite{Guo2021SurveyAutomated}{{9}{2021}{{Guo et~al.}}{{Guo, Schlichtkrull, and Vlachos}}}
@@ -209,14 +209,14 @@
 \newlabel{tab:ablation}{{13}{29}{Supplementary ablation tier on MMFakeBench tune split}{table.13}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {B}Supplementary Tables and Reproducibility Checklist}{29}{appendix.B}\protected@file@percent }
 \newlabel{app:tables}{{B}{29}{Supplementary Tables and Reproducibility Checklist}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Execution Evidence}{29}{appendix.C}\protected@file@percent }
-\newlabel{app:evidence}{{C}{29}{Execution Evidence}{appendix.C}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Code Appendix: Pseudocode}{29}{appendix.D}\protected@file@percent }
-\newlabel{app:code}{{D}{29}{Code Appendix: Pseudocode}{appendix.D}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}The VisualNews Stream Verifier}{29}{subsection.D.1}\protected@file@percent }
-\newlabel{app:code-verifier}{{D.1}{29}{The VisualNews Stream Verifier}{subsection.D.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Execution evidence from the run notebook, reproduced verbatim. Panels show, in order: the frozen configuration; the pinned environment and GPU check; the training grid's tune macro-F1 table; winner selection on the tune split; the test-once marker, which refuses any re-scoring; and the H1--H5 verdicts computed against the frozen rule. Repeated library deprecation warnings are omitted from the excerpts; no values are altered.}}{30}{figure.10}\protected@file@percent }
-\newlabel{fig:collage}{{10}{30}{Execution evidence from the run notebook, reproduced verbatim. Panels show, in order: the frozen configuration; the pinned environment and GPU check; the training grid's tune macro-F1 table; winner selection on the tune split; the test-once marker, which refuses any re-scoring; and the H1--H5 verdicts computed against the frozen rule. Repeated library deprecation warnings are omitted from the excerpts; no values are altered}{figure.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Execution Evidence}{30}{appendix.C}\protected@file@percent }
+\newlabel{app:evidence}{{C}{30}{Execution Evidence}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Code Appendix: Pseudocode}{30}{appendix.D}\protected@file@percent }
+\newlabel{app:code}{{D}{30}{Code Appendix: Pseudocode}{appendix.D}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}The VisualNews Stream Verifier}{30}{subsection.D.1}\protected@file@percent }
+\newlabel{app:code-verifier}{{D.1}{30}{The VisualNews Stream Verifier}{subsection.D.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Execution evidence from the run notebook, reproduced verbatim. Panels show, in order: the frozen configuration; the pinned environment and GPU check; the training grid's tune macro-F1 table; winner selection on the tune split; the test-once marker, which refuses any re-scoring; and the H1--H5 verdicts computed against the frozen rule. Repeated library deprecation warnings are omitted from the excerpts; no values are altered.}}{31}{figure.10}\protected@file@percent }
+\newlabel{fig:collage}{{10}{31}{Execution evidence from the run notebook, reproduced verbatim. Panels show, in order: the frozen configuration; the pinned environment and GPU check; the training grid's tune macro-F1 table; winner selection on the tune split; the test-once marker, which refuses any re-scoring; and the H1--H5 verdicts computed against the frozen rule. Repeated library deprecation warnings are omitted from the excerpts; no values are altered}{figure.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {D.2}The Parallel Stream Engine and Its Equivalence Gate}{32}{subsection.D.2}\protected@file@percent }
 \newlabel{app:code-parallel}{{D.2}{32}{The Parallel Stream Engine and Its Equivalence Gate}{subsection.D.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {D.3}Part II Components: EvidenceGate and the Retrieval Repair}{33}{subsection.D.3}\protected@file@percent }

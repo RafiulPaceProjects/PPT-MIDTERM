@@ -92,3 +92,14 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
   with frozen models; this paper varies it at training time.
 - No scientific content changed. Gate: PASS, 0 warnings; 13 pages,
   0 undefined citations/references.
+
+## v0.1.3 — 2026-11-23 (patch: terminology, author direction)
+- The word "bootstrap" is removed from the paper at the author's direction.
+  The procedure is unchanged and is now described in plain terms throughout:
+  "paired resampling", "paired-resampling 95% CI", "2,000 resamples". The
+  pre-registered criterion reads "paired-resampling 95% CI lower bound
+  greater than zero". Run records and the results bundle keep the standard
+  term; only the paper's prose changed.
+- No numbers, results, or claims changed. Gate: PASS, 0 warnings; 13 pages,
+  0 undefined citations/references; the compiled PDF contains zero
+  occurrences of the removed term.

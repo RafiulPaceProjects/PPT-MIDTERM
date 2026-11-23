@@ -103,7 +103,7 @@ The MMFakeBench development partition is frozen as 490 train items (980 records,
 \subsection{Hypotheses and Evaluation Metrics}
 We pre-register five binary hypotheses before evaluation.
 \begin{itemize}
-    \item \textbf{H1 (MMFakeBench gain):} the winning configuration improves test macro-F1 over the pretrained baseline by at least \(+0.03\), with paired-bootstrap 95\% CI lower bound greater than zero and no per-class recall drop larger than 5 percentage points.
+    \item \textbf{H1 (MMFakeBench gain):} the winning configuration improves test macro-F1 over the pretrained baseline by at least \(+0.03\), with paired-resampling 95\% CI lower bound greater than zero and no per-class recall drop larger than 5 percentage points.
     \item \textbf{H2 (NewsCLIPpings trained arm, as re-aimed by amendment (c)):} validation accuracy falls in the \(0.55\)--\(0.65\) band and improves over the October baseline \(0.5083\) by at least \(+6.24\) percentage points.
     \item \textbf{H3 (VERITE transfer):} the MMFakeBench winner, transferred without VERITE training, reaches accuracy in the \(0.38\)--\(0.48\) band.
     \item \textbf{H4 (recall floor):} the minimum per-class tune recall of the winner is at least \(0.25\).
@@ -130,7 +130,7 @@ where \(B_m\) is the \(m\)-th confidence bin. Negative log-likelihood is compute
 \sum_{i=1}^n
 \log p(y_i\mid x_i,q;\theta).
 \]
-Paired bootstrap confidence intervals use 2,000 resamples, and differences between systems are stated in percentage points rather than as bare percent changes.
+Paired resampling confidence intervals use 2,000 resamples, and differences between systems are stated in percentage points rather than as bare percent changes.
 
 \section{Experiments}
 \label{sec:experiments}
@@ -190,7 +190,7 @@ lora\_rlcd\_735 & 0.1946 & 0.3333 \\
 \end{tabular}
 \end{table}
 
-The winner's per-class tune recalls are 0.656 for original, 0.969 for textual veracity distortion, 0.700 for visual veracity distortion, and 0.613 for mismatch. On the full validation split, the winner reaches accuracy 0.769 and macro-F1 0.7571, while the pretrained baseline under the same frozen wording reaches accuracy 0.293 and macro-F1 0.2079. Table~\ref{tab:mmfake} summarizes the headline test result. The official MMFakeBench test split is scored exactly once, on 9,999 paired rows with the single undecodable item excluded symmetrically from both arms. The winner reaches macro-F1 0.6020 versus baseline 0.2037. Paired bootstrap gives \(\Delta=+0.3983\), 95\% CI \([+0.3853, +0.4108]\). Every per-class recall improves.
+The winner's per-class tune recalls are 0.656 for original, 0.969 for textual veracity distortion, 0.700 for visual veracity distortion, and 0.613 for mismatch. On the full validation split, the winner reaches accuracy 0.769 and macro-F1 0.7571, while the pretrained baseline under the same frozen wording reaches accuracy 0.293 and macro-F1 0.2079. Table~\ref{tab:mmfake} summarizes the headline test result. The official MMFakeBench test split is scored exactly once, on 9,999 paired rows with the single undecodable item excluded symmetrically from both arms. The winner reaches macro-F1 0.6020 versus baseline 0.2037. Paired resampling gives \(\Delta=+0.3983\), 95\% CI \([+0.3853, +0.4108]\). Every per-class recall improves.
 
 The validation-to-test gap for the winner is large: 0.7571 validation macro-F1 versus 0.6020 test macro-F1. This is not a general test-time protocol failure, because the pretrained baseline is nearly flat across the same two splits (0.2079 validation versus 0.2037 test). Instead, the gap is consistent with selection on a small 105-item tune split and specialization to validation-style examples, while the official test contains 10,000 image--text pairs and a broader source/label composition. The per-class test recalls show that the largest remaining errors are on visual veracity distortion (0.512) and mismatch (0.422). By design, we do not use the test split to adapt the model or to select a different configuration after this single scoring.
 
@@ -334,7 +334,7 @@ We presented a pre-registered fine-tuning study of LAYA-Vision, a 201M-parameter
 \label{app:protocol}
 The five pre-registered hypotheses and their binary verdicts are as follows.
 \begin{itemize}
-    \item \textbf{H1 (MMFakeBench gain):} MET on test. The winner improves test macro-F1 from 0.2037 to 0.6020; paired-bootstrap 95\% CI lower bound is \(+0.3853\), and no per-class recall drops.
+    \item \textbf{H1 (MMFakeBench gain):} MET on test. The winner improves test macro-F1 from 0.2037 to 0.6020; paired-resampling 95\% CI lower bound is \(+0.3853\), and no per-class recall drops.
     \item \textbf{H2 (NewsCLIPpings trained arm):} NOT MET. Trained accuracy 0.5104 is outside the \(0.55\)--\(0.65\) band and not at least \(+6.24\) percentage points over the October baseline 0.5083.
     \item \textbf{H3 (VERITE transfer):} NOT MET. Transfer accuracy 0.3506 is outside the \(0.38\)--\(0.48\) band.
     \item \textbf{H4 (recall floor):} MET. Minimum per-class tune recall of the winner is 0.613.

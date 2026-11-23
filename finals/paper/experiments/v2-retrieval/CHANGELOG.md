@@ -22,3 +22,10 @@
   selection; single evaluation on the probe items; test split untouched.
 - Results still empty by gate discipline; verified probe results will land as a
   later exp version.
+
+## exp-v0.4 (2026-11-22)
+- Architecture added per owner directive: EvidenceGate, a pluggable state-machine
+  component (Intake -> Route -> PairOnly|Retrieve -> Judge -> Arbitrate -> Done),
+  per-pack routing policy (NewsCLIPpings evidence-on, MMFakeBench evidence-off)
+  plus a per-item uncertainty trigger; detach = byte-identical to v1.
+- Probe scoring extended: always-on vs uncertainty-triggered modes compared.

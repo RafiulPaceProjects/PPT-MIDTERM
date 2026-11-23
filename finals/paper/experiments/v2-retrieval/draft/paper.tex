@@ -61,6 +61,24 @@ examples formatted exactly as the evidence arm is evaluated. Selection on the
 tune slice only; evaluation once, on the same validation probe items as Stage A;
 the NewsCLIPpings test split stays untouched. Stage A vs Stage B is reported as
 a paired comparison on identical items.
+
+\subsection{Architecture: EvidenceGate, a pluggable state machine}
+The feature is built as a small state machine, a component that plugs onto any
+dataset pack and can be pulled off without changing the base pipeline:
+\textsc{Intake} $\rightarrow$ \textsc{Route} $\rightarrow$
+(\textsc{PairOnly} $|$ \textsc{Retrieve}) $\rightarrow$ \textsc{Judge}
+$\rightarrow$ \textsc{Arbitrate} $\rightarrow$ \textsc{Done}. Routing is decided at
+two levels. Per pack: NewsCLIPpings defaults to evidence-on (the v1 pass measured
+mean confidence 0.5002 --- the pair carries almost no signal), while MMFakeBench
+defaults to evidence-off (pair-only test macro-F1 0.6020 in v1). Per item: inside
+an evidence-optional pack, the pair is judged first and retrieval fires only when
+the decision is uncertain --- a low top-two margin on the choice distribution or
+a choice/noul disagreement (the v1 ``uncertain'' condition). The trigger
+threshold is a registered knob. The component's contract is: in --- item, pack
+config, checkpoint; out --- verdict, choice probabilities, noul probability,
+route taken, evidence snapshot references, state trace. Detached, the system is
+byte-identical to v1. The probe evaluates always-on vs uncertainty-triggered
+routing on identical items (fire rate, accuracy, latency, cost per mode).
 \section{Results}
 % EMPTY until verified probe artifacts land (see README promotion rule).
 \section{Discussion}

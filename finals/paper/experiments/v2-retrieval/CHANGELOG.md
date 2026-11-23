@@ -14,3 +14,11 @@
   registered verbatim and the attuned scoring sheet (paired delta, evidence
   strata, contamination arms, arbitration, CAL-1 calibration rule, coverage).
 - Still no probe results; Results remains empty by gate discipline.
+
+## exp-v0.3 (2026-11-22)
+- Method staging added per owner directive: Stage A baseline (existing checkpoint,
+  zero-shot evidence judging) before Stage B small fine-tune; train carve from the
+  official train split (500/100) with frozen evidence snapshots; tune-only
+  selection; single evaluation on the probe items; test split untouched.
+- Results still empty by gate discipline; verified probe results will land as a
+  later exp version.

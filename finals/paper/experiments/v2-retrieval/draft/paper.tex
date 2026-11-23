@@ -48,6 +48,19 @@ evidence-arm temperatures are fitted only on a reserved calibration slice of
 train-split items, never on validation, with fit-split and held-out ECE both
 reported. Coverage: the share of items with at least one usable evidence passage
 inside the token budget is a headline number, not a footnote.
+
+\subsection{Method: baseline first, then a small fine-tune (with train and test)}
+Stage A (baseline): the existing v1 NewsCLIPpings checkpoint judges pair+evidence
+zero-shot, against the pair-only control on identical items. Stage B (small
+fine-tune): a carve from the official train split only (500 train / 100 tune
+items), each with SearXNG evidence retrieved once and frozen as snapshots ---
+training is reproducible from the snapshots, never from live search, and the
+contamination exclusions apply to training evidence as well. The fine-tune uses
+the v1 recipe family (full arm, soft\_ce, vision tower frozen, 245 steps) on
+examples formatted exactly as the evidence arm is evaluated. Selection on the
+tune slice only; evaluation once, on the same validation probe items as Stage A;
+the NewsCLIPpings test split stays untouched. Stage A vs Stage B is reported as
+a paired comparison on identical items.
 \section{Results}
 % EMPTY until verified probe artifacts land (see README promotion rule).
 \section{Discussion}

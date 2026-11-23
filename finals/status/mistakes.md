@@ -298,3 +298,18 @@ PAPERORCHESTRA_FINAL_PASS_REQUIREMENTS.md.
   claim-matched, byline real, benchmark lines sourced, amendments
   (b)/(c)/(d) disclosed, VERITE local-vs-official phrasing, CI units —
   checked BEFORE delivery, not after.
+
+### CAL-1. Calibration reported in-sample; fitted temperature does not transfer
+- **ISSUE:** The calibration stage fitted the choice temperature (8.4214)
+  on the calib split and reported ECE on the same split (0.2664 -> 0.0865).
+  On held-out val the raw winner already scores ECE 0.1056, and applying
+  the calib temperature degrades it to 0.3955. Split-half on val (fit on
+  500, measure on the disjoint 500) gives T = 1.65 and ECE 0.0994 -> 0.021:
+  a temperature is a property of model x distribution, not of the model.
+- **EVIDENCE:** CALIBRATION_FINDING_2026-11-22.md (parent audit, all
+  numbers recomputed from stored predictions; QTYPES mapping verified in
+  the library source: choice = 0).
+- **STATUS: FIXED BY DISPOSITION** — H5 verdict stands as registered with
+  the qualification recorded in the bundle; the Space ships raw
+  probabilities (T = 1.0); the same fit-then-validate-on-held-out rule is
+  pre-applied to the NewsCLIPpings pack.

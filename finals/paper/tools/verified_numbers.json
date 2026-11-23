@@ -2244,6 +2244,22 @@
   {
    "value": "0.8716",
    "source": "LAYA_FINAL_RECORD.md 5.4 (Amendment 15 comparator); scale_probe_results.json: Stage A P0 falsified headline accuracy on the 300 probe items"
+  },
+  {
+   "source": "LAYA_FINAL_RECORD.md sec. 3.5 (scorer audit recomputation): Stage A fixed-coverage reads on the 300 probe items -- evidence arm accuracy at 80 percent coverage",
+   "value": "0.5375"
+  },
+  {
+   "source": "LAYA_FINAL_RECORD.md sec. 3.5 (scorer audit recomputation): Stage A fixed-coverage reads on the 300 probe items -- pair-only arm accuracy at 80 percent coverage",
+   "value": "0.4958"
+  },
+  {
+   "source": "LAYA_FINAL_RECORD.md sec. 3.5 (scorer audit recomputation): Stage A fixed-coverage reads on the 300 probe items -- evidence arm accuracy among decided items",
+   "value": "0.5533"
+  },
+  {
+   "source": "LAYA_FINAL_RECORD.md sec. 3.5 (scorer audit recomputation): Stage A fixed-coverage reads on the 300 probe items -- pair-only arm accuracy among decided items",
+   "value": "0.5039"
   }
  ]
 }

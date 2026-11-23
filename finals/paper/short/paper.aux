@@ -1,0 +1,78 @@
+\relax 
+\citation{Liu2024MmfakebenchMixedsource}
+\citation{Luo2021NewsclippingsAutomatic}
+\citation{Papadopoulos2023VeriteRobust}
+\citation{Radford2021LearningTransferable,Qi2024SnifferMultimodal}
+\citation{Hu2021LoraLowrank}
+\citation{Radford2021LearningTransferable}
+\citation{Qi2024SnifferMultimodal}
+\citation{Liu2024MmfakebenchMixedsource}
+\citation{Thorne2018FeverLargescale}
+\citation{Hu2021LoraLowrank}
+\citation{Guo2017CalibrationModern,Ovadia2019CanYou,Minderer2021RevisitingCalibration}
+\citation{Gururangan2018AnnotationArtifacts}
+\citation{Kapoor2023LeakageReproducibility,Pineau2020ImprovingReproducibility}
+\citation{Gebru2018DatasheetsDatasets}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{}\protected@file@percent }
+\citation{Hu2021LoraLowrank}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Dataset packs: label spaces, native metrics, evaluation sets.}}{2}{}\protected@file@percent }
+\newlabel{tab:packs}{{I}{2}{}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Protocol}{2}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Pre-registered hypotheses and verdicts.}}{2}{}\protected@file@percent }
+\newlabel{tab:hypotheses}{{II}{2}{}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Part I: Fine-Tuning across Three Benchmarks}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}MMFakeBench: the win}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}NewsCLIPpings and VERITE: the null and the flat transfer}{2}{}\protected@file@percent }
+\citation{Guo2017CalibrationModern,Ovadia2019CanYou,Minderer2021RevisitingCalibration}
+\citation{Gururangan2018AnnotationArtifacts,Kapoor2023LeakageReproducibility,Pineau2020ImprovingReproducibility}
+\citation{Gebru2018DatasheetsDatasets}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces MMFakeBench grid selection on the tune split (105 items).}}{3}{}\protected@file@percent }
+\newlabel{tab:grid}{{III}{3}{}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Protocol A (official MMFakeBench test) comparison, macro-F1 in percent as published. Only the frontier agent system sits above this study's 201M model; every fine-tuned system on the verified official test split sits below it.}}{3}{}\protected@file@percent }
+\newlabel{tab:protocol}{{IV}{3}{}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Calibration, and a leakage ceiling}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Part II: Evidence at Inference and in Training}{3}{}\protected@file@percent }
+\newlabel{sec:part2}{{V}{3}{}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}EvidenceGate and its instrument failure}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Stage A: evidence at the frozen model}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Before-and-after headline results, one panel per dataset, each on its native metric. Left: MMFakeBench test macro-F1, baseline 0.2037 to winner 0.6020. Centre: NewsCLIPpings validation accuracy, baseline 0.5141 to trained 0.5104, a null result. Right: VERITE accuracy under transfer only, baseline 0.3467 to 0.3506, near-flat. The three metrics are never averaged across datasets.}}{4}{}\protected@file@percent }
+\newlabel{fig:headline}{{1}{4}{}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Stage B: evidence in training, and the pristine collapse}{4}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Audited probe tables (300 items). Stage A: frozen Part I winner. Stage B: evidence-trained checkpoint. P2A is numerically identical to P1A in both stages, for the reason given in the text.}}{4}{}\protected@file@percent }
+\newlabel{tab:stageab}{{V}{4}{}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Stage B per-class reads (300 probe items; gold 152 pristine, 148 falsified). Choice recall scores the choice head alone; headline recall scores the arbitrated verdict. The pair-only arm's correct falsified choices are all nulled by arbitration; the evidence arm's choice head almost never chooses falsified.}}{4}{}\protected@file@percent }
+\newlabel{tab:stagebclass}{{VI}{4}{}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Headline accuracy beside accuracy including uncertain, for every headline arm comparison in Part II. The accounting rule, in plain words: headline accuracy counts every item the arbitration labels uncertain as wrong; accuracy including uncertain scores those items by the model's own screen instead, so the two bars for an arm differ only in how its abstentions are scored. Where a gap between arms appears in the blue bars and vanishes or inverts in the orange bars, the gap was a movement in how often the model committed, not in how often it was right. Panel B is the worked example: the evidence arm's headline gain of $+0.2467$ coexists with falsified accuracy of 0 of 148. Panel E shows the scale probe's collapse running the other way, into abstention: at 10,040 training items the model is uncertain on 274 of 300 items. Uncertain counts are printed under each arm.}}{5}{}\protected@file@percent }
+\newlabel{fig:money}{{2}{5}{}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}VERITE four arms, the Wikipedia arm, and the scale probe}{5}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces VERITE four arms on the held-out 200. BASE here is the base checkpoint on the held-out 200 only, not the Part I full-set baseline. BASE and EVIDENCE never predict miscaptioned at all; ADAPTED is the only arm that uses all three labels at volume.}}{5}{}\protected@file@percent }
+\newlabel{tab:verite4}{{VII}{5}{}{table.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Situations faced, in brief}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Contribution 1: An Abstention-Accounting Standard}{6}{}\protected@file@percent }
+\newlabel{sec:abstention}{{VI}{6}{}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Contribution 2: Warnings for Benchmark Users}{6}{}\protected@file@percent }
+\newlabel{sec:warnings}{{VII}{6}{}{section.7}{}}
+\bibstyle{IEEEtran}
+\bibdata{../draft/bibliography}
+\bibcite{Liu2024MmfakebenchMixedsource}{1}
+\bibcite{Luo2021NewsclippingsAutomatic}{2}
+\bibcite{Papadopoulos2023VeriteRobust}{3}
+\bibcite{Radford2021LearningTransferable}{4}
+\bibcite{Qi2024SnifferMultimodal}{5}
+\bibcite{Hu2021LoraLowrank}{6}
+\bibcite{Thorne2018FeverLargescale}{7}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Threats to Validity}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Cost and Reproducibility}{7}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Measured cost and operational characteristics (Part I).}}{7}{}\protected@file@percent }
+\newlabel{tab:cost}{{VIII}{7}{}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {X}Conclusion}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{}\protected@file@percent }
+\bibcite{Guo2017CalibrationModern}{8}
+\bibcite{Ovadia2019CanYou}{9}
+\bibcite{Minderer2021RevisitingCalibration}{10}
+\bibcite{Gururangan2018AnnotationArtifacts}{11}
+\bibcite{Kapoor2023LeakageReproducibility}{12}
+\bibcite{Pineau2020ImprovingReproducibility}{13}
+\bibcite{Gebru2018DatasheetsDatasets}{14}
+\gdef \@abspage@last{8}

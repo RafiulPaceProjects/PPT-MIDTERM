@@ -110,3 +110,20 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
   in the title). Note: the SARD programme listing itself prints the
   numeral; the paper's title page now spells the word out.
 - No other change. Gate: PASS, 0 warnings; 13 pages, 0 undefined.
+
+## v0.1.5 — 2026-11-23 (patch: Gemini row removal and humanizer pass, author direction)
+- Table 1 (cost ledger): the "Gemini spend" row is removed at the author's
+  direction. It was the paper's only mention of an AI system used in the
+  research process; the surrounding cost prose does not reference the row
+  and is unchanged. (The DeepSeek-V3 bibliography entry is a literature
+  citation and stays, as do all compared-system mentions.)
+- Humanizer pass: all nine LaTeX em dashes are removed. Four were prose
+  (introduction): the companion-study parenthetical now uses parentheses,
+  and "outcomes, positive and negative," now uses commas. Five were
+  missing-value cells in the NewsCLIPpings and VERITE tables (baseline
+  falsified recall, binary-screen AUC, and the three baseline per-class
+  recalls), now marked "n/a"; those cells carried no values and none are
+  added. "We additionally report" becomes "We also report" (related work).
+- No numbers, results, or claims changed. Gate: PASS, 0 warnings; 13 pages,
+  0 undefined citations/references; the compiled PDF contains zero
+  occurrences of "Gemini", zero rendered em dashes, and zero "additionally".

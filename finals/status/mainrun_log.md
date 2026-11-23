@@ -651,3 +651,289 @@ Seed check: winner recipe at seed 20261123 = 0.7320 vs 0.7389 (tight).
   version 45. Same receipt discipline at test-once, verdict, and
   pre-termination boundaries.
 - Balance $6.3617 at ~19:47 ET (spend $3.41 at $0.90/hr).
+
+## TEST-ONCE: SCORED ONCE, MARKER RECOVERED (2026-11-22 ~19:50 ET)
+- Cell 40 ran the winner (full_soft_ce_735) on MMFakeBench test via the
+  baseline CLI. Scoring COMPLETED: 10,000 attempted, 9,999 usable,
+  1 error row. Winner test (native): accuracy 0.6130, macro-F1 0.6020
+  (baseline ablation macro-F1 over the same 9,999 = 0.203742).
+- The winner's single error row is test:3824 — the SAME item that
+  errors in the baseline ablation file (gold
+  textual_veracity_distortion): an integrity-bad item under both
+  models, excluded from both sides of the paired bootstrap by the
+  symmetry rule (9,999 pairs).
+- DEVIATION: the CLI exits 1 when any row errors; the cell's
+  subprocess check=True raised CalledProcessError AFTER the outputs
+  were fully written, so the cell errored and its marker write never
+  ran. Remedy (no re-score): the driver forensically validated the
+  completed outputs (row counts, summary, metrics, error-row identity)
+  and wrote runs/.test_scored with a note documenting exactly this.
+  Re-running cell 40 takes its built-in refusal branch. The test split
+  has been scored exactly once.
+
+## TEST BOOTSTRAP DONE (2026-11-22 ~20:05 ET, cell 41)
+- Paired bootstrap (2,000 resamples, seed pinned): n = 9,999 pairs,
+  baseline macro-F1 0.2037 -> winner 0.6020, delta +0.3983,
+  95% CI [0.3853, 0.4108]. pairing_symmetry recorded in
+  runs/test_once.json with excluded_ids ["test:3824"].
+- Winner test per-class recalls: original 0.617, textual 0.834,
+  visual 0.512, mismatch 0.422 — every class IMPROVED vs baseline
+  (recall "drops" are -28.7 to -48.6 pp, i.e. gains); the 5 pp
+  no-drop rule passes with a wide margin.
+- Cell 46 (calibration) first attempt errored: NameError CALIB_FILE
+  (defined in grid cell 19, which must never be shadow-executed).
+  Fixed via the warmup state-prep route; re-running as driver C6.
+
+## VERITE DESIGN CONFLICT + CALIBRATION STATE (2026-11-22 ~20:15 ET)
+- CONFLICT: the packs registry (fix-up patch, cell 24) maps the verite
+  pack's serving checkpoint to the BASE checkpoint ("TRANSFER serving
+  weights"), so cell 43 evaluated the base model on VERITE — its
+  accuracy 0.3467 is bit-identical to the baseline, as expected. The
+  pre-registration (H3 band 0.38-0.48), the original run order
+  ("evaluate the winner on VERITE"), and cell 43's own header all
+  define H3 as the WINNER's transfer. Resolution: cell 43's outputs
+  are preserved as pack_verite_val_v1 (the pack-serving number); a
+  completion cell (new index 44) scores the WINNER into
+  trained_verite_val_v1, which is what the verdict/bundle/record
+  cells read as "winner". VERITE is eval-only — no selection impact.
+- CALIBRATION DONE (cell 46/47): temperatures [8.4214, 1.0, 1.0]
+  fitted on the calib split only (n=210); calib ECE 0.2664 -> 0.0865.
+  Calibrated checkpoint complete at runs/full_soft_ce_735_calibrated
+  (weights + calibration.json). F5 VERIFIED: no result.json inside
+  the calibrated dir — receipt globs stay at exactly 12.
+- The calibration cell stopped after the fit on NameError TUNE_FILE
+  (kernel-global gap, same class as CALIB_FILE before it). An H5
+  completion cell (new index 48) performs ONLY the tune measurement +
+  pack-temperature record — no refit. Driver C7 is executing cells
+  44 + 48 now. New cell map: PASS 2 = 45, verdict = 50, plots =
+  52-54, analyses = 56-57, publish = 59, bundle = 61, record = 63.
+
+## VERITE TRANSFER DEFECT — FIXED + VERIFIED (2026-11-22 ~20:55 ET)
+- Defect chain (two layers): (1) cell 43 served the verite pack's
+  BASE registry pointer instead of the winner — trained_verite_val_v1
+  held base-model predictions (0/1,001 rows differ from baseline,
+  accuracy identical 0.346653). (2) The first fix attempt (cell 44)
+  passed the winner correctly, but run_eval_cli REUSES any populated
+  output dir checkpoint-blindly ("[reuse] ... already on disk"), so
+  the winner was still never scored. Parent audit caught the same
+  defect independently; H3 was held OPEN, never consumed.
+- Fix (cell 45, audit protocol): smoke-scored 12 rows with
+  runs/full_soft_ce_735 into a scratch dir — 12/12 predictions differ
+  from baseline; full pass into a FRESH dir (reuse impossible);
+  row-by-row verification: 543/1,001 predictions differ from
+  baseline; installed as trained_verite_val_v1. The base-serving eval
+  remains preserved at pack_verite_val_v1.
+- CORRECTED H3 NUMBER: winner VERITE transfer accuracy 0.3506,
+  macro-F1 0.2798 (baseline 0.3467 / 0.2819) — transfer is flat;
+  against the pre-registered 0.38-0.48 band, H3 = NOT MET (a real
+  finding, on a verified eval).
+- H5 COMPLETE (cell 48): tune ECE before/after + accuracy 0.7857 ->
+  0.7857 (unchanged) in runs/h5_tune_calibration.json; calib ECE
+  0.2664 -> 0.0865. (Full tune ECE values in the receipt.)
+- Mistakes-register note: any eval helper with a reuse cache must be
+  treated as checkpoint-blind; transfer evals require a fresh dir or
+  a differ-check against the comparison file before their numbers
+  are consumed.
+- DRIVE SYNC RECEIPT (test-once boundary): merged notebook pushed
+  2026-11-22 19:57:56 ET; read-back: modifiedTime
+  2026-11-23T00:57:56.517Z, size 7,156,016 bytes (exact match),
+  version 48. Covers grid, selection, section 7d + completion,
+  test-once + bootstrap, calibration + H5, VERITE fix.
+
+## NCP CARVE COMPLETE (2026-11-22 ~21:00 ET, kernel B cell 22)
+- Stream-save pass: referenced 2,120 -> verified+saved 2,120,
+  skipped 0, missing 0. Protocol newsclippings_finetune_v1:
+  train 2,001 items -> 4,002 records; tune 250 -> 500; calib 250 ->
+  500 (native + binary forms balanced).
+- KEY DISCIPLINE VERIFIED on the written files: every record's keys
+  are exactly {id, image, label, question, state_text}; no
+  text_source / image_source anywhere (swarm key-check passes).
+- Kernel B's work is finished (PASS 1 + carve both complete in the
+  old executing file; final transplant of cells 17/26 outputs into
+  the merged notebook happens before the pre-termination sync).
+- NCP training (cell 28) launched in kernel C9.
+
+## HF TOKEN STAGED (2026-11-22 ~21:10 ET)
+- Token delivered from the Mac workspace (hf token.rtfd/TXT.rtf) via
+  SSH STDIN -> pod ~/.cache/huggingface/token (mode 600). Verified:
+  file non-empty (test -s) and HfApi().whoami() on the pod returns
+  "RafiulHaiderbro". The value was never printed, logged, or stored
+  on this VM; the transient VM copy of the RTF was deleted.
+
+## CALIBRATION TRANSFER FAILURE — parent audit + independent verification (2026-11-22 ~21:15 ET)
+- Temperature mapping verified in the library: QTYPES = {choice: 0,
+  score: 1, noul: 2} — calibration.json temperatures[0] = 8.4214 IS
+  the choice temperature fitted on the calib split.
+- Applied to the winner's HELD-OUT val predictions
+  (trained_mmfakebench_val_v1, 1,000 rows; never used for fitting or
+  selection; 10-bin ECE from stored probabilities):
+    val ECE raw (T=1.0)        = 0.1056   (already under the 0.15 bar)
+    val ECE with T = 8.4214    = 0.3955   (much WORSE)
+    val accuracy               = 0.7690 before and after (argmax-invariant)
+  INDEPENDENTLY RECOMPUTED by this run from the same stored
+  probabilities: identical numbers (0.1056 / 0.3955 / 0.7690).
+- Interpretation: the winner is heavily overconfident on
+  calib-distribution items (in-sample ECE 0.2664 -> 0.0865) but the
+  fitted temperature does not transfer to held-out data.
+- ACTIONS (binding):
+  1. H5 verdict stays per the REGISTERED protocol (calib-split
+     measurement 0.2664 -> 0.0865, tune accuracy unchanged) — not altered.
+  2. The bundle's calibration section carries this held-out transfer
+     result as a recorded qualification (numbers + method).
+  3. PUBLISH: the Space's mmfakebench AFTER probabilities use T=1.0
+     in results.json — NOT 8.4214 — and the Space text states the
+     transfer finding honestly. NCP pack: NO temperature was ever
+     fitted for it (packs registry temperatures = None), so it ships
+     T=1.0 as well; recorded here as the same rule applied.
+  4. Flagged for the mistakes register / book: a calibration fitted
+     on a 210-record calib split from a different item distribution
+     (finetune carve) than the eval population must be validated on
+     held-out data before it is served.
+
+## CALIBRATION ADDENDUM — held-out split-half (parent-computed, 2026-11-22 ~21:18 ET)
+- From the same stored val predictions (NLL grid fit over stored
+  probabilities, seed-20261122 shuffle):
+    temperature fitted on val half A (500 rows): T = 1.65
+    held-out half B (500 rows, never fitted on): ECE raw 0.0994 -> 0.021
+    full-val fit for reference: T = 1.6
+- Conclusion: the benchmark distribution's temperature for the winner
+  is ~1.6, not the calib pool's 8.42. Calibration fitted AND measured
+  on disjoint data from the same distribution works; the calib-split
+  fit encodes training-distribution overconfidence.
+- The bundle's calibration section records ALL THREE measurements:
+  (1) calib in-sample 0.2664 -> 0.0865 @ T=8.4214 (registered H5);
+  (2) val raw 0.1056 / val with calib-T 0.3955 (transfer failure);
+  (3) val split-half 0.0994 -> 0.021 @ T=1.65 (same-distribution fit
+  transfers).
+- Publish stands: the Space ships T=1.0 (the exact evaluated model);
+  the val-fitted ~1.6 is documented in the paper as the
+  deployment-calibration alternative, NOT silently applied.
+
+## PASS 2 pace check (2026-11-22 ~20:27 ET)
+- Row completion looked slow early (443 rows) — diagnosed before
+  concluding: pod network rx measured at 19 MB/s over a 60 s window
+  (the parallel range reader at full speed, matching PASS 1's
+  19.47 MB/s), rows +32/min and accelerating. Row completion is
+  back-loaded by tar position (a row scores only when its image's
+  segment lands) — the same S-curve PASS 1 showed. No intervention;
+  projected completion in line with PASS 1's ~100 min wall.
+
+## NCP PACK TEMPERATURES — swarm finding (2026-11-22 ~20:28 ET)
+- The NCP pack's fitted temperatures [3.857, 2.100, 3.053] are recorded
+  in the PASS 2 runtime manifest as applied during eval (choice T =
+  temperatures[0] = 3.857 per QTYPES = {choice: 0, score: 1, noul: 2}).
+  This CORRECTS my earlier note that no NCP temperature was fitted —
+  the NCP winner checkpoint carries its own calibration.
+- Labels are argmax-invariant, so PASS 2 accuracy is unaffected.
+- Standing rule applied at publish: validate the NCP choice
+  temperature on the PASS 2 scored rows (held-out val, never fitted
+  on) — ECE raw vs ECE with T=3.857. results.json ships the fitted
+  temperature ONLY if it improves held-out ECE; otherwise T=1.0, with
+  the finding recorded in the bundle's calibration section exactly as
+  for MMFakeBench. Either way the bundle records all three
+  temperatures + the held-out validation numbers.
+- The publish-completion cell and the record-addendum cell are updated
+  accordingly (the MMF paragraph's "no NCP temperature fitted" line is
+  superseded by the validation outcome).
+
+## BOARD AMENDMENT — NCP temperature gate, mechanical version governs (2026-11-22 ~20:30 ET)
+- Gate: on the COMPLETED PASS 2 file (7,024 held-out val rows), compute
+  choice-question ECE raw vs ECE with the pack temperatures applied.
+  Ship the temperatures in results.json ONLY if they do not degrade
+  held-out ECE (ECE_with_T <= ECE_raw); otherwise the NCP pack ships
+  T=1.0 like the MMF pack. Both ECE values + the decision are recorded
+  in the bundle's calibration section. The validation script asserts
+  the 7,024-row completed file before computing.
+- Board-required bundle deviations added via the record addendum:
+  (1) F2 inert tag — the executed NCP cell never passed dataset=;
+  training ran under the default "mmfakebench" tag; the tag is stored
+  on examples and never used in conversion; conversion was
+  record-driven; receipts corroborate.
+  (2) Manifest cosmetic label — carve_targets_items.train reads 2000
+  while splits/files carry 2,001 (one-line erratum).
+
+## PASS 2 RESTART — parallel engine (OWNER DECISION, Rafiul 20:39 ET)
+- The serial PASS 2 driver was stopped cleanly at 20:41 ET. Its partial
+  output is preserved untouched at
+  data/processed/midterm/trained_newsclippings_val_v1_serial_partial/
+  with EXACTLY 709 scored rows in paired.predictions.jsonl (plus the
+  runtime manifest). Rows are NEVER mixed across engines.
+- Reason: wall-clock (owner decision). The measurement procedure is
+  unchanged — same visualnews_stream verifier semantics (full PIL
+  decode, integrity-only skips, skip ledger + per-source accounting),
+  same checkpoint runs/ncp_full_soft_ce_245, same pack questions and
+  temperatures as the serial runtime manifest, same row schema. Only
+  execution concurrency changes: single tar reader -> multiprocess
+  decode/verify pool -> inference -> one writer.
+- An equivalence gate precedes the full parallel pass: the parallel
+  engine re-scores ~100 val items the serial pass already scored;
+  labels must be identical on every shared id and probabilities within
+  float tolerance, else the restart aborts and the serial pass resumes
+  from its preserved partial file.
+- Comparability note: PASS 1 ran the serial engine; eval semantics
+  are identical across engines.
+
+## BOARD CLOSE-OUT AMENDMENTS (2026-11-22 ~20:49 ET) — compliance plan
+1. ORDERING: the NCP temperature gate runs BEFORE the bundle is
+   finalised; the bundle's calibration section records the gate's two
+   ECEs + decision NATIVELY — no addendum pass. Implementation: the
+   validation becomes a notebook cell after the parallel PASS 2 cell
+   (writes runs/ncp_temperature_validation.json); the COMPLETE RECORD
+   cell is patched at this stage boundary to (i) fold the calibration
+   qualification (all three measurements) + the NCP gate result into
+   bundle["calibration"], (ii) append every missing checklist
+   deviation natively, (iii) include the cost/operations ledger
+   natively, (iv) include the depth-2 supplementary receipts. The
+   earlier standalone addendum-cell plan is superseded.
+2. DEVIATIONS CHECKLIST for the bundle (each present or marked n/a):
+   amendments (b), (c), (d); F1 native-form selection fix; F2 inert
+   dataset tag (board wording: parameter unset, tag unused in
+   conversion, conversion record-driven); manifest 2000-label erratum;
+   VERITE two-layer defect + fix protocol; calibration qualification
+   (all three measurements); PASS 2 engine change + comparability
+   note. (b)/(c)/(d) are already native to the record cell; the rest
+   are added by the boundary patch.
+3. LEDGER: PASS 2's serial segment and parallel segment are SEPARATE
+   stage lines (durations + rows each) so stage durations reconcile
+   with billed hours. Serial: 709 rows, ~00:52->01:41 UTC (mtimes in
+   the preserved partial dir). Parallel: wall + rows from its
+   accounting (the engine cell is patched post-gate to record
+   wall_seconds in stream_accounting.json — output bookkeeping only,
+   measurement code untouched).
+4. PUBLISH: results.json is generated FROM THE FINALISED BUNDLE —
+   completion work splits: (A) after the publish cell: NCP repo push +
+   Space examples upload; (B) after the record cell: results.json
+   built from final_results_bundle.json -> Space upload + per-pack
+   smoke checks. The publish-boundary Drive sync receipt covers the
+   merged executed notebook in its final state.
+
+## PARALLEL ENGINE — first attempt DEADLOCKED, root cause found + fixed (2026-11-22 ~20:52 ET)
+- Symptom (parent telemetry + own inspection): gate cell "running"
+  but network rx ~1 KiB/s, GPU 0% / 4 MiB, no files touched. Process
+  tree: 4 inference workers DEFUNCT, reader + decoders alive but
+  blocked on full queues, coordinator waiting on events.
+- ROOT CAUSE (workers' own traceback in the cell stderr): the
+  inference workers died at laya.load_vlm -> model.to(device) with
+  "RuntimeError: Cannot re-initialize CUDA in forked subprocess. To
+  use CUDA with multiprocessing, you must use the 'spawn' start
+  method." The kernel carried CUDA state into the fork; torch forbids
+  CUDA in forked children. With no consumers on the image queue, the
+  decode pool and reader blocked on bounded queues — a classic
+  partial-death deadlock; the coordinator's all-dead escape could not
+  fire because reader/decoders stayed alive.
+- FIX: workers moved into a real module (data/workflows/
+  parallel_stream_engine.py, written by the cell) and ALL processes
+  now use the spawn context (clean interpreters, no inherited CUDA
+  state); a dead-worker guard was added (if every inference worker
+  exits without completing, the coordinator aborts loudly and
+  terminates stragglers). The fork attempt's gate scratch dir was
+  discarded (it held only an empty predictions file — zero rows were
+  produced). This failure + fix is part of the engine-change
+  deviation entry.
+- GATE RESULT (spawn engine, re-run): PASS. 120 shared ok items
+  re-scored: label mismatches = 0, max probability difference =
+  0.000000 (bitwise identical to the serial rows). Gate accounting:
+  108 members referenced -> seen -> verified, 0 skipped, 0 missing.
+  Gate wall 278 s including worker spawn + model loads + tar-head
+  read. The parallel restart proceeds to the full pass; the serial
+  fallback was not needed.

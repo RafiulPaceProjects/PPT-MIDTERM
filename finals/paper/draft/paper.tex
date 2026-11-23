@@ -1,0 +1,178 @@
+% =====================================================================
+% LAYA STUDY -- LIVING DRAFT (pre-final skeleton)
+% This file is the PaperOrchestra baseline draft (archived unchanged as
+% v0.0 in ../versions/v0.0/) carried forward as the starting skeleton
+% for the complete-record rewrite. It covers only the October diagnosis
+% half of the study. The complete-record rewrite becomes v0.1.
+% Protocol: ../VERSIONING.md -- History: ../CHANGELOG.md
+% Every number in this file is gated by ../tools/verify_draft.py
+% against ../tools/verified_numbers.json. Do not add a number without
+% a source entry in that allowlist.
+% =====================================================================
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2025_conference,times}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+
+%%%%%%%%% TITLE - PLEASE UPDATE TITLE HERE
+\title{Zero-Shot Multimodal Misinformation Detection: A Diagnostic of Pretrained Typed-Decision Models}
+
+\author{Rafiul Haider\\
+Pace University\\
+Analytics Capstone, Fall 2026\\
+Team 3: Ananya Saravani Ganni, Harika Etikela, Rafiul Haider
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+%%%%%%%%% ABSTRACT %%%%%%%%%
+Multimodal misinformation detection requires identifying not just whether an image-text pair is false, but how it is false. Standard zero-shot evaluations can sometimes obscure degenerate behaviors behind headline metrics. In this work, we conduct an empirical case study of a specific 201M-parameter pretrained typed-decision model (LAYA-Vision) across three datasets: MMFakeBench, NewsCLIPpings, and VERITE. We observe that the model performs poorly in a zero-shot setting, falling below an indicative TF-IDF baseline and suffering from a structural class collapse onto a ``mismatch'' class. These findings reiterate the importance of reporting simple baselines and per-class metrics when evaluating model capabilities. Finally, a linear probe trained on the model's frozen features demonstrates improved performance, indicating that the underlying representations contain useful signals not leveraged by the zero-shot decision head.
+%%%%%%%%% ABSTRACT %%%%%%%%%
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+%%%%%%%%% INTRODUCTION %%%%%%%%%
+Evaluating multimodal misinformation detection poses a unique set of challenges because misleading content rarely relies on a single modality. A social media post typically pairs an image with a caption, and this pair can be false in structurally diverse ways: the text may distort facts, the image may be manipulated, or two individually authentic items might be paired out of context. A reliable detector must therefore articulate not only \textit{whether} a pair is false, but \textit{how} it is false. Most reported capabilities come from large generative Vision-Language Models (VLMs) evaluated in a zero-shot setting. Unfortunately, headline accuracies in these evaluations can obscure underlying failure modes---such as a model simply predicting a majority class for almost every input, which still yields a respectable binary accuracy on an imbalanced dataset. Furthermore, foundational studies demonstrate that VLMs are not inherently well-calibrated for uncertainty out-of-the-box \citep{Tu2024EmpiricalInto}.
+
+Typed-decision models present an efficient, structured alternative to free-text generation. Instead of generating arbitrary tokens, a typed-decision model reads a structured state alongside a question and returns calibrated probabilities over a fixed option set in a single forward pass. Despite their architectural advantages, the out-of-the-box capabilities of smaller pretrained typed-decision models (such as the 201M-parameter LAYA-Vision checkpoint) for multimodal misinformation detection remain largely unverified. While it is well-established that small-scale models struggle with complex zero-shot reasoning, quantifying the exact mechanisms of these failures remains critical.
+
+In this paper, we conduct an empirical case study of a specific 201M-parameter pretrained typed-decision model on multimodal misinformation detection prior to any task-specific fine-tuning. We evaluate the model across three datasets (MMFakeBench, NewsCLIPpings, and VERITE) using multiple modality routes (text-only, image-only, paired image-text, and fusion). To provide a thorough evaluation, results are compared against simple baseline floors, including majority class prediction, an all-Fake constant predictor, and a TF-IDF logistic baseline \citep{Pedregosa2011ScikitlearnMachine}. We apply standard machine learning evaluation practices---such as analyzing per-class recall, confusion structures, and exact calibration measurements---governed by predetermined evaluation rules.
+
+While our study is restricted to a single model, limiting broad generalizability, it establishes a concrete baseline for this specific architecture. Our findings demonstrate that the evaluated model suffers a structural collapse, overwhelmingly defaulting to a ``mismatch'' class regardless of the input content. However, through a subsequent linear transfer probe, we demonstrate that the model's frozen representations carry distinct pairing signals that the zero-shot decision head fails to utilize. Ultimately, this case study provides a reproducible baseline and a concrete taxonomy of structural failures necessary for evaluating the future adaptation of structured-output models to misinformation detection.
+%%%%%%%%% INTRODUCTION %%%%%%%%%
+
+\section{Related Work}
+\label{sec:related_work}
+%%%%%%%%% RELATED WORK %%%%%%%%%
+The landscape of multimodal misinformation detection exhibits a significant divide between highly parameterized or retrieval-augmented systems and the necessity for robust diagnostic baselines. We analyze the current methodologies to contextualize our case study.
+
+\subsection{Large Generative Vision-Language Models}
+Large generative Vision-Language Models (VLMs), such as the GPT-4V and LLaVA families, have become the standard backbone for zero-shot visual reasoning and misinformation evaluation. Standard evaluation protocols for these models often rely on binary classification metrics that can obscure critical structural flaws. Research has shown that these models are not inherently calibrated for uncertainty and often require post-hoc temperature scaling or extensive alignment to function reliably across distribution shifts \citep{Tu2024EmpiricalInto}. While generative VLMs can be evaluated rigorously without parsing heuristics (e.g., by comparing the log-likelihoods of target classes), they natively lack structured, calibrated outputs in a single forward pass. Our study focuses narrowly on typed-decision models, an architectural paradigm that directly outputs calibrated probabilities over a fixed set of options. This structured output format natively facilitates per-class auditing and exposes exact structural bottlenecks (e.g., representation collapse).
+
+\subsection{Supervised and Retrieval-Augmented Detectors}
+To achieve state-of-the-art accuracy in multimodal misinformation, recent approaches have heavily relied on end-to-end task-specific fine-tuning and external web retrieval. Systems designed for out-of-context detection, such as SNIFFER, employ multi-stage instruction tuning combined with external tool utilization and knowledge retrieval to verify contextual consistency \citep{Qi2024SnifferMultimodal}. While these end-to-end tuned and retrieval-augmented systems are highly accurate, their architectures entangle the model's inherent reasoning capabilities with specific training exposure and external evidence gathering. 
+
+Our work is entirely orthogonal to these highly optimized supervised detectors. We do not attempt to achieve state-of-the-art accuracy over systems like SNIFFER \citep{Qi2024SnifferMultimodal}. Instead, we rely on standard linear probing \citep{Pedregosa2011ScikitlearnMachine} and simple baseline comparisons to isolate the baseline utility of the pretrained representation itself. By mapping zero-shot failure modes, our study provides a necessary floor before proceeding to task-specific fine-tuning regimes.
+%%%%%%%%% RELATED WORK %%%%%%%%%
+
+\section{Methodology}
+\label{sec:method}
+%%%%%%%%% METHOD %%%%%%%%%
+\subsection{Typed-Decision Modeling and Task Formulation}
+What fundamentally distinguishes a typed-decision model from a standard discriminative classifier (which maps raw features to fixed class logits) or a generative VLM (which autoregressively produces free-text tokens) is its architectural interface. A typed-decision model maps a natively structured state alongside a typed question directly to calibrated probabilities over a dynamic, fixed option set in a single forward pass. 
+
+In this study, we employ LAYA and LAYA-Vision (developed by ConvAI Innovations and released under an Apache 2.0 license), which are typed-decision models built upon a ModernBERT-large architecture. We explicitly note a documented parameter count discrepancy: while the standard LAYA text model card reports 421 million parameters, the specific LAYA-Vision checkpoint utilized across all our experiments strictly contains 201 million parameters. The model supports a 512-token English context length. After accounting for the question and the fixed options, approximately 320 tokens remain available for the state representation. 
+
+We restrict our primary evaluation to a single typed-decision model. Our evaluation focuses exclusively on LAYA-Vision as a targeted case study of the typed-decision paradigm. We aimed to isolate the behavior of a fixed-option decision head without confounding factors from different architectures, keeping the scope strictly focused on establishing a baseline for this specific model.
+
+\subsection{Diagnostic Protocol and Frozen Rules}
+To ensure the integrity of our zero-shot evaluation, we adopt standard evaluation practices with predetermined decision rules. Any proposed prompt wording improvement is adopted only if it improves the tuning split's macro-F1 score by at least $+0.03$, while simultaneously ensuring that the paired bootstrap 95\% confidence interval (CI) lower bound is strictly greater than 0, and no individual class recall drops by more than 5 percentage points. For instance, in our prompt wording experiment on the 105-row tune split, a candidate wording achieved 0.290 macro-F1 against the incumbent's 0.259 (+0.030). However, the paired bootstrap 95\% CI was $[-0.072, 0.127]$, failing the requirement that the lower bound be strictly positive, leading us to retain the incumbent wording.
+
+The model is queried using two distinct formats for binary Fake/True judgments: a two-option \texttt{choice} question utilizing neutral option keys, and a \texttt{noul} probability question. We also verify the deterministic nature of the model's outputs; tests across batch sizes (1, 4, 8) and prefix-caching states yielded identical labels on a 300-row sample (maximum delta 0.0).
+
+Our protocol includes the reporting of degenerate floors prior to any headline metrics. These floors include majority class prediction, a constant all-Fake predictor, and a simple TF-IDF logistic baseline. Our log analysis reveals that small tuning splits (e.g., our 105-row tune split) yield standard errors of approximately 0.045 macro-F1, rendering them statistically underpowered to reliably resolve our required $+0.03$ effect size. Consequently, full-split evaluation is utilized for robust measurement.
+
+\subsection{Feature Transfer Probe Design}
+To determine whether the model's failure stems from an uninformative representation or an inadequate zero-shot decision head, we design a feature transfer probe. We extract the 576-dimensional frozen pooled state from the LAYA-Vision checkpoint for each input instance. We then train a linear logistic regression probe \citep{Pedregosa2011ScikitlearnMachine} directly on these representations, ensuring the underlying model weights remain strictly frozen. To prevent data leakage, the regularization parameter $\lambda$ is selected via a grid search exclusively on the validation splits. The selected probe is then evaluated exactly once on the held-out test splits, ensuring that the evaluation strictly measures the linear separability of the frozen multimodal features.
+%%%%%%%%% METHOD %%%%%%%%%
+
+\section{Experiments}
+\label{sec:experiments}
+%%%%%%%%% EXPERIMENTS %%%%%%%%%
+\subsection{Experimental Setup and Datasets}
+We evaluate the models across three distinct datasets, each representing a different facet of multimodal misinformation. MMFakeBench consists of 11,000 image-text pairs categorized into four classes: original, textual veracity distortion, visual veracity distortion, and mismatch. Its native evaluation metric is macro-F1. NewsCLIPpings (VisualNews, Merged-Balanced) contains 85,360 pairs (71,072 train, 7,024 validation, 7,264 test) and is evaluated on binary pairing accuracy. VERITE comprises 1,001 items evaluated on 3-class accuracy (truthful, miscaptioned, out-of-context). 
+
+As our primary baseline floor, we employ a TF-IDF logistic model, producing grouped out-of-fold predictions on a 700-row MMFakeBench development partition. We emphasize that comparing a strictly zero-shot model against a baseline fitted on development data is fundamentally an apples-to-oranges comparison and is not intended as a competitive head-to-head benchmark. Rather, this TF-IDF model serves as an intentional, minimal complexity floor---a sanity check to reveal when a zero-shot model's behavior is so degenerate that it falls below simple lexical matching heuristics.
+
+\subsection{Main Zero-Shot Results vs. Degenerate Floors}
+We compare the zero-shot performance of the LAYA models across text-only and paired (image+text) routes against our baseline floors on the 1,000-row MMFakeBench validation split. 
+
+\begin{table}[h]
+\caption{MMFakeBench validation results (1,000 rows). The zero-shot LAYA routes perform significantly below the simple TF-IDF indicative baseline across all metrics.}
+\label{tab:mmfakebench_val}
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Route} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{Balanced Acc.} \\
+\midrule
+Hosted LAYA, text-only & 0.256 & 0.203 & 0.328 \\
+Local LAYA, text-only & 0.267 & 0.221 & 0.338 \\
+LAYA-Vision, image+text (paired) & 0.320 & 0.199 & 0.303 \\
+TF-IDF grouped OOF (700 dev rows) & 0.499 & 0.416 & 0.423 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+As shown in Table~\ref{tab:mmfakebench_val}, the paired LAYA-Vision route achieves a macro-F1 of 0.199, which is roughly halved compared to the TF-IDF baseline (0.416). Because the TF-IDF baseline roughly doubles every pretrained LAYA route, we conclude that the pretrained model is the weakest system measured. This observation explicitly motivates why future task-specific adaptation, rather than zero-shot prompting, is the necessary research direction for this architecture. 
+
+When evaluated on binary Fake detection on the same split, the paired route achieves an accuracy of 0.695. However, because 700 out of the 1,000 items are Fake, this exactly matches the constant all-Fake predictor floor, indicating no genuine skill. The ROC-AUC scores (e.g., 0.517 for the paired route in \texttt{noul} format) hover near the 0.5 chance level. These results starkly contrast with state-of-the-art supervised systems like SNIFFER \citep{Qi2024SnifferMultimodal}, highlighting the sheer gap between zero-shot capabilities and heavily fine-tuned or retrieval-augmented models.
+
+\subsection{Failure Analysis: Class Collapse}
+A deeper per-class analysis reveals the structural nature of the model's failure. On the 1,000-row MMFakeBench validation split, the paired route exhibits severe class collapse. The absolute per-class recall is as follows: original 1/300, textual veracity distortion 8/300, visual veracity distortion 22/100, and mismatch 289/300. The model assigns almost every instance to the ``mismatch'' class regardless of the actual content. This indicates a structural failure: the pretrained model has not learned to distinguish between veracity distortions and relational mismatches, and defaults to the relational class. Relying solely on headline accuracy would completely obscure this degenerate behavior.
+
+\subsection{Modality Ablation and Source-Pair Effects}
+We conduct a large-scale ablation on the 10,000-row MMFakeBench test split to isolate the contribution of the visual modality. The paired (image+text) route achieves an accuracy of 0.2642 and a macro-F1 of 0.2037, while the text-only route through the same checkpoint achieves an accuracy of 0.2793 and a macro-F1 of 0.2181. The pooled accuracy difference is $-1.51$ percentage points (95\% range $[-0.0244, -0.0054]$), suggesting that adding the image slightly degrades overall performance.
+
+However, decomposing this difference by dataset source pairs reveals that this pooled figure is an average of extreme opposite effects. For instance, on MS-COCO pairs (gold label: original), the paired route outperforms text-only by $+18.40$ pp. Conversely, on GPT-generated Rumor/AI-generated Image pairs (gold label: textual), the paired route underperforms by $-17.80$ pp. Notably, AI-generated images are rarely flagged as visual distortions; across MS-COCO and VisualNews pairs containing AI-generated images (400 rows total), the model predicts ``visual distortion'' in at most 4.9\% of cases. The addition of the image largely shifts the model's prediction distribution (e.g., predicting ``mismatch'' more frequently), which artificially inflates or deflates accuracy depending on the specific label distribution of the source, rather than providing genuine multimodal reasoning.
+
+\subsection{Transfer Probe: Identifying Unused Signal}
+To investigate whether the failure lies in the representation or the zero-shot decision head, we evaluate the linear probe trained on frozen features. Specifically, we featurized 78,336 NewsCLIPpings rows (71,072 train, 7,264 test) in 4.58 hours. A selected regularization of $\lambda=0.001$ yielded 57.8\% training accuracy and 56.6\% validation accuracy, validating the probe's stability.
+
+On the NewsCLIPpings test split (7,264 rows), the zero-shot LAYA model achieves an accuracy of 51.1\% (AUC 0.528). In contrast, the frozen-feature probe achieves 57.4\% accuracy (AUC 0.598), yielding a statistically significant improvement of $+6.24$ pp (95\% range $[4.76, 7.70]$). 
+
+\begin{table}[h]
+\caption{NewsCLIPpings test results (7,264 rows). The linear probe trained on frozen features significantly outperforms the zero-shot decision head.}
+\label{tab:newsclippings_probe}
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Arm} & \textbf{Accuracy} & \textbf{95\% Range} & \textbf{Macro-F1} & \textbf{AUC} & \textbf{ECE} \\
+\midrule
+LAYA zero-shot & 51.1\% & [50.10, 52.14] & 42.1\% & 0.528 & 16.4\% \\
+Frozen-feature probe & 57.4\% & [56.26, 58.44] & 57.4\% & 0.598 & 1.1\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+On the VERITE dataset (true vs. out-of-context), the probe achieves 54.9\% accuracy compared to the zero-shot 50.5\% (+4.37 pp). While the cross-dataset transfer on VERITE is inconclusive (the 95\% range spans zero), the strong performance on NewsCLIPpings confirms that the frozen pooled state contains visual-linguistic alignment signals that the zero-shot decision head fails to utilize.
+
+\subsection{Contextualizing with Published Reference Points}
+We acknowledge that standard generative VLMs can be rigorously evaluated without post-hoc parsing heuristics, such as by comparing the log-likelihoods of target classes. The exclusion of such models from our primary pipeline is due to our intentionally narrow scope. We focus on deeply auditing the specific typed-decision paradigm---which outputs calibrated probabilities over fixed options natively in a single pass---rather than conducting a broad architectural benchmark. Furthermore, direct numerical comparisons are fundamentally confounded by differences in evaluation populations, dataset splits, target mappings, training exposure, and external tool access. However, mapping our results against published reference points provides necessary context. 
+
+On the MMFakeBench native 4-class task, large generative models such as GPT-4V and LLaVA-1.6-34B report validation macro-F1 scores of 51.0 and 49.9, respectively. In contrast, our zero-shot 201M-parameter LAYA-Vision paired route scores just 0.2037 macro-F1 on the test split. On NewsCLIPpings, a fine-tuned CLIP ViT-B/32 achieves 60.2\% binary pairing accuracy. While our zero-shot model reaches only 51.1\%, our linear probe trained on frozen features reaches 57.4\%, trailing the fine-tuned CLIP by under 3 points. Furthermore, heavily optimized systems utilizing external web evidence, such as SNIFFER \citep{Qi2024SnifferMultimodal}, report accuracies exceeding 88\% on NewsCLIPpings. 
+
+These comparisons confirm that small-scale models lack strong zero-shot reasoning capabilities. Our rigorous evaluation explicitly maps \textit{how} this model fails (e.g., severe class collapse onto mismatch categories). Simultaneously, the transfer probe indicates that the underlying visual-linguistic representations encode competitive signals that a zero-shot decision head cannot exploit, establishing the necessary baseline floor for future full fine-tuning regimes.
+%%%%%%%%% EXPERIMENTS %%%%%%%%%
+
+\section{Conclusion}
+\label{sec:conclusion}
+%%%%%%%%% CONCLUSION %%%%%%%%%
+In this empirical case study, we demonstrated that a specific 201M-parameter pretrained typed-decision model fails to detect multimodal misinformation out-of-the-box. While it is expected that small models struggle with complex zero-shot reasoning, our evaluation utilizing standard machine learning practices quantified that headline metrics mask severe structural failures, notably a complete class collapse onto a relational ``mismatch'' category. Furthermore, we demonstrated that zero-shot performance falls significantly below an indicative TF-IDF baseline. These findings underscore the importance of evaluating per-class metrics and simple baselines to prevent self-deception in model evaluation. Finally, our linear transfer probe identified unused multimodal alignment signals within the frozen representations, trailing fine-tuned baselines by narrow margins and paving the way for future work utilizing strict fine-tuning protocols to unlock the architecture's true potential.
+%%%%%%%%% CONCLUSION %%%%%%%%%
+
+%%%%%%%%% REFERENCES %%%%%%%%%
+\bibliography{bibliography}
+\bibliographystyle{iclr2025_conference}
+%%%%%%%%% REFERENCES %%%%%%%%%
+
+%%%%%%%%% Appendix %%%%%%%%%
+% If you want to add appendix, uncomment the following lines:
+% \appendix
+% \section{xxx}
+%%%%%%%%% Appendix %%%%%%%%%
+
+\end{document}

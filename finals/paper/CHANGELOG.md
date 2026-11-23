@@ -61,3 +61,19 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
   `tools/verified_numbers.json`; 1 warning — the §4.6 pattern above).
   Authorising record for the October numbers: the October saved-results
   audit, as summarised in `VERIFICATION_NOTE_2026-11-22.md`.
+
+## v0.1.1 — 2026-11-23 (patch: title, framing, byline rendering)
+- Title restored to the three-track study's submitted title, per the author's
+  direction: "Three Modalities, Three Tracks", with the new subtitle
+  "The Combined Track, Completed: Pre-registered Fine-Tuning across Three
+  Benchmarks".
+- Introduction gains a continuity paragraph framing this paper as the
+  completion of the combined track of the three-track study whose abstract
+  specified the fine-tuning programme this paper executes.
+- Final-copy mode enabled (\iclrfinalcopy): the PDF now prints the real
+  byline (Rafiul Haider, Harika Etikela, Ananya Saravani Ganni, and Krishna
+  Batula — Pace University, Analytics Capstone, Fall 2026) and drops the
+  review ruler. Note: v0.1's PDF rendered "Anonymous authors" because the
+  style was in review mode; the names were in the v0.1 source throughout.
+- No scientific content changed. Gate: PASS, 0 warnings; 13 pages,
+  0 undefined citations/references.

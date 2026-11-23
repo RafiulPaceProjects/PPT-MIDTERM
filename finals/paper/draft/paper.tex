@@ -1,5 +1,6 @@
 \documentclass{article} % For LaTeX2e
 \usepackage{iclr2025_conference,times}
+\iclrfinalcopy % final mode: print the real byline, no review ruler (set for the v0.1.1 retitle, 2026-11-23)
 
 % Optional math commands from https://github.com/goodfeli/dlbook_notation.
 \input{math_commands.tex}
@@ -9,7 +10,7 @@
 \usepackage{booktabs}
 
 %%%%%%%%% TITLE - PLEASE UPDATE TITLE HERE
-\title{\textsc{Typed-Decision Fine-Tuning for Multimodal Misinformation Detection: A Pre-registered, Low-Cost Study across Three Benchmarks}}
+\title{Three Modalities, Three Tracks\\[2pt] \large The Combined Track, Completed: Pre-registered Fine-Tuning across Three Benchmarks}
 
 \author{Rafiul Haider, Harika Etikela, Ananya Saravani Ganni, and Krishna Batula\\
 Pace University\\
@@ -33,6 +34,8 @@ Multimodal misinformation is false in structurally different ways, yet benchmark
 \label{sec:intro}
 %%%%%%%%% INTRODUCTION %%%%%%%%%%
 Multimodal misinformation rarely lies in one modality alone. A social-media post pairs an image with a caption, and the pair can be false in structurally different ways: the text can distort facts, the image can be manipulated or miscaptioned, and two individually authentic items can be placed together out of context. A useful detector therefore needs to say not only \emph{whether} a pair is false but \emph{how} it is false. This typed-decision view connects to earlier evidence-based claim verification \citep{Thorne2018FeverLargescale, Augenstein2019MultifcRealworld, Guo2021SurveyAutomated}, to surveys that separate factuality from harm \citep{Alam2021SurveyMultimodal}, and to work on detecting and grounding manipulated media \citep{Shao2023DetectingGrounding}. Benchmarks such as MMFakeBench \citep{Liu2024MmfakebenchMixedsource}, NewsCLIPpings \citep{Luo2021NewsclippingsAutomatic}, and VERITE \citep{Papadopoulos2023VeriteRobust} operationalize this typology with different label spaces and native metrics.
+
+This paper is the completion of one track of a three-track study. In that study, coordinated text-only, image-only, and combined (image+text) baselines for multimodal misinformation detection were reported under the title \emph{Three Modalities, Three Tracks}; its combined track evaluated a frozen LAYA-Vision checkpoint zero-shot and closed by specifying the fine-tuning programme, compute setup, and multi-condition evaluation that would follow. This paper executes that programme: it keeps the combined track's datasets, label spaces, and native metrics, pre-registers its hypotheses and selection rules before training, and reports the fine-tuning outcomes --- positive and negative --- against the zero-shot baselines the earlier study established. The text and image tracks are not re-run here; the combined track is the whole subject.
 
 Most current progress is dominated by large vision-language models (LVLMs) and agent frameworks. Contrastively pretrained encoders such as CLIP \citep{Radford2021LearningTransferable}, instruction-tuned assistants such as LLaVA and InstructBLIP \citep{Liu2023VisualInstruction, Dai2023InstructblipTowards}, and compact LVLMs \citep{Zhu2024LlavaphiEfficient} provide strong zero-shot image--text representations. Agent wrappers compose these models with tools and retrieval: HuggingGPT and ViperGPT turn multimodal inference into programmed tool use \citep{Shen2023HugginggptSolving, Surs2023VipergptVisual}; SNIFFER adds external evidence for explainable out-of-context detection \citep{Qi2024SnifferMultimodal}; MMD-Agent integrates reasoning and tools on MMFakeBench \citep{Liu2024MmfakebenchMixedsource}. Subsequent systems add evidence retrieval, type-aware reasoning, or test-time search; while promising, they frequently use validation, retrieval, or private re-split protocols that make their published figures difficult to compare directly. These systems often require frontier APIs, external retrieval, test-time search, or private re-splits, and operational cost is rarely disclosed.
 

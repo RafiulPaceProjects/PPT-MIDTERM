@@ -1,0 +1,27 @@
+% EXPERIMENT DRAFT — v2 retrieval study fork (exp-v0.1). NOT part of the v1 paper line.
+% Numbers present are from the v1 final_results_bundle.json only. Results section is
+% empty by gate discipline until verified probe artifacts exist.
+\documentclass{article}
+\title{Does Evidence Help? A Retrieval-Augmented Re-Test of Out-of-Context
+Detection with a Small Typed-Decision Model}
+\author{Rafiul Haider, Pace University (Analytics Capstone, Fall 2026, Team 3)}
+\begin{document}
+\maketitle
+\section{Motivation}
+In the v1 study, fine-tuning LAYA-Vision on NewsCLIPpings produced a registered null:
+trained accuracy 0.5104 vs a zero-shot baseline of 0.5141 on the full 7,024-row
+validation split (H2, not met). The diagnosis localised the missing signal outside
+the image--caption pair: out-of-context falsity is a per-item factual property.
+This experiment tests whether retrieved evidence supplies that signal.
+\section{Design (probe, pre-registered)}
+Automated pipeline: caption $\rightarrow$ spaCy entity extraction (deterministic)
+with a deepseek-flash claim-formulation variant $\rightarrow$ SearXNG search
+$\rightarrow$ timestamped evidence snapshots $\rightarrow$ LAYA judges pair-only vs
+pair+evidence on the same 300 validation items (paired comparison, bootstrap
+interval). Fact-check domains are excluded in the headline arm and measured in a
+second arm. Coverage and abstention are reported, not hidden.
+\section{Results}
+% EMPTY until verified probe artifacts land (see README promotion rule).
+\section{Discussion}
+% To be written from probe evidence only.
+\end{document}

@@ -103,3 +103,10 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
 - No numbers, results, or claims changed. Gate: PASS, 0 warnings; 13 pages,
   0 undefined citations/references; the compiled PDF contains zero
   occurrences of the removed term.
+
+## v0.1.4 — 2026-11-23 (patch: title numeral spelled out, author direction)
+- "System 1" becomes "System One" in the title and in the introduction's
+  reference to the companion study, at the author's direction (no numeral
+  in the title). Note: the SARD programme listing itself prints the
+  numeral; the paper's title page now spells the word out.
+- No other change. Gate: PASS, 0 warnings; 13 pages, 0 undefined.

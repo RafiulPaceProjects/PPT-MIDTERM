@@ -198,3 +198,61 @@ evidence each change stands on. Protocol: `VERSIONING.md`.
   22 pages, 0 undefined citations/references, 0 overfull lines; the
   compiled PDF still contains zero occurrences of the prohibited
   terminology and zero rendered em dashes.
+
+## v0.4.0 — 2026-11-23 (minor: the merged paper — Part II integrated, author direction)
+
+- **Features:** the ONE merged paper the owner directed (2026-11-23
+  13:17 ET shape decision; build authorised 16:36 ET). Part II is now
+  written into the body, not framed as future work: new sections
+  EvidenceGate (design, retrieval collapse and repair, reproducibility
+  audit, pilot, Stage A, Stage B with the pristine collapse, the
+  scorer defect and audit, the VERITE four-arm track, the AM6 screen
+  read), the noul drill-down (eighteen frozen wordings, three tune
+  screens, corrected-rule verdicts, Phases 2 and 3, the temperature
+  lesson), Closing Experiments (MMFakeBench Phase 3, the G12
+  confirmation screen, Arm W), Situations Faced, and Threats to
+  Validity and Warnings. Conclusion rewritten to the whole-study
+  claims (surviving and dead). Appendix A gains the Part II
+  registration and deviation record; Appendix D's v2 subsection is
+  reframed as Part II machinery (its "no result depends on them"
+  label removed).
+- **Information:** every Part II number traces to
+  `~/workspace/misinfo_run/LAYA_FINAL_RECORD.md` (board-fixed,
+  critical-check clean) or `v2_probe/ANALYSIS_GAPS.md`; 274 new
+  entries added to `tools/verified_numbers.json` with sources (550
+  total). Folded in during the build, as they landed mid-build: the
+  VERITE full-set scoring (Amendment 14,
+  `v2_probe/uplift/verite_fullset_results.json`) and the Stage B tune
+  read (Amendment 16, `v2_probe/uplift/stageb_tune_read.json`).
+- **Features (uplift changes 2+3):** three new figures —
+  fixed-coverage curves for Stages A and B
+  (`figures/fig_coverage.pdf`, data from `v2_probe/SCORER_AUDIT.md`
+  section 3), the CAL-1 calibration picture
+  (`figures/fig_cal1.pdf`, record 2.3), and the standalone data-size
+  curve (`figures/fig_datasize.pdf`, record 2.1) — plus the tables
+  the analysis supports (Stage A, Stage B, Stage B per-class,
+  VERITE held-out and full-set). The two honest contributions are
+  named explicitly in the abstract, the introduction, and the body:
+  the abstention-accounting standard, and the warnings section
+  (leakage ceiling 0.9150, calibration transfer harm, fragile fitted
+  operating points, the abstention trap).
+- **Information (record-consistency fixes to Part I):** the cost
+  ledger now follows the final record (total pod spend about $6.83;
+  metered training $2.14 over 29 trainings; rehearsal $0.17; pre-grid
+  burn $0.72), replacing the $5.64 metered figure; the winner's
+  validation macro-F1 0.7571 is removed (the record cites validation
+  accuracy 0.7690 only) and the validation-to-test gap is restated on
+  accuracy; H2 and H5 statements aligned to the record's registered
+  wording; H4 minimum tune recall stated as 0.6129; the calibration
+  table gains the tune row (0.1941 to 0.0778); the winner's test
+  error analysis (3,870 errors, 2,375 on the original/mismatch
+  boundary) added from ANALYSIS_GAPS 4a; byline surname corrected to
+  Krishna Bathula per the SARD abstract of record.
+- **Pending slot (one):** the NewsCLIPpings scale probe (Amendment
+  15) was still running at cut time. Its subsection carries the
+  registered design and a clearly marked result slot with no numbers
+  claimed; a fold-in pass follows when it lands, before any version
+  is called final.
+- **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings);
+  TinyTeX compile clean, 35 pages, zero undefined citations or
+  references; no "bootstrap" wording, no em dashes in prose.

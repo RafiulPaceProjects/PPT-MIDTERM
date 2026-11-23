@@ -1104,6 +1104,1102 @@
   {
    "value": "256",
    "source": "EvidenceGate design (EVIDENCEGATE_DESIGN.md sections 4.4/5): the digit string is part of the hash algorithm name SHA-256 used for evidence snapshot integrity, not a measured quantity (same convention as the ResNet18 entry)"
+  },
+  {
+   "value": "6.83",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "2.14",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "9.7725",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "10.05",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "12.9967",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "7.6",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "0.10",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "4090",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: v1 pod spend about $6.83, metered training $2.14 over 29 trainings, balances $9.7725/$12.9967, credit about $10.05, 7.6 hours, $0.10 uncertainty, RTX 4090 pod"
+  },
+  {
+   "value": "0.1941",
+   "source": "LAYA_FINAL_RECORD.md 2.3: tune ECE 0.1941 to 0.0778 at the calib-fitted temperature, tune accuracy unchanged 0.7857"
+  },
+  {
+   "value": "0.0778",
+   "source": "LAYA_FINAL_RECORD.md 2.3: tune ECE 0.1941 to 0.0778 at the calib-fitted temperature, tune accuracy unchanged 0.7857"
+  },
+  {
+   "value": "0.7857",
+   "source": "LAYA_FINAL_RECORD.md 2.3: tune ECE 0.1941 to 0.0778 at the calib-fitted temperature, tune accuracy unchanged 0.7857"
+  },
+  {
+   "value": "0.6129",
+   "source": "LAYA_FINAL_RECORD.md 2.2: H4 minimum per-class tune recall 0.6129"
+  },
+  {
+   "value": "3870",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "2375",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "1424",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "951",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "0.8343",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "0.972",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "0.258",
+   "source": "v2_probe/ANALYSIS_GAPS.md 4a: winner test error analysis (3,870 errors; 2,375 on the original/mismatch boundary; 1,424 and 951 directional counts; textual recall 0.8343; source accuracy 0.972 Gossipcop to 0.258 DGM4)"
+  },
+  {
+   "value": "3.3391",
+   "source": "LAYA_FINAL_RECORD.md 8.1: v2 closing phase pod spend $3.3391"
+  },
+  {
+   "value": "152",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "148",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "23",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "481",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "375",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "630",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "21",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "52",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "597",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "349",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "694",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "193",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "89",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "508",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "377",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "64.3",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "44.5",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "0.2161",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "0.1111",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "60",
+   "source": "LAYA_FINAL_RECORD.md 3.1-3.3: probe gold split 152/148; retrieval collapse and repair pool counts; coverage 64.3 and 44.5 percent; reproducibility audit mean Jaccard 0.2161, median 0.1111, 60 pairs"
+  },
+  {
+   "value": "30",
+   "source": "LAYA_FINAL_RECORD.md 3.3/3.4: 30 pilot items"
+  },
+  {
+   "value": "0.3667",
+   "source": "LAYA_FINAL_RECORD.md 3.4: pilot P0 0.3667, P1A delta +0.0333 [-0.0667, +0.1667], P1B 0.4333"
+  },
+  {
+   "value": "0.0333",
+   "source": "LAYA_FINAL_RECORD.md 3.4: pilot P0 0.3667, P1A delta +0.0333 [-0.0667, +0.1667], P1B 0.4333"
+  },
+  {
+   "value": "0.0667",
+   "source": "LAYA_FINAL_RECORD.md 3.4: pilot P0 0.3667, P1A delta +0.0333 [-0.0667, +0.1667], P1B 0.4333"
+  },
+  {
+   "value": "0.1667",
+   "source": "LAYA_FINAL_RECORD.md 3.4: pilot P0 0.3667, P1A delta +0.0333 [-0.0667, +0.1667], P1B 0.4333"
+  },
+  {
+   "value": "0.4333",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.4300",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.4500",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.5133",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.5300",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.5067",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "44",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "56",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "80",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.0200",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.0267",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.4953",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.4795",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.3917",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.9259",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.8205",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.6727",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "273",
+   "source": "LAYA_FINAL_RECORD.md 3.5 and v2_probe/ANALYSIS_GAPS.md 1: Stage A arm table, delta +0.0200 [-0.0267, +0.0667], strata and falsified accuracies, uncertain counts"
+  },
+  {
+   "value": "0.5241",
+   "source": "v2_probe/SCORER_AUDIT.md 3 (G8): fixed-coverage and decided-item reads, Stage B arms within 0.014"
+  },
+  {
+   "value": "0.5102",
+   "source": "v2_probe/SCORER_AUDIT.md 3 (G8): fixed-coverage and decided-item reads, Stage B arms within 0.014"
+  },
+  {
+   "value": "0.014",
+   "source": "v2_probe/SCORER_AUDIT.md 3 (G8): fixed-coverage and decided-item reads, Stage B arms within 0.014"
+  },
+  {
+   "value": "0.8468",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.7105",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "74",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.0328",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.6929",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.6897",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.5456",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.5200",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.2533",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.5167",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.2467",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.2967",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.4833",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.9800",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.5338",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.9868",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.0270",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "294",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "150",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "79",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.4986",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.5031",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.0533",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.1533",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.1767",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.2667",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.0833",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.4367",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.0633",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.2483",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.2517",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "298",
+   "source": "LAYA_FINAL_RECORD.md 3.6/3.7 and v2_probe/ANALYSIS_GAPS.md 2: Stage B training, AM6 fit, arm table, abstention accounting, per-class reads, scorer defect and corrected cross-stage deltas, superseded n=298 generation"
+  },
+  {
+   "value": "0.21",
+   "source": "v2_probe/uplift/stageb_tune_read.json and EXPERIMENT_NOTES.md Amendment 16: Stage B tune read (P0 headline 0.21, 63 uncertain, delta +0.29 [0.20, 0.38], 50 items per class)"
+  },
+  {
+   "value": "63",
+   "source": "v2_probe/uplift/stageb_tune_read.json and EXPERIMENT_NOTES.md Amendment 16: Stage B tune read (P0 headline 0.21, 63 uncertain, delta +0.29 [0.20, 0.38], 50 items per class)"
+  },
+  {
+   "value": "50",
+   "source": "v2_probe/uplift/stageb_tune_read.json and EXPERIMENT_NOTES.md Amendment 16: Stage B tune read (P0 headline 0.21, 63 uncertain, delta +0.29 [0.20, 0.38], 50 items per class)"
+  },
+  {
+   "value": "65",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "70",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.35",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.31",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.285",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.325",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.330",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.2154",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.2855",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.2497",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.3310",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.2462",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.6615",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.1143",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.3077",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.5857",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.6429",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.3538",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.3846",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.2571",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.010",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.080",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.095",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.005",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.090",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "142",
+   "source": "LAYA_FINAL_RECORD.md 3.8 and v2_probe/ANALYSIS_GAPS.md 3: VERITE four-arm held-out 200 (split 65/65/70, tune 0.35 over 0.31, arm table, deltas, confusion-matrix label counts)"
+  },
+  {
+   "value": "0.3526",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.2865",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.4260",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.0089",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.6338",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.3586",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.2901",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.8136",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.1568",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.0954",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.4725",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.4635",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.6420",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.4467",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.3231",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "801",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "14",
+   "source": "v2_probe/uplift/verite_fullset_results.json (Amendment 14): VERITE full-set 1,001-row reads per arm; 801 train/tune-side rows for ADAPTED"
+  },
+  {
+   "value": "0.5911",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.5819",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.5917",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.5798",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.0131",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.0542",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.0182",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "0.0425",
+   "source": "LAYA_FINAL_RECORD.md 3.9: AM6 noul AUC and raw ECE by stage and arm"
+  },
+  {
+   "value": "10040",
+   "source": "EXPERIMENT_NOTES.md Amendment 15 (registered, in progress): scale probe carve 10,040 train + 204 tune items, 20,080 records, 4,900 steps"
+  },
+  {
+   "value": "204",
+   "source": "EXPERIMENT_NOTES.md Amendment 15 (registered, in progress): scale probe carve 10,040 train + 204 tune items, 20,080 records, 4,900 steps"
+  },
+  {
+   "value": "20080",
+   "source": "EXPERIMENT_NOTES.md Amendment 15 (registered, in progress): scale probe carve 10,040 train + 204 tune items, 20,080 records, 4,900 steps"
+  },
+  {
+   "value": "4900",
+   "source": "EXPERIMENT_NOTES.md Amendment 15 (registered, in progress): scale probe carve 10,040 train + 204 tune items, 20,080 records, 4,900 steps"
+  },
+  {
+   "value": "15",
+   "source": "EXPERIMENT_NOTES.md Amendment 15 (registered, in progress): scale probe carve 10,040 train + 204 tune items, 20,080 records, 4,900 steps"
+  },
+  {
+   "value": "0.5002",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.5816",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.51",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.94",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.56",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.4240",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.3656",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.3992",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.3860",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.4464",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.54",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.5677",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.5252",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.62",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.5556",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.7222",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.24",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.4266",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.8254",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.6735",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.6857",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.1048",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.6580",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.6762",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.0952",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.4127",
+   "source": "LAYA_FINAL_RECORD.md 4.1/4.2: drill-down design (mean confidence 0.5002) and the three tune screens (NCP, VERITE, MMF pooled)"
+  },
+  {
+   "value": "0.475",
+   "source": "LAYA_FINAL_RECORD.md 4.5: battery fragility at threshold 0.5 (fitted 0.475; accuracy 0.4476)"
+  },
+  {
+   "value": "0.4476",
+   "source": "LAYA_FINAL_RECORD.md 4.5: battery fragility at threshold 0.5 (fitted 0.475; accuracy 0.4476)"
+  },
+  {
+   "value": "0.4252",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.5392",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.28",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.42",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.6115",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.6562",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.8215",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.5313",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.6103",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.7539",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.3750",
+   "source": "LAYA_FINAL_RECORD.md 4.3: Phase 2 small training test reads for the three datasets"
+  },
+  {
+   "value": "0.3355",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.5698",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.0067",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.0767",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "1.5458",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.625",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.6462",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.4764",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.675",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "135",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.64",
+   "source": "LAYA_FINAL_RECORD.md 4.4: Phase 3 reporting evaluations (NCP battery and VERITE W3 frozen reads, base rate 135 of 200)"
+  },
+  {
+   "value": "0.0285",
+   "source": "LAYA_FINAL_RECORD.md 4.6: fitted-temperature cap 12.0, control fitted gain +0.05, split-half swings 0.0285 and full fit 0.0580, VERITE halves 1.3654/1.7985"
+  },
+  {
+   "value": "0.0580",
+   "source": "LAYA_FINAL_RECORD.md 4.6: fitted-temperature cap 12.0, control fitted gain +0.05, split-half swings 0.0285 and full fit 0.0580, VERITE halves 1.3654/1.7985"
+  },
+  {
+   "value": "1.3654",
+   "source": "LAYA_FINAL_RECORD.md 4.6: fitted-temperature cap 12.0, control fitted gain +0.05, split-half swings 0.0285 and full fit 0.0580, VERITE halves 1.3654/1.7985"
+  },
+  {
+   "value": "1.7985",
+   "source": "LAYA_FINAL_RECORD.md 4.6: fitted-temperature cap 12.0, control fitted gain +0.05, split-half swings 0.0285 and full fit 0.0580, VERITE halves 1.3654/1.7985"
+  },
+  {
+   "value": "2.462",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.5292",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.8667",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.4556",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "75",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "33",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "87",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.8730",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.7967",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.2556",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.0713",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.9531",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.9707",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.7707",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.4308",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.8775",
+   "source": "LAYA_FINAL_RECORD.md 5.1 and v2_probe/ANALYSIS_GAPS.md 4b: MMF Phase 3 frozen read on the confirmation 300, per-class recalls and screen AUCs, provenance note (stored 0.8730 canonical, recomputation 0.8775)"
+  },
+  {
+   "value": "0.5744",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.7556",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.0700",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.5650",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.5685",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.5594",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.5657",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.2111",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.8333",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.1267",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.1867",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.2067",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.2433",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.3533",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "0.0167",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 confirmation screen, fitted and corrected-rule readings"
+  },
+  {
+   "value": "2024",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "6806684",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "1.0463",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.1859",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "5.02",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.5849",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.2981",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.4933",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.5233",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.9467",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.9122",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.4433",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.5567",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.7900",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.5541",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "82",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.1167",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.4867",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.9189",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.5203",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "0.1067",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "13",
+   "source": "LAYA_FINAL_RECORD.md 5.3: Arm W frozen Wikipedia corpus (2024-04-20 capture, 6,806,684 articles), training loss, calibration fit, fitted and plain-threshold reads; Amendment 13"
+  },
+  {
+   "value": "1.20",
+   "source": "LAYA_FINAL_RECORD.md 6: unreachable pod idle burn $1.20, wedged pod about $0.14, CUDA error 999, 120-item equivalence gate"
+  },
+  {
+   "value": "0.14",
+   "source": "LAYA_FINAL_RECORD.md 6: unreachable pod idle burn $1.20, wedged pod about $0.14, CUDA error 999, 120-item equivalence gate"
+  },
+  {
+   "value": "999",
+   "source": "LAYA_FINAL_RECORD.md 6: unreachable pod idle burn $1.20, wedged pod about $0.14, CUDA error 999, 120-item equivalence gate"
+  },
+  {
+   "value": "0.5866",
+   "source": "LAYA_FINAL_RECORD.md 2.4/7: competitor figure 0.5866 with unverified split, conditional position"
+  },
+  {
+   "value": "0.2033",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 corrected-rule raw delta for W5, -0.2033"
+  },
+  {
+   "value": "0.4133",
+   "source": "LAYA_FINAL_RECORD.md 5.2: G12 W1 raw accuracy 0.4133 against the baseline 0.5667"
+  },
+  {
+   "value": "0.72",
+   "source": "LAYA_FINAL_RECORD.md 2.5/8.1: pre-grid burn $0.72"
+  },
+  {
+   "value": "145",
+   "source": "v2_probe/ANALYSIS_GAPS.md 2: Stage B P0 predicted-pristine count 145"
+  },
+  {
+   "value": "200",
+   "source": "LAYA_FINAL_RECORD.md 3.8: VERITE held-out 200 items"
+  },
+  {
+   "value": "500",
+   "source": "LAYA_FINAL_RECORD.md 3.6/5.3: 500-item Stage B / Arm W train carve"
   }
  ]
 }

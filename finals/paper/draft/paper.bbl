@@ -5,50 +5,33 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Alam et~al.(2021)Alam, Cresci, Chakraborty, Silvestri, Dimitrov,
-  Martino, Shaar, Firooz, and Nakov]{Alam2021SurveyMultimodal}
-Firoj Alam, S.~Cresci, Tanmoy Chakraborty, F.~Silvestri, Dimitar~I. Dimitrov,
-  Giovanni Da~San Martino, Shaden Shaar, Hamed Firooz, and Preslav Nakov.
+\bibitem[Alam et~al.(2021)Alam, Cresci, Chakraborty, Silvestri, Dimitrov, Martino, Shaar, Firooz, and Nakov]{Alam2021SurveyMultimodal}
+Firoj Alam, S.~Cresci, Tanmoy Chakraborty, F.~Silvestri, Dimitar~I. Dimitrov, Giovanni Da~San Martino, Shaden Shaar, Hamed Firooz, and Preslav Nakov.
 \newblock A survey on multimodal disinformation detection.
-\newblock In \emph{International Conference on Computational Linguistics}, pp.\
-   6625--6643, 2021.
+\newblock In \emph{International Conference on Computational Linguistics}, pp.\  6625--6643, 2021.
 
-\bibitem[Augenstein et~al.(2019)Augenstein, Lioma, Wang, Lima, Hansen, Hansen,
-  and Simonsen]{Augenstein2019MultifcRealworld}
-Isabelle Augenstein, C.~Lioma, Dong-Sheng Wang, Lucas~Chaves Lima, Casper
-  Hansen, Christian Hansen, and J.~Simonsen.
-\newblock Multifc: A real-world multi-domain dataset for evidence-based fact
-  checking of claims.
-\newblock In \emph{Conference on Empirical Methods in Natural Language
-  Processing}, pp.\  4684--4696, 2019.
+\bibitem[Augenstein et~al.(2019)Augenstein, Lioma, Wang, Lima, Hansen, Hansen, and Simonsen]{Augenstein2019MultifcRealworld}
+Isabelle Augenstein, C.~Lioma, Dong-Sheng Wang, Lucas~Chaves Lima, Casper Hansen, Christian Hansen, and J.~Simonsen.
+\newblock Multifc: A real-world multi-domain dataset for evidence-based fact checking of claims.
+\newblock In \emph{Conference on Empirical Methods in Natural Language Processing}, pp.\  4684--4696, 2019.
 
-\bibitem[Barber et~al.(2019)Barber, Candès, Ramdas, and
-  Tibshirani]{Barber2019ConformalPrediction}
+\bibitem[Barber et~al.(2019)Barber, Candès, Ramdas, and Tibshirani]{Barber2019ConformalPrediction}
 R.~Barber, E.~Candès, A.~Ramdas, and R.~Tibshirani.
 \newblock Conformal prediction under covariate shift.
-\newblock In \emph{Neural Information Processing Systems}, pp.\  2526--2536,
-  2019.
+\newblock In \emph{Neural Information Processing Systems}, pp.\  2526--2536, 2019.
 
-\bibitem[Dai et~al.(2023)Dai, Li, Li, Tiong, Zhao, Wang, Li, Fung, and
-  Hoi]{Dai2023InstructblipTowards}
-Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng~Huat Tiong, Jun-Qi Zhao,
-  Weisheng Wang, Boyang~Albert Li, Pascale Fung, and S.~Hoi.
-\newblock Instructblip: Towards general-purpose vision-language models with
-  instruction tuning.
+\bibitem[Dai et~al.(2023)Dai, Li, Li, Tiong, Zhao, Wang, Li, Fung, and Hoi]{Dai2023InstructblipTowards}
+Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng~Huat Tiong, Jun-Qi Zhao, Weisheng Wang, Boyang~Albert Li, Pascale Fung, and S.~Hoi.
+\newblock Instructblip: Towards general-purpose vision-language models with instruction tuning.
 \newblock \emph{ArXiv}, abs/2305.06500, 2023.
 
-\bibitem[Gao et~al.(2021)Gao, Geng, Zhang, Ma, Fang, Zhang, Li, and
-  Qiao]{Gao2021ClipadapterBetter}
-Peng Gao, Shijie Geng, Renrui Zhang, Teli Ma, Rongyao Fang, Yong-Feng Zhang,
-  Hongsheng Li, and Yu~Qiao.
+\bibitem[Gao et~al.(2021)Gao, Geng, Zhang, Ma, Fang, Zhang, Li, and Qiao]{Gao2021ClipadapterBetter}
+Peng Gao, Shijie Geng, Renrui Zhang, Teli Ma, Rongyao Fang, Yong-Feng Zhang, Hongsheng Li, and Yu~Qiao.
 \newblock Clip-adapter: Better vision-language models with feature adapters.
-\newblock \emph{International Journal of Computer Vision}, 132:\penalty0 581 --
-  595, 2021.
+\newblock \emph{International Journal of Computer Vision}, 132:\penalty0 581 -- 595, 2021.
 
-\bibitem[Gebru et~al.(2018)Gebru, Morgenstern, Vecchione, Vaughan, Wallach,
-  Daumé, and Crawford]{Gebru2018DatasheetsDatasets}
-T.~Gebru, Jamie~H. Morgenstern, Briana Vecchione, Jennifer~Wortman Vaughan,
-  H.~Wallach, Hal Daumé, and Kate Crawford.
+\bibitem[Gebru et~al.(2018)Gebru, Morgenstern, Vecchione, Vaughan, Wallach, Daumé, and Crawford]{Gebru2018DatasheetsDatasets}
+T.~Gebru, Jamie~H. Morgenstern, Briana Vecchione, Jennifer~Wortman Vaughan, H.~Wallach, Hal Daumé, and Kate Crawford.
 \newblock Datasheets for datasets.
 \newblock \emph{Communications of the ACM}, 64:\penalty0 86 -- 92, 2018.
 
@@ -57,30 +40,23 @@ Isaac Gibbs and E.~Candès.
 \newblock Adaptive conformal inference under distribution shift.
 \newblock \emph{ArXiv}, abs/2106.00170, 2021.
 
-\bibitem[Guo et~al.(2017)Guo, Pleiss, Sun, and
-  Weinberger]{Guo2017CalibrationModern}
+\bibitem[Guo et~al.(2017)Guo, Pleiss, Sun, and Weinberger]{Guo2017CalibrationModern}
 Chuan Guo, Geoff Pleiss, Yu~Sun, and Kilian~Q. Weinberger.
 \newblock On calibration of modern neural networks.
 \newblock \emph{ArXiv}, abs/1706.04599, 2017.
 
-\bibitem[Guo et~al.(2021)Guo, Schlichtkrull, and
-  Vlachos]{Guo2021SurveyAutomated}
+\bibitem[Guo et~al.(2021)Guo, Schlichtkrull, and Vlachos]{Guo2021SurveyAutomated}
 Zhijiang Guo, M.~Schlichtkrull, and Andreas Vlachos.
 \newblock A survey on automated fact-checking.
-\newblock \emph{Transactions of the Association for Computational Linguistics},
-  10:\penalty0 178--206, 2021.
+\newblock \emph{Transactions of the Association for Computational Linguistics}, 10:\penalty0 178--206, 2021.
 
-\bibitem[Gupta et~al.(2020)Gupta, Rahimi, Ajanthan, Mensink, Sminchisescu, and
-  Hartley]{Gupta2020CalibrationNeural}
-Kartik Gupta, Amir~M. Rahimi, Thalaiyasingam Ajanthan, Thomas Mensink,
-  C.~Sminchisescu, and R.~Hartley.
+\bibitem[Gupta et~al.(2020)Gupta, Rahimi, Ajanthan, Mensink, Sminchisescu, and Hartley]{Gupta2020CalibrationNeural}
+Kartik Gupta, Amir~M. Rahimi, Thalaiyasingam Ajanthan, Thomas Mensink, C.~Sminchisescu, and R.~Hartley.
 \newblock Calibration of neural networks using splines.
 \newblock \emph{ArXiv}, abs/2006.12800, 2020.
 
-\bibitem[Gururangan et~al.(2018)Gururangan, Swayamdipta, Levy, Schwartz,
-  Bowman, and Smith]{Gururangan2018AnnotationArtifacts}
-Suchin Gururangan, Swabha Swayamdipta, Omer Levy, Roy Schwartz, Samuel~R.
-  Bowman, and Noah~A. Smith.
+\bibitem[Gururangan et~al.(2018)Gururangan, Swayamdipta, Levy, Schwartz, Bowman, and Smith]{Gururangan2018AnnotationArtifacts}
+Suchin Gururangan, Swabha Swayamdipta, Omer Levy, Roy Schwartz, Samuel~R. Bowman, and Noah~A. Smith.
 \newblock Annotation artifacts in natural language inference data.
 \newblock \emph{ArXiv}, abs/1803.02324, 2018.
 
@@ -89,10 +65,8 @@ Soufiane Hayou, Nikhil Ghosh, and Bin Yu.
 \newblock Lora+: Efficient low rank adaptation of large models.
 \newblock \emph{ArXiv}, abs/2402.12354, 2024.
 
-\bibitem[Hu et~al.(2021)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
-  Chen]{Hu2021LoraLowrank}
-J.~Hu, Ye-Long Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, She-An Wang,
-  Lu~Wang, and Wei-Zhu Chen.
+\bibitem[Hu et~al.(2021)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and Chen]{Hu2021LoraLowrank}
+J.~Hu, Ye-Long Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, She-An Wang, Lu~Wang, and Wei-Zhu Chen.
 \newblock Lora: Low-rank adaptation of large language models.
 \newblock \emph{ArXiv}, abs/2106.09685, 2021.
 
@@ -101,44 +75,29 @@ Damjan Kalajdzievski.
 \newblock A rank stabilization scaling factor for fine-tuning with lora.
 \newblock \emph{ArXiv}, abs/2312.03732, 2023.
 
-\bibitem[Kapoor \& Narayanan(2023)Kapoor and
-  Narayanan]{Kapoor2023LeakageReproducibility}
+\bibitem[Kapoor \& Narayanan(2023)Kapoor and Narayanan]{Kapoor2023LeakageReproducibility}
 Sayash Kapoor and Arvind Narayanan.
-\newblock Leakage and the reproducibility crisis in machine-learning-based
-  science.
+\newblock Leakage and the reproducibility crisis in machine-learning-based science.
 \newblock \emph{Patterns}, 4, 2023.
 
-\bibitem[Kapoor et~al.(2024)Kapoor, Cantrell, Peng, Pham, Bail, Gundersen,
-  Hofman, Hullman, Lones, Malik, Nanayakkara, Poldrack, Raji, Roberts,
-  Salganik, Serra-Garcia, Stewart, Vandewiele, and
-  Narayanan]{Kapoor2024ReformsConsensusbased}
-Sayash Kapoor, Emily~M. Cantrell, Kenny Peng, Thanh~Hien Pham, C.~Bail,
-  Odd~Erik Gundersen, Jake~M. Hofman, Jessica Hullman, M.~Lones, Momin~M.
-  Malik, Priyanka Nanayakkara, R.~Poldrack, I.~Raji, Michael Roberts,
-  Matthew~J. Salganik, M.~Serra-Garcia, Brandon~M. Stewart, Gilles Vandewiele,
-  and Arvind Narayanan.
-\newblock Reforms: Consensus-based recommendations for machine-learning-based
-  science.
+\bibitem[Kapoor et~al.(2024)Kapoor, Cantrell, Peng, Pham, Bail, Gundersen, Hofman, Hullman, Lones, Malik, Nanayakkara, Poldrack, Raji, Roberts, Salganik, Serra-Garcia, Stewart, Vandewiele, and Narayanan]{Kapoor2024ReformsConsensusbased}
+Sayash Kapoor, Emily~M. Cantrell, Kenny Peng, Thanh~Hien Pham, C.~Bail, Odd~Erik Gundersen, Jake~M. Hofman, Jessica Hullman, M.~Lones, Momin~M. Malik, Priyanka Nanayakkara, R.~Poldrack, I.~Raji, Michael Roberts, Matthew~J. Salganik, M.~Serra-Garcia, Brandon~M. Stewart, Gilles Vandewiele, and Arvind Narayanan.
+\newblock Reforms: Consensus-based recommendations for machine-learning-based science.
 \newblock \emph{Science Advances}, 10, 2024.
 
-\bibitem[Khattar et~al.(2019)Khattar, Goud, Gupta, and
-  Varma]{Khattar2019MvaeMultimodal}
+\bibitem[Khattar et~al.(2019)Khattar, Goud, Gupta, and Varma]{Khattar2019MvaeMultimodal}
 Dhruv Khattar, Jaipal~Singh Goud, Manish Gupta, and Vasudeva Varma.
 \newblock Mvae: Multimodal variational autoencoder for fake news detection.
 \newblock \emph{The World Wide Web Conference}, 2019.
 
-\bibitem[Kopiczko et~al.(2023)Kopiczko, Blankevoort, and
-  Asano]{Kopiczko2023VeraVectorbased}
+\bibitem[Kopiczko et~al.(2023)Kopiczko, Blankevoort, and Asano]{Kopiczko2023VeraVectorbased}
 D.~J. Kopiczko, Tijmen Blankevoort, and Yuki~Markus Asano.
 \newblock Vera: Vector-based random matrix adaptation.
 \newblock \emph{ArXiv}, abs/2310.11454, 2023.
 
-\bibitem[Kull et~al.(2019)Kull, Perello-Nieto, Kängsepp, de~Menezes~e Silva,
-  Song, and Flach]{Kull2019BeyondTemperature}
-Meelis Kull, Miquel Perello-Nieto, Markus Kängsepp, Telmo de~Menezes~e Silva,
-  Hao Song, and Peter~A. Flach.
-\newblock Beyond temperature scaling: Obtaining well-calibrated multiclass
-  probabilities with dirichlet calibration.
+\bibitem[Kull et~al.(2019)Kull, Perello-Nieto, Kängsepp, de~Menezes~e Silva, Song, and Flach]{Kull2019BeyondTemperature}
+Meelis Kull, Miquel Perello-Nieto, Markus Kängsepp, Telmo de~Menezes~e Silva, Hao Song, and Peter~A. Flach.
+\newblock Beyond temperature scaling: Obtaining well-calibrated multiclass probabilities with dirichlet calibration.
 \newblock \emph{ArXiv}, abs/1910.12656, 2019.
 
 \bibitem[Kumar et~al.(2019)Kumar, Liang, and Ma]{Kumar2019VerifiedUncertainty}
@@ -146,8 +105,7 @@ Ananya Kumar, Percy Liang, and Tengyu Ma.
 \newblock Verified uncertainty calibration.
 \newblock \emph{ArXiv}, abs/1909.10155, 2019.
 
-\bibitem[Li et~al.(2019)Li, Yatskar, Yin, Hsieh, and
-  Chang]{Li2019VisualbertSimple}
+\bibitem[Li et~al.(2019)Li, Yatskar, Yin, Hsieh, and Chang]{Li2019VisualbertSimple}
 Liunian~Harold Li, M.~Yatskar, Da~Yin, Cho-Jui Hsieh, and Kai-Wei Chang.
 \newblock Visualbert: A simple and performant baseline for vision and language.
 \newblock \emph{ArXiv}, abs/1908.03557, 2019.
@@ -157,211 +115,139 @@ Haotian Liu, Chun-Yuan Li, Qingyang Wu, and Yong~Jae Lee.
 \newblock Visual instruction tuning.
 \newblock \emph{ArXiv}, abs/2304.08485, 2023.
 
-\bibitem[Liu et~al.(2024)Liu, Li, Li, Huang, Xia, Cui, Huang, Deng, and
-  He]{Liu2024MmfakebenchMixedsource}
-Xuan-Nan Liu, Zekun Li, Pei-Pei Li, Huai-Bo Huang, Shu-Han Xia, Xing Cui,
-  Lin-Zhi Huang, Wei-Hong Deng, and Zhaofeng He.
-\newblock Mmfakebench: A mixed-source multimodal misinformation detection
-  benchmark for lvlms.
+\bibitem[Liu et~al.(2024)Liu, Li, Li, Huang, Xia, Cui, Huang, Deng, and He]{Liu2024MmfakebenchMixedsource}
+Xuan-Nan Liu, Zekun Li, Pei-Pei Li, Huai-Bo Huang, Shu-Han Xia, Xing Cui, Lin-Zhi Huang, Wei-Hong Deng, and Zhaofeng He.
+\newblock Mmfakebench: A mixed-source multimodal misinformation detection benchmark for lvlms.
 \newblock \emph{ArXiv}, abs/2406.08772, 2024.
 
-\bibitem[Lopez-Paz \& Ranzato(2017)Lopez-Paz and
-  Ranzato]{Lopezpaz2017GradientEpisodic}
+\bibitem[Lopez-Paz \& Ranzato(2017)Lopez-Paz and Ranzato]{Lopezpaz2017GradientEpisodic}
 D.~Lopez-Paz and M.~Ranzato.
 \newblock Gradient episodic memory for continual learning.
-\newblock In \emph{Neural Information Processing Systems}, pp.\  6467--6476,
-  2017.
+\newblock In \emph{Neural Information Processing Systems}, pp.\  6467--6476, 2017.
 
-\bibitem[Luo et~al.(2021)Luo, Darrell, and
-  Rohrbach]{Luo2021NewsclippingsAutomatic}
+\bibitem[Luo et~al.(2021)Luo, Darrell, and Rohrbach]{Luo2021NewsclippingsAutomatic}
 Grace Luo, Trevor Darrell, and Anna Rohrbach.
-\newblock Newsclippings: Automatic generation of out-of-context multimodal
-  media.
-\newblock In \emph{Conference on Empirical Methods in Natural Language
-  Processing}, pp.\  6801--6817, 2021.
+\newblock Newsclippings: Automatic generation of out-of-context multimodal media.
+\newblock In \emph{Conference on Empirical Methods in Natural Language Processing}, pp.\  6801--6817, 2021.
 
-\bibitem[Minderer et~al.(2021)Minderer, Djolonga, Romijnders, Hubis, Zhai,
-  Houlsby, Tran, and Lučić]{Minderer2021RevisitingCalibration}
-M.~Minderer, J.~Djolonga, R.~Romijnders, F.~Hubis, Xiao-Hua Zhai, N.~Houlsby,
-  Dustin Tran, and M.~Lučić.
+\bibitem[Minderer et~al.(2021)Minderer, Djolonga, Romijnders, Hubis, Zhai, Houlsby, Tran, and Lučić]{Minderer2021RevisitingCalibration}
+M.~Minderer, J.~Djolonga, R.~Romijnders, F.~Hubis, Xiao-Hua Zhai, N.~Houlsby, Dustin Tran, and M.~Lučić.
 \newblock Revisiting the calibration of modern neural networks.
 \newblock \emph{ArXiv}, abs/2106.07998, 2021.
 
-\bibitem[Naeini et~al.(2015)Naeini, Cooper, and
-  Hauskrecht]{Naeini2015ObtainingWell}
+\bibitem[Naeini et~al.(2015)Naeini, Cooper, and Hauskrecht]{Naeini2015ObtainingWell}
 Mahdi~Pakdaman Naeini, G.~Cooper, and M.~Hauskrecht.
 \newblock Obtaining well calibrated probabilities using bayesian binning.
-\newblock \emph{Proceedings of the ... AAAI Conference on Artificial
-  Intelligence. AAAI Conference on Artificial Intelligence}, 2015:\penalty0
-  2901 -- 2907, 2015.
+\newblock \emph{Proceedings of the ... AAAI Conference on Artificial Intelligence. AAAI Conference on Artificial Intelligence}, 2015:\penalty0 2901 -- 2907, 2015.
 
-\bibitem[Nixon et~al.(2019)Nixon, Dusenberry, Zhang, Jerfel, and
-  Tran]{Nixon2019MeasuringCalibration}
-J.~Nixon, Michael~W. Dusenberry, Linchuan Zhang, Ghassen Jerfel, and Dustin
-  Tran.
+\bibitem[Nixon et~al.(2019)Nixon, Dusenberry, Zhang, Jerfel, and Tran]{Nixon2019MeasuringCalibration}
+J.~Nixon, Michael~W. Dusenberry, Linchuan Zhang, Ghassen Jerfel, and Dustin Tran.
 \newblock Measuring calibration in deep learning.
 \newblock In \emph{CVPR Workshops}, pp.\  38--41, 2019.
 
-\bibitem[Ovadia et~al.(2019)Ovadia, Fertig, Ren, Nado, Sculley, Nowozin,
-  Dillon, Lakshminarayanan, and Snoek]{Ovadia2019CanYou}
-Yaniv Ovadia, Emily Fertig, Jie~Jessie Ren, Zachary Nado, D.~Sculley,
-  S.~Nowozin, Joshua~V. Dillon, Balaji Lakshminarayanan, and Jasper Snoek.
-\newblock Can you trust your model's uncertainty? evaluating predictive
-  uncertainty under dataset shift.
-\newblock In \emph{Neural Information Processing Systems}, pp.\  13969--13980,
-  2019.
+\bibitem[Ovadia et~al.(2019)Ovadia, Fertig, Ren, Nado, Sculley, Nowozin, Dillon, Lakshminarayanan, and Snoek]{Ovadia2019CanYou}
+Yaniv Ovadia, Emily Fertig, Jie~Jessie Ren, Zachary Nado, D.~Sculley, S.~Nowozin, Joshua~V. Dillon, Balaji Lakshminarayanan, and Jasper Snoek.
+\newblock Can you trust your model's uncertainty? evaluating predictive uncertainty under dataset shift.
+\newblock In \emph{Neural Information Processing Systems}, pp.\  13969--13980, 2019.
 
-\bibitem[Papadopoulos et~al.(2023)Papadopoulos, Koutlis, Papadopoulos, and
-  Petrantonakis]{Papadopoulos2023VeriteRobust}
-Stefanos-Iordanis Papadopoulos, C.~Koutlis, S.~Papadopoulos, and
-  P.~Petrantonakis.
-\newblock Verite: a robust benchmark for multimodal misinformation detection
-  accounting for unimodal bias.
-\newblock \emph{International Journal of Multimedia Information Retrieval}, 13,
-  2023.
+\bibitem[Papadopoulos et~al.(2023)Papadopoulos, Koutlis, Papadopoulos, and Petrantonakis]{Papadopoulos2023VeriteRobust}
+Stefanos-Iordanis Papadopoulos, C.~Koutlis, S.~Papadopoulos, and P.~Petrantonakis.
+\newblock Verite: a robust benchmark for multimodal misinformation detection accounting for unimodal bias.
+\newblock \emph{International Journal of Multimedia Information Retrieval}, 13, 2023.
 
-\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
-  Grisel, Blondel, Louppe, Prettenhofer, Weiss, Weiss, Vanderplas, Passos,
-  Cournapeau, Brucher, Perrot, and Duchesnay]{Pedregosa2011ScikitlearnMachine}
-Fabian Pedregosa, G.~Varoquaux, Alexandre Gramfort, V.~Michel, B.~Thirion,
-  O.~Grisel, M.~Blondel, Gilles Louppe, P.~Prettenhofer, R.~Weiss, Ron~J.
-  Weiss, J.~Vanderplas, A.~Passos, D.~Cournapeau, M.~Brucher, M.~Perrot, and
-  E.~Duchesnay.
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion, Grisel, Blondel, Louppe, Prettenhofer, Weiss, Weiss, Vanderplas, Passos, Cournapeau, Brucher, Perrot, and Duchesnay]{Pedregosa2011ScikitlearnMachine}
+Fabian Pedregosa, G.~Varoquaux, Alexandre Gramfort, V.~Michel, B.~Thirion, O.~Grisel, M.~Blondel, Gilles Louppe, P.~Prettenhofer, R.~Weiss, Ron~J. Weiss, J.~Vanderplas, A.~Passos, D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
 \newblock Scikit-learn: Machine learning in python.
 \newblock \emph{ArXiv}, abs/1201.0490, 2011.
 
-\bibitem[Pineau et~al.(2020)Pineau, Vincent-Lamarre, Sinha, Larivière,
-  Beygelzimer, d'Alché Buc, Fox, and
-  Larochelle]{Pineau2020ImprovingReproducibility}
-Joelle Pineau, P.~Vincent-Lamarre, Koustuv Sinha, V.~Larivière,
-  A.~Beygelzimer, Florence d'Alché Buc, Emily~B. Fox, and H.~Larochelle.
-\newblock Improving reproducibility in machine learning research (a report from
-  the neurips 2019 reproducibility program).
+\bibitem[Pineau et~al.(2020)Pineau, Vincent-Lamarre, Sinha, Larivière, Beygelzimer, d'Alché Buc, Fox, and Larochelle]{Pineau2020ImprovingReproducibility}
+Joelle Pineau, P.~Vincent-Lamarre, Koustuv Sinha, V.~Larivière, A.~Beygelzimer, Florence d'Alché Buc, Emily~B. Fox, and H.~Larochelle.
+\newblock Improving reproducibility in machine learning research (a report from the neurips 2019 reproducibility program).
 \newblock \emph{J. Mach. Learn. Res.}, 22:\penalty0 164:1--164:20, 2020.
 
 \bibitem[Qi et~al.(2024)Qi, Yan, Hsu, and Lee]{Qi2024SnifferMultimodal}
 Peng Qi, Zehong Yan, W.~Hsu, and Mong~Li Lee.
-\newblock Sniffer: Multimodal large language model for explainable
-  out-of-context misinformation detection.
-\newblock \emph{2024 IEEE/CVF Conference on Computer Vision and Pattern
-  Recognition (CVPR)}, pp.\  13052--13062, 2024.
+\newblock Sniffer: Multimodal large language model for explainable out-of-context misinformation detection.
+\newblock \emph{2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, pp.\  13052--13062, 2024.
 
-\bibitem[Radford et~al.(2021)Radford, Kim, Hallacy, Ramesh, Goh, Agarwal,
-  Sastry, Askell, Mishkin, Clark, Krueger, and
-  Sutskever]{Radford2021LearningTransferable}
-A.~Radford, Jong~Wook Kim, Chris Hallacy, A.~Ramesh, G.~Goh, S.~Agarwal,
-  G.~Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, G.~Krueger, and
-  I.~Sutskever.
-\newblock Learning transferable visual models from natural language
-  supervision.
-\newblock In \emph{International Conference on Machine Learning}, pp.\
-  8748--8763, 2021.
+\bibitem[Radford et~al.(2021)Radford, Kim, Hallacy, Ramesh, Goh, Agarwal, Sastry, Askell, Mishkin, Clark, Krueger, and Sutskever]{Radford2021LearningTransferable}
+A.~Radford, Jong~Wook Kim, Chris Hallacy, A.~Ramesh, G.~Goh, S.~Agarwal, G.~Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, G.~Krueger, and I.~Sutskever.
+\newblock Learning transferable visual models from natural language supervision.
+\newblock In \emph{International Conference on Machine Learning}, pp.\  8748--8763, 2021.
 
 \bibitem[Shao et~al.(2023)Shao, Wu, and Liu]{Shao2023DetectingGrounding}
 R.~Shao, Tianxing Wu, and Ziwei Liu.
 \newblock Detecting and grounding multi-modal media manipulation.
-\newblock \emph{2023 IEEE/CVF Conference on Computer Vision and Pattern
-  Recognition (CVPR)}, pp.\  6904--6913, 2023.
+\newblock \emph{2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, pp.\  6904--6913, 2023.
 
-\bibitem[Shen et~al.(2023)Shen, Song, Tan, Li, Lu, and
-  Zhuang]{Shen2023HugginggptSolving}
+\bibitem[Shen et~al.(2023)Shen, Song, Tan, Li, Lu, and Zhuang]{Shen2023HugginggptSolving}
 Yongliang Shen, Kai-Tao Song, Xu~Tan, Dongsheng Li, Weiming Lu, and Y.~Zhuang.
-\newblock Hugginggpt: Solving ai tasks with chatgpt and its friends in hugging
-  face.
+\newblock Hugginggpt: Solving ai tasks with chatgpt and its friends in hugging face.
 \newblock \emph{ArXiv}, abs/2303.17580, 2023.
 
-\bibitem[Shuttleworth et~al.(2024)Shuttleworth, Andreas, Torralba, and
-  Sharma]{Shuttleworth2024LoraVs}
+\bibitem[Shuttleworth et~al.(2024)Shuttleworth, Andreas, Torralba, and Sharma]{Shuttleworth2024LoraVs}
 Reece Shuttleworth, Jacob Andreas, A.~Torralba, and Pratyusha Sharma.
 \newblock Lora vs full fine-tuning: An illusion of equivalence.
 \newblock \emph{ArXiv}, abs/2410.21228, 2024.
 
-\bibitem[Singhal et~al.(2019)Singhal, Shah, Chakraborty, Kumaraguru, and
-  Satoh]{Singhal2019SpotfakeMultimodal}
+\bibitem[Singhal et~al.(2019)Singhal, Shah, Chakraborty, Kumaraguru, and Satoh]{Singhal2019SpotfakeMultimodal}
 Shivangi Singhal, R.~Shah, Tanmoy Chakraborty, P.~Kumaraguru, and S.~Satoh.
 \newblock Spotfake: A multi-modal framework for fake news detection.
-\newblock \emph{2019 IEEE Fifth International Conference on Multimedia Big Data
-  (BigMM)}, pp.\  39--47, 2019.
+\newblock \emph{2019 IEEE Fifth International Conference on Multimedia Big Data (BigMM)}, pp.\  39--47, 2019.
 
-\bibitem[Surís et~al.(2023)Surís, Menon, and
-  Vondrick]{Surs2023VipergptVisual}
+\bibitem[Surís et~al.(2023)Surís, Menon, and Vondrick]{Surs2023VipergptVisual}
 Dídac Surís, Sachit Menon, and Carl Vondrick.
 \newblock Vipergpt: Visual inference via python execution for reasoning.
-\newblock \emph{2023 IEEE/CVF International Conference on Computer Vision
-  (ICCV)}, pp.\  11854--11864, 2023.
+\newblock \emph{2023 IEEE/CVF International Conference on Computer Vision (ICCV)}, pp.\  11854--11864, 2023.
 
-\bibitem[Tahmasebi et~al.(2024)Tahmasebi, Müller-Budack, and
-  Ewerth]{Tahmasebi2024MultimodalMisinformation}
+\bibitem[Tahmasebi et~al.(2024)Tahmasebi, Müller-Budack, and Ewerth]{Tahmasebi2024MultimodalMisinformation}
 Sahar Tahmasebi, Eric Müller-Budack, and R.~Ewerth.
-\newblock Multimodal misinformation detection using large vision-language
-  models.
-\newblock \emph{Proceedings of the 33rd ACM International Conference on
-  Information and Knowledge Management}, 2024.
+\newblock Multimodal misinformation detection using large vision-language models.
+\newblock \emph{Proceedings of the 33rd ACM International Conference on Information and Knowledge Management}, 2024.
 
 \bibitem[Tan \& Bansal(2019)Tan and Bansal]{Tan2019LxmertLearning}
 Hao~Hao Tan and Mohit Bansal.
-\newblock Lxmert: Learning cross-modality encoder representations from
-  transformers.
-\newblock In \emph{Conference on Empirical Methods in Natural Language
-  Processing}, pp.\  5099--5110, 2019.
+\newblock Lxmert: Learning cross-modality encoder representations from transformers.
+\newblock In \emph{Conference on Empirical Methods in Natural Language Processing}, pp.\  5099--5110, 2019.
 
-\bibitem[Thorne et~al.(2018)Thorne, Vlachos, Christodoulopoulos, and
-  Mittal]{Thorne2018FeverLargescale}
+\bibitem[Thorne et~al.(2018)Thorne, Vlachos, Christodoulopoulos, and Mittal]{Thorne2018FeverLargescale}
 James Thorne, Andreas Vlachos, Christos Christodoulopoulos, and Arpit Mittal.
 \newblock Fever: a large-scale dataset for fact extraction and verification.
-\newblock In \emph{North American Chapter of the Association for Computational
-  Linguistics}, pp.\  809--819, 2018.
+\newblock In \emph{North American Chapter of the Association for Computational Linguistics}, pp.\  809--819, 2018.
 
-\bibitem[Vaicenavicius et~al.(2019)Vaicenavicius, Widmann, Andersson, Lindsten,
-  Roll, and Schön]{Vaicenavicius2019EvaluatingModel}
-Juozas Vaicenavicius, David Widmann, Carl~R. Andersson, F.~Lindsten, Jacob
-  Roll, and Thomas~Bo Schön.
+\bibitem[Vaicenavicius et~al.(2019)Vaicenavicius, Widmann, Andersson, Lindsten, Roll, and Schön]{Vaicenavicius2019EvaluatingModel}
+Juozas Vaicenavicius, David Widmann, Carl~R. Andersson, F.~Lindsten, Jacob Roll, and Thomas~Bo Schön.
 \newblock Evaluating model calibration in classification.
 \newblock \emph{ArXiv}, abs/1902.06977, 2019.
 
-\bibitem[Wang et~al.(2024)Wang, Lin, Luo, Ye, Chen, and
-  Ma]{Wang2024MfcbenchBenchmarking}
+\bibitem[Wang et~al.(2024)Wang, Lin, Luo, Ye, Chen, and Ma]{Wang2024MfcbenchBenchmarking}
 Sheng-Yao Wang, Hongzhan Lin, Ziyang Luo, Zhen Ye, Guang Chen, and Jing Ma.
-\newblock Mfc-bench: Benchmarking multimodal fact-checking with large
-  vision-language models.
+\newblock Mfc-bench: Benchmarking multimodal fact-checking with large vision-language models.
 \newblock \emph{ArXiv}, abs/2406.11288, 2024.
 
-\bibitem[Wang et~al.(2018)Wang, Ma, Jin, Yuan, Xun, Jha, Su, and
-  Gao]{Wang2018EannEvent}
-Yaqing Wang, Fenglong Ma, Zhi-Wei Jin, Ye~Yuan, Guang-Xu Xun, Kishlay Jha,
-  Lu~Su, and Jing Gao.
-\newblock Eann: Event adversarial neural networks for multi-modal fake news
-  detection.
-\newblock \emph{Proceedings of the 24th ACM SIGKDD International Conference on
-  Knowledge Discovery \& Data Mining}, 2018.
+\bibitem[Wang et~al.(2018)Wang, Ma, Jin, Yuan, Xun, Jha, Su, and Gao]{Wang2018EannEvent}
+Yaqing Wang, Fenglong Ma, Zhi-Wei Jin, Ye~Yuan, Guang-Xu Xun, Kishlay Jha, Lu~Su, and Jing Gao.
+\newblock Eann: Event adversarial neural networks for multi-modal fake news detection.
+\newblock \emph{Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining}, 2018.
 
 \bibitem[Yu et~al.(2022)Yu, Chang, Liu, Tian, and Chen]{Yu2022TowardsUnified}
 Bruce X.~B. Yu, Jian-Long Chang, Lin Liu, Qi~Tian, and Changan Chen.
-\newblock Towards a unified view on visual parameter-efficient transfer
-  learning.
+\newblock Towards a unified view on visual parameter-efficient transfer learning.
 \newblock \emph{ArXiv}, abs/2210.00788, 2022.
 
-\bibitem[Zhang et~al.(2023)Zhang, Chen, Bukharin, Karampatziakis, He, Cheng,
-  Chen, and Zhao]{Zhang2023AdaloraAdaptive}
-Qingru Zhang, Min-Shuo Chen, Alexander Bukharin, Nikos Karampatziakis,
-  Pengcheng He, Yu~Cheng, Wei-Zhu Chen, and Tuo Zhao.
-\newblock Adalora: Adaptive budget allocation for parameter-efficient
-  fine-tuning.
+\bibitem[Zhang et~al.(2023)Zhang, Chen, Bukharin, Karampatziakis, He, Cheng, Chen, and Zhao]{Zhang2023AdaloraAdaptive}
+Qingru Zhang, Min-Shuo Chen, Alexander Bukharin, Nikos Karampatziakis, Pengcheng He, Yu~Cheng, Wei-Zhu Chen, and Tuo Zhao.
+\newblock Adalora: Adaptive budget allocation for parameter-efficient fine-tuning.
 \newblock In \emph{arXiv}, 2023.
 
-\bibitem[Zhang et~al.(2022)Zhang, Wei, Fang, Gao, Li, Dai, Qiao, and
-  Li]{Zhang2022TipadapterTrainingfree}
-Renrui Zhang, Zhang Wei, Rongyao Fang, Peng Gao, Kun-Chang Li, Ji-Feng Dai,
-  Yu~Qiao, and Hongsheng Li.
-\newblock Tip-adapter: Training-free adaption of clip for few-shot
-  classification.
+\bibitem[Zhang et~al.(2022)Zhang, Wei, Fang, Gao, Li, Dai, Qiao, and Li]{Zhang2022TipadapterTrainingfree}
+Renrui Zhang, Zhang Wei, Rongyao Fang, Peng Gao, Kun-Chang Li, Ji-Feng Dai, Yu~Qiao, and Hongsheng Li.
+\newblock Tip-adapter: Training-free adaption of clip for few-shot classification.
 \newblock \emph{ArXiv}, abs/2207.09519, 2022.
 
-\bibitem[Zhu et~al.(2024)Zhu, Zhu, Liu, Ou, Mou, and
-  Tang]{Zhu2024LlavaphiEfficient}
+\bibitem[Zhu et~al.(2024)Zhu, Zhu, Liu, Ou, Mou, and Tang]{Zhu2024LlavaphiEfficient}
 Yi-Chen Zhu, Minjie Zhu, Ning Liu, Zhicai Ou, Xiao-Feng Mou, and Jian Tang.
 \newblock Llava-phi: Efficient multi-modal assistant with small language model.
-\newblock \emph{Proceedings of the 1st International Workshop on Efficient
-  Multimedia Computing under Limited}, 2024.
+\newblock \emph{Proceedings of the 1st International Workshop on Efficient Multimedia Computing under Limited}, 2024.
 
 \end{thebibliography}

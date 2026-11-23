@@ -3,6 +3,33 @@
 Every version of the LAYA study paper, what changed in it, and the
 evidence each change stands on. Protocol: `VERSIONING.md`.
 
+## v0.1 — 2026-11-23 — the complete-record paper
+
+- **Features:** full rewrite from the finalised results bundle
+  (`final_results_bundle.json`) by the DeepSeek-backend PaperOrchestra
+  pass (v4-pro writing stages, flash grunt stages; total DeepSeek spend
+  $1.36), gated and fixed by the parent verifier before this snapshot.
+- **Information:** the complete study — the 12-config fine-tuning grid
+  and winner (full / soft_ce / 735, tune macro-F1 0.7389), the
+  supplementary tier of 15, test-once macro-F1 0.6020 with paired
+  bootstrap +0.3983 [0.3853, 0.4108] (test scored once, now closed),
+  the calibration finding with its held-out qualification, the
+  NewsCLIPpings trained arm (H2 NOT MET, 0.5104 vs 0.5141 baseline),
+  VERITE transfer (H3 NOT MET, 0.3506), the 0.9150 metadata leakage
+  ceiling, the six-protocol fragmentation audit, and the metered cost
+  ledger ($5.64 metered GPU; $0.04 per 1,000 predictions).
+- **Gate fixes applied at this version:** the template author block is
+  replaced by the real byline (Rafiul Haider, Harika Etikela, Ananya
+  Saravani Ganni, and Krishna Batula — Pace University, Analytics
+  Capstone, Fall 2026); 16 seeded references merged into the
+  bibliography (68 entries; all 49 cited keys resolve); the draft's
+  "anonymized submission" wording corrected; all 450 numeric literals
+  traced to the bundle or the run record via `tools/verified_numbers.json`
+  (259 sourced entries).
+- **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings — the
+  v0.0 section-4.6 regime-mix pattern does not appear); clean-room
+  compile, 13 pages, zero undefined citations or references.
+
 ## v0.0 — 2026-11-22 — baseline archive
 
 - **Features:** the PaperOrchestra run #2 refined draft, archived

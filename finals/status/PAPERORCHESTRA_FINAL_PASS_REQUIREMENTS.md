@@ -46,9 +46,9 @@ numbers pasted in. Operator lessons behind each rule: mistakes.md §PO-1..6.
     drafts, checks numbers and claims, and drives the refinement loop.
     (Neon earned this seat in the head-to-head: clean and exact, caught
     the planted inconsistency.)
-  - **Grunt work = the cheap tiers** (Gemini flash-lite, deepseek-flash
-    where suitable): enrichment, extraction, formatting and citation
-    mechanics, compile fixes.
+  - **Grunt work = deepseek-flash** (Rafiul, 2026-11-22 19:29 ET):
+    enrichment, extraction, formatting and citation mechanics, compile
+    fixes — the DeepSeek flash tier takes all of it.
   - Mechanism: PaperOrchestra's agents are Gemini-wired, so the writer
     runs as a hybrid — PaperOrchestra orchestrates (outline, literature,
     refinement, compile) while v4-pro generates the prose externally and

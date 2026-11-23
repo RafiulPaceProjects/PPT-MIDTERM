@@ -36,3 +36,9 @@
   publication-date enforcement with leakage audit, verdict-neutral
   image-description diagnostic) summarised; full 11-item ranked list in the
   study record (BOARD_EVIDENCEGATE_HARDENING.md).
+
+## exp-v0.6 (2026-11-22)
+- Field-solutions survey summarised into the draft: cross-anchoring (CCN/SNIFFER)
+  and its 2026 availability limits, AVeriTeC date discipline adopted, and the two
+  no-published-equivalent fixes (binding tagging + decontamination ablation;
+  cluster-counting flip policy) framed as candidate contributions.

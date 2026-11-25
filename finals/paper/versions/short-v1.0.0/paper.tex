@@ -78,7 +78,7 @@ H5 & Calibration, as registered & MET, qualified \\
 
 \subsection{MMFakeBench: the win}
 
-The frozen winner is the full encoder-plus-head arm with soft\_ce at 735 steps, tune macro-F1 0.7389. Within this library's two objectives and under this recipe, soft\_ce beats rlcd in all six matched pairs. On the official test split, scored exactly once on 9,999 paired rows, the winner reaches macro-F1 0.6020 against a pretrained baseline of 0.2037: a paired-resampling difference of $+0.3983$ with 95\% interval $[+0.3853, +0.4108]$, and every per-class recall improves (test recalls: original 0.617, textual distortion 0.834, visual distortion 0.512, mismatch 0.422). H1 and H4 are met (the winner's minimum per-class tune recall is 0.6129). The winner's remaining errors concentrate on the original-versus-mismatch boundary (2,375 of 3,870 errors), and its validation-to-test accuracy gap (0.7690 against 0.6130) is consistent with selection on a 105-item tune split rather than a protocol failure, because the baseline is nearly flat in macro-F1 across the same two splits (0.2079 on validation against 0.2037 on test).
+The frozen winner is the full encoder-plus-head arm with soft\_ce at 735 steps, tune macro-F1 0.7389. Within this library's two objectives and under this recipe, soft\_ce beats rlcd in all six matched pairs. On the official test split, scored exactly once on 9,999 paired rows, the winner reaches macro-F1 0.6020 against a pretrained baseline of 0.2037: a paired-resampling difference of $+0.3983$ with 95\% interval $[+0.3853, +0.4108]$, and every per-class recall improves (test recalls: original 0.617, textual distortion 0.834, visual distortion 0.512, mismatch 0.422). H1 and H4 are met (the winner's minimum per-class tune recall is 0.6129). The winner's remaining errors concentrate on the original-versus-mismatch boundary (2,375 of 3,870 errors), and its validation-to-test accuracy gap (0.7690 against 0.6130) is consistent with selection on a 105-item tune split rather than a protocol failure, because the baseline is nearly flat across the same two splits.
 
 The supplementary tier, which runs after selection and never feeds it, bounds the result's fragility. A second seed of the winner recipe reaches tune macro-F1 0.7320, so the winner is not a lucky-seed artifact at the tune level. The data-size curve at a fixed 490 steps collapses at 122 training items (0.1168), recovers at 245 items (0.3670), and reaches 0.6598 at 490 items: a minimum-data cliff under this recipe. LoRA rank is a stability hazard at this scale: rank 8 and rank 16 stay trainable, while rank 32 collapses (0.1168 at 490 steps, 0.2244 at 735 steps, with training loss rising). Head-only fine-tuning scores at most 0.4899 and is never competitive.
 
@@ -108,7 +108,7 @@ lora\_rlcd\_735 & 0.1946 & 0.3333 \\
 
 \begin{table}[t]
 \centering
-\caption{Protocol A (official MMFakeBench test) comparison, macro-F1 in percent as published. Only the frontier agent system sits above this study's 201M model; every fine-tuned system on the verified official test split sits below it. DeceptionDecoded is tabled below the line: it reports 58.66 under a Protocol A claim whose split we could not verify, and no claim in this paper rests on it.}
+\caption{Protocol A (official MMFakeBench test) comparison, macro-F1 in percent as published. Only the frontier agent system sits above this study's 201M model; every fine-tuned system on the verified official test split sits below it.}
 \label{tab:protocol}
 \begin{tabular}{lc}
 \toprule
@@ -116,16 +116,14 @@ System & Macro-F1 (\%) \\
 \midrule
 GPT-4V + MMD-Agent & 61.5 \\
 \textbf{LAYA-Vision (this study)} & \textbf{60.20} \\
-SCPO (Top-1 extraction) & 57.3 \\
+SCPO & 57.3 \\
 GPT-4V Standard & 48.8 \\
 LLaVA-1.6-34B Standard & 25.7 \\
-\midrule
-DeceptionDecoded (split unverified) & 58.66 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:protocol} places the result among published systems on the same protocol. The comparison needs the protocol label before it needs error bars: the wider literature is fragmented across at least six incompatible regimes (validation, binary, retrieval, and private re-split numbers are not comparable), and we table verified official-test results above the line, with the one unverified Protocol A claim, DeceptionDecoded, below it. Inference is measured at 0.16 seconds per item, about \$0.04 per 1,000 predictions, with zero external dependencies.
+Table~\ref{tab:protocol} places the result among published systems on the same protocol. The comparison needs the protocol label before it needs error bars: the wider literature is fragmented across at least six incompatible regimes (validation, binary, retrieval, and private re-split numbers are not comparable), and we table only verified official-test results here. Inference is measured at 0.16 seconds per item, about \$0.04 per 1,000 predictions, with zero external dependencies.
 
 \subsection{NewsCLIPpings and VERITE: the null and the flat transfer}
 
@@ -187,7 +185,7 @@ B & P1B evidence & 0.5067 & 0.5067 & 0 \\
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{fig_money.pdf}
-\caption{Headline accuracy beside accuracy including uncertain, for every headline arm comparison in Part II. The accounting rule, in plain words: headline accuracy counts every item the arbitration labels uncertain as wrong; accuracy including uncertain scores those items by the model's own screen instead, so the two bars for an arm differ only in how its abstentions are scored. Where a gap between arms appears in the blue bars and vanishes or inverts in the orange bars, the gap was a movement in how often the model committed, not in how often it was right. Panel B is the worked example: the evidence arm's headline gain of $+0.2467$ coexists with falsified accuracy of 0 of 148. Panel D is Arm W read under fitted accounting; at plain 0.5 thresholds the same arm's paired difference flips sign, as the text reports. Panel E shows the scale probe's collapse running the other way, into abstention: at 10,040 training items the model is uncertain on 274 of 300 items. Uncertain counts are printed under each arm.}
+\caption{Headline accuracy beside accuracy including uncertain, for every headline arm comparison in Part II. The accounting rule, in plain words: headline accuracy counts every item the arbitration labels uncertain as wrong; accuracy including uncertain scores those items by the model's own screen instead, so the two bars for an arm differ only in how its abstentions are scored. Where a gap between arms appears in the blue bars and vanishes or inverts in the orange bars, the gap was a movement in how often the model committed, not in how often it was right. Panel B is the worked example: the evidence arm's headline gain of $+0.2467$ coexists with falsified accuracy of 0 of 148. Panel E shows the scale probe's collapse running the other way, into abstention: at 10,040 training items the model is uncertain on 274 of 300 items. Uncertain counts are printed under each arm.}
 \label{fig:money}
 \end{figure*}
 
@@ -217,7 +215,7 @@ On VERITE, a group-aware split froze a held-out 200 (Table~\ref{tab:verite4}). A
 
 \begin{table}[t]
 \centering
-\caption{VERITE four arms on the held-out 200. BASE here is the base checkpoint on the held-out 200 only, not the Part I full-set baseline. Miscaptioned recall is 0.0 for BASE and EVIDENCE, 0.2000 for TRANSFER, and 0.3846 for ADAPTED; ADAPTED is the only arm that uses all three labels at volume.}
+\caption{VERITE four arms on the held-out 200. BASE here is the base checkpoint on the held-out 200 only, not the Part I full-set baseline. BASE and EVIDENCE never predict miscaptioned at all; ADAPTED is the only arm that uses all three labels at volume.}
 \label{tab:verite4}
 \begin{tabular}{lcc}
 \toprule

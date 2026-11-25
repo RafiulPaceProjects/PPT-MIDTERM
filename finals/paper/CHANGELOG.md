@@ -3,7 +3,43 @@
 Every version of the LAYA study paper, what changed in it, and the
 evidence each change stands on. Protocol: `VERSIONING.md`.
 
+## Short v1.0.1 — 2026-11-24 — wording only (patch release, versioning redo)
+
+- **Wording (short version):** the five SARD hardening fixes recorded
+  in the entry below now live in this patch release, cut per
+  `VERSIONING.md`: snapshot `versions/short-v1.0.1/` (paper.tex +
+  built paper.pdf), tagged `paper-short-v1.0.1`. The fixes are
+  identical to the ones applied in place by commit 4a19515: VERITE
+  caption miscaptioned recall per arm; money figure Panel D flagged
+  as the fitted-accounting read (figure panel title via
+  `draft/figures/make_fig_money.py`, plus the short version's figure
+  caption); the "nearly flat" sentence naming macro-F1 (0.2079
+  validation against 0.2037 test); the Protocol A table's
+  DeceptionDecoded restoration below the line and SCPO Top-1
+  qualifier. No number, result, verdict, or ranking changed.
+- **Snapshots restored:** `versions/short-v1.0.0/` is restored to its
+  exact `paper-short-v1.0.0` tagged state, immutable again. The long
+  paper is untouched: `versions/v0.5.0/` never carried any of the
+  five edits (the long paper needed no content fixes, and it does
+  not carry the money figure), so no long-paper version bump is
+  required; it stays at v0.5.0. The regenerated money figure lives
+  in the living `draft/figures/` only, which is where figure sources
+  belong under the protocol. The poster (outside git, in
+  `misinfo_run/sard-poster/`) keeps the fixes from the pass below.
+- **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings); short
+  version rebuilt at 8 pages with all five fixes confirmed in the
+  extracted PDF text; poster render-checked again (Panel D flag and
+  protocol scoping legible, no overflow). The current SARD-carried
+  PDFs are the short-v1.0.1 build and the fixed poster.
+
 ## SARD hardening pass — 2026-11-24 — wording only, applied in place to v0.5.0 / short-v1.0.0 / poster
+
+- **Superseded (versioning):** this pass edited the
+  `versions/short-v1.0.0/` snapshot in place, which `VERSIONING.md`
+  forbids. The entry is kept as the record of what was believed and
+  done at the time; the fixes themselves were re-issued as patch
+  release short v1.0.1 (entry above) and the snapshot was restored.
+  The substance below is unchanged and still accurate.
 
 - **Wording (short version + poster):** five scope and flag fixes from
   the 2026-11-24 swarm check, each verified against

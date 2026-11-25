@@ -3,6 +3,35 @@
 Every version of the LAYA study paper, what changed in it, and the
 evidence each change stands on. Protocol: `VERSIONING.md`.
 
+## SARD hardening pass — 2026-11-24 — wording only, applied in place to v0.5.0 / short-v1.0.0 / poster
+
+- **Wording (short version + poster):** five scope and flag fixes from
+  the 2026-11-24 swarm check, each verified against
+  `LAYA_FINAL_RECORD.md`. No number, result, verdict, or ranking
+  changed. (1) The short version's VERITE four-arm caption now states
+  miscaptioned recall per arm (BASE 0.0, EVIDENCE 0.0, TRANSFER 0.2000,
+  ADAPTED 0.3846, record section 3.8) instead of a phrasing that could
+  be read as every arm missing the class; the long paper already names
+  the arms and tables the recalls, and the poster makes no such claim,
+  so neither was edited for this item. (2) The money figure's Panel D
+  is now flagged as the fitted-accounting read on the figure itself
+  (panel title in `draft/figures/make_fig_money.py`), in the short
+  version's figure caption, and in the poster's caption sentence; the
+  long paper does not carry the figure and its Arm W text already
+  labels the read as fitted accounting. (3) The short version's
+  "nearly flat" sentence now names macro-F1 with its values (0.2079
+  validation against 0.2037 test); the long paper already did.
+  (4) The short version's Protocol A table restores DeceptionDecoded
+  below the line (58.66, split unverified) and SCPO's Top-1 qualifier,
+  matching the long paper's table; the poster's SCPO row gained the
+  Top-1 qualifier as well. (5) The poster's MMFakeBench claim now
+  carries its protocol scoping in the same breath: "verified official
+  test split", "verified official test protocol" in the table header
+  and the first-among-trained-systems line.
+- **Gate verdict:** `tools/verify_draft.py` PASS (0 warnings) after
+  the pass; short version rebuilt at 8 pages; poster rebuilt and
+  render-checked (flags legible, no overflow).
+
 ## v0.1 — 2026-11-23 — the complete-record paper
 
 - **Features:** full rewrite from the finalised results bundle

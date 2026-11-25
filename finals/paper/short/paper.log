@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.21)  23 NOV 2026 23:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.21)  25 NOV 2026 02:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -326,22 +326,19 @@ Overfull \hbox (8.22208pt too wide) in paragraph at lines 45--54
 <../draft/figures/fig_headline.pdf, id=18, 393.50952pt x 197.64326pt>
 File: ../draft/figures/fig_headline.pdf Graphic file (type pdf)
 <use ../draft/figures/fig_headline.pdf>
-Package pdftex.def Info: ../draft/figures/fig_headline.pdf  used on input line 134.
+Package pdftex.def Info: ../draft/figures/fig_headline.pdf  used on input line 136.
 (pdftex.def)             Requested size: 516.0pt x 259.1679pt.
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 143.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 145.
  (/home/hatch/tools/.TinyTeX/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [3]
 <../draft/figures/fig_money.pdf, id=24, 953.96402pt x 289.08pt>
 File: ../draft/figures/fig_money.pdf Graphic file (type pdf)
 <use ../draft/figures/fig_money.pdf>
-Package pdftex.def Info: ../draft/figures/fig_money.pdf  used on input line 187.
+Package pdftex.def Info: ../draft/figures/fig_money.pdf  used on input line 189.
 (pdftex.def)             Requested size: 516.0pt x 156.36552pt.
- [4 <../draft/figures/fig_headline.pdf>]
-Underfull \vbox (badness 1325) has occurred while \output is active []
-
- [5 <../draft/figures/fig_money.pdf>]
-Underfull \hbox (badness 4291) in paragraph at lines 257--258
+ [4 <../draft/figures/fig_headline.pdf>] [5 <../draft/figures/fig_money.pdf>]
+Underfull \hbox (badness 4291) in paragraph at lines 259--260
 []\OT1/ptm/b/n/10 (+20) Metadata leak-age ceil-ing. \OT1/ptm/m/n/10 (+20) A rule read-ing only
  []
 
@@ -366,17 +363,17 @@ L3 programming layer <2026-09-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6169 strings out of 469040
- 98876 string characters out of 5457101
- 562102 words of memory out of 5000000
+ 6172 strings out of 469040
+ 98903 string characters out of 5457101
+ 562523 words of memory out of 5000000
  34914 multiletter control sequences out of 15000+600000
- 681738 words of font info for 321 fonts, out of 8000000 for 9000
+ 681832 words of font info for 323 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,8n,65p,1834b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></home/hatch/tools/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (8 pages, 216813 bytes).
+Output written on paper.pdf (8 pages, 217595 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
+ 253 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56331 words of extra memory for PDF output out of 61914 (max. 10000000)

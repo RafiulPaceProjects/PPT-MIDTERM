@@ -52,7 +52,7 @@ PANELS = [
         ],
     ),
     (
-        "D. Arm W: Wikipedia evidence\n(probe, n=300)",
+        "D. Arm W: Wikipedia evidence\n(probe, n=300; fitted accounting)",
         [
             ("P0 pair-only", 0.4933, 0.5233, 16, ""),
             ("P1A evidence", 0.4433, 0.5567, 63, ""),

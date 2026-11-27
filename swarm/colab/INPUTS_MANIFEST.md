@@ -192,3 +192,42 @@ weights (weights missing), and probe_images/ with at least 300 files
 (8 present). Unblocking needs: the four weights on Drive (two of them
 are on Hugging Face already), and the image extraction finished
 (dest_map.json is on Drive; the Colab-side run is the fast route).
+
+## Update 2026-11-27: chunked weights upload and the locked PNG
+
+The two weights files that exist only in the study folders are now on
+Drive in split form, because a single 800 MB upload was impractical
+from this VM while 90 MB chunks upload in well under a minute each.
+
+- ckpts/scale_probe/parts/ on Drive holds part-aa to part-ai (eight
+  chunks of 94,371,840 bytes and a last chunk of 49,722,160 bytes)
+  plus REASSEMBLY.md. Chunk sizes on Drive sum to 804,696,880 bytes.
+  Local check before upload: concatenating the chunks in name order
+  reproduces the staged file exactly, sha256
+  7f2566dcff5d02f0766e54ea3c9ba8e19e3e9bf87c3e6e295700e34c8e8c130f.
+  Every chunk was verified on Drive by size read-back, and a final
+  folder listing confirmed all nine chunks and the note.
+- ckpts/stageb/parts/ on Drive holds the same layout for stageb.
+  Local reassembly sha256
+  a598f41d1a1254b6db3bd68657b48c35905d4dc78c3a15b78d4690a11ff1aa13,
+  chunk sizes sum to 804,696,880 bytes, all verified the same way.
+  One interruption is recorded for honesty: the first stageb part-ad
+  attempt failed when the connector transport dropped mid-upload;
+  the chunk was re-uploaded cleanly on the next run and verified.
+- REASSEMBLY.md in each parts folder lists the chunks and states the
+  rule: concatenate the parts in name order, then verify the sha256
+  of the joined file against the recorded hash before any use.
+- mmf_train_images/fever_val_AI_40.png (1,750,586 bytes) is now
+  uploaded and verified. The connector write lock described above had
+  cleared, and the retry succeeded on the first attempt. The MMF
+  image trees are now complete on Drive: 490 of 490 train images and
+  210 of 210 tune images.
+
+What still blocks the gate: the scale_probe and stageb weights are on
+Drive as parts, not as a joined model.safetensors, so the notebook
+gate as written still will not see them until a reassembly step runs
+in Colab (download the parts, join, verify the hash, place the file).
+The stagea_winner and laya-vision-base weights remain staged only, as
+before; both are on Hugging Face for Colab to pull. The probe and
+tune image extraction is unchanged (15 of 504 files); the Colab-side
+extraction run is still the open route.

@@ -231,3 +231,11 @@ The stagea_winner and laya-vision-base weights remain staged only, as
 before; both are on Hugging Face for Colab to pull. The probe and
 tune image extraction is unchanged (15 of 504 files); the Colab-side
 extraction run is still the open route.
+
+## Addendum 2026-11-27 (Mac Chrome Colab session, 2:16–3:18 PM ET)
+
+- Extraction COMPLETE and verified at image_path: probe 300/300, scale tune 204/204, none missing. The 265 flat files left in probe_images/ by the first buggy pass are harmless extras; the Setup 3 gate counts 561 files recursively because of them.
+- BUG FIXED in colab_extract_cell.py: the dest-map rebuild flattened destinations to basenames (33 collisions, only 16/300 probe items at their image_path). Now preserves the relative path from the folder name onward; counts are recursive. dest_map.json on Drive was rebuilt the same way in-session (297 distinct probe, 169 distinct scale destinations).
+- MISSING FROM BUNDLE: stageb_calib_fit.json. audit_scorer.py reads it at import to set THR_B. It exists nowhere in Drive inputs, inputs/code/, ckpts/, or the GitHub repo. Its values are stated in audit_scorer.py's own docstring: {"threshold": {"pair_only": 0.5456, "evidence": 0.52}}. Recreate it at /content/laya_work/stageb_calib_fit.json in every new Colab session before the Run 1 helpers cell. Run 1 uses THR_A (0.5, 0.5), so this file does not affect Run 1 numbers; it only unblocks the import.
+- Colab signed in as insurance@securesafer.com under authuser 2 in this session (was 3 in October). All four checkpoints re-verified on Drive at exactly 804,696,880 bytes. Setup 2 and Setup 3 gate PASS in the final runtime.
+- Run 1 NOT run: Colab refused a free T4 GPU three times (2:19, 3:03, 3:14 PM ET) for account usage limits. Run 1's load_agent hard-codes CUDA, so the CPU runtime cannot substitute. Notebook left open and ready on the Mac (tab t3) to resume Run 1 from step 0 the moment a free GPU is available.

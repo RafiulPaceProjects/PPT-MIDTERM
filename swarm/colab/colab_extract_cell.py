@@ -3,7 +3,8 @@
 Paste this whole file into one Colab cell and run it. It:
   1. rebuilds the destination map with Google Drive paths,
   2. writes the study's own sharded tar scanner (fast_scan.py core,
-     copied verbatim) to /content/fast_scan_colab.py,
+     adapted: shard count and size fallback differ) to
+     /content/fast_scan_colab.py,
   3. launches 8 shard processes in the background with nohup, so a
      Colab frontend disconnect or reload does not kill the extraction,
   4. prints the current file counts.
@@ -186,7 +187,7 @@ def counts():
     out = {}
     for folder, target in (("probe_images", 300), ("scale_tune_images", 204)):
         d = INPUTS / folder
-        n = sum(1 for _ in d.glob("*")) if d.exists() else 0
+        n = sum(1 for f in d.rglob("*") if f.is_file()) if d.exists() else 0
         out[folder] = (n, target)
     return out
 
@@ -200,7 +201,8 @@ def main():
         for d in dests:
             p = Path(d)
             folder = "probe_images" if "probe_images" in p.parts else "scale_tune_images"
-            new_dests.append(str(INPUTS / folder / p.name))
+            rel = Path(*p.parts[p.parts.index(folder):])
+            new_dests.append(str(INPUTS / rel))
         colab_map[member] = new_dests
     map_path = Path("/content/colab_dest_map.json")
     map_path.write_text(json.dumps(colab_map))
@@ -237,7 +239,7 @@ main()
 # INPUTS = Path("/content/drive/MyDrive/LAYA_Colab/inputs")
 # for folder, target in (("probe_images", 300), ("scale_tune_images", 204)):
 #     d = INPUTS / folder
-#     print(folder, sum(1 for _ in d.glob("*")) if d.exists() else 0, "of", target)
+#     print(folder, sum(1 for f in d.rglob("*") if f.is_file()) if d.exists() else 0, "of", target)
 # import subprocess
 # print(subprocess.run(["pgrep", "-af", "fast_scan_colab.py"], capture_output=True, text=True).stdout)
 # print(subprocess.run(["tail", "-n", "2"] + [f"/content/extract_logs/shard{i}.log" for i in range(8)], capture_output=True, text=True).stdout)

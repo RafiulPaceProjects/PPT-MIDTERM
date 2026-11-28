@@ -1,0 +1,39 @@
+# Extraction — When Can Conformal Risk Control Certify LLM Outputs? Bounds, Impossibility, and Adaptation for Structured Generation (protocol v1.1, §4.2)
+
+1. **Study ID:** Kotte2026crc
+2. **Report ID and linked reports:** arXiv:2606.29054v2 (submitted 27 Jun 2026, revised 7 Sep 2026). Abstract page (v2) read in full 2026-11-28; body not read in this pass. A search-indexed v1 text differs from v2 (see field 37); v2 is the main source.
+3. **Authors:** Varun Kotte.
+4. **Year:** 2026.
+5. **Title:** When Can Conformal Risk Control Certify LLM Outputs? Bounds, Impossibility, and Adaptation for Structured Generation
+6. **Venue and publication type:** arXiv preprint, v2, posted before peer review.
+7. **DOI or arXiv ID and link:** arXiv:2606.29054; https://arxiv.org/abs/2606.29054
+8. **Extractor and date:** swarm chair, 2026-11-28 (single extraction, dual extraction fallback declared per protocol §3.3/§4.1).
+9. **Form version:** protocol v1.1 (2026-11-24)
+10. **Extraction status:** Partial. Fields rest on the v2 abstract only.
+11. **Eligibility confirmation:** Meets I1 (original theory plus evaluation with own results), I2 (RQ1 structured typed outputs; RQ3 abstention under risk targets; RQ4 certification and calibration under shift), I3 as background (no LAYA benchmark), I4 (arXiv 2026), I5 (English), I6 (abstract retrieved; full text available).
+12. **Paper role:** Background. Basis: structured generation tasks (NER, JSON extraction, QA, classification) on LLM outputs, not a multimodal misinformation benchmark and no LAYA dataset.
+13. **Research question or stated aim:** When can conformal risk control certify structured LLM outputs at a user-specified risk target, and when is certification provably impossible regardless of method (Abstract).
+14. **Method and design:** A sharpened feasibility frontier is proved: when base risk mu exceeds target alpha, any distribution-free method must abstain on at least (mu-alpha)/(M-alpha) of inputs. A certification hierarchy across Hoeffding, empirical Bernstein, and a betting-based e-CRC bound is verified over 716 configurations, and static and adaptive methods are tested under cross-dataset shift (Abstract).
+15. **System or model described:** Conformal risk control certification over six open-weight models (3B to 72B parameters), eight datasets, four tasks, six nonconformity scores (Abstract).
+16. **Dataset(s) used:** Eight datasets across NER, QA and classification tasks; names not given in the abstract. No LAYA dataset.
+17. **Dataset construction and labelling:** Not reported in the text read.
+18. **Evaluation split:** Calibration and evaluation construction not stated in the abstract; cross-dataset transfers are reported as 16 transfers (Abstract).
+19. **Metrics and metric definitions:** Certification at a stated risk target alpha, certified configuration counts, risk-target violation rates under shift, abstention share implied by the feasibility frontier (Abstract).
+20. **Threshold, abstention and decision rule:** Certification is decided by the chosen bound and score; the feasibility test is applied before running: if base risk exceeds the target, the minimum abstention share follows from the frontier formula (Abstract).
+21. **Headline results (as reported):** Heuristic abstention policies violate user-specified risk targets on 7.5 to 12.5 percent of settings (v2 abstract wording: "on 7.5--12.5% of settings"). At strict targets (alpha at or below 0.20) the certified sets are nested, 51 / 72 / 80 certified across the hierarchy, with the Hoeffding to Bernstein step the largest upgrade (+41%) and e-CRC best under calibration scarcity. Under cross-dataset shift the target is violated on 14 of 16 transfers by static CRC and every tested adaptive step size, while a full-feedback anytime-valid monitor certifies 0 of 16 while remaining non-vacuous. Relaxing the target to alpha = 0.40 unlocks practical certification (28% NER, 13% QA, 19% CLS) (Abstract, v2).
+22. **Source of each headline result:** Abstract (v2) for all statements in field 21.
+23. **Calibration results and method:** Certification validity hinges on the bound and on shift; e-CRC adds value when calibration data is scarce. No calibration error measure is reported in the abstract.
+24. **Abstention and selective prediction results:** The frontier gives a minimum abstention share for any feasible target; below that share, no distribution-free method can meet the target (Abstract).
+25. **Evidence retrieval: method and results:** No retrieval. Not applicable.
+26. **Key points relevant to LAYA:** (Shown) Feasibility comes before tuning: a risk target below what base risk permits cannot be met by any threshold choice, and the shortfall is computable in advance (Abstract). (Inference, labelled) A LAYA abstention claim that names a target risk without a feasibility check against base risk on the same split is incomplete in the same way. (Shown) Certification under shift fails broadly (14 of 16 transfers), which matches the study's standing caution about calibration transfer across datasets. No LAYA number is measured or changed by this paper.
+27. **Key points non-relevant but notable:** The bound ordering itself reverses at relaxed targets, so "which bound is tightest" has no target-independent answer (Abstract).
+28. **Authors' stated conclusions:** A three-step deployment recipe: check feasibility, select the bound and score, then re-check under shift (Abstract).
+29. **Limitations stated by the authors:** Hard configurations are uncertifiable at strict targets; under shift, the anytime-valid monitor that stays valid certifies nothing, so validity and usefulness separate (Abstract).
+30. **Limitations identified by the extractor:** Abstract-only read; single author preprint; structured text generation only, no multimodal verdicts; the frontier depends on quantities (base risk, M) whose estimation on a new task is itself unaudited here.
+31. **Funding and conflicts of interest:** Not reported in the text read.
+32. **Code, data and materials availability:** Not stated in the v2 abstract read (a v1-indexed text said code would be released after cleanup; not relied on).
+33. **Risk of bias and quality appraisal, by domain:** (a) Selection — Some concerns: 716 configurations are summarised in the abstract without a per-configuration table in this pass. (b) Missing data — Some concerns: not addressed in the abstract. (c) Measurement — Low concerns for the feasibility claim: it is a proved bound, checked against the empirical certification counts. (d) Leakage — Some concerns: calibration and evaluation separation not read. (e) Deviations — Some concerns: cannot be assessed on an abstract-only read.
+34. **Overall quality judgement:** Some concerns. Supports use as an RQ3/RQ4 design prior only; no number here is comparable to a LAYA number.
+35. **Comparability verdict:** No, not comparable.
+36. **Comparability scoping note:** No dataset, split, metric or decision rule is shared with any LAYA result. Nothing from this paper may sit beside a LAYA number.
+37. **Discrepancies and unresolved disagreements:** Version discrepancy recorded, not normalised: search-indexed v1 text reported different figures (heuristic policies missing targets by 7.5 to 12.5 percent of settings as a miss rate, ACI reducing violations from 71% to 21%, alpha 0.30 to 0.40 unlocking 47% NER / 40% QA / 60% CLS) from the v2 abstract read here (14 of 16 shift violations, alpha 0.40 unlocking 28% / 13% / 19%). Per protocol §3.2 the revised version is the main source and v1 figures are not used. Board pass (chair, 2026-11-28): proponent case (proved frontier, large configuration sweep, negative shift result stated plainly) against the skeptic case (abstract-only, single author, no LAYA task). Outcome: Background only, partial extraction declared. One scoped rule recorded: state base risk and the feasibility check beside any target-risk abstention claim.

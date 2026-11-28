@@ -1,0 +1,39 @@
+# Extraction — SAFE-MR: Evidence Sufficiency Learning for Selective Multimodal Rumor Detection (protocol v1.1, §4.2)
+
+1. **Study ID:** Ni2026safemr
+2. **Report ID and linked reports:** arXiv:2610.06708 (HTML version read 2026-11-28). Single report known.
+3. **Authors:** Shiwen Ni.
+4. **Year:** 2026.
+5. **Title:** SAFE-MR: Evidence Sufficiency Learning for Selective Multimodal Rumor Detection
+6. **Venue and publication type:** arXiv preprint only.
+7. **DOI or arXiv ID and link:** arXiv:2610.06708; https://arxiv.org/html/2610.06708
+8. **Extractor and date:** swarm chair, 2026-11-28 (single extraction, dual extraction fallback declared per protocol §3.3/§4.1).
+9. **Form version:** protocol v1.1 (2026-11-24)
+10. **Extraction status:** Partial. Abstract, introduction, methods (§3.1-3.5) and split descriptions (§4, Appendix) read; full results tables not read in this pass.
+11. **Eligibility confirmation:** Meets I1 (original system with own results), I2 (RQ2 NewsCLIPpings and VERITE; RQ3 selective prediction; RQ5 evidence retrieval and sufficiency), I3 as background (see field 35), I4 (arXiv 2026), I5 (English), I6 (full text retrieved).
+12. **Paper role:** Background. Basis: same dataset names as LAYA but a different NewsCLIPpings split and a different VERITE mapping and metric (fields 17-20, 35-36), so its scores cannot sit beside LAYA scores.
+13. **Research question or stated aim:** Whether separating claim veracity from evidence sufficiency, with a learned sufficiency head and evidence-intervention training, improves selective multimodal verification over confidence-based rejection (§1, Abstract).
+14. **Method and design:** Posts decomposed into atomic claims; relation-aware claim-evidence graph with provenance and independence-aware aggregation; separate veracity and sufficiency heads; decision rule combines sufficiency threshold with calibrated uncertainty; interventions (irrelevant addition, key deletion, conflicting addition, pollution) train stability and sensitivity (§3).
+15. **System or model described:** SAFE-MR. Outputs: veracity probability, sufficiency score s estimating P(evidence permits a justified decision), and a decide or abstain action; abstention is not a third truth category (§3.1, §3.4).
+16. **Dataset(s) used:** NewsCLIPpings, VERITE-full, XFacta (§4).
+17. **Dataset construction and labelling:** NewsCLIPpings split used in this study: 100,000 train / 5,000 validation / 5,000 test, balanced 50/50, no exclusions, stated not to be a universal official split. VERITE-full: all 1,000 examples, binary mapping 338 truthful / 662 misleading, both misleading categories mapped to false; VERITE posts enter no training, tuning or calibration split (§4, Appendix).
+18. **Evaluation split:** See field 17. Temperature fitted on a held-out calibration partition; thresholds selected on a separate tuning partition (§3.4).
+19. **Metrics and metric definitions:** Macro-F1 and accuracy at 100 percent coverage; AURC and error at 80 percent coverage on a diagnostic selection set (Abstract, Table 2 caption).
+20. **Threshold, abstention and decision rule:** Decide only when sufficiency s is at or above its threshold and calibrated uncertainty u is at or below its threshold; otherwise abstain (§3.4, eq. 5). Coverage-matched comparisons used.
+21. **Headline results (as reported):** Macro-F1 91.2 percent NewsCLIPpings, 75.8 percent VERITE, 85.2 percent XFacta; gains over the matched backbone with evidence of 2.2, 4.9 and 4.8 points. On the diagnostic selection set, AURC falls from 0.105 (maximum-probability rejection) to 0.075, and error at 80 percent coverage falls from 13.8 percent to 8.5 percent (Abstract).
+22. **Source of each headline result:** Abstract for all values in field 21.
+23. **Calibration results and method:** Temperature scaling fitted after training on the held-out calibration partition; Brier term in the training loss is a proper scoring loss, not an ECE penalty. The paper states calibration learned in-domain is not assumed to hold after distribution shift (§3.4-3.5).
+24. **Abstention and selective prediction results:** The AURC and error-at-coverage values in field 21, under the two-gate rule in field 20.
+25. **Evidence retrieval: method and results:** Retrieved evidence sets with provenance metadata; near-identical or syndicated reports treated as dependent, not independent corroboration; agreement computed across provenance groups (§3.2-3.3). Perturbation and ablation results are reported as supporting sufficiency learning (Abstract).
+26. **Key points relevant to LAYA:** (Shown) Sufficiency is defined as a separate evidence-conditioned target, judged from the supplied evidence packet, not from page counts or maximum class probability; a source count is explicitly insufficient as a decision rule (§3.1). (Inference, labelled) This is a direct prior for LAYA's sufficiency question: it supports keeping the sufficiency target separate from veracity confidence, and it warns that duplicated reports must not count as independent support. No LAYA number is measured or changed by this paper.
+27. **Key points non-relevant but notable:** The paper states plainly that its NewsCLIPpings split counts describe the split used in this study rather than a universal official split, a reporting practice that prevents false head-to-head readings.
+28. **Authors' stated conclusions:** Sufficiency modelling complements conventional confidence-based rejection for selective verification (Abstract, §1).
+29. **Limitations stated by the authors:** Pretrained models may have encountered benchmark claims; results do not establish temporal generalisation or absence of pretraining contamination; evaluation is static image-text verification only (§ limitations text read at L449-450 of the HTML version).
+30. **Limitations identified by the extractor:** Partial read; results tables not read. The custom split and VERITE binary mapping block comparability even though the dataset names match LAYA's.
+31. **Funding and conflicts of interest:** Not reported in the text read.
+32. **Code, data and materials availability:** Retrieval and grouping configuration documented in the implementation record in Appendix A, per §3.2; not inspected in this pass.
+33. **Risk of bias and quality appraisal, by domain:** (a) Selection — Low concern: split counts, balance and no-exclusion statement given. (b) Missing data — Low concern in text read: missing auxiliary labels masked, not imputed. (c) Measurement — Low concern: metrics and decision rule defined. (d) Leakage — Some concerns: authors themselves flag pretraining contamination as unresolved. (e) Deviations — Some concerns: cannot be assessed on a partial read.
+34. **Overall quality judgement:** Some concerns. Supports use as an RQ5/RQ3 design prior only; no number here is comparable to a LAYA number.
+35. **Comparability verdict:** No, not comparable.
+36. **Comparability scoping note:** NewsCLIPpings split differs (100k/5k/5k study split), VERITE uses the full 1,000-example binary mapping, and the headline metric is macro-F1 at full coverage plus diagnostic-set selective metrics. None of these line up field by field with a LAYA result, so the 91.2 and 75.8 values must not sit beside LAYA numbers in any table.
+37. **Discrepancies and unresolved disagreements:** Board pass (chair, 2026-11-28): proponent case (directly on RQ2 dataset names, RQ3 and RQ5, with an explicit sufficiency target and honest split reporting) against the skeptic case (same names invite a false head-to-head reading; split, mapping and metric all differ; partial read). Outcome: Background only, partial extraction declared. One scoped consequence recorded: sufficiency stays a separate target from veracity confidence, and duplicated reports never count as independent support. No internal numeric discrepancies in the text read.
